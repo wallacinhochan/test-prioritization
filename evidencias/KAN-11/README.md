@@ -56,3 +56,11 @@ Com apenas dois pontos observados no tempo e zero episódios naturais confirmado
 Em 20/11/2026, Wallace aprovou manter o piloto exploratório do Apache Commons Lang na Entrega 3 com os 100 SHAs da KAN-10. A disponibilidade de falhas naturais será reavaliada após a coleta do T0 pela [KAN-14](https://cin-team-test-prioritization.atlassian.net/browse/KAN-14), com a regra aprovada de contagem por causa confirmada.
 
 A auditoria está tecnicamente encerrada com a evidência disponível em 20/11/2026. A conclusão de insuficiência para avaliação temporal supervisionada vale para essa evidência. A decisão sobre o objeto definitivo pertence à [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12).
+
+## Atualização após o T0 preliminar
+
+Em 20/11/2026, a KAN-14 revalidou as suítes completas das posições 1 e 100 e executou as posições 26, 50 e 75. As cinco rodadas usaram a mesma imagem com Eclipse Temurin 21.0.11, Maven 3.9.11, UTC e cache Maven frio. Os 1.136 XML conferidos registraram 298.770 casos, com 298.704 aprovados, 66 ignorados, zero falhas e zero erros. [Relatório da KAN-14](../KAN-14/README.md) · [Manifesto por SHA](../KAN-14/execucoes.json)
+
+O resultado amplia de uma para cinco as suítes completas observadas no recorte de 100 revisões. As 95 posições restantes não foram executadas nesse piloto, e suas falhas continuam desconhecidas. A contagem de episódios naturais confirmados por resultados de teste e revisão permanece em zero na evidência observada. O episódio ambiental de fuso documentado pela KAN-9 permanece separado. O relato de produto LANG-1792 continua sendo evidência de correção, sem falha observada da suíte original em um dos SHAs auditados.
+
+As cinco revisões sustentam resultados descritivos do T0. Ainda faltam episódios naturais independentes distribuídos entre períodos de treino e avaliação para testar KNN e Random Forest. A conclusão mantém Commons Lang como piloto exploratório da Entrega 3. A [KAN-12](../KAN-12/README.md) concentra a escolha definitiva do objeto.
