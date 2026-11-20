@@ -66,3 +66,9 @@ O Commons Lang tem evidência operacional mais diretamente aplicável à Entrega
 | Riscos remanescentes explicitados | Documentados. Incluem cobertura histórica, associação por método, ordem e duração, possíveis efeitos ambientais, insuficiência de positivos e custo de validar jsoup. |
 
 A **KAN-12 permanece Em andamento**. A **KAN-18 permanece formalmente bloqueada pela KAN-12** no vínculo `Blocks` de ID `10009`, com status `BackLog` na consulta de 20/11/2026. A KAN-17, sua outra dependência direta, está concluída. A viabilidade de preparar T1 exploratório no piloto é um parecer técnico. O desbloqueio formal depende do atendimento e aceite da KAN-12 ou de uma mudança explícita de dependência autorizada pela coordenação. [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12) · [KAN-18](https://cin-team-test-prioritization.atlassian.net/browse/KAN-18)
+
+## Reavaliação com os cinco T0
+
+O lote da KAN-14 terminou com cinco suítes completas, 298.770 invocações e zero falhas ou erros. A KAN-16 associou todas as invocações observadas a 23.280 registros por método e revisão. Há duração válida em 23.222 registros e a ordem global de início permanece indisponível. [Resultados preliminares](../ENTREGA-3/README.md) · [Resumo da coleta](../KAN-16/resumo-lote.json)
+
+O resultado confirma a viabilidade operacional do Commons Lang para o piloto da Entrega 3. As cinco suítes não acrescentaram episódios naturais observados, e as 95 posições fora do piloto não forneceram novas execuções. A evidência ainda é insuficiente para aprovar o objeto do estudo principal com avaliação temporal supervisionada. A KAN-12 segue em andamento e a comparação T0 × T1 fica pendente enquanto o bloqueio da KAN-18 permanecer.
