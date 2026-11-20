@@ -51,4 +51,8 @@ Com apenas dois pontos observados no tempo e zero episódios naturais confirmado
 | Ampliar o recorte no Commons Lang | Aumenta as revisões e o custo de execução e validação. O ganho de episódios independentes é incerto. |
 | Reavaliar o Commons Lang na KAN-12 | Permite comparar projetos com resultados históricos por método. Pode exigir refazer parte do ambiente e da coleta. |
 
-A decisão sobre o objeto definitivo pertence à [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12). O encaminhamento da Entrega 3 aguarda a resposta de Wallace.
+### Decisão aprovada e fechamento técnico
+
+Em 20/11/2026, Wallace aprovou manter o piloto exploratório do Apache Commons Lang na Entrega 3 com os 100 SHAs da KAN-10. A disponibilidade de falhas naturais será reavaliada após a coleta do T0 pela [KAN-14](https://cin-team-test-prioritization.atlassian.net/browse/KAN-14), com a regra aprovada de contagem por causa confirmada.
+
+A auditoria está tecnicamente encerrada com a evidência disponível em 20/11/2026. A conclusão de insuficiência para avaliação temporal supervisionada vale para essa evidência. A decisão sobre o objeto definitivo pertence à [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12).
