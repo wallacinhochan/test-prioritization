@@ -82,4 +82,31 @@ $classes = @(
 - **KAN-15.** Referenciar o formato e a política histórica da KAN-17 para a chave opaca compartilhada. Usar exemplos com proveniência da tentativa de referência. A revisão e o aceite do dicionário permanecem com o grupo. [Contrato](../KAN-15/README.md)
 - **KAN-16.** Capturar XML por tentativa antes que execuções posteriores o sobrescrevam. Reter a origem do método e a relação com cada invocação, o desfecho original e o tempo bruto. Aplicar a regra de agregação por `(commit_sha, test_id)`, distinguir duração vazia de zero e registrar a cobertura de associação e ordem. Usar o estado da tentativa para indicar incompletude. [Cartão KAN-16](https://cin-team-test-prioritization.atlassian.net/browse/KAN-16)
 - **KAN-18.** Gerar o inventário de métodos no SHA alvo antes da suíte e usar a chave aprovada em todos os candidatos T1, inclusive fallback e excluídos. Incluir classe de execução e localizar a declaração quando houver herança. Usar o T0 da mesma revisão somente após fixar seleção e ranking, para medir cobertura e explicar divergências na junção. [Cartão KAN-18](https://cin-team-test-prioritization.atlassian.net/browse/KAN-18)
-- **KAN-13.** Os XML dos pilotos ainda não estavam disponíveis no caminho documentado `resultados/KAN-13/<sha>/<id-da-execucao>/` no momento da inspeção. Quando existirem, conferir os manifests da âncora e da posição 1 da KAN-10, identificar os XML da tentativa exata e repetir a inspeção. O piloto antigo é de um método, portanto pode confirmar identidade pontual. A cobertura histórica requer inventários e relatórios completos das revisões avaliadas. [Saídas da KAN-13](../KAN-13/README.md#saídas-e-integração)
+
+## Checagem complementar da KAN-13
+
+### Posição 1 do recorte
+
+A execução `20261120T150615596Z-2d06695aa11d40d7b8ba85f640fbfb1b` verificou o SHA `921c1b4e09ed7b6900ad7243cffb33b373980cc5` e executou `StringUtilsTest#testReverse_String` isoladamente em UTC. `ambiente.json` registra saída Maven 0 e um XML. `maven.log` confirma um caso, sem falhas, erros ou ignorados. A inspeção do fonte no mesmo SHA confirmou a declaração `@Test void testReverse_String()`. A chave é `org.apache.commons.lang3.StringUtilsTest#testReverse_String()`, com `pass`, 43 ms e ordem global do T0 indisponível. O piloto cobre esse método na revisão mais antiga do recorte. [Piloto da KAN-13](../KAN-13/pilotos/mais-antigo/README.md)
+
+No diretório `resultados/KAN-13/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T150615596Z-2d06695aa11d40d7b8ba85f640fbfb1b/`, o arquivo `surefire/TEST-org.apache.commons.lang3.StringUtilsTest.xml` tem SHA-256 `ee81faba723ff6d08116e28a6e654ae9214856a770c069c996e8bdb88ea69e2c`. A linha 10 registra `<property name="user.timezone" value="UTC"/>`. A linha 61 registra:
+
+```xml
+<testcase name="testReverse_String" classname="org.apache.commons.lang3.StringUtilsTest" time="0.043"/>
+```
+
+A inspeção usou `inspecionar-surefire.ps1 -Relatorios <diretório surefire>` sobre a pasta `surefire` da execução e `git show <sha>:src/test/java/org/apache/commons/lang3/StringUtilsTest.java` sobre o clone da KAN-10.
+
+### Âncora
+
+A execução `20261120T150800719Z-a24ed681244a469e80a93be9467c11b1` verificou o SHA `598dfc163b8b410fb3bb8794521206ec8dcec82a` e executou `mvn clean test` em UTC com Eclipse Adoptium 21.0.11, Maven 3.9.11, Surefire 3.5.4 e Linux/amd64. O manifesto registra saída Maven 0 e 228 relatórios. Os arquivos `ambiente.json`, `maven.log` e a pasta `surefire/` estão em `resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/`. [Piloto da âncora](../KAN-13/pilotos/ancora/README.md)
+
+```powershell
+$ancora = 'resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1'
+./evidencias/KAN-17/fontes/inspecionar-surefire.ps1 -Relatorios (Join-Path $ancora 'surefire')
+```
+
+- Foram conferidos **59.960 elementos `testcase`**, com 14 ignorados, zero falhas e zero erros, em acordo com o resumo do Maven. A soma de `testsuite/@tests` foi 59.676. Dois relatórios tinham casos apesar do cabeçalho com zero. Todos os XML indicaram UTC.
+- A comparação por nome de arquivo e pelo multiconjunto de pares brutos `(classname, name)`, com distinção de maiúsculas, coincidiu em 226 dos 228 arquivos da KAN-9. As únicas diferenças foram `ArrayUtilsTest` (355 casos na âncora e um nos XML locais da KAN-9) e `StringUtilsTest` (164 e um). Os relatórios da suíte completa recuperam os 517 elementos ausentes nos arquivos sobrescritos.
+- A âncora repete as sobrecargas de `RandomUtilsTest#testNextDouble`, o rótulo de classe aninhada em `ComparableUtilsTest` e o skip de `testHugeStrings(int)`. `testDelimiterAppendable(java.lang.Class)` passou com cinco invocações e total de 6 ms. `testFourYears()` passou com 4.196 ms. Os tempos pertencem ao ambiente e à tentativa documentados. [Extratos XML e hashes](fontes/surefire-kan13-ancora.txt)
+- A checagem confirmou a compatibilidade dos exemplos com os relatórios da KAN-13. O mapeamento de todas as invocações para um inventário pré-execução completo e a cobertura de ordem global continuam pendentes para o recorte histórico.

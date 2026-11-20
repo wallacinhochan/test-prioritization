@@ -1,0 +1,32 @@
+TEST-org.apache.commons.lang3.AppendableJoinerTest.xml SHA256 4113b03a3cfc1a92bd7aa752845b9df485ac0c8b20839af13588c54265d1e90f
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.AppendableJoinerTest" time="0.012" tests="11" errors="0" skipped="0" failures="0">
+11:    <property name="user.timezone" value="UTC"/>
+66:  <testcase name="testDelimiterAppendable(Class)[1]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.0"/>
+67:  <testcase name="testDelimiterAppendable(Class)[2]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.001"/>
+68:  <testcase name="testDelimiterAppendable(Class)[3]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.0"/>
+69:  <testcase name="testDelimiterAppendable(Class)[4]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.001"/>
+70:  <testcase name="testDelimiterAppendable(Class)[5]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.004"/>
+
+TEST-org.apache.commons.lang3.RandomUtilsTest.xml SHA256 e545ff483b54172c7dab0fcac2dee2a3b1d8456300cf842e0b9a53a5e171a55b
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.RandomUtilsTest" time="0.088" tests="117" errors="0" skipped="0" failures="0">
+11:    <property name="user.timezone" value="UTC"/>
+162:  <testcase name="testNextDouble" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.0"/>
+163:  <testcase name="testNextDouble(RandomUtils)[1]" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.001"/>
+164:  <testcase name="testNextDouble(RandomUtils)[2]" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.0"/>
+165:  <testcase name="testNextDouble(RandomUtils)[3]" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.0"/>
+
+TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml SHA256 c225e33c259147fedf45da08bca07b2fc138440ce63b6f9780cc5974bfa02c33
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.compare.ComparableUtilsTest" time="0.045" tests="0" errors="0" skipped="0" failures="0">
+10:    <property name="user.timezone" value="UTC"/>
+67:  <testcase name="lessThan_returns_true" classname="B is 10 (B &gt; A)" time="0.0"/>
+
+TEST-org.apache.commons.lang3.time.DurationFormatUtilsTest.xml SHA256 35b4db377d9bacf3df9b9706acff78f4f112311651c7186fd588f8994d2dcc73
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.time.DurationFormatUtilsTest" time="4.513" tests="33" errors="0" skipped="0" failures="0">
+10:    <property name="user.timezone" value="UTC"/>
+83:  <testcase name="testFourYears" classname="org.apache.commons.lang3.time.DurationFormatUtilsTest" time="4.196"/>
+
+TEST-org.apache.commons.lang3.RandomStringUtilsTest.xml SHA256 69d37b7e51e43f69069abf3afbc2a96def52456e81fe9d3dd89ba93b48854c57
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.RandomStringUtilsTest" time="0.232" tests="82" errors="0" skipped="1" failures="0">
+10:    <property name="user.timezone" value="UTC"/>
+61:  <testcase name="testHugeStrings(int)" classname="org.apache.commons.lang3.RandomStringUtilsTest" time="0.0">
+62:    <skipped message="System property [test.large.heap] does not exist"/>
