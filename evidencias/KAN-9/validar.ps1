@@ -19,7 +19,8 @@ if ($LASTEXITCODE -ne 0 -or $alteracoes) {
     throw 'A validação requer uma cópia de trabalho limpa.'
 }
 
-$compilador = Join-Path $Jdk 'bin/javac.exe'
+$jdkResolvido = (Resolve-Path -LiteralPath $Jdk).Path
+$compilador = Join-Path $jdkResolvido 'bin/javac.exe'
 if (-not (Test-Path -LiteralPath $compilador -PathType Leaf)) {
     throw "Compilador não encontrado em $compilador."
 }
@@ -27,7 +28,6 @@ if (Test-Path -LiteralPath $Saida) {
     throw 'Informe uma pasta de saída nova para preservar a execução anterior.'
 }
 $diretorio = (New-Item -ItemType Directory -Path $Saida).FullName
-$jdkResolvido = (Resolve-Path -LiteralPath $Jdk).Path
 $javaHomeAnterior = $env:JAVA_HOME
 $mavenArgsAnterior = $env:MAVEN_ARGS
 $mvn = (Get-Command $Maven -CommandType Application | Select-Object -First 1).Source
@@ -45,6 +45,14 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Falha ao consultar a versão do Maven.' }
     $versaoJavac = & $compilador '-version'
     if ($LASTEXITCODE -ne 0) { throw 'Falha ao consultar a versão do compilador.' }
+    if (($versaoMaven -join "`n") -notmatch '(?m)Apache Maven 3\.9\.11(?=\s|$)') {
+        throw 'A validação requer Apache Maven 3.9.11.'
+    }
+    if (($versaoMaven -join "`n") -notmatch '(?m)Java version: 21\.0\.11,' -or
+        ($versaoJavac -join "`n") -notmatch '(?m)^javac 21\.0\.11\s*$') {
+        throw 'A validação requer JDK 21.0.11 para o compilador e para o Maven.'
+    }
+
     $fusoWindows = (Get-TimeZone).Id
     @("Commit: $commit", "Início UTC: $([DateTimeOffset]::UtcNow.ToString('o'))", "Fuso do Windows: $fusoWindows", "Fuso solicitado ao Maven: $Fuso", $versaoJavac) + $versaoMaven |
         Set-Content -LiteralPath (Join-Path $diretorio 'ambiente.txt') -Encoding UTF8

@@ -1,0 +1,6 @@
+Extrato de target/surefire-reports/TEST-org.apache.commons.lang3.time.DurationFormatUtilsTest.xml da suíte de 20/11/2026 em UTC.
+
+Classe: org.apache.commons.lang3.time.DurationFormatUtilsTest
+Casos: 33; falhas: 0; erros: 0; ignorados: 0
+<property name="user.timezone" value="UTC" />
+<testcase name="testFourYears" classname="org.apache.commons.lang3.time.DurationFormatUtilsTest" time="4.893" />
