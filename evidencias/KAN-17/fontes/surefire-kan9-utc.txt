@@ -1,0 +1,86 @@
+TEST-org.apache.commons.lang3.AppendableJoinerTest.xml SHA256 41a3308a054c7bd4ebd44b34e87caa8df9ce855a94e039270e33e33cad644ffa
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.AppendableJoinerTest" time="0.134" tests="11" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+68:  <testcase name="testDelimiterAppendable(Class)[1]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.016"/>
+69:  <testcase name="testDelimiterAppendable(Class)[2]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.001"/>
+70:  <testcase name="testDelimiterAppendable(Class)[3]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.001"/>
+71:  <testcase name="testDelimiterAppendable(Class)[4]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.003"/>
+72:  <testcase name="testDelimiterAppendable(Class)[5]" classname="org.apache.commons.lang3.AppendableJoinerTest" time="0.01"/>
+
+TEST-org.apache.commons.lang3.RandomUtilsTest.xml SHA256 e82e69ef6bc4715bb7984dce60db78a7f702ba22856ad270f7512b966690e48c
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.RandomUtilsTest" time="0.28" tests="117" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+164:  <testcase name="testNextDouble" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.0"/>
+165:  <testcase name="testNextDouble(RandomUtils)[1]" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.0"/>
+166:  <testcase name="testNextDouble(RandomUtils)[2]" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.0"/>
+167:  <testcase name="testNextDouble(RandomUtils)[3]" classname="org.apache.commons.lang3.RandomUtilsTest" time="0.0"/>
+
+TEST-org.apache.commons.lang3.RandomStringUtilsTest.xml SHA256 b90c601bbb76de81f26d0e7939e5ed84d026bee1034b09ee9354716309b3169e
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.RandomStringUtilsTest" time="0.492" tests="82" errors="0" skipped="1" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+65:  <testcase name="testHugeStrings(int)" classname="org.apache.commons.lang3.RandomStringUtilsTest" time="0.0">
+66:    <skipped message="System property [test.large.heap] does not exist"/>
+66-    <skipped message="System property [test.large.heap] does not exist"/>
+67-  </testcase>
+
+TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml SHA256 8b966a8c619ea06faa7aa100089004aa46cc6dd118de858d52b62aa0cf1d8e21
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.compare.ComparableUtilsTest" time="0.039" tests="0" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+71:  <testcase name="lessThan_returns_true" classname="B is 10 (B &gt; A)" time="0.001"/>
+
+TEST-org.apache.commons.lang3.stream.StreamsTest.xml SHA256 63da5d152488f2abeb0225b6afb50e7ce8960a3cedc40b5a8d219f2adb0a86ac
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.stream.StreamsTest" time="0.024" tests="35" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+65:  <testcase name="simpleStreamFilterFailing()[1]" classname="org.apache.commons.lang3.stream.StreamsTest" time="0.0"/>
+66:  <testcase name="simpleStreamFilterFailing()[2]" classname="org.apache.commons.lang3.stream.StreamsTest" time="0.0"/>
+67:  <testcase name="simpleStreamFilterFailing()[3]" classname="org.apache.commons.lang3.stream.StreamsTest" time="0.006"/>
+
+TEST-org.apache.commons.lang3.StreamsTest.xml SHA256 6c7fe482531f8d393a820366ca9676aecc91b48d8f88e8a461459a5acdac473f
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.StreamsTest" time="0.008" tests="11" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+64:  <testcase name="simpleStreamFilterFailing()[1]" classname="org.apache.commons.lang3.StreamsTest" time="0.001"/>
+65:  <testcase name="simpleStreamFilterFailing()[2]" classname="org.apache.commons.lang3.StreamsTest" time="0.0"/>
+66:  <testcase name="simpleStreamFilterFailing()[3]" classname="org.apache.commons.lang3.StreamsTest" time="0.0"/>
+
+TEST-org.apache.commons.lang3.time.StopWatchTest.xml SHA256 2b131e177117a9693e572b9464fede7eb9db04957a0c3f30c1470fa59c78bb23
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.time.StopWatchTest" time="0.89" tests="37" errors="0" skipped="0" failures="0">
+13:    <property name="user.timezone" value="UTC"/>
+79:  <testcase name="testGetTime()[1]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.027"/>
+80:  <testcase name="testGetTime()[2]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.03"/>
+81:  <testcase name="testGetTime()[3]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.032"/>
+82:  <testcase name="testGetTime()[4]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.031"/>
+83:  <testcase name="testGetTime()[5]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.032"/>
+84:  <testcase name="testGetTime()[6]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.03"/>
+85:  <testcase name="testGetTime()[7]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.031"/>
+86:  <testcase name="testGetTime()[8]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.032"/>
+87:  <testcase name="testGetTime()[9]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.03"/>
+88:  <testcase name="testGetTime()[10]" classname="org.apache.commons.lang3.time.StopWatchTest" time="0.03"/>
+
+TEST-org.apache.commons.lang3.time.DurationFormatUtilsTest.xml SHA256 691a6b5694e29fb0db1c19485abdd47f7f6daa71527c9bdaaa82d092c586c09f
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.time.DurationFormatUtilsTest" time="5.415" tests="33" errors="0" skipped="0" failures="0">
+13:    <property name="user.timezone" value="UTC"/>
+89:  <testcase name="testFourYears" classname="org.apache.commons.lang3.time.DurationFormatUtilsTest" time="4.893"/>
+
+TEST-org.apache.commons.lang3.BooleanUtilsTest.xml SHA256 62089bcbe61114556d53b86591a6c9cf3fb6936cf4e40436f7a48d3c45307d2e
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.BooleanUtilsTest" time="0.062" tests="90" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+92:  <testcase name="test_toStringOnOff_Boolean" classname="org.apache.commons.lang3.BooleanUtilsTest" time="0.0"/>
+144:  <testcase name="test_toStringOnOff_boolean" classname="org.apache.commons.lang3.BooleanUtilsTest" time="0.001"/>
+
+TEST-org.apache.commons.lang3.concurrent.LazyInitializerSimpleTest.xml SHA256 48b9be3d719431ac6ad3dae45818e8b43380e381cd6a8f32367d3e09c8249915
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.concurrent.LazyInitializerSimpleTest" time="0.004" tests="5" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+66:  <testcase name="testisInitialized" classname="org.apache.commons.lang3.concurrent.LazyInitializerSimpleTest" time="0.001"/>
+68:  <testcase name="testIsInitialized" classname="org.apache.commons.lang3.concurrent.LazyInitializerSimpleTest" time="0.0"/>
+
+TEST-org.apache.commons.lang3.StringUtilsTest.xml SHA256 1534c3b7aecf5dd4c47c4b94fcf390072ddb71faf18f36c9b847b7e5d178a4e3
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.StringUtilsTest" time="0.13" tests="1" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+20:    <property name="test" value="StringUtilsTest#testReverse_String"/>
+65:  <testcase name="testReverse_String" classname="org.apache.commons.lang3.StringUtilsTest" time="0.074"/>
+
+TEST-org.apache.commons.lang3.ArrayUtilsTest.xml SHA256 87f76b72eb6c133021ec3f740600c33f91df97429f8bf21f898e384ffda56253
+2:<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.lang3.ArrayUtilsTest" time="0.122" tests="1" errors="0" skipped="0" failures="0">
+12:    <property name="user.timezone" value="UTC"/>
+20:    <property name="test" value="ArrayUtilsTest#testIsEmptyObject"/>
+65:  <testcase name="testIsEmptyObject" classname="org.apache.commons.lang3.ArrayUtilsTest" time="0.082"/>
