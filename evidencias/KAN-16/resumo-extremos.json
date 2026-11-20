@@ -1,0 +1,133 @@
+{
+  "contrato": "0.1.0",
+  "escopo": "extremos",
+  "fonte_lote_ref": "evidencias/KAN-14/lote.csv",
+  "fonte_lote_sha256": "147054747b5695c7bbf66792b2c184c81b51550e7abe7442eb5a7e4eb69aac83",
+  "auditoria_ref": "evidencias/KAN-10/commits.csv",
+  "auditoria_sha256": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed",
+  "intervalo_suite": "Início do executor até o bloco de fechamento após Docker/Maven e cópia, por timestamps UTC de ambiente.json.",
+  "ordem_global": "não observada",
+  "sha256": {
+    "t0_runs.csv": "17562c4b07324e0c8af09da9cd8ed41db6ec0658e4bc1b262d1df110dfa6351c",
+    "t0_results.csv": "2a1fe62e8098a6cd16a7c1df4d714a97b3aaf2b2a68052195d9e597e40be1205",
+    "invocacoes.csv": "725a84998b736d71b50be18e8f1ef210b4d45906cd579128d3888f15c7e06159",
+    "xml.sha256": "e15757c79e65b9dbd9390a22d8a88d23e4df7bc9ba106c39f3395b4e1ef190e1"
+  },
+  "revisoes": [
+    {
+      "posicao": 1,
+      "commit_sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+      "tentativa": "20261120T160458376Z-baac2d8746094e99ae971f9c73160837",
+      "run_status": "complete",
+      "suite_duration_ms": 291482,
+      "ambiente_ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/ambiente.json",
+      "ambiente_sha256": "db07233062687f913c613ebf1f8f42968558c8db383755052b2536d30b707914",
+      "maven_ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/maven.log",
+      "maven_sha256": "b973ff7642fbbebd38712e08446cfc8fdd9f7f143e892bdd4a3697fa0279b154",
+      "fonte_tar_sha256": "4e89aae29613b869701b42fb784822100da6b82c24d2339fc1631e643b9bcdfe",
+      "inventario_ref": null,
+      "inventario_metadados_ref": null,
+      "inventario_sha256": null,
+      "xml": 227,
+      "testsuite_atributo_tests": 59165,
+      "xml_cabecalho_divergente": [
+        {
+          "ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/surefire/TEST-org.apache.commons.lang3.ValidateTest.xml",
+          "atributo_tests": 0,
+          "elementos": 214
+        },
+        {
+          "ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/surefire/TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml",
+          "atributo_tests": 0,
+          "elementos": 70
+        }
+      ],
+      "casos_xml": {
+        "total": 59449,
+        "pass": 59436,
+        "failure": 0,
+        "error": 0,
+        "skip": 13
+      },
+      "maven_reconciliado": true,
+      "soma_segundos_xml_executados_com_tempo": 197.472,
+      "casos_executados_sem_tempo": 0,
+      "tempos_negativos_xml": 0,
+      "invocacoes_associadas": 0,
+      "invocacoes_nao_associadas": 59449,
+      "cobertura_identidade": "parcial",
+      "lacunas": {
+        "inventario_da_tentativa_indisponivel": 59449
+      },
+      "metodos": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "skip": 0,
+        "com_tempo": 0,
+        "sem_tempo": 0,
+        "zero_ms": 0,
+        "soma_ms_conhecidos": 0
+      },
+      "metodos_com_ordem_observada": 0
+    },
+    {
+      "posicao": 100,
+      "commit_sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "tentativa": "20261120T150800719Z-a24ed681244a469e80a93be9467c11b1",
+      "run_status": "complete",
+      "suite_duration_ms": 306912,
+      "ambiente_ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/ambiente.json",
+      "ambiente_sha256": "1b5d9ac1d9f75eed07f5d7511aaf92759cef5296dcb6dd93b74aab17aeba99b0",
+      "maven_ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/maven.log",
+      "maven_sha256": "8555fd56e408e3b02d1195ffdd4c9e8a1f71faa4bdbe2c78fe83d4c23c80b6e4",
+      "fonte_tar_sha256": "d9d3736b176743f464afe2787a607d41b547c6ef49df5c7d92d2b0ef78a064eb",
+      "inventario_ref": null,
+      "inventario_metadados_ref": null,
+      "inventario_sha256": null,
+      "xml": 228,
+      "testsuite_atributo_tests": 59676,
+      "xml_cabecalho_divergente": [
+        {
+          "ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/surefire/TEST-org.apache.commons.lang3.ValidateTest.xml",
+          "atributo_tests": 0,
+          "elementos": 214
+        },
+        {
+          "ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/surefire/TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml",
+          "atributo_tests": 0,
+          "elementos": 70
+        }
+      ],
+      "casos_xml": {
+        "total": 59960,
+        "pass": 59946,
+        "failure": 0,
+        "error": 0,
+        "skip": 14
+      },
+      "maven_reconciliado": true,
+      "soma_segundos_xml_executados_com_tempo": 204.255,
+      "casos_executados_sem_tempo": 1,
+      "tempos_negativos_xml": 1,
+      "invocacoes_associadas": 0,
+      "invocacoes_nao_associadas": 59960,
+      "cobertura_identidade": "parcial",
+      "lacunas": {
+        "inventario_da_tentativa_indisponivel": 59960
+      },
+      "metodos": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "skip": 0,
+        "com_tempo": 0,
+        "sem_tempo": 0,
+        "zero_ms": 0,
+        "soma_ms_conhecidos": 0
+      },
+      "metodos_com_ordem_observada": 0
+    }
+  ],
+  "tentativas_sem_referencia": []
+}

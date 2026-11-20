@@ -1,0 +1,304 @@
+{
+  "contrato": "0.1.0",
+  "escopo": "lote",
+  "fonte_lote_ref": "resultados/KAN-14/execucoes.json",
+  "fonte_lote_sha256": "05acffc5adca652a77ecd5268e622ecaa8ff8dc8c12e0b6b0ce3d19752b58cb7",
+  "auditoria_ref": "evidencias/KAN-10/commits.csv",
+  "auditoria_sha256": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed",
+  "intervalo_suite": "Início do executor até o bloco de fechamento após Docker/Maven e cópia, por timestamps UTC de ambiente.json.",
+  "ordem_global": "não observada",
+  "sha256": {
+    "t0_runs.csv": "0e6501204268a8501127ce64ded2fb88af60615ad5f8cc81d8cf990e5fb7141b",
+    "t0_results.csv": "6a78de8d515ee42f782c2c1ed890a3111cef15fe106ea61321f6285784923800",
+    "invocacoes.csv": "ea05213088ccdcea4eea7127f859c77fec4b764839ee47f242ac7ac0f55377bd",
+    "xml.sha256": "176fb4fd064ed4eae5e3d4349e074f47f609836927a0e50438800d2243a3aaab"
+  },
+  "revisoes": [
+    {
+      "posicao": 1,
+      "commit_sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+      "tentativa": "20261120T160458376Z-baac2d8746094e99ae971f9c73160837",
+      "run_status": "complete",
+      "suite_duration_ms": 291482,
+      "ambiente_ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/ambiente.json",
+      "ambiente_sha256": "db07233062687f913c613ebf1f8f42968558c8db383755052b2536d30b707914",
+      "maven_ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/maven.log",
+      "maven_sha256": "b973ff7642fbbebd38712e08446cfc8fdd9f7f143e892bdd4a3697fa0279b154",
+      "fonte_tar_sha256": "4e89aae29613b869701b42fb784822100da6b82c24d2339fc1631e643b9bcdfe",
+      "inventario_ref": "evidencias/KAN-16/local/inventarios/921c1b4e09ed7b6900ad7243cffb33b373980cc5-20261120T160458376Z-baac2d8746094e99ae971f9c73160837/metodos.tsv",
+      "inventario_metadados_ref": "evidencias/KAN-16/local/inventarios/921c1b4e09ed7b6900ad7243cffb33b373980cc5-20261120T160458376Z-baac2d8746094e99ae971f9c73160837/descoberta.json",
+      "inventario_sha256": "2e1b48bdf1e644e7c41fd9b8fa49d779d14550a6ed27032ae1a571948dbab2bd",
+      "descoberta_log_ref": "evidencias/KAN-16/local/inventarios/921c1b4e09ed7b6900ad7243cffb33b373980cc5-20261120T160458376Z-baac2d8746094e99ae971f9c73160837/descoberta.log",
+      "descoberta_log_sha256": "bdef3ef9dfcf78131d7da8a147e449046f02c52a5490fb86cf0d9f8264f77c59",
+      "xml": 227,
+      "testsuite_atributo_tests": 59165,
+      "xml_cabecalho_divergente": [
+        {
+          "ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/surefire/TEST-org.apache.commons.lang3.ValidateTest.xml",
+          "atributo_tests": 0,
+          "elementos": 214
+        },
+        {
+          "ref": "resultados/KAN-14/921c1b4e09ed7b6900ad7243cffb33b373980cc5/20261120T160458376Z-baac2d8746094e99ae971f9c73160837/surefire/TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml",
+          "atributo_tests": 0,
+          "elementos": 70
+        }
+      ],
+      "casos_xml": {
+        "total": 59449,
+        "pass": 59436,
+        "failure": 0,
+        "error": 0,
+        "skip": 13
+      },
+      "maven_reconciliado": true,
+      "soma_segundos_xml_executados_com_tempo": 197.472,
+      "casos_executados_sem_tempo": 0,
+      "tempos_negativos_xml": 0,
+      "invocacoes_associadas": 59449,
+      "invocacoes_nao_associadas": 0,
+      "cobertura_identidade": "integral",
+      "lacunas": {},
+      "metodos": {
+        "total": 4649,
+        "pass": 4638,
+        "fail": 0,
+        "skip": 11,
+        "com_tempo": 4638,
+        "sem_tempo": 11,
+        "zero_ms": 2815,
+        "soma_ms_conhecidos": 197472
+      },
+      "metodos_com_ordem_observada": 0
+    },
+    {
+      "posicao": 26,
+      "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "tentativa": "20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a",
+      "run_status": "complete",
+      "suite_duration_ms": 283184,
+      "ambiente_ref": "resultados/KAN-14/04cc0339d6510ffdcb47db4676c34b40ecff6b28/20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a/ambiente.json",
+      "ambiente_sha256": "f778bc3ebc285fe20ae070bcc460060292dcf64db1c1044ea11d651cc3da750c",
+      "maven_ref": "resultados/KAN-14/04cc0339d6510ffdcb47db4676c34b40ecff6b28/20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a/maven.log",
+      "maven_sha256": "875022325f9dc7bdc8afdeb3e8c6e514bbd8f58477521f65ce87af7d779ef6d1",
+      "fonte_tar_sha256": "e5b16f44806bd523023fc6e0fe074e3b5fad10731de06a10c050053a9b719230",
+      "inventario_ref": "evidencias/KAN-16/local/inventarios/04cc0339d6510ffdcb47db4676c34b40ecff6b28-20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a/metodos.tsv",
+      "inventario_metadados_ref": "evidencias/KAN-16/local/inventarios/04cc0339d6510ffdcb47db4676c34b40ecff6b28-20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a/descoberta.json",
+      "inventario_sha256": "93e6f989cb7d8bea56eb2666e7684e9ee33b14a01e538f19f4cfddd459a0621c",
+      "descoberta_log_ref": "evidencias/KAN-16/local/inventarios/04cc0339d6510ffdcb47db4676c34b40ecff6b28-20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a/descoberta.log",
+      "descoberta_log_sha256": "6fecfbe1d86eaa16a64a0204cf9d2054de52a76ec43fb5a0b926d0f390643cf1",
+      "xml": 227,
+      "testsuite_atributo_tests": 59168,
+      "xml_cabecalho_divergente": [
+        {
+          "ref": "resultados/KAN-14/04cc0339d6510ffdcb47db4676c34b40ecff6b28/20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a/surefire/TEST-org.apache.commons.lang3.ValidateTest.xml",
+          "atributo_tests": 0,
+          "elementos": 214
+        },
+        {
+          "ref": "resultados/KAN-14/04cc0339d6510ffdcb47db4676c34b40ecff6b28/20261120T163308947Z-2051ac8c262c4c21a821d8799a35203a/surefire/TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml",
+          "atributo_tests": 0,
+          "elementos": 70
+        }
+      ],
+      "casos_xml": {
+        "total": 59452,
+        "pass": 59439,
+        "failure": 0,
+        "error": 0,
+        "skip": 13
+      },
+      "maven_reconciliado": true,
+      "soma_segundos_xml_executados_com_tempo": 188.908,
+      "casos_executados_sem_tempo": 1,
+      "tempos_negativos_xml": 1,
+      "invocacoes_associadas": 59452,
+      "invocacoes_nao_associadas": 0,
+      "cobertura_identidade": "integral",
+      "lacunas": {},
+      "metodos": {
+        "total": 4652,
+        "pass": 4641,
+        "fail": 0,
+        "skip": 11,
+        "com_tempo": 4640,
+        "sem_tempo": 12,
+        "zero_ms": 2736,
+        "soma_ms_conhecidos": 177233
+      },
+      "metodos_com_ordem_observada": 0
+    },
+    {
+      "posicao": 50,
+      "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "tentativa": "20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf",
+      "run_status": "complete",
+      "suite_duration_ms": 292398,
+      "ambiente_ref": "resultados/KAN-14/f24c027ff83b90beab2ec28696721200abb4f9e9/20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf/ambiente.json",
+      "ambiente_sha256": "4d8bd367996c471ed5df893008d1fd296fe1456ce35342bd1a460602cae75131",
+      "maven_ref": "resultados/KAN-14/f24c027ff83b90beab2ec28696721200abb4f9e9/20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf/maven.log",
+      "maven_sha256": "a226f6a6ad506ea06846082eda56f80d78beaf28eb4c409d337471089d017796",
+      "fonte_tar_sha256": "547f623d8e17ffbfd925ef6bff4f74336f9e4a3f5ae6caca83606d4274f63cf5",
+      "inventario_ref": "evidencias/KAN-16/local/inventarios/f24c027ff83b90beab2ec28696721200abb4f9e9-20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf/metodos.tsv",
+      "inventario_metadados_ref": "evidencias/KAN-16/local/inventarios/f24c027ff83b90beab2ec28696721200abb4f9e9-20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf/descoberta.json",
+      "inventario_sha256": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef",
+      "descoberta_log_ref": "evidencias/KAN-16/local/inventarios/f24c027ff83b90beab2ec28696721200abb4f9e9-20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf/descoberta.log",
+      "descoberta_log_sha256": "b9bd8598a6934922fd1d6e655bd103862025e846743baa49072703581fa11b0b",
+      "xml": 227,
+      "testsuite_atributo_tests": 59669,
+      "xml_cabecalho_divergente": [
+        {
+          "ref": "resultados/KAN-14/f24c027ff83b90beab2ec28696721200abb4f9e9/20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf/surefire/TEST-org.apache.commons.lang3.ValidateTest.xml",
+          "atributo_tests": 0,
+          "elementos": 214
+        },
+        {
+          "ref": "resultados/KAN-14/f24c027ff83b90beab2ec28696721200abb4f9e9/20261120T163754499Z-9e08e75c329741b3bbef31999c8fc6bf/surefire/TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml",
+          "atributo_tests": 0,
+          "elementos": 70
+        }
+      ],
+      "casos_xml": {
+        "total": 59953,
+        "pass": 59940,
+        "failure": 0,
+        "error": 0,
+        "skip": 13
+      },
+      "maven_reconciliado": true,
+      "soma_segundos_xml_executados_com_tempo": 198.620,
+      "casos_executados_sem_tempo": 0,
+      "tempos_negativos_xml": 0,
+      "invocacoes_associadas": 59953,
+      "invocacoes_nao_associadas": 0,
+      "cobertura_identidade": "integral",
+      "lacunas": {},
+      "metodos": {
+        "total": 4657,
+        "pass": 4646,
+        "fail": 0,
+        "skip": 11,
+        "com_tempo": 4646,
+        "sem_tempo": 11,
+        "zero_ms": 2710,
+        "soma_ms_conhecidos": 198620
+      },
+      "metodos_com_ordem_observada": 0
+    },
+    {
+      "posicao": 75,
+      "commit_sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "tentativa": "20261120T164249149Z-13ac8225456e408db9c52eeee35cabba",
+      "run_status": "complete",
+      "suite_duration_ms": 291649,
+      "ambiente_ref": "resultados/KAN-14/bfcaa941b0849956972517c8559c0827c8fe5386/20261120T164249149Z-13ac8225456e408db9c52eeee35cabba/ambiente.json",
+      "ambiente_sha256": "01a005cc42b231443f4398422a64cd09d248e19f756a79822c416c3bc888a944",
+      "maven_ref": "resultados/KAN-14/bfcaa941b0849956972517c8559c0827c8fe5386/20261120T164249149Z-13ac8225456e408db9c52eeee35cabba/maven.log",
+      "maven_sha256": "6c29bc40ce2ea6af01ac0f552060d0dcc89be656cdb96aef8bcb12088277000f",
+      "fonte_tar_sha256": "ca1d817602511cc012cf8d9906fc6ba2caaff5c3e65a03bb46a14fe65afa17fa",
+      "inventario_ref": "evidencias/KAN-16/local/inventarios/bfcaa941b0849956972517c8559c0827c8fe5386-20261120T164249149Z-13ac8225456e408db9c52eeee35cabba/metodos.tsv",
+      "inventario_metadados_ref": "evidencias/KAN-16/local/inventarios/bfcaa941b0849956972517c8559c0827c8fe5386-20261120T164249149Z-13ac8225456e408db9c52eeee35cabba/descoberta.json",
+      "inventario_sha256": "2abe4194b295f0da22c87b860f35ea4c022e83d1a30f729b7ad5ac77e01bc475",
+      "descoberta_log_ref": "evidencias/KAN-16/local/inventarios/bfcaa941b0849956972517c8559c0827c8fe5386-20261120T164249149Z-13ac8225456e408db9c52eeee35cabba/descoberta.log",
+      "descoberta_log_sha256": "41816566934e44e180196411d426016638d56a49aa26536051271a828ef57859",
+      "xml": 227,
+      "testsuite_atributo_tests": 59672,
+      "xml_cabecalho_divergente": [
+        {
+          "ref": "resultados/KAN-14/bfcaa941b0849956972517c8559c0827c8fe5386/20261120T164249149Z-13ac8225456e408db9c52eeee35cabba/surefire/TEST-org.apache.commons.lang3.ValidateTest.xml",
+          "atributo_tests": 0,
+          "elementos": 214
+        },
+        {
+          "ref": "resultados/KAN-14/bfcaa941b0849956972517c8559c0827c8fe5386/20261120T164249149Z-13ac8225456e408db9c52eeee35cabba/surefire/TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml",
+          "atributo_tests": 0,
+          "elementos": 70
+        }
+      ],
+      "casos_xml": {
+        "total": 59956,
+        "pass": 59943,
+        "failure": 0,
+        "error": 0,
+        "skip": 13
+      },
+      "maven_reconciliado": true,
+      "soma_segundos_xml_executados_com_tempo": 199.010,
+      "casos_executados_sem_tempo": 0,
+      "tempos_negativos_xml": 0,
+      "invocacoes_associadas": 59956,
+      "invocacoes_nao_associadas": 0,
+      "cobertura_identidade": "integral",
+      "lacunas": {},
+      "metodos": {
+        "total": 4659,
+        "pass": 4648,
+        "fail": 0,
+        "skip": 11,
+        "com_tempo": 4648,
+        "sem_tempo": 11,
+        "zero_ms": 2787,
+        "soma_ms_conhecidos": 199010
+      },
+      "metodos_com_ordem_observada": 0
+    },
+    {
+      "posicao": 100,
+      "commit_sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "tentativa": "20261120T150800719Z-a24ed681244a469e80a93be9467c11b1",
+      "run_status": "complete",
+      "suite_duration_ms": 306912,
+      "ambiente_ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/ambiente.json",
+      "ambiente_sha256": "1b5d9ac1d9f75eed07f5d7511aaf92759cef5296dcb6dd93b74aab17aeba99b0",
+      "maven_ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/maven.log",
+      "maven_sha256": "8555fd56e408e3b02d1195ffdd4c9e8a1f71faa4bdbe2c78fe83d4c23c80b6e4",
+      "fonte_tar_sha256": "d9d3736b176743f464afe2787a607d41b547c6ef49df5c7d92d2b0ef78a064eb",
+      "inventario_ref": "evidencias/KAN-16/local/inventarios/598dfc163b8b410fb3bb8794521206ec8dcec82a-20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/metodos.tsv",
+      "inventario_metadados_ref": "evidencias/KAN-16/local/inventarios/598dfc163b8b410fb3bb8794521206ec8dcec82a-20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/descoberta.json",
+      "inventario_sha256": "0607b6238cf837e49b824908482da733abb6e4d15f66c578889d033f0ea371aa",
+      "descoberta_log_ref": "evidencias/KAN-16/local/inventarios/598dfc163b8b410fb3bb8794521206ec8dcec82a-20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/descoberta.log",
+      "descoberta_log_sha256": "47dd46f3b81b6a45798a25e3c4850f976c4cacbf7c25b8bcc90dc47ede1e8583",
+      "xml": 228,
+      "testsuite_atributo_tests": 59676,
+      "xml_cabecalho_divergente": [
+        {
+          "ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/surefire/TEST-org.apache.commons.lang3.ValidateTest.xml",
+          "atributo_tests": 0,
+          "elementos": 214
+        },
+        {
+          "ref": "resultados/KAN-13/598dfc163b8b410fb3bb8794521206ec8dcec82a/20261120T150800719Z-a24ed681244a469e80a93be9467c11b1/surefire/TEST-org.apache.commons.lang3.compare.ComparableUtilsTest.xml",
+          "atributo_tests": 0,
+          "elementos": 70
+        }
+      ],
+      "casos_xml": {
+        "total": 59960,
+        "pass": 59946,
+        "failure": 0,
+        "error": 0,
+        "skip": 14
+      },
+      "maven_reconciliado": true,
+      "soma_segundos_xml_executados_com_tempo": 204.255,
+      "casos_executados_sem_tempo": 1,
+      "tempos_negativos_xml": 1,
+      "invocacoes_associadas": 59960,
+      "invocacoes_nao_associadas": 0,
+      "cobertura_identidade": "integral",
+      "lacunas": {},
+      "metodos": {
+        "total": 4663,
+        "pass": 4651,
+        "fail": 0,
+        "skip": 12,
+        "com_tempo": 4650,
+        "sem_tempo": 13,
+        "zero_ms": 2643,
+        "soma_ms_conhecidos": 192229
+      },
+      "metodos_com_ordem_observada": 0
+    }
+  ],
+  "tentativas_sem_referencia": []
+}
