@@ -1,0 +1,12 @@
+[
+  {
+    "execucao": "duration-format",
+    "metas": [
+      "test"
+    ],
+    "teste": "DurationFormatUtilsTest#testFourYears",
+    "codigoSaida": 1,
+    "segundos": 16.933,
+    "log": "duration-format.log"
+  }
+]

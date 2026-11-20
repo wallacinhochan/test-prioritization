@@ -1,0 +1,33 @@
+[
+  {
+    "execucao": "suite",
+    "metas": [
+      "clean",
+      "test"
+    ],
+    "teste": "",
+    "codigoSaida": 0,
+    "segundos": 245.546,
+    "log": "suite.log"
+  },
+  {
+    "execucao": "string-utils",
+    "metas": [
+      "test"
+    ],
+    "teste": "StringUtilsTest#testReverse_String",
+    "codigoSaida": 0,
+    "segundos": 16.227,
+    "log": "string-utils.log"
+  },
+  {
+    "execucao": "array-utils",
+    "metas": [
+      "test"
+    ],
+    "teste": "ArrayUtilsTest#testIsEmptyObject",
+    "codigoSaida": 0,
+    "segundos": 18.517,
+    "log": "array-utils.log"
+  }
+]

@@ -1,0 +1,10 @@
+Commit: 598dfc163b8b410fb3bb8794521206ec8dcec82a
+Início UTC: 2026-11-20T14:28:36.2532953+00:00
+Fuso do Windows: E. South America Standard Time
+Fuso solicitado ao Maven: UTC
+javac 21.0.11
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: <perfil-local>\Downloads\apache-maven-3.9.11-bin\apache-maven-3.9.11
+Java version: 21.0.11, vendor: Microsoft, runtime: <perfil-local>\.jdks\ms-21.0.11
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
