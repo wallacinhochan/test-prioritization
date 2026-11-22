@@ -238,5 +238,10 @@ $resumo = [ordered]@{
     contagens = [ordered]@{ induced_failure = $positivos; pass = $negativos; unknown = $rotulos.Count - $positivos - $negativos }
     pit_duracao_ms = (Get-Content -LiteralPath (Join-Path $local 'pit/execucao.json') -Raw | ConvertFrom-Json).duracao_ms
     rodadas = $rodadas.ToArray()
-} | ConvertTo-Json -Depth 8
-[IO.File]::WriteAllText((Join-Path $publico resumo.json), $resumo.Replace("`r`n", "`n") + "`n")
+}
+if ($Posicao -eq 96) {
+    $resumo.congelamento_modelo = Get-Content -LiteralPath (Join-Path $local congelamento.json) -Raw |
+        ConvertFrom-Json
+}
+$json = $resumo | ConvertTo-Json -Depth 8
+[IO.File]::WriteAllText((Join-Path $publico resumo.json), $json.Replace("`r`n", "`n") + "`n")

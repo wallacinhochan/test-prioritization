@@ -59,8 +59,27 @@ try {
         if (!$Congelamento -or !(Test-Path -LiteralPath $Congelamento -PathType Leaf)) {
             throw 'O replay da posição 96 requer a referência ao registro de congelamento do modelo.'
         }
-        Get-FileHash -LiteralPath $Congelamento | ConvertTo-Json |
-            Set-Content -LiteralPath (Join-Path $local congelamento.json)
+        $repo = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../..')).Path
+        $refModelo = 'evidencias/MUTACAO/modelos/congelamento.json'
+        $registroModelo = (Resolve-Path -LiteralPath $Congelamento).Path
+        if ($registroModelo -ine (Join-Path $repo $refModelo)) {
+            throw 'Informe o congelamento versionado pela frente de modelos.'
+        }
+        $commitModelo = git -C $repo log -1 --format=%H -- $refModelo
+        if ($LASTEXITCODE -or $commitModelo -cnotmatch '\A[0-9a-f]{40}\z') {
+            throw 'O Git ainda não registra o congelamento do modelo.'
+        }
+        git -C $repo diff --quiet $commitModelo -- $refModelo
+        if ($LASTEXITCODE) { throw 'O congelamento local diverge do commit.' }
+        $modelo = Get-Content -LiteralPath $registroModelo -Raw | ConvertFrom-Json
+        if ($modelo.versao -ne 1 -or !$modelo.treino.suficiente -or !$modelo.validacao.suficiente) {
+            throw 'O congelamento não confirma suficiência de treino e validação.'
+        }
+        [ordered]@{
+            commit = $commitModelo
+            referencia = $refModelo
+            sha256 = (Get-FileHash -LiteralPath $registroModelo).Hash.ToLowerInvariant()
+        } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $local congelamento.json)
     }
     if ($Fase -ceq 'encerrar') {
         Invoke-Docker stop $nome
