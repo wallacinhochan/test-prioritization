@@ -144,6 +144,12 @@ def load_replay(position, selection, *, after_freeze=None):
                 'A publicação final deve suceder o congelamento.')
     summary_bytes = git('show', f'{publication}:{summary_ref}')
     summary = json.loads(summary_bytes)
+    if after_freeze:
+        freeze_ref = f'{PREFIX}/congelamento.json'
+        recorded = summary.get('congelamento_modelo')
+        require(recorded == {'commit': after_freeze, 'referencia': freeze_ref,
+                             'sha256': digest(git('show', f'{after_freeze}:{freeze_ref}'))},
+                'O replay final está vinculado a outro congelamento.')
     sha = selection['sha']
     relative = f'local/{position}/rotulos.csv'
     require((summary['posicao'], summary['sha'], summary['rotulos']) ==
@@ -188,6 +194,8 @@ def load_replay(position, selection, *, after_freeze=None):
               'rotulos_sha256': digest(label_bytes), 'publicador_gate_aprovado': summary['gate_aprovado'],
               'variantes': len(mutations), 't0': denominators(totals, totals),
               't1': denominators(totals, selection['selected'])}
+    if after_freeze:
+        report['congelamento_modelo'] = recorded
     return report, (mutations, labels, totals) if gate else None
 
 

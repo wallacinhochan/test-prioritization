@@ -49,6 +49,14 @@ class PilotoTest(unittest.TestCase):
                 piloto.load_replay(96, {}, after_freeze='freeze')
         self.assertEqual([call.args[0] for call in git.call_args_list], ['log', 'merge-base'])
 
+    def test_final_summary_must_bind_to_exact_freeze(self):
+        reads = [b'newer\n', b'freeze\n', b'{"congelamento_modelo": {"commit": "other"}}', b'{}']
+        with patch.object(piloto, 'git', side_effect=reads) as git:
+            with self.assertRaisesRegex(ValueError, 'outro congelamento'):
+                piloto.load_replay(96, {}, after_freeze='freeze')
+        self.assertEqual([call.args[0] for call in git.call_args_list],
+                         ['log', 'merge-base', 'show', 'show'])
+
     def test_real_t1_inputs_are_integral(self):
         for pos, size in zip((*piloto.DEVELOPMENT, piloto.FINAL), (4647, 4648, 4653, 4653, 4659)):
             with self.subTest(pos=pos):
