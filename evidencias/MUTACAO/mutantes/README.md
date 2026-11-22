@@ -34,3 +34,23 @@ O identificador do mutante concatena classe binária, método, descritor JVM, mu
 O controle limpo produziu 59.452 invocações em 227 XML, com 59.439 aprovações, 13 skips e zero falhas ou erros. O SHA-256 do arquivo fonte coincide com o registrado pela KAN-14. O controle levou 324,288 s. A primeira tentativa de preparação do PIT terminou antes de lançar o Maven porque o POM histórico usa CRLF. A busca pela seção de plugins passou a aceitar ambos os finais de linha. A tentativa anterior está em `local/26/pit-tentativa-01/`.
 
 A segunda tentativa está em `local/26/pit-tentativa-02/`. A JVM de cobertura do PIT rejeitou `SystemPropertiesTest#testGetJavaAwtHeadless()`, que passou no Surefire. A geração configura `skipFailingTests=true` e `parseSurefireConfig=false` para que o PIT ignore a falha durante o cálculo de cobertura. O descritor `META-INF/maven/plugin.xml` do PIT 1.19.4 documenta que a importação da configuração do Surefire pode sobrescrever a opção. O dry run usa os argumentos JVM fixados em `pit.xml`. Controle e replays continuam com todo o conjunto de testes e a configuração do Surefire, incluindo o teste em questão.
+
+Na variante 3, o Surefire registrou um erro de teste e omitiu a mensagem textual `There are test failures` no encerramento. O classificador passou a aceitar esse formato quando o resumo Maven e os XML reconciliam, a meta Surefire confirma a falha e não há dump ou sinal de falha de infraestrutura. Os XML e os replays originais foram reaproveitados. A primeira classificação ficou preservada em `local/26/resumo-checker-v1.json`.
+
+**Gate aprovado.** O PIT exportou 77 variantes elegíveis em 180,400 s. O [manifesto](pos-26/manifesto.json) foi congelado em `b0652c9` antes do replay. Os quatro replays levaram 749,300 s no total e produziram 18.608 rótulos para 4.652 métodos. A repetição da primeira variante produziu os mesmos rótulos. Com o bytecode original restaurado, os hashes e os desfechos das 59.452 invocações coincidiram com o controle. O [resumo](pos-26/resumo.json) contém hashes, tempos e contagens dos XML por rodada.
+
+| Variante | Falhas induzidas | Aprovações observadas | Desconhecidos |
+| ---: | ---: | ---: | ---: |
+| 1 | 2 | 4.639 | 11 |
+| 2 | 8 | 4.633 | 11 |
+| 3 | 1 | 4.640 | 11 |
+| 4 | 1 | 4.640 | 11 |
+| **Total** | **12** | **18.552** | **44** |
+
+O CSV do gate está em `local/26/rotulos.csv`. Os XML de cada replay estão em `local/26/variante-N/surefire/`. A classe original, os logs Maven e os manifestos de hash ficam nas respectivas pastas em `local/26/`.
+
+## Consumo pelos modelos
+
+Use as posições aprovadas no [protocolo](../README.md). Para cada revisão, confira `pos-<posição>/resumo.json` e os hashes do manifesto e do CSV local. Junte `rotulos.csv` ao inventário pelo SHA completo e pelo `test_id` da KAN-17. Cada linha é única por `sha`, `mutation_id` e `test_id`. Os campos `controle` e `replay` dão o resultado associado por método.
+
+Conte `induced_failure` como positivo e `pass` como negativo observado. Exclua `unknown` do denominador. O alvo do método por revisão é a fração de positivos entre as observações conhecidas, com alvo ausente se todas forem desconhecidas. Use apenas atributos pré-execução e histórico estritamente anterior. As posições 15, 26 e 42 são de treino, a 50 é de validação e a 96 fica reservada para avaliação final após o congelamento do modelo.

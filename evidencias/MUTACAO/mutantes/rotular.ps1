@@ -65,6 +65,11 @@ function Read-Rodada([string]$Nome) {
     $totais = [regex]::Matches($txt, '(?m)^\[(?:INFO|WARNING|ERROR)\] Tests run: (\d+), Failures: (\d+), Errors: (\d+), Skipped: (\d+)[ \t\r]*$')
     $build = [regex]::Matches($txt, '(?m)^\[INFO\] BUILD (SUCCESS|FAILURE)[ \t\r]*$')
     $falha = $txt -cmatch '(?m)^\[ERROR\] Failed to execute goal .*maven-surefire-plugin:3\.5\.4:test \(default-test\).*There are test failures'
+    $erroDeTeste = $totais.Count -eq 1 -and [int]$totais[0].Groups[2].Value -eq 0 -and
+        [int]$totais[0].Groups[3].Value -gt 0 -and
+        $txt -cmatch '(?m)^\[ERROR\] Failed to execute goal .*maven-surefire-plugin:3\.5\.4:test \(default-test\) on project commons-lang3:[ \t\r]*$' -and
+        $txt -cmatch '(?m)^\[ERROR\] See /trabalho/target/surefire-reports for the individual test results\.'
+    $sinaisDeInfra = $txt -cmatch '(?mi)^\[ERROR\].*(forked VM terminated|error occurred in starting fork|could not resolve dependencies|could not transfer artifact|no space left on device)'
     $contagem = [ordered]@{ total = 0; failure = 0; error = 0; skip = 0; pass = 0; sem_associacao = 0 }
     $metodos = [Collections.Generic.Dictionary[string,string]]::new([StringComparer]::Ordinal)
     $ambiguidade = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -73,6 +78,8 @@ function Read-Rodada([string]$Nome) {
     $problemas = [Collections.Generic.List[string]]::new()
     $arquivos = @(Get-ChildItem -LiteralPath (Join-Path $pasta surefire) -Filter 'TEST-*.xml' -File -ErrorAction SilentlyContinue |
         Sort-Object Name -CaseSensitive)
+    $dumps = @(Get-ChildItem -LiteralPath (Join-Path $pasta surefire) -File -ErrorAction SilentlyContinue |
+        Where-Object Extension -cin '.dump','.dumpstream')
     $config = [Xml.XmlReaderSettings]::new()
     $config.DtdProcessing = [Xml.DtdProcessing]::Prohibit
     foreach ($arquivo in $arquivos) {
@@ -120,9 +127,11 @@ function Read-Rodada([string]$Nome) {
     $invocacoes.Sort([StringComparer]::Ordinal)
     $fingerprint = [Convert]::ToHexStringLower([Security.Cryptography.SHA256]::HashData(
         [Text.Encoding]::UTF8.GetBytes(($invocacoes -join "`n"))))
-    $completa = $arquivos.Count -gt 0 -and $totais.Count -eq 1 -and $build.Count -eq 1 -and $ja -and
+    $completa = !$sinaisDeInfra -and !$dumps.Count -and $arquivos.Count -gt 0 -and
+        $totais.Count -eq 1 -and $build.Count -eq 1 -and $ja -and
         $txt -cmatch '(?m)^\[INFO\] Using auto detected provider org\.apache\.maven\.surefire\.junitplatform\.JUnitPlatformProvider' -and
-        (($registro.codigo -eq 0 -and $build[0].Groups[1].Value -ceq 'SUCCESS') -or ($registro.codigo -eq 1 -and $falha))
+        (($registro.codigo -eq 0 -and $build[0].Groups[1].Value -ceq 'SUCCESS') -or
+            ($registro.codigo -eq 1 -and $build[0].Groups[1].Value -ceq 'FAILURE' -and ($falha -or $erroDeTeste)))
     if ($completa) {
         $observados = @($contagem.total, $contagem.failure, $contagem.error, $contagem.skip)
         for ($i = 0; $i -lt $observados.Count; $i++) {
