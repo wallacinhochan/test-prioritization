@@ -89,7 +89,13 @@ set +e
             fi
             registrar_binarios > "$saida/executado.sha256"
             codigo_maven=0
-            maven org.jacoco:jacoco-maven-plugin:0.8.13:prepare-agent@prepare-agent \
+            ja=$(sed -nE 's/^\[INFO\] --- jacoco:([0-9]+\.[0-9]+\.[0-9]+):prepare-agent \(prepare-agent\) @ commons-lang3 ---[[:space:]]*$/\1/p' \
+                /evidencia/controle/maven.log)
+            if [ -z "$ja" ] || [ "$(printf '%s\n' "$ja" | wc -l)" -ne 1 ]; then
+                echo 'O controle não confirmou uma versão única da meta prepare-agent do JaCoCo.' >&2
+                exit 2
+            fi
+            maven "org.jacoco:jacoco-maven-plugin:$ja:prepare-agent@prepare-agent" \
                 org.apache.maven.plugins:maven-surefire-plugin:3.5.4:test@default-test || codigo_maven=$?
             if [ -d target/surefire-reports ]; then
                 cp -a target/surefire-reports "$saida/surefire"
