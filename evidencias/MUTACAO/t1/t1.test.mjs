@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { avaliar, detectar } from './avaliar.mjs';
+import { avaliar, resumirEscopo } from './avaliar.mjs';
 import { grafo, inventario, selecionar } from './selecionar.mjs';
 
 test('segue bytecode transitivo por auxiliar e herança sem incluir classes irmãs de teste', () => {
@@ -50,7 +50,9 @@ test('compara o mesmo mutante e mantém lacunas fora dos negativos', () => {
     assert.equal(total.preservacao_entre_comparaveis, 0.5);
     assert.deepEqual(total.intervalo_entre_detectados_t0, [1 / 3, 2 / 3]);
     assert.equal(revisoes[0].reducao_metodos, 0.5);
-    assert.equal(detectar(new Set(['dentro']), new Map()), 'unknown');
+    assert.deepEqual(resumirEscopo(new Set(['dentro']), new Map()), {
+        status: 'unknown', induced_failure: 0, no_induced_failure: 0, unknown: 0, ausente: 1,
+    });
     assert.equal(avaliar(conjuntos, { ...matriz, observations: [] }).total.preservacao_entre_comparaveis, null);
     assert.throws(() => avaliar(conjuntos, { ...matriz, observations: [matriz.observations[0], matriz.observations[0]] }));
 });

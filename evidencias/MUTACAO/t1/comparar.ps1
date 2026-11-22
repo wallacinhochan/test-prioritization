@@ -1,11 +1,16 @@
 #Requires -Version 7.5
 param(
     [string]$Congelamento = '0d3cd01e68bf223eca124332f74d4486ae6bd6f7',
-    [ValidateSet(15,26,42,50,96)][int[]]$Posicoes = @(15,26,42,50,96)
+    [ValidateSet(15,26,42,50,96)][int[]]$Posicoes = @(15,26,42,50),
+    [switch]$HoldoutLiberado
 )
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+
+if ($Posicoes -contains 96 -and !$HoldoutLiberado) {
+    throw 'A leitura da posição 96 exige liberação da coordenação após o congelamento dos modelos e rankings.'
+}
 
 $avaliador = Join-Path $PSScriptRoot avaliar.mjs
 node $avaliador $Congelamento --verificar
@@ -80,6 +85,8 @@ foreach ($posicao in ($Posicoes | Sort-Object -Unique)) {
         estado = 'disponivel'
         resumo_ref = "$ref/resumo.json"
         resumo_sha256 = Get-Digest $arquivoResumo
+        manifesto_ref = "$ref/manifesto.json"
+        manifesto_sha256 = $resumo.manifesto_sha256
         rotulos_sha256 = $resumo.rotulos_sha256
     }
 }

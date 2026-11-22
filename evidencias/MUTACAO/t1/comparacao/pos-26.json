@@ -1,0 +1,138 @@
+{
+  "tipo": "projeção sobre observações T0",
+  "esquema": "1.0.0",
+  "congelamento": "0d3cd01e68bf223eca124332f74d4486ae6bd6f7",
+  "matriz_sha256": "7862311bde51d8d20d869f333d2ca0dba3d78553b0c3a61e5e5621de1355b6fa",
+  "publicacoes": {
+    "26": {
+      "estado": "disponivel",
+      "resumo_ref": "evidencias/MUTACAO/mutantes/pos-26/resumo.json",
+      "resumo_sha256": "00731dde7d0ee34ffeb006c8d6a9cabe65326627dd1d2e51f8c9840af193dcd7",
+      "manifesto_ref": "evidencias/MUTACAO/mutantes/pos-26/manifesto.json",
+      "manifesto_sha256": "be1e9f200bf448595a502547abef6d5220d24a9fa29ed37eb8f7e372a97f68d6",
+      "rotulos_sha256": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a"
+    }
+  },
+  "total": {
+    "mutantes": 4,
+    "comparaveis": 4,
+    "detectados_t0": 4,
+    "preservados": 4,
+    "perdidos": 0,
+    "t1_desconhecido_entre_detectados_t0": 0,
+    "denominador_preservacao_comparavel": 4,
+    "preservacao_entre_comparaveis": 1,
+    "intervalo_entre_detectados_t0": [
+      1,
+      1
+    ]
+  },
+  "revisoes": [
+    {
+      "posicao": 26,
+      "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "metodos_t0": 4652,
+      "metodos_t1": 4648,
+      "reducao_metodos": 0.0008598452278589854,
+      "custo_selecao_ms": 463,
+      "mutantes": 4,
+      "comparaveis": 4,
+      "detectados_t0": 4,
+      "preservados": 4,
+      "perdidos": 0,
+      "t1_desconhecido_entre_detectados_t0": 0,
+      "denominador_preservacao_comparavel": 4,
+      "preservacao_entre_comparaveis": 1,
+      "intervalo_entre_detectados_t0": [
+        1,
+        1
+      ],
+      "comparacao": [
+        {
+          "mutation_id": "org.apache.commons.lang3.LocaleUtils|availableLocaleList|()Ljava/util/List;|org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator|4",
+          "source_ref": "evidencias/MUTACAO/mutantes/pos-26/manifesto.json",
+          "status_t0": "detected",
+          "status_t1": "detected",
+          "comparavel": true,
+          "metodos_t0": {
+            "status": "detected",
+            "induced_failure": 8,
+            "no_induced_failure": 4633,
+            "unknown": 11,
+            "ausente": 0
+          },
+          "metodos_t1": {
+            "status": "detected",
+            "induced_failure": 8,
+            "no_induced_failure": 4629,
+            "unknown": 11,
+            "ausente": 0
+          }
+        },
+        {
+          "mutation_id": "org.apache.commons.lang3.LocaleUtils|lambda$languagesByCountry$2|(Ljava/lang/String;Ljava/util/Locale;)Z|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|7",
+          "source_ref": "evidencias/MUTACAO/mutantes/pos-26/manifesto.json",
+          "status_t0": "detected",
+          "status_t1": "detected",
+          "comparavel": true,
+          "metodos_t0": {
+            "status": "detected",
+            "induced_failure": 1,
+            "no_induced_failure": 4640,
+            "unknown": 11,
+            "ausente": 0
+          },
+          "metodos_t1": {
+            "status": "detected",
+            "induced_failure": 1,
+            "no_induced_failure": 4636,
+            "unknown": 11,
+            "ausente": 0
+          }
+        },
+        {
+          "mutation_id": "org.apache.commons.lang3.LocaleUtils|languagesByCountry|(Ljava/lang/String;)Ljava/util/List;|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|4",
+          "source_ref": "evidencias/MUTACAO/mutantes/pos-26/manifesto.json",
+          "status_t0": "detected",
+          "status_t1": "detected",
+          "comparavel": true,
+          "metodos_t0": {
+            "status": "detected",
+            "induced_failure": 1,
+            "no_induced_failure": 4640,
+            "unknown": 11,
+            "ausente": 0
+          },
+          "metodos_t1": {
+            "status": "detected",
+            "induced_failure": 1,
+            "no_induced_failure": 4636,
+            "unknown": 11,
+            "ausente": 0
+          }
+        },
+        {
+          "mutation_id": "org.apache.commons.lang3.LocaleUtils|localeLookupList|(Ljava/util/Locale;Ljava/util/Locale;)Ljava/util/List;|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|42",
+          "source_ref": "evidencias/MUTACAO/mutantes/pos-26/manifesto.json",
+          "status_t0": "detected",
+          "status_t1": "detected",
+          "comparavel": true,
+          "metodos_t0": {
+            "status": "detected",
+            "induced_failure": 2,
+            "no_induced_failure": 4639,
+            "unknown": 11,
+            "ausente": 0
+          },
+          "metodos_t1": {
+            "status": "detected",
+            "induced_failure": 2,
+            "no_induced_failure": 4635,
+            "unknown": 11,
+            "ausente": 0
+          }
+        }
+      ]
+    }
+  ]
+}

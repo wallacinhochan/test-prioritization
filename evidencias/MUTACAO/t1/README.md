@@ -55,7 +55,7 @@ node --test evidencias/MUTACAO/t1/t1.test.mjs
 
 ## Interface com os rótulos
 
-A comparação aguarda os resumos de replay e os CSVs de rótulos da frente de mutantes. Após a publicação de cada posição, o comando abaixo verifica o congelamento dos cinco SHAs no Git, o manifesto do mutante e os hashes do resumo, e lê os rótulos em modo somente leitura. A posição 96 depende da publicação prevista após o congelamento dos modelos. [Formato e estado do replay](../mutantes/README.md)
+Após a publicação do resumo de replay e do CSV de rótulos de uma posição, o comando abaixo verifica o congelamento dos cinco SHAs no Git, o manifesto do mutante e os hashes do resumo, e lê os rótulos em modo somente leitura. Por padrão, o comparador cobre as posições 15, 26, 42 e 50. A posição 96 exige liberação da coordenação após o congelamento dos modelos e rankings, posição explícita e a opção `-HoldoutLiberado`. [Formato e estado do replay](../mutantes/README.md)
 
 ```powershell
 ./evidencias/MUTACAO/t1/comparar.ps1 -Posicoes 26
@@ -66,3 +66,18 @@ O adaptador mapeia `pass` do produtor para `no_induced_failure` e mantém `induc
 ## Verificação
 
 A conferência dos 25 artefatos no Git validou os hashes do manifesto, a unicidade de `test_id`, o conjunto do ranking e os postos contíguos em ordem ordinal. O conjunto completo de candidatos coincidiu com a descoberta pré-execução de cada revisão. Depois do congelamento, a igualdade por `test_id` com a descoberta retrospectiva da KAN-16 foi verificada separadamente nas posições 26 e 50, com 4.652 e 4.657 chaves respectivamente. No total, o seletor excluiu 20 de 23.280 métodos, sempre os quatro métodos de `IDKeyTest`.
+
+## Resultado da posição 26
+
+T0 detectou os quatro mutantes de `LocaleUtils`, e o T1 congelado preservou os quatro. Todos os mutantes tiveram detecção conhecida nos dois cenários. A taxa entre detectados pelo T0 com T1 resolvido foi **4/4 (100%)**, com intervalo de preservação **[100%, 100%]** entre todos os detectados por T0. Esse intervalo representa a incerteza por desfecho T1 desconhecido entre os detectados pelo T0. [Evidência por mutante e hashes](comparacao/pos-26.json)
+
+| Variante de `LocaleUtils` | Métodos com falha induzida em T0 | Métodos com falha induzida em T1 | Métodos desconhecidos em T0 / T1 |
+| --- | ---: | ---: | ---: |
+| `availableLocaleList` | 8 | 8 | 11 / 11 |
+| `lambda$languagesByCountry$2` | 1 | 1 | 11 / 11 |
+| `languagesByCountry` | 1 | 1 | 11 / 11 |
+| `localeLookupList` | 2 | 2 | 11 / 11 |
+
+A projeção reteve os 12 rótulos positivos. Os 44 rótulos desconhecidos continuaram desconhecidos no nível de método. Cada mutante tinha ao menos uma falha induzida conhecida em ambos os cenários, o que resolve sua detecção mesmo com essas lacunas. A redução foi de 4/4.652 métodos (0,086%). O seletor levou 463 ms com inventário e jdeps preparados. O tempo físico de T1 ficou indisponível.
+
+O avaliador conferiu os hashes do congelamento `0d3cd01`, do manifesto de mutantes fixado em `b0652c9` e dos rótulos. O resumo de replay confirmou controle equivalente, repetição coincidente e restauração. O JSON versionado guarda contagens e referências. O CSV bruto permanece ignorado pelo Git.

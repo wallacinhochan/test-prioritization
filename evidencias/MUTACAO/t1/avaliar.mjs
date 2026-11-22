@@ -57,14 +57,15 @@ function congeladas(repo, versao) {
     return conjuntos;
 }
 
-function detectar(escopo, observacoes) {
-    let desconhecido = false;
+function resumirEscopo(escopo, observacoes) {
+    const contagens = { induced_failure: 0, no_induced_failure: 0, unknown: 0, ausente: 0 };
     for (const id of escopo) {
         const estado = observacoes.get(id);
-        if (estado === 'induced_failure') return 'detected';
-        if (estado !== 'no_induced_failure') desconhecido = true;
+        contagens[estado ?? 'ausente']++;
     }
-    return desconhecido ? 'unknown' : 'not_detected';
+    const status = contagens.induced_failure ? 'detected' :
+        (contagens.unknown || contagens.ausente ? 'unknown' : 'not_detected');
+    return { status, ...contagens };
 }
 
 function avaliar(conjuntos, matriz) {
@@ -91,11 +92,12 @@ function avaliar(conjuntos, matriz) {
     for (const [sha, { posicao, t0, t1, custo }] of conjuntos) {
         const comparacao = [];
         for (const [mutation_id, { observacoes, source_ref }] of porSha.get(sha)) {
-            const status_t0 = detectar(t0, observacoes);
-            const status_t1 = detectar(t1, observacoes);
+            const t0Metodos = resumirEscopo(t0, observacoes);
+            const t1Metodos = resumirEscopo(t1, observacoes);
             comparacao.push({
-                mutation_id, source_ref, status_t0, status_t1,
-                comparavel: status_t0 !== 'unknown' && status_t1 !== 'unknown',
+                mutation_id, source_ref, status_t0: t0Metodos.status, status_t1: t1Metodos.status,
+                comparavel: t0Metodos.status !== 'unknown' && t1Metodos.status !== 'unknown',
+                metodos_t0: t0Metodos, metodos_t1: t1Metodos,
             });
         }
         comparacao.sort((a, b) => a.mutation_id < b.mutation_id ? -1 : a.mutation_id === b.mutation_id ? 0 : 1);
@@ -121,6 +123,7 @@ function avaliar(conjuntos, matriz) {
 function taxas({ preservados, perdidos, detectados_t0, t1_desconhecido_entre_detectados_t0 }) {
     const conhecidos = preservados + perdidos;
     return {
+        denominador_preservacao_comparavel: conhecidos,
         preservacao_entre_comparaveis: conhecidos ? preservados / conhecidos : null,
         intervalo_entre_detectados_t0: detectados_t0 ? [
             preservados / detectados_t0,
@@ -144,4 +147,4 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     }, null, 2));
 }
 
-export { avaliar, detectar, congeladas };
+export { avaliar, resumirEscopo, congeladas };
