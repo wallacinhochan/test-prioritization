@@ -17,7 +17,7 @@ $fonte = Join-Path $env:TEMP 'kan10-commons-lang-598dfc163b8b.git'
 node "$t1/selecionar.mjs" 26 $fonte
 ```
 
-Execute a reprodução em uma cópia de trabalho com a pasta de saída da posição livre. A descoberta reutiliza `DescobertaT0.java` da KAN-16 sobre `target/test-classes` da compilação limpa. Os inventários anteriores da KAN-16 usavam os XML para enumerar classes e obter o classpath. A entrada daqui é o classpath Maven pré-execução com o launcher da versão da plataforma JUnit resolvida. O POM efetivo preserva o Surefire e seus filtros para conferência. O único fonte de teste no recorte que corresponde aos outros padrões padrão do Surefire sem terminar em `Test.java` é `TestClassBuilder.java`, um auxiliar ASM sem descritores de teste. Classes aninhadas entram pelo plano da raiz. [Sonda e proveniência da KAN-16](../../KAN-16/README.md)
+Execute a reprodução em uma cópia de trabalho com a pasta de saída da posição livre. A descoberta reutiliza `DescobertaT0.java` da KAN-16 sobre `target/test-classes` da compilação limpa. Os inventários anteriores da KAN-16 usavam os XML para enumerar classes e obter o classpath. A entrada daqui é o classpath Maven pré-execução com o launcher da versão da plataforma JUnit resolvida. O POM efetivo preserva o Surefire e seus filtros para conferência. O único fonte de teste no recorte que corresponde aos demais padrões do Surefire sem terminar em `Test.java` é `TestClassBuilder.java`, um auxiliar ASM sem descritores de teste. Classes aninhadas entram pelo plano da raiz. [Sonda e proveniência da KAN-16](../../KAN-16/README.md)
 
 ## Regra do seletor 1.0.0
 
@@ -45,10 +45,24 @@ A projeção sobre a matriz T0 não mede fisicamente o tempo da execução T1. A
 | [50](congelado/50/manifesto.json) | 4.657 | 4.653 | 0,086% | 400 |
 | [96](congelado/96/manifesto.json) | 4.663 | 4.659 | 0,086% | 404 |
 
-O commit `78aa63f` fixou a posição 26 primeiro. As demais posições usam o mesmo seletor e ficam no commit de congelamento completo. Os cinco recortes preservaram caminhos de dependência e não acionaram fallback. A redução estreita vem do fechamento transitivo no nível de classe. Na posição 26, `BooleanUtilsTest → BooleanUtils → ObjectUtils → StringUtils → LocaleUtils` é um exemplo de rota compilada até o alvo.
+O commit `78aa63f` fixou a posição 26 primeiro. As demais posições usam o mesmo seletor e foram fixadas em `0d3cd01e68bf223eca124332f74d4486ae6bd6f7`, referência completa para o chat de modelos. Os cinco recortes preservaram caminhos de dependência e não acionaram fallback. A redução estreita vem do fechamento transitivo no nível de classe. Na posição 26, `BooleanUtilsTest → BooleanUtils → ObjectUtils → StringUtils → LocaleUtils` é um exemplo de rota compilada até o alvo.
 
 Para executar os testes locais de identidade, transitividade e preservação com observações incompletas:
 
 ```powershell
 node --test evidencias/MUTACAO/t1/t1.test.mjs
 ```
+
+## Interface com os rótulos
+
+A comparação aguarda os resumos de replay e os CSVs de rótulos da frente de mutantes. Após a publicação de cada posição, o comando abaixo verifica o congelamento dos cinco SHAs no Git, o manifesto do mutante e os hashes do resumo, e lê os rótulos em modo somente leitura. A posição 96 depende da publicação prevista após o congelamento dos modelos. [Formato e estado do replay](../mutantes/README.md)
+
+```powershell
+./evidencias/MUTACAO/t1/comparar.ps1 -Posicoes 26
+```
+
+O adaptador mapeia `pass` do produtor para `no_induced_failure` e mantém `induced_failure` e `unknown`. A entrada direta de `avaliar.mjs <commit-do-congelamento> <matriz.json>` usa o esquema `1.0.0`, com `mutants` contendo `commit_sha`, `mutation_id` e `source_ref`. Cada item em `observations` acrescenta `test_id` e `label` à mesma chave. A matriz lista também variantes com observação ausente. A saída JSON inclui os hashes, as contagens por SHA e a decisão T0/T1 por mutante. Quando o resumo ou o CSV ainda não está disponível, a revisão fica sinalizada e a preservação permanece indisponível.
+
+## Verificação
+
+A conferência dos 25 artefatos no Git validou os hashes do manifesto, a unicidade de `test_id`, o conjunto do ranking e os postos contíguos em ordem ordinal. O conjunto completo de candidatos coincidiu com a descoberta pré-execução de cada revisão. Depois do congelamento, a igualdade por `test_id` com a descoberta retrospectiva da KAN-16 foi verificada separadamente nas posições 26 e 50, com 4.652 e 4.657 chaves respectivamente. No total, o seletor excluiu 20 de 23.280 métodos, sempre os quatro métodos de `IDKeyTest`.

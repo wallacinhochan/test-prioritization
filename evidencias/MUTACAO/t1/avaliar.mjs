@@ -29,14 +29,25 @@ function congeladas(repo, versao) {
         }
         const t0 = new Set();
         const t1 = new Set();
-        for (const linha of arquivos.get('selection.csv').trimEnd().split('\n').slice(1)) {
-            const campos = linha.match(/"(?:[^"]|"")*"/g)?.map(campo => campo.slice(1, -1).replaceAll('""', '"'));
+        const registros = nome => arquivos.get(nome).trimEnd().split('\n').slice(1).map(linha =>
+            linha.match(/"(?:[^"]|"")*"/g)?.map(campo => campo.slice(1, -1).replaceAll('""', '"')));
+        let anterior = '';
+        for (const campos of registros('selection.csv')) {
             if (!campos || campos.length !== 6 || campos[0] !== sha || campos[1] !== 'T1' ||
-                !['true', 'false'].includes(campos[3]) || t0.has(campos[2])) {
+                !['true', 'false'].includes(campos[3]) || campos[2] <= anterior ||
+                (campos[3] === 'true' ? !['dependency', 'fallback'].includes(campos[4]) : campos[4] !== 'no_dependency')) {
                 throw new Error(`CSV congelado inválido na posição ${posicao}`);
             }
+            anterior = campos[2];
             t0.add(campos[2]);
             if (campos[3] === 'true') t1.add(campos[2]);
+        }
+        const ordem = registros('rankings.csv');
+        const selecionados = [...t1];
+        if (ordem.length !== selecionados.length || ordem.some((campos, i) => !campos || campos.length !== 6 ||
+            campos[0] !== sha || campos[1] !== 'T1' || campos[2] !== selecionados[i] ||
+            campos[3] !== String(i + 1) || campos[4] !== '')) {
+            throw new Error(`Ranking congelado inválido na posição ${posicao}`);
         }
         if (!t0.size || t0.size !== manifesto.candidatos || t1.size !== manifesto.selecionados) {
             throw new Error(`Contagens do manifesto divergentes na posição ${posicao}`);
@@ -123,11 +134,13 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     if (!versao || !caminho) throw new Error('Uso: node avaliar.mjs <commit do congelamento completo> <matriz.json>');
     const commit = execFileSync('git', ['-C', repo, 'rev-parse', '--verify', `${versao}^{commit}`]).toString().trim();
     const conjuntos = congeladas(repo, commit);
-    const bytes = readFileSync(caminho);
-    const dados = avaliar(conjuntos, JSON.parse(bytes));
+    if (caminho === '--verificar') process.exit(0);
+    const bytes = readFileSync(caminho === '-' ? 0 : caminho);
+    const matriz = JSON.parse(bytes);
+    const dados = avaliar(conjuntos, matriz);
     console.log(JSON.stringify({
         tipo: 'projeção sobre observações T0',
-        esquema: '1.0.0', congelamento: commit, matriz_sha256: hash(bytes), ...dados,
+        esquema: '1.0.0', congelamento: commit, matriz_sha256: hash(bytes), publicacoes: matriz.publicacoes ?? null, ...dados,
     }, null, 2));
 }
 
