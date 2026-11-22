@@ -1,0 +1,92 @@
+{
+  "protocolo": "tp-mutation-v1",
+  "posicao": 15,
+  "sha": "970e4d66452c146165233129c913616ff666ff77",
+  "pai": "d96a28a7e282e090dba3f54779e78db6e68c7107",
+  "imagem": "sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6",
+  "fonte_tar_sha256": "855a5c8c500ae5eb5f573f5224d16bc874364e09110f57d29117e1eb2d997e0b",
+  "classes": [
+    "org.apache.commons.lang3.builder.ToStringStyle"
+  ],
+  "pit": "1.19.4",
+  "pit_junit5": "1.2.3",
+  "semente": "tp-mutation-v1",
+  "congelado_utc": "2026-11-22T20:23:32.8974420+00:00",
+  "candidatos_csv_sha256": "e31b7f6441e5f88ad9a44fe3adfa6f2a8267270a465202860bdaa7493d4a4547",
+  "exportados": 294,
+  "elegiveis": 293,
+  "selecionados": [
+    {
+      "mutation_id": "org.apache.commons.lang3.builder.ToStringStyle|append|(Ljava/lang/StringBuffer;Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Boolean;)V|org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator|6",
+      "classe": "org.apache.commons.lang3.builder.ToStringStyle",
+      "metodo": "append",
+      "descritor_jvm": "(Ljava/lang/StringBuffer;Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Boolean;)V",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indices": [
+        6
+      ],
+      "selecao_sha256": "005147dea9ee87db0a4956828de74c0e94865457afb4dcf121373589361f2847",
+      "bytecode_sha256": "717fabc3564f62ede85595cb004428939fa61ac337a089411c921ee978c1fb5f",
+      "original_sha256": "758fa27388c8767c920212e63bb054ce82fbcf2c4af77a4b11905e6b9697173a",
+      "detalhes_sha256": "2fa435b947703ffc86548d3e2768f1136d2c05e976ec482615258b0383ed7ad1",
+      "bytecode": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/82/org.apache.commons.lang3.builder.ToStringStyle.class",
+      "detalhes": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/82/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.builder.ToStringStyle|appendInternal|(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;Z)V|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|239",
+      "classe": "org.apache.commons.lang3.builder.ToStringStyle",
+      "metodo": "appendInternal",
+      "descritor_jvm": "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;Z)V",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+      "indices": [
+        239
+      ],
+      "selecao_sha256": "0201a4ef46e4603d4ee477f02313f98b0d2bd73e0b0dca76bd40639e11505064",
+      "bytecode_sha256": "3844b42d2d0015bb3eb77731a6d39bd1255b69f54d15f418c07d704dcec8a842",
+      "original_sha256": "758fa27388c8767c920212e63bb054ce82fbcf2c4af77a4b11905e6b9697173a",
+      "detalhes_sha256": "595744fcf5c3170005e4ab5a3d23ec6f587fd23f7d0efdbdbdb2e0185e07793d",
+      "bytecode": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/196/org.apache.commons.lang3.builder.ToStringStyle.class",
+      "detalhes": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/196/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.builder.ToStringStyle|appendInternal|(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;Z)V|org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator|135",
+      "classe": "org.apache.commons.lang3.builder.ToStringStyle",
+      "metodo": "appendInternal",
+      "descritor_jvm": "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;Z)V",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indices": [
+        135
+      ],
+      "selecao_sha256": "046d8f8db3bad626d5da078c3074f46f229943c5e21a5f31d3f2f74eba4d21e5",
+      "bytecode_sha256": "831c5ccc5c1a48408e94f7c8d696eb6989963e6410412fbb3585c78d0ea55f8b",
+      "original_sha256": "758fa27388c8767c920212e63bb054ce82fbcf2c4af77a4b11905e6b9697173a",
+      "detalhes_sha256": "faa8c806422d9d208b04151930c70bf2e09c1a1e3716b7fb65d2d1795af213c4",
+      "bytecode": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/182/org.apache.commons.lang3.builder.ToStringStyle.class",
+      "detalhes": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/182/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.builder.ToStringStyle|appendInternal|(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;Z)V|org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator|46",
+      "classe": "org.apache.commons.lang3.builder.ToStringStyle",
+      "metodo": "appendInternal",
+      "descritor_jvm": "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;Z)V",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indices": [
+        46
+      ],
+      "selecao_sha256": "0503f0c25772f9a67209827088dbd602a48c0f651d8c7389c084c67961559f91",
+      "bytecode_sha256": "c044c3d0ef9a45e43623b51c8c3078a15849f56bf187417ddd1acb7ee95d0271",
+      "original_sha256": "758fa27388c8767c920212e63bb054ce82fbcf2c4af77a4b11905e6b9697173a",
+      "detalhes_sha256": "a6262e82fb3a26b04417eed015a68a1401184cc2efe0cc2357f99f5a52717633",
+      "bytecode": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/170/org.apache.commons.lang3.builder.ToStringStyle.class",
+      "detalhes": "export/org/apache/commons/lang3/builder/ToStringStyle/mutants/170/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    }
+  ]
+}
