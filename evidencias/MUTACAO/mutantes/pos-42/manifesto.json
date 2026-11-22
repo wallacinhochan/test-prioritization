@@ -1,0 +1,96 @@
+{
+  "protocolo": "tp-mutation-v1",
+  "posicao": 42,
+  "sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+  "pai": "e1da3a23a177e73a0d22ec95ac319d7956cf417a",
+  "imagem": "sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6",
+  "fonte_tar_sha256": "168d24acbd8c11896890a1124a940f577c19690faeafe9d4c2164924cc45b537",
+  "classes": [
+    "org.apache.commons.lang3.tuple.ImmutablePair",
+    "org.apache.commons.lang3.tuple.ImmutableTriple",
+    "org.apache.commons.lang3.tuple.MutableTriple",
+    "org.apache.commons.lang3.tuple.Pair",
+    "org.apache.commons.lang3.tuple.Triple"
+  ],
+  "pit": "1.19.4",
+  "pit_junit5": "1.2.3",
+  "semente": "tp-mutation-v1",
+  "congelado_utc": "2026-11-22T20:57:24.7396046+00:00",
+  "candidatos_csv_sha256": "2c7b7cdd7879d4ac9d8b9181280fe7f9f84906ddb3796bde821ba50d9af2c3dc",
+  "exportados": 65,
+  "elegiveis": 65,
+  "selecionados": [
+    {
+      "mutation_id": "org.apache.commons.lang3.tuple.ImmutableTriple|of|(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/tuple/ImmutableTriple;|org.pitest.mutationtest.engine.gregor.mutators.MathMutator|21",
+      "classe": "org.apache.commons.lang3.tuple.ImmutableTriple",
+      "metodo": "of",
+      "descritor_jvm": "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/tuple/ImmutableTriple;",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indices": [
+        21
+      ],
+      "selecao_sha256": "012c222131beeefe097d845aaf230a03f93e564cdd43a9231c0e4b4ca8c305ae",
+      "bytecode_sha256": "054ebe223ceae4b2d649a79a026e6b42ca550f01e77f3f599e2a0df28f30ecd1",
+      "original_sha256": "514c6890bb614aeebf6c1e7f7c27e94fa5533019bfe3874b0dd0a9478245a986",
+      "detalhes_sha256": "2598bfbb5ebd2741ea9bba692311b6b23c63b1d504ca66bd3e6241fa660aa62b",
+      "bytecode": "export/org/apache/commons/lang3/tuple/ImmutableTriple/mutants/6/org.apache.commons.lang3.tuple.ImmutableTriple.class",
+      "detalhes": "export/org/apache/commons/lang3/tuple/ImmutableTriple/mutants/6/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.tuple.Triple|toString|(Ljava/lang/String;)Ljava/lang/String;|org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator|22",
+      "classe": "org.apache.commons.lang3.tuple.Triple",
+      "metodo": "toString",
+      "descritor_jvm": "(Ljava/lang/String;)Ljava/lang/String;",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indices": [
+        22
+      ],
+      "selecao_sha256": "0540f0f657a7a08bcdac7ab1466afc2d388ace1c59d09a45c84b5b47ca6682bd",
+      "bytecode_sha256": "c6be318ac38d766e1e640f2a525cf00c832691244556524a0c02b37d1a3f55fd",
+      "original_sha256": "803dcecf1164e3d359f1a5709bfe6277e4d8bfaca4dc9cfea709c334d5d67804",
+      "detalhes_sha256": "5c2eeb43c9bc715c2736a2f2cd14e532b5f64fb521a9eff591a77901d6993af3",
+      "bytecode": "export/org/apache/commons/lang3/tuple/Triple/mutants/8/org.apache.commons.lang3.tuple.Triple.class",
+      "detalhes": "export/org/apache/commons/lang3/tuple/Triple/mutants/8/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.tuple.ImmutableTriple|getLeft|()Ljava/lang/Object;|org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator|5",
+      "classe": "org.apache.commons.lang3.tuple.ImmutableTriple",
+      "metodo": "getLeft",
+      "descritor_jvm": "()Ljava/lang/Object;",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indices": [
+        5
+      ],
+      "selecao_sha256": "05bd512f6e5d562389e89d2f7e6ebf3006cf95026b2a67cd3dcea16cde31ddbe",
+      "bytecode_sha256": "a0f973ea140bf9a758b6e2b5cdafbb0353ef959645d2897149f1858e880f5f3b",
+      "original_sha256": "514c6890bb614aeebf6c1e7f7c27e94fa5533019bfe3874b0dd0a9478245a986",
+      "detalhes_sha256": "3a7524e37f6902aad4f493fc8a7c0fb35471e12f00f6eda4d49220e0295cd467",
+      "bytecode": "export/org/apache/commons/lang3/tuple/ImmutableTriple/mutants/9/org.apache.commons.lang3.tuple.ImmutableTriple.class",
+      "detalhes": "export/org/apache/commons/lang3/tuple/ImmutableTriple/mutants/9/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.tuple.Pair|hashCode|()I|org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator|10",
+      "classe": "org.apache.commons.lang3.tuple.Pair",
+      "metodo": "hashCode",
+      "descritor_jvm": "()I",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indices": [
+        10
+      ],
+      "selecao_sha256": "0b1518f1fb5f75775166ad168eacf18eccda83039cdb1d95e598dff7128aa873",
+      "bytecode_sha256": "54e449d4b849ff3ae4e30267bf4f9ef471580fc4fd09548f26d541dd9eb370d8",
+      "original_sha256": "d9039c30335cb091f31fe3e4d43697c885e4ad24650e5d8123b087efe0fe59ec",
+      "detalhes_sha256": "454afaf78219b42a7aa7e44f8fc47a33b27220f442656cb86056415ac5f11695",
+      "bytecode": "export/org/apache/commons/lang3/tuple/Pair/mutants/9/org.apache.commons.lang3.tuple.Pair.class",
+      "detalhes": "export/org/apache/commons/lang3/tuple/Pair/mutants/9/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    }
+  ]
+}
