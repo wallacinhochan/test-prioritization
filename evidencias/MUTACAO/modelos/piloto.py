@@ -129,24 +129,30 @@ def aggregate(labels, mutations, methods):
     return totals
 
 
-def load_replay(position, selection, *, release=None):
-    require(position in DEVELOPMENT or (position == FINAL and release),
+def load_replay(position, selection, *, after_freeze=None):
+    require(position in DEVELOPMENT or (position == FINAL and after_freeze),
             'A posição 96 está fechada para leitura.')
     base = BASE.parent / 'mutantes'
-    public = base / f'pos-{position}'
-    summary_path = public / 'resumo.json'
-    if not summary_path.is_file():
+    public = (base / f'pos-{position}').relative_to(ROOT).as_posix()
+    summary_ref = f'{public}/resumo.json'
+    publication = git('log', '-1', '--format=%H', '--', summary_ref).decode().strip()
+    if not publication:
         return {'estado': 'resumo_indisponivel'}, None
-    summary_bytes = summary_path.read_bytes()
+    if after_freeze:
+        common_base = git('merge-base', publication, after_freeze).decode().strip()
+        require(publication != after_freeze and common_base == after_freeze,
+                'A publicação final deve suceder o congelamento.')
+    summary_bytes = git('show', f'{publication}:{summary_ref}')
     summary = json.loads(summary_bytes)
     sha = selection['sha']
     relative = f'local/{position}/rotulos.csv'
     require((summary['posicao'], summary['sha'], summary['rotulos']) ==
             (position, sha, relative), f'Resumo incompatível: {position}')
     label_path = base / relative
-    if not label_path.is_file() or not (public / 'manifesto.json').is_file():
-        return {'estado': 'dados_indisponiveis', 'resumo_sha256': digest(summary_bytes)}, None
-    manifest_bytes = (public / 'manifesto.json').read_bytes()
+    if not label_path.is_file():
+        return {'estado': 'dados_indisponiveis', 'publicacao_commit': publication,
+                'resumo_sha256': digest(summary_bytes)}, None
+    manifest_bytes = git('show', f'{publication}:{public}/manifesto.json')
     label_bytes = label_path.read_bytes()
     require(digest(manifest_bytes) == summary['manifesto_sha256']
             and digest(label_bytes) == summary['rotulos_sha256']
@@ -177,6 +183,7 @@ def load_replay(position, selection, *, release=None):
                ('equivalencia_controle', 'repeticao_coincidente', 'restauracao'))
     totals = aggregate(labels, mutations, selection['methods'])
     report = {'estado': 'disponivel' if gate else 'gate_insuficiente', 'sha': sha,
+              'publicacao_commit': publication,
               'resumo_sha256': digest(summary_bytes), 'manifesto_sha256': digest(manifest_bytes),
               'rotulos_sha256': digest(label_bytes), 'publicador_gate_aprovado': summary['gate_aprovado'],
               'variantes': len(mutations), 't0': denominators(totals, totals),
@@ -379,7 +386,7 @@ def final(run, commit, release):
     require(orders['T1'] == selection['selected'] and all(
         len(order) == len(orders['T1']) and set(order) == set(orders['T1'])
         for order in orders.values()), 'Ranking final diverge do conjunto T1.')
-    report, replay = load_replay(FINAL, selection, release=release)
+    report, replay = load_replay(FINAL, selection, after_freeze=commit)
     adequate = sufficiency({FINAL: report}, (FINAL,))
     result = {'natureza': 'mutacao_sintetica', 'congelamento': commit, 'liberacao': release,
               'posicao': report, 'teste_final': adequate,

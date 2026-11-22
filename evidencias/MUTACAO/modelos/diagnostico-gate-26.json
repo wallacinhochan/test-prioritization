@@ -10,6 +10,7 @@
     "26": {
       "estado": "disponivel",
       "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "publicacao_commit": "41318d967d7458851925312112224e5e00d01f43",
       "resumo_sha256": "00731dde7d0ee34ffeb006c8d6a9cabe65326627dd1d2e51f8c9840af193dcd7",
       "manifesto_sha256": "be1e9f200bf448595a502547abef6d5220d24a9fa29ed37eb8f7e372a97f68d6",
       "rotulos_sha256": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a",

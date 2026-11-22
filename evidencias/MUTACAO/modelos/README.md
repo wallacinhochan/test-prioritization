@@ -41,10 +41,10 @@ Depois da publicação coordenada pelo produtor:
 & $python "$modelos/piloto.py" final piloto-v1 --commit <sha-completo> --liberacao '<referência da liberação>'
 ```
 
-O comando final verifica o manifesto a partir do Git, os hashes dos artefatos locais, o código e a ordem antes de abrir o replay final. O teste final usa as predições gravadas no congelamento. Registre `teste-final.json` como evidência, inclusive se o teste final for insuficiente.
+O comando final verifica o manifesto a partir do Git, os hashes dos artefatos locais, o código e a ordem antes de abrir o replay final. O resumo publicado pelo produtor deve estar em um commit descendente do congelamento. O teste final usa as predições gravadas no congelamento. Registre `teste-final.json` como evidência, inclusive se o teste final for insuficiente.
 
 ## Diagnóstico inicial
 
 A posição 26 passou as verificações de controle, repetição e restauração no commit `41318d9`. Em T1, 12 falhas induzidas e 18.536 aprovações compõem um denominador de 18.548. Os 44 rótulos desconhecidos ficam de fora. Há alvo para 4.637 dos 4.648 métodos T1. No momento deste diagnóstico, 15, 42 e 50 ainda estavam sem resumo publicado. O treino e a validação ficaram pendentes. A execução `gate-26` registrou versões, contagens por escopo e SHA-256 consumidos. [Diagnóstico inicial](diagnostico-gate-26.json)
 
-Os seis testes verificam o alvo com lacunas, a detecção com lacunas, a ordenação ordinal, as entradas T1 congeladas, a barreira de leitura de 96 e um congelamento com dados de teste fabricados. O diagnóstico inicial usa o replay real da posição 26.
+Os sete testes verificam o alvo com lacunas, a detecção com lacunas, a ordenação ordinal, as entradas T1 congeladas, a barreira e a ordem de publicação de 96 e um congelamento com dados de teste fabricados. O diagnóstico inicial usa o replay real da posição 26.

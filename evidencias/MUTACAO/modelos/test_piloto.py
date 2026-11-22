@@ -42,6 +42,12 @@ class PilotoTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'fechada'):
                 piloto.load_replay(96, {})
 
+    def test_final_publication_must_follow_freeze_before_reading(self):
+        with patch.object(piloto, 'git', side_effect=[b'older\n', b'older\n']) as git:
+            with self.assertRaisesRegex(ValueError, 'suceder'):
+                piloto.load_replay(96, {}, after_freeze='freeze')
+        self.assertEqual([call.args[0] for call in git.call_args_list], ['log', 'merge-base'])
+
     def test_real_t1_inputs_are_integral(self):
         for pos, size in zip((*piloto.DEVELOPMENT, piloto.FINAL), (4647, 4648, 4653, 4653, 4659)):
             with self.subTest(pos=pos):
