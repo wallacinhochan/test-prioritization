@@ -34,3 +34,21 @@ Fallback inclui a suíte descoberta quando o diff contém Java removido ou outro
 A etapa de avaliação lê os conjuntos congelados no Git e verifica os hashes antes de abrir a matriz local. A projeção identifica uma detecção quando há ao menos uma falha induzida no escopo. Para concluir ausência de detecção, exige observação negativa em todos os métodos daquele escopo. Skip, falta de linha, ambiguidade e infraestrutura permanecem desconhecidos. A preservação é calculada entre os detectados por T0 com desfecho conhecido também em T1. O intervalo entre todos os detectados por T0 mostra o efeito dos casos T1 desconhecidos. Com denominador vazio, a taxa correspondente fica indisponível.
 
 A projeção sobre a matriz T0 não mede fisicamente o tempo da execução T1. A redução refere-se à quantidade de métodos. Os resultados sintéticos ficam fora do histórico da Entrega 3. A KAN-18 continua formalmente bloqueada pela KAN-12. [KAN-18](https://cin-team-test-prioritization.atlassian.net/browse/KAN-18)
+
+## Listas congeladas
+
+| Posição | Métodos de T0 | Métodos de T1 | Redução | Seletor (ms) |
+| ---: | ---: | ---: | ---: | ---: |
+| [15](congelado/15/manifesto.json) | 4.651 | 4.647 | 0,086% | 399 |
+| [26](congelado/26/manifesto.json) | 4.652 | 4.648 | 0,086% | 463 |
+| [42](congelado/42/manifesto.json) | 4.657 | 4.653 | 0,086% | 400 |
+| [50](congelado/50/manifesto.json) | 4.657 | 4.653 | 0,086% | 400 |
+| [96](congelado/96/manifesto.json) | 4.663 | 4.659 | 0,086% | 404 |
+
+O commit `78aa63f` fixou a posição 26 primeiro. As demais posições usam o mesmo seletor e ficam no commit de congelamento completo. Os cinco recortes preservaram caminhos de dependência e não acionaram fallback. A redução estreita vem do fechamento transitivo no nível de classe. Na posição 26, `BooleanUtilsTest → BooleanUtils → ObjectUtils → StringUtils → LocaleUtils` é um exemplo de rota compilada até o alvo.
+
+Para executar os testes locais de identidade, transitividade e preservação com observações incompletas:
+
+```powershell
+node --test evidencias/MUTACAO/t1/t1.test.mjs
+```

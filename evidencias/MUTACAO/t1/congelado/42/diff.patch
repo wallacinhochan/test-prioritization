@@ -1,0 +1,160 @@
+diff --git a/src/main/java/org/apache/commons/lang3/tuple/ImmutablePair.java b/src/main/java/org/apache/commons/lang3/tuple/ImmutablePair.java
+index f7fe6fc93862b67ca465b6ea5e7cb9db4493bc3b..07f18a8b8aca23f7394aa0c5045be81a43e49fde 100644
+--- a/src/main/java/org/apache/commons/lang3/tuple/ImmutablePair.java
++++ b/src/main/java/org/apache/commons/lang3/tuple/ImmutablePair.java
+@@ -70,9 +70,6 @@ public class ImmutablePair<L, R> extends Pair<L, R> {
+     /**
+      * Creates an immutable pair of two objects inferring the generic types.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type
+      * @param <R> the right element type
+      * @param left  the left element, may be null
+@@ -99,9 +96,6 @@ public class ImmutablePair<L, R> extends Pair<L, R> {
+     /**
+      * Creates an immutable pair of two objects inferring the generic types.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type
+      * @param <R> the right element type
+      * @param left  the left element, may be null
+@@ -115,9 +109,6 @@ public class ImmutablePair<L, R> extends Pair<L, R> {
+     /**
+      * Creates an immutable pair from a map entry.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type
+      * @param <R> the right element type
+      * @param pair the existing map entry.
+@@ -131,9 +122,6 @@ public class ImmutablePair<L, R> extends Pair<L, R> {
+     /**
+      * Creates an immutable pair of two non-null objects inferring the generic types.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type
+      * @param <R> the right element type
+      * @param left  the left element, may not be null
+@@ -149,9 +137,6 @@ public class ImmutablePair<L, R> extends Pair<L, R> {
+     /**
+      * Creates an immutable pair of two objects inferring the generic types.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type
+      * @param <R> the right element type
+      * @param right  the right element, may be null
+diff --git a/src/main/java/org/apache/commons/lang3/tuple/ImmutableTriple.java b/src/main/java/org/apache/commons/lang3/tuple/ImmutableTriple.java
+index 9daa711df442cf0f70c3a9c76d72df1402e2e232..19d91497afb00c4224fbaea8a78a71422c14ed22 100644
+--- a/src/main/java/org/apache/commons/lang3/tuple/ImmutableTriple.java
++++ b/src/main/java/org/apache/commons/lang3/tuple/ImmutableTriple.java
+@@ -85,9 +85,6 @@ public class ImmutableTriple<L, M, R> extends Triple<L, M, R> {
+     /**
+      * Creates an immutable triple of three objects inferring the generic types.
+      *
+-     * <p>This factory allows the triple to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <M> the middle element type.
+      * @param <R> the right element type.
+@@ -103,9 +100,6 @@ public class ImmutableTriple<L, M, R> extends Triple<L, M, R> {
+     /**
+      * Creates an immutable triple of three non-null objects inferring the generic types.
+      *
+-     * <p>This factory allows the triple to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <M> the middle element type.
+      * @param <R> the right element type.
+diff --git a/src/main/java/org/apache/commons/lang3/tuple/MutableTriple.java b/src/main/java/org/apache/commons/lang3/tuple/MutableTriple.java
+index 165cb2154990c4768161018223253cf2b6966a57..19335ebdc72ded4674ede7984ca4da20a543ae20 100644
+--- a/src/main/java/org/apache/commons/lang3/tuple/MutableTriple.java
++++ b/src/main/java/org/apache/commons/lang3/tuple/MutableTriple.java
+@@ -60,9 +60,6 @@ public class MutableTriple<L, M, R> extends Triple<L, M, R> {
+     /**
+      * Obtains a mutable triple of three objects inferring the generic types.
+      *
+-     * <p>This factory allows the triple to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <M> the middle element type.
+      * @param <R> the right element type.
+@@ -78,9 +75,6 @@ public class MutableTriple<L, M, R> extends Triple<L, M, R> {
+     /**
+      * Obtains a mutable triple of three non-null objects inferring the generic types.
+      *
+-     * <p>This factory allows the triple to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <M> the middle element type.
+      * @param <R> the right element type.
+diff --git a/src/main/java/org/apache/commons/lang3/tuple/Pair.java b/src/main/java/org/apache/commons/lang3/tuple/Pair.java
+index daff9ffbfab72aa98644677380ec86bcf651d84f..aff5d9506efbc71a37eaf3ba4396ca884617e534 100644
+--- a/src/main/java/org/apache/commons/lang3/tuple/Pair.java
++++ b/src/main/java/org/apache/commons/lang3/tuple/Pair.java
+@@ -70,9 +70,6 @@ public abstract class Pair<L, R> implements Map.Entry<L, R>, Comparable<Pair<L,
+     /**
+      * Creates an immutable pair of two objects inferring the generic types.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <R> the right element type.
+      * @param left  the left element, may be null.
+@@ -86,9 +83,6 @@ public abstract class Pair<L, R> implements Map.Entry<L, R>, Comparable<Pair<L,
+     /**
+      * Creates an immutable pair from a map entry.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <R> the right element type.
+      * @param pair the map entry.
+@@ -102,9 +96,6 @@ public abstract class Pair<L, R> implements Map.Entry<L, R>, Comparable<Pair<L,
+     /**
+      * Creates an immutable pair of two non-null objects inferring the generic types.
+      *
+-     * <p>This factory allows the pair to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <R> the right element type.
+      * @param left  the left element, may not be null.
+diff --git a/src/main/java/org/apache/commons/lang3/tuple/Triple.java b/src/main/java/org/apache/commons/lang3/tuple/Triple.java
+index 4bf08aab11b52419c6f6b6e6c0da97ebd86b1e4e..311f181c3fdcac139b79742eec6d5e2e21c1bf8b 100644
+--- a/src/main/java/org/apache/commons/lang3/tuple/Triple.java
++++ b/src/main/java/org/apache/commons/lang3/tuple/Triple.java
+@@ -68,9 +68,6 @@ public abstract class Triple<L, M, R> implements Comparable<Triple<L, M, R>>, Se
+     /**
+      * Obtains an immutable triple of three objects inferring the generic types.
+      *
+-     * <p>This factory allows the triple to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <M> the middle element type.
+      * @param <R> the right element type.
+@@ -86,9 +83,6 @@ public abstract class Triple<L, M, R> implements Comparable<Triple<L, M, R>>, Se
+     /**
+      * Obtains an immutable triple of three non-null objects inferring the generic types.
+      *
+-     * <p>This factory allows the triple to be created using inference to
+-     * obtain the generic types.</p>
+-     *
+      * @param <L> the left element type.
+      * @param <M> the middle element type.
+      * @param <R> the right element type.

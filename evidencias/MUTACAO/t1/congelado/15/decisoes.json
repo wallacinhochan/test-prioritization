@@ -1,0 +1,1894 @@
+{
+  "sementes": {
+    "org.apache.commons.lang3.builder.ToStringStyle": "src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java"
+  },
+  "fallback": [],
+  "rotas": {
+    "org.apache.commons.lang3.AbstractLangTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.AnnotationUtils": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.AnnotationUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.AppendableJoiner": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.AppendableJoinerTest": {
+      "destino": "org.apache.commons.lang3.text.StrBuilder",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.ArchUtils": {
+      "destino": "org.apache.commons.lang3.Streams",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.ArchUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayFillTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArraySorterTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayUtils": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayUtilsAddTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayUtilsInsertTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayUtilsRemoveMultipleTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayUtilsRemoveTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayUtilsSetTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ArrayUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.BitFieldTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.BooleanUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.BooleanUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CachedRandomBits": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.CachedRandomBitsTest": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.CharEncodingTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharRange": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.CharRangeTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharSequenceUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharSequenceUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharSet": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharSetTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharSetUtils": {
+      "destino": "org.apache.commons.lang3.Streams",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.CharSetUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharUtilsPerfRun": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.CharsetsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ClassLoaderUtils": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.ClassLoaderUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ClassNotFoundSerialization": {
+      "destino": "org.apache.commons.lang3.SerializationUtilsTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ClassPathUtils": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.ClassPathUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ClassUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ClassUtilsOssFuzzTest": {
+      "destino": "org.apache.commons.lang3.ClassUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ClassUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ConversionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.DoubleRange": {
+      "destino": "org.apache.commons.lang3.NumberRange",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.DoubleRangeTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.EnumUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.EnumUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.Functions": {
+      "destino": "org.apache.commons.lang3.Streams",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.FunctionsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.HashSetvBitSetTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.IntegerRange": {
+      "destino": "org.apache.commons.lang3.NumberRange",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.IntegerRangeTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.JavaVersion": {
+      "destino": "org.apache.commons.lang3.math.NumberUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.JavaVersionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.LocaleUtils": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.LocaleUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.LongRange": {
+      "destino": "org.apache.commons.lang3.NumberRange",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.LongRangeTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.NotImplementedExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.NumberRange": {
+      "destino": "org.apache.commons.lang3.Range",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ObjectUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ObjectUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RandomStringUtils": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RandomStringUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RandomUtils": {
+      "destino": "org.apache.commons.lang3.Validate",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RandomUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.Range": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.RangeTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RegExUtils": {
+      "destino": "org.apache.commons.lang3.ObjectUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RegExUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RuntimeEnvironment": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.RuntimeEnvironmentTest": {
+      "destino": "org.apache.commons.lang3.RuntimeEnvironment",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.SerializationUtils": {
+      "destino": "org.apache.commons.lang3.ClassUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.SerializationUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.Streams": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StreamsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringEscapeUtils": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringEscapeUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsAbbreviateTest": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsContainsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsEmptyBlankTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsEqualsIndexOfTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsIsMixedCaseTest": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsIsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsStartsEndsWithTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsSubstringTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsTrimStripTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringUtilsValueOfTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.Strings": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.StringsTest": {
+      "destino": "org.apache.commons.lang3.Strings",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.SystemProperties": {
+      "destino": "org.apache.commons.lang3.ClassUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.SystemPropertiesTest": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.SystemUtils": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.SystemUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ThreadUtils": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.ThreadUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.Validate": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.ValidateTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.AbstractSupplier": {
+      "destino": "org.apache.commons.lang3.Strings",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.builder.Builder": {
+      "destino": "org.apache.commons.lang3.builder.DiffBuilder",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.builder.CompareToBuilder": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.CompareToBuilderTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ConversionTest": {
+      "destino": "org.apache.commons.lang3.ConversionTest",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.builder.DefaultToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.Diff": {
+      "destino": "org.apache.commons.lang3.builder.DiffBuilder",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.builder.DiffBuilder": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.DiffBuilderTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.DiffResult": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.DiffResultTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.DiffTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.Diffable": {
+      "destino": "org.apache.commons.lang3.builder.DiffResult",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.EqualsBuilder": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.EqualsBuilderReflectJreImplementationTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.EqualsBuilderTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.HashCodeBuilder": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.HashCodeBuilderAndEqualsBuilderTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.HashCodeBuilderTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.JsonToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.MultiLineToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.MultilineRecursiveToStringStyle": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.MultilineRecursiveToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.NoClassNameToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.NoFieldNamesToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.RecursiveToStringStyle": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.RecursiveToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.Reflection": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.builder.ReflectionDiffBuilder": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionDiffBuilderTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilder": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderCustomImplementationTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeNullValuesTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeWithAnnotationTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderIncludeTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderSummaryTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.SimpleToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.StandardToStringStyle": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.StandardToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ToStringBuilder": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ToStringBuilderTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ToStringStyle": null,
+    "org.apache.commons.lang3.builder.ToStringStyleConcurrencyTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.builder.ToStringStyleTest": {
+      "destino": "org.apache.commons.lang3.builder.ToStringStyle",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.compare.ComparableUtils": {
+      "destino": "org.apache.commons.lang3.ObjectUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.compare.ComparableUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.compare.ObjectToStringComparatorTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializer": {
+      "destino": "org.apache.commons.lang3.exception.ExceptionUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerCloseAndExceptionsTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AbstractFutureProxy": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.AtomicInitializer": {
+      "destino": "org.apache.commons.lang3.builder.Builder",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.AtomicInitializerNonObjectTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AtomicInitializerObjectTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AtomicInitializerSupplierTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerCloseAndExceptionsTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AtomicSafeInitializer": {
+      "destino": "org.apache.commons.lang3.exception.ExceptionUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AtomicSafeInitializerSupplierTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerCloseAndExceptionsTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.BackgroundInitializer": {
+      "destino": "org.apache.commons.lang3.builder.Builder",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.BackgroundInitializerSupplierTest": {
+      "destino": "org.apache.commons.lang3.concurrent.BackgroundInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.BackgroundInitializerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.BasicThreadFactory": {
+      "destino": "org.apache.commons.lang3.builder.Builder",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.BasicThreadFactoryTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.CallableBackgroundInitializer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.CircuitBreakingExceptionTest": {
+      "destino": "org.apache.commons.lang3.exception.AbstractExceptionTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.Computable": {
+      "destino": "org.apache.commons.lang3.function.FailableFunction",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.ConcurrentException": {
+      "destino": "org.apache.commons.lang3.concurrent.ConcurrentUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.ConcurrentExceptionTest": {
+      "destino": "org.apache.commons.lang3.concurrent.ConcurrentException",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.ConcurrentInitializer": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializer",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.concurrent.ConcurrentRuntimeException": {
+      "destino": "org.apache.commons.lang3.concurrent.ConcurrentUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.ConcurrentRuntimeExceptionTest": {
+      "destino": "org.apache.commons.lang3.concurrent.ConcurrentRuntimeException",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.ConcurrentUtils": {
+      "destino": "org.apache.commons.lang3.Validate",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.ConcurrentUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.ConstantInitializer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.ConstantInitializerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.FutureTasksTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.LazyInitializer": {
+      "destino": "org.apache.commons.lang3.builder.Builder",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.LazyInitializerAnonClassTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.LazyInitializerCloserTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.LazyInitializerFailableCloserTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.LazyInitializerSimpleTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.LazyInitializerSingleInstanceTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.LazyInitializerSupplierTest": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerCloseAndExceptionsTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.Memoizer": {
+      "destino": "org.apache.commons.lang3.exception.ExceptionUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.MemoizerComputableTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.MemoizerFunctionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.MultiBackgroundInitializer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.concurrent.MultiBackgroundInitializerSupplierTest": {
+      "destino": "org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.ThresholdCircuitBreakerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.TimedSemaphore": {
+      "destino": "org.apache.commons.lang3.Validate",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.TimedSemaphoreTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.UncheckedExecutionExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.UncheckedFuture": {
+      "destino": "org.apache.commons.lang3.concurrent.UncheckedFutureImpl",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.UncheckedFutureImpl": {
+      "destino": "org.apache.commons.lang3.concurrent.AbstractFutureProxy",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.UncheckedFutureTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.UncheckedTimeoutExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.locks.LockingVisitors": {
+      "destino": "org.apache.commons.lang3.function.FailableFunction",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.concurrent.locks.LockingVisitorsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.event.EventListenerSupport": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.event.EventListenerSupportTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.event.EventUtils": {
+      "destino": "org.apache.commons.lang3.reflect.MethodUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.event.EventUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.AbstractExceptionContextTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.AbstractExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.CloneFailedExceptionTest": {
+      "destino": "org.apache.commons.lang3.exception.AbstractExceptionTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.ContextedException": {
+      "destino": "org.apache.commons.lang3.exception.DefaultExceptionContext",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.ContextedExceptionTest": {
+      "destino": "org.apache.commons.lang3.exception.AbstractExceptionContextTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.ContextedRuntimeException": {
+      "destino": "org.apache.commons.lang3.exception.DefaultExceptionContext",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest": {
+      "destino": "org.apache.commons.lang3.exception.AbstractExceptionContextTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.DefaultExceptionContext": {
+      "destino": "org.apache.commons.lang3.Strings",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.DefaultExceptionContextTest": {
+      "destino": "org.apache.commons.lang3.exception.AbstractExceptionContextTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.ExceptionContext": {
+      "destino": "org.apache.commons.lang3.exception.DefaultExceptionContext",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.exception.ExceptionUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.ExceptionUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.UncheckedExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.UncheckedIllegalAccessExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.UncheckedInterruptedExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.exception.UncheckedReflectiveOperationExceptionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.BooleanConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.BooleanConsumerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.ByteConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.ByteConsumerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.ConsumersTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.Failable": {
+      "destino": "org.apache.commons.lang3.Streams",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableBiConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableBiFunction": {
+      "destino": "org.apache.commons.lang3.function.FailableFunction",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.FailableBiPredicate": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableBooleanSupplier": {
+      "destino": "org.apache.commons.lang3.Functions",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableByteConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableCallable": {
+      "destino": "org.apache.commons.lang3.Functions",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableDoubleBinaryOperator": {
+      "destino": "org.apache.commons.lang3.function.Failable",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableDoubleConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableDoublePredicate": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableDoubleSupplier": {
+      "destino": "org.apache.commons.lang3.function.Failable",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableDoubleUnaryOperator": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableFunction": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableIntConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableIntPredicate": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableIntSupplier": {
+      "destino": "org.apache.commons.lang3.function.Failable",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableIntUnaryOperator": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableLongConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableLongPredicate": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableLongSupplier": {
+      "destino": "org.apache.commons.lang3.function.Failable",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableLongUnaryOperator": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailablePredicate": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FailableRunnable": {
+      "destino": "org.apache.commons.lang3.time.DurationUtils",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableShortSupplier": {
+      "destino": "org.apache.commons.lang3.function.Failable",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableSupplier": {
+      "destino": "org.apache.commons.lang3.Functions",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.function.FailableSupplierTest": {
+      "destino": "org.apache.commons.lang3.function.FailableSupplier",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.FailableTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.Functions": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.FunctionsTest": {
+      "destino": "org.apache.commons.lang3.FunctionsTest",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.IntToCharFunctionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodFixtures": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokers": {
+      "destino": "org.apache.commons.lang3.function.FailableFunction",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersBiConsumerTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersBiFunctionTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersFailableBiConsumerTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersFailableBiFunctionTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersFailableFunctionTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersFailableSupplierTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersFunctionTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.MethodInvokersSupplierTest": {
+      "destino": "org.apache.commons.lang3.function.MethodFixtures",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.Objects": {
+      "destino": "org.apache.commons.lang3.ObjectUtils",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.ObjectsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.SuppliersTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.ToBooleanBiFunctionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.TriConsumer": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.TriConsumerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.function.TriFunction": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.function.TriFunctionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.math.Fraction": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.math.FractionTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.math.IEEE754rUtils": {
+      "destino": "org.apache.commons.lang3.Validate",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.math.IEEE754rUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.math.NumberUtils": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.math.NumberUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.Mutable": {
+      "destino": "org.apache.commons.lang3.mutable.MutableBoolean",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.mutable.MutableBoolean": {
+      "destino": "org.apache.commons.lang3.BooleanUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableBooleanTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableByte": {
+      "destino": "org.apache.commons.lang3.mutable.Mutable",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableByteTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableDouble": {
+      "destino": "org.apache.commons.lang3.mutable.Mutable",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableDoubleTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableFloat": {
+      "destino": "org.apache.commons.lang3.mutable.Mutable",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableFloatTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableInt": {
+      "destino": "org.apache.commons.lang3.mutable.Mutable",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableIntTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableLong": {
+      "destino": "org.apache.commons.lang3.mutable.Mutable",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableLongTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableObject": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.mutable.MutableObjectTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableShort": {
+      "destino": "org.apache.commons.lang3.mutable.Mutable",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.MutableShortTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.mutable.PrintAtomicVsMutable": {
+      "destino": "org.apache.commons.lang3.time.DurationUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.ConstructorUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.ConstructorUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.FieldUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.FieldUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.InheritanceUtils": {
+      "destino": "org.apache.commons.lang3.BooleanUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.InheritanceUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.Lang1703Test": {
+      "destino": "org.apache.commons.lang3.reflect.TypeUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.MemberUtils": {
+      "destino": "org.apache.commons.lang3.ClassUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.MethodUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.MethodUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.TypeLiteral": {
+      "destino": "org.apache.commons.lang3.Validate",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.TypeLiteralTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.TypeUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.TypeUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.reflect.Typed": {
+      "destino": "org.apache.commons.lang3.reflect.TypeLiteral",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.stream.FailableStreamTest": {
+      "destino": "org.apache.commons.lang3.Streams",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.stream.IntStreamsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.stream.LangCollectors": {
+      "destino": "org.apache.commons.lang3.Streams",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.stream.LangCollectorsTest": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.stream.Streams": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.stream.StreamsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.CompositeFormatTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.ExtendedMessageFormat": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.ExtendedMessageFormatTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.FormatFactory": {
+      "destino": "org.apache.commons.lang3.text.ExtendedMessageFormat",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.text.FormattableUtils": {
+      "destino": "org.apache.commons.lang3.ObjectUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.FormattableUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrBuilder": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrBuilderAppendInsertTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrBuilderTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrLookup": {
+      "destino": "org.apache.commons.lang3.SystemProperties",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrLookupTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrMatcher": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrMatcherTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrSubstitutor": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrSubstitutorTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrTokenizer": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.StrTokenizerTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.WordUtils": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.WordUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.AggregateTranslator": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.CharSequenceTranslator": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.CodePointTranslator": {
+      "destino": "org.apache.commons.lang3.text.translate.CharSequenceTranslator",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.EntityArraysTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.JavaUnicodeEscaper": {
+      "destino": "org.apache.commons.lang3.text.translate.UnicodeEscaper",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.LookupTranslator": {
+      "destino": "org.apache.commons.lang3.text.translate.CharSequenceTranslator",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.LookupTranslatorTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.NumericEntityEscaper": {
+      "destino": "org.apache.commons.lang3.text.translate.CodePointTranslator",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.NumericEntityEscaperTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.NumericEntityUnescaper": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.OctalUnescaper": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.OctalUnescaperTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.UnicodeEscaper": {
+      "destino": "org.apache.commons.lang3.text.translate.CodePointTranslator",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.UnicodeEscaperTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.UnicodeUnescaper": {
+      "destino": "org.apache.commons.lang3.text.translate.CharSequenceTranslator",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.UnicodeUnescaperTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemover": {
+      "destino": "org.apache.commons.lang3.text.translate.CodePointTranslator",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.AbstractFormatCache": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.time.CalendarUtils": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.time.CalendarUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DateFormatUtils": {
+      "destino": "org.apache.commons.lang3.time.FastDateFormat",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DateFormatUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DateParser": {
+      "destino": "org.apache.commons.lang3.time.FastDateParser",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.time.DatePrinter": {
+      "destino": "org.apache.commons.lang3.time.FastDatePrinter",
+      "evidencia": "supertipo"
+    },
+    "org.apache.commons.lang3.time.DateUtils": {
+      "destino": "org.apache.commons.lang3.time.FastDateParser",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DateUtilsFragmentTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DateUtilsRoundingTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DateUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DurationFormatUtils": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DurationUtils": {
+      "destino": "org.apache.commons.lang3.ObjectUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.DurationUtilsTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateFormat": {
+      "destino": "org.apache.commons.lang3.time.FastDateParser",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateFormatTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateFormat_PrinterTest": {
+      "destino": "org.apache.commons.lang3.time.FastDatePrinterTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateParser": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateParserSDFTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateParserTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDateParser_TimeZoneStrategyTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDatePrinter": {
+      "destino": "org.apache.commons.lang3.CharUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDatePrinterTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastDatePrinterTimeZonesTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastTimeZone": {
+      "destino": "org.apache.commons.lang3.time.GmtTimeZone",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.FastTimeZoneTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.GmtTimeZone": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.time.GmtTimeZoneTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.Java15BugFastDateParserTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.StopWatch": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.StopWatchTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.TimeZones": {
+      "destino": "org.apache.commons.lang3.ObjectUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.TimeZonesTest": {
+      "destino": "org.apache.commons.lang3.time.TimeZones",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.time.WeekYearTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.ImmutablePair": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.tuple.ImmutablePairTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.ImmutableTriple": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.tuple.ImmutableTripleTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.MutablePair": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.tuple.MutablePairTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.MutableTriple": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.tuple.MutableTripleTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.Pair": {
+      "destino": "org.apache.commons.lang3.builder.CompareToBuilder",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.PairTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.Triple": {
+      "destino": "org.apache.commons.lang3.builder.CompareToBuilder",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.tuple.TripleTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.util.FluentBitSet": {
+      "destino": "org.apache.commons.lang3.function.Objects",
+      "evidencia": "fonte"
+    },
+    "org.apache.commons.lang3.util.FluentBitSetTest": {
+      "destino": "org.apache.commons.lang3.AbstractLangTest",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.util.IterableStringTokenizer": {
+      "destino": "org.apache.commons.lang3.ArrayUtils",
+      "evidencia": "bytecode"
+    },
+    "org.apache.commons.lang3.util.IterableStringTokenizerTest": {
+      "destino": "org.apache.commons.lang3.StringUtils",
+      "evidencia": "bytecode"
+    }
+  },
+  "classes_de_execucao": {
+    "org.apache.commons.lang3.AnnotationUtilsTest": "dependency",
+    "org.apache.commons.lang3.AppendableJoinerTest": "dependency",
+    "org.apache.commons.lang3.ArchUtilsTest": "dependency",
+    "org.apache.commons.lang3.ArrayFillTest": "dependency",
+    "org.apache.commons.lang3.ArraySorterTest": "dependency",
+    "org.apache.commons.lang3.ArrayUtilsAddTest": "dependency",
+    "org.apache.commons.lang3.ArrayUtilsInsertTest": "dependency",
+    "org.apache.commons.lang3.ArrayUtilsRemoveMultipleTest": "dependency",
+    "org.apache.commons.lang3.ArrayUtilsRemoveTest": "dependency",
+    "org.apache.commons.lang3.ArrayUtilsSetTest": "dependency",
+    "org.apache.commons.lang3.ArrayUtilsTest": "dependency",
+    "org.apache.commons.lang3.BitFieldTest": "dependency",
+    "org.apache.commons.lang3.BooleanUtilsTest": "dependency",
+    "org.apache.commons.lang3.CachedRandomBitsTest": "dependency",
+    "org.apache.commons.lang3.CharEncodingTest": "dependency",
+    "org.apache.commons.lang3.CharRangeTest": "dependency",
+    "org.apache.commons.lang3.CharSequenceUtilsTest": "dependency",
+    "org.apache.commons.lang3.CharSetTest": "dependency",
+    "org.apache.commons.lang3.CharSetUtilsTest": "dependency",
+    "org.apache.commons.lang3.CharUtilsTest": "dependency",
+    "org.apache.commons.lang3.CharsetsTest": "dependency",
+    "org.apache.commons.lang3.ClassLoaderUtilsTest": "dependency",
+    "org.apache.commons.lang3.ClassPathUtilsTest": "dependency",
+    "org.apache.commons.lang3.ClassUtilsOssFuzzTest": "dependency",
+    "org.apache.commons.lang3.ClassUtilsTest": "dependency",
+    "org.apache.commons.lang3.ConversionTest": "dependency",
+    "org.apache.commons.lang3.DoubleRangeTest": "dependency",
+    "org.apache.commons.lang3.EnumUtilsTest": "dependency",
+    "org.apache.commons.lang3.FunctionsTest": "dependency",
+    "org.apache.commons.lang3.IntegerRangeTest": "dependency",
+    "org.apache.commons.lang3.JavaVersionTest": "dependency",
+    "org.apache.commons.lang3.LocaleUtilsTest": "dependency",
+    "org.apache.commons.lang3.LongRangeTest": "dependency",
+    "org.apache.commons.lang3.NotImplementedExceptionTest": "dependency",
+    "org.apache.commons.lang3.ObjectUtilsTest": "dependency",
+    "org.apache.commons.lang3.RandomStringUtilsTest": "dependency",
+    "org.apache.commons.lang3.RandomUtilsTest": "dependency",
+    "org.apache.commons.lang3.RangeTest": "dependency",
+    "org.apache.commons.lang3.RegExUtilsTest": "dependency",
+    "org.apache.commons.lang3.RuntimeEnvironmentTest": "dependency",
+    "org.apache.commons.lang3.SerializationUtilsTest": "dependency",
+    "org.apache.commons.lang3.StreamsTest": "dependency",
+    "org.apache.commons.lang3.StringEscapeUtilsTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsAbbreviateTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsContainsTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsEmptyBlankTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsEqualsIndexOfTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsIsTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsStartsEndsWithTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsSubstringTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsTrimStripTest": "dependency",
+    "org.apache.commons.lang3.StringUtilsValueOfTest": "dependency",
+    "org.apache.commons.lang3.StringsTest": "dependency",
+    "org.apache.commons.lang3.SystemPropertiesTest": "dependency",
+    "org.apache.commons.lang3.SystemUtilsTest": "dependency",
+    "org.apache.commons.lang3.ThreadUtilsTest": "dependency",
+    "org.apache.commons.lang3.ValidateTest": "dependency",
+    "org.apache.commons.lang3.builder.CompareToBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.ConversionTest": "dependency",
+    "org.apache.commons.lang3.builder.DefaultToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.DiffBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.DiffResultTest": "dependency",
+    "org.apache.commons.lang3.builder.DiffTest": "dependency",
+    "org.apache.commons.lang3.builder.EqualsBuilderReflectJreImplementationTest": "dependency",
+    "org.apache.commons.lang3.builder.EqualsBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.HashCodeBuilderAndEqualsBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.HashCodeBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.IDKeyTest": "no_dependency",
+    "org.apache.commons.lang3.builder.JsonToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.MultiLineToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.MultilineRecursiveToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.NoClassNameToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.NoFieldNamesToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.RecursiveToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionDiffBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderCustomImplementationTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeNullValuesTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeWithAnnotationTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderIncludeTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderSummaryTest": "dependency",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.SimpleToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.StandardToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.builder.ToStringBuilderTest": "dependency",
+    "org.apache.commons.lang3.builder.ToStringStyleConcurrencyTest": "dependency",
+    "org.apache.commons.lang3.builder.ToStringStyleTest": "dependency",
+    "org.apache.commons.lang3.compare.ComparableUtilsTest": "dependency",
+    "org.apache.commons.lang3.compare.ObjectToStringComparatorTest": "dependency",
+    "org.apache.commons.lang3.concurrent.AtomicInitializerNonObjectTest": "dependency",
+    "org.apache.commons.lang3.concurrent.AtomicInitializerObjectTest": "dependency",
+    "org.apache.commons.lang3.concurrent.AtomicInitializerSupplierTest": "dependency",
+    "org.apache.commons.lang3.concurrent.AtomicSafeInitializerSupplierTest": "dependency",
+    "org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest": "dependency",
+    "org.apache.commons.lang3.concurrent.BackgroundInitializerSupplierTest": "dependency",
+    "org.apache.commons.lang3.concurrent.BackgroundInitializerTest": "dependency",
+    "org.apache.commons.lang3.concurrent.BasicThreadFactoryTest": "dependency",
+    "org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest": "dependency",
+    "org.apache.commons.lang3.concurrent.CircuitBreakingExceptionTest": "dependency",
+    "org.apache.commons.lang3.concurrent.ConcurrentExceptionTest": "dependency",
+    "org.apache.commons.lang3.concurrent.ConcurrentRuntimeExceptionTest": "dependency",
+    "org.apache.commons.lang3.concurrent.ConcurrentUtilsTest": "dependency",
+    "org.apache.commons.lang3.concurrent.ConstantInitializerTest": "dependency",
+    "org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest": "dependency",
+    "org.apache.commons.lang3.concurrent.FutureTasksTest": "dependency",
+    "org.apache.commons.lang3.concurrent.LazyInitializerAnonClassTest": "dependency",
+    "org.apache.commons.lang3.concurrent.LazyInitializerCloserTest": "dependency",
+    "org.apache.commons.lang3.concurrent.LazyInitializerFailableCloserTest": "dependency",
+    "org.apache.commons.lang3.concurrent.LazyInitializerSimpleTest": "dependency",
+    "org.apache.commons.lang3.concurrent.LazyInitializerSingleInstanceTest": "dependency",
+    "org.apache.commons.lang3.concurrent.LazyInitializerSupplierTest": "dependency",
+    "org.apache.commons.lang3.concurrent.MemoizerComputableTest": "dependency",
+    "org.apache.commons.lang3.concurrent.MemoizerFunctionTest": "dependency",
+    "org.apache.commons.lang3.concurrent.MultiBackgroundInitializerSupplierTest": "dependency",
+    "org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest": "dependency",
+    "org.apache.commons.lang3.concurrent.ThresholdCircuitBreakerTest": "dependency",
+    "org.apache.commons.lang3.concurrent.TimedSemaphoreTest": "dependency",
+    "org.apache.commons.lang3.concurrent.UncheckedExecutionExceptionTest": "dependency",
+    "org.apache.commons.lang3.concurrent.UncheckedFutureTest": "dependency",
+    "org.apache.commons.lang3.concurrent.UncheckedTimeoutExceptionTest": "dependency",
+    "org.apache.commons.lang3.concurrent.locks.LockingVisitorsTest": "dependency",
+    "org.apache.commons.lang3.event.EventListenerSupportTest": "dependency",
+    "org.apache.commons.lang3.event.EventUtilsTest": "dependency",
+    "org.apache.commons.lang3.exception.CloneFailedExceptionTest": "dependency",
+    "org.apache.commons.lang3.exception.ContextedExceptionTest": "dependency",
+    "org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest": "dependency",
+    "org.apache.commons.lang3.exception.DefaultExceptionContextTest": "dependency",
+    "org.apache.commons.lang3.exception.ExceptionUtilsTest": "dependency",
+    "org.apache.commons.lang3.exception.UncheckedExceptionTest": "dependency",
+    "org.apache.commons.lang3.exception.UncheckedIllegalAccessExceptionTest": "dependency",
+    "org.apache.commons.lang3.exception.UncheckedInterruptedExceptionTest": "dependency",
+    "org.apache.commons.lang3.exception.UncheckedReflectiveOperationExceptionTest": "dependency",
+    "org.apache.commons.lang3.function.BooleanConsumerTest": "dependency",
+    "org.apache.commons.lang3.function.ByteConsumerTest": "dependency",
+    "org.apache.commons.lang3.function.ByteSupplierTest": "no_dependency",
+    "org.apache.commons.lang3.function.ConsumersTest": "dependency",
+    "org.apache.commons.lang3.function.FailableSupplierTest": "dependency",
+    "org.apache.commons.lang3.function.FailableTest": "dependency",
+    "org.apache.commons.lang3.function.FunctionsTest": "dependency",
+    "org.apache.commons.lang3.function.IntToCharFunctionTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersBiConsumerTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersBiFunctionTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersFailableBiConsumerTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersFailableBiFunctionTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersFailableFunctionTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersFailableSupplierTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersFunctionTest": "dependency",
+    "org.apache.commons.lang3.function.MethodInvokersSupplierTest": "dependency",
+    "org.apache.commons.lang3.function.ObjectsTest": "dependency",
+    "org.apache.commons.lang3.function.PredicatesTest": "no_dependency",
+    "org.apache.commons.lang3.function.SuppliersTest": "dependency",
+    "org.apache.commons.lang3.function.ToBooleanBiFunctionTest": "dependency",
+    "org.apache.commons.lang3.function.TriConsumerTest": "dependency",
+    "org.apache.commons.lang3.function.TriFunctionTest": "dependency",
+    "org.apache.commons.lang3.math.FractionTest": "dependency",
+    "org.apache.commons.lang3.math.IEEE754rUtilsTest": "dependency",
+    "org.apache.commons.lang3.math.NumberUtilsTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableBooleanTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableByteTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableDoubleTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableFloatTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableIntTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableLongTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableObjectTest": "dependency",
+    "org.apache.commons.lang3.mutable.MutableShortTest": "dependency",
+    "org.apache.commons.lang3.reflect.ConstructorUtilsTest": "dependency",
+    "org.apache.commons.lang3.reflect.FieldUtilsTest": "dependency",
+    "org.apache.commons.lang3.reflect.InheritanceUtilsTest": "dependency",
+    "org.apache.commons.lang3.reflect.Lang1703Test": "dependency",
+    "org.apache.commons.lang3.reflect.MethodUtilsTest": "dependency",
+    "org.apache.commons.lang3.reflect.TypeLiteralTest": "dependency",
+    "org.apache.commons.lang3.reflect.TypeUtilsTest": "dependency",
+    "org.apache.commons.lang3.stream.FailableStreamTest": "dependency",
+    "org.apache.commons.lang3.stream.IntStreamsTest": "dependency",
+    "org.apache.commons.lang3.stream.LangCollectorsTest": "dependency",
+    "org.apache.commons.lang3.stream.StreamsTest": "dependency",
+    "org.apache.commons.lang3.text.CompositeFormatTest": "dependency",
+    "org.apache.commons.lang3.text.ExtendedMessageFormatTest": "dependency",
+    "org.apache.commons.lang3.text.FormattableUtilsTest": "dependency",
+    "org.apache.commons.lang3.text.StrBuilderAppendInsertTest": "dependency",
+    "org.apache.commons.lang3.text.StrBuilderTest": "dependency",
+    "org.apache.commons.lang3.text.StrLookupTest": "dependency",
+    "org.apache.commons.lang3.text.StrMatcherTest": "dependency",
+    "org.apache.commons.lang3.text.StrSubstitutorTest": "dependency",
+    "org.apache.commons.lang3.text.StrTokenizerTest": "dependency",
+    "org.apache.commons.lang3.text.WordUtilsTest": "dependency",
+    "org.apache.commons.lang3.text.translate.EntityArraysTest": "dependency",
+    "org.apache.commons.lang3.text.translate.LookupTranslatorTest": "dependency",
+    "org.apache.commons.lang3.text.translate.NumericEntityEscaperTest": "dependency",
+    "org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest": "dependency",
+    "org.apache.commons.lang3.text.translate.OctalUnescaperTest": "dependency",
+    "org.apache.commons.lang3.text.translate.UnicodeEscaperTest": "dependency",
+    "org.apache.commons.lang3.text.translate.UnicodeUnescaperTest": "dependency",
+    "org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest": "dependency",
+    "org.apache.commons.lang3.time.CalendarUtilsTest": "dependency",
+    "org.apache.commons.lang3.time.DateFormatUtilsTest": "dependency",
+    "org.apache.commons.lang3.time.DateUtilsFragmentTest": "dependency",
+    "org.apache.commons.lang3.time.DateUtilsRoundingTest": "dependency",
+    "org.apache.commons.lang3.time.DateUtilsTest": "dependency",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest": "dependency",
+    "org.apache.commons.lang3.time.DurationUtilsTest": "dependency",
+    "org.apache.commons.lang3.time.FastDateFormatTest": "dependency",
+    "org.apache.commons.lang3.time.FastDateFormat_PrinterTest": "dependency",
+    "org.apache.commons.lang3.time.FastDateParserSDFTest": "dependency",
+    "org.apache.commons.lang3.time.FastDateParserTest": "dependency",
+    "org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest": "dependency",
+    "org.apache.commons.lang3.time.FastDateParser_TimeZoneStrategyTest": "dependency",
+    "org.apache.commons.lang3.time.FastDatePrinterTest": "dependency",
+    "org.apache.commons.lang3.time.FastDatePrinterTimeZonesTest": "dependency",
+    "org.apache.commons.lang3.time.FastTimeZoneTest": "dependency",
+    "org.apache.commons.lang3.time.GmtTimeZoneTest": "dependency",
+    "org.apache.commons.lang3.time.Java15BugFastDateParserTest": "dependency",
+    "org.apache.commons.lang3.time.StopWatchTest": "dependency",
+    "org.apache.commons.lang3.time.TimeZonesTest": "dependency",
+    "org.apache.commons.lang3.time.WeekYearTest": "dependency",
+    "org.apache.commons.lang3.tuple.ImmutablePairTest": "dependency",
+    "org.apache.commons.lang3.tuple.ImmutableTripleTest": "dependency",
+    "org.apache.commons.lang3.tuple.MutablePairTest": "dependency",
+    "org.apache.commons.lang3.tuple.MutableTripleTest": "dependency",
+    "org.apache.commons.lang3.tuple.PairTest": "dependency",
+    "org.apache.commons.lang3.tuple.TripleTest": "dependency",
+    "org.apache.commons.lang3.util.FluentBitSetTest": "dependency",
+    "org.apache.commons.lang3.util.IterableStringTokenizerTest": "dependency"
+  }
+}

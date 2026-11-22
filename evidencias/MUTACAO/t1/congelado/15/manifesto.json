@@ -1,0 +1,41 @@
+{
+  "protocolo": "af6bdfc",
+  "contrato": "0.1.0",
+  "seletor": "1.0.0",
+  "posicao": 15,
+  "sha": "970e4d66452c146165233129c913616ff666ff77",
+  "pai": "d96a28a7e282e090dba3f54779e78db6e68c7107",
+  "ordem": "test_id crescente (ordem ordinal, sensível a maiúsculas), todas as prioridades empatadas",
+  "inventario": "JUnit Launcher.discover, filtros do pom efetivo, árvore Git e classpath da mesma revisão",
+  "imagem": "sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6",
+  "candidatos": 4651,
+  "selecionados": 4647,
+  "fallback": [],
+  "custo": {
+    "ns": 399068700,
+    "ms": 399,
+    "node": "v24.15.0",
+    "plataforma": "win32",
+    "arquitetura": "x64",
+    "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+    "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+  },
+  "entradas_sha256": {
+    "fonte.tar": "855a5c8c500ae5eb5f573f5224d16bc874364e09110f57d29117e1eb2d997e0b",
+    "pom-efetivo.xml": "b8a8e3be52445e2a6050ec3aff608c22cddad14d5937a89214bfe14dd4568be7",
+    "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+    "classes.txt": "8a79b9606101b26c71cbb46001fe8805caeba272a9d12b0589429f7c195d96db",
+    "metodos.tsv": "36079a382a8d97855b4a6a7356676fc68cf488ae782ef1f1fda551712b2203b7",
+    "jdeps.txt": "8f4b3e6a680a0c13eed81b412daa9d5f1a107d10ce3ad5e897cb78708d1d2aad",
+    "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+    "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+    "descoberta.log": "24f1139b2db79ecc72e106a43f779f2c991a6d74b66fc09755f5eb058fd37e7a"
+  },
+  "saidas_sha256": {
+    "diff.patch": "5429a7197bb964862ed4856a9db29a5ecc2c2c3769b46cd51e61a54953741698",
+    "selection.csv": "0518239704c8ad7f30430c85e02a4547125b9435eb136530c696e0fa8a094a2b",
+    "rankings.csv": "9c362f9970feab91c1a7ff851929077d7f3dd49d38f2dc31adf400da252cdf17",
+    "overhead.csv": "2a1d2f283c27588ab1a26fa161c727e971217c03a602abc1c862f072bc9d23b5",
+    "decisoes.json": "cbd450b104833a700952f45bc1209ff1a5585c61d5adb4f411fe41e6186f76ab"
+  }
+}
