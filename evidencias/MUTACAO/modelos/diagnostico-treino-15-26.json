@@ -1,0 +1,102 @@
+{
+  "versao": 1,
+  "natureza": "mutacao_sintetica",
+  "t1_commit": "0d3cd01e68bf223eca124332f74d4486ae6bd6f7",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "posicoes": {
+    "15": {
+      "estado": "disponivel",
+      "sha": "970e4d66452c146165233129c913616ff666ff77",
+      "publicacao_commit": "90f3143568981bc996243b31e97d477f9e2ab897",
+      "resumo_sha256": "dd870f0009ee82451d8125fcc06338e1d9d398343de2e3f6c33cadfcd4070930",
+      "manifesto_sha256": "ebb697cc6761c1de4303b4a2fb08ba47134c96b027a1468e5322cacb698f918a",
+      "rotulos_sha256": "f81969be798296d6d1cf5167a78e2b8fa60b1c4d0cb4ef0c7ce5f9734946175f",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 280,
+        "pass": 18280,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18560,
+        "metodos": 4651,
+        "metodos_com_alvo": 4640
+      },
+      "t1": {
+        "induced_failure": 280,
+        "pass": 18264,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18544,
+        "metodos": 4647,
+        "metodos_com_alvo": 4636
+      }
+    },
+    "26": {
+      "estado": "disponivel",
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "publicacao_commit": "41318d967d7458851925312112224e5e00d01f43",
+      "resumo_sha256": "00731dde7d0ee34ffeb006c8d6a9cabe65326627dd1d2e51f8c9840af193dcd7",
+      "manifesto_sha256": "be1e9f200bf448595a502547abef6d5220d24a9fa29ed37eb8f7e372a97f68d6",
+      "rotulos_sha256": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 12,
+        "pass": 18552,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18564,
+        "metodos": 4652,
+        "metodos_com_alvo": 4641
+      },
+      "t1": {
+        "induced_failure": 12,
+        "pass": 18536,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18548,
+        "metodos": 4648,
+        "metodos_com_alvo": 4637
+      }
+    },
+    "42": {
+      "estado": "resumo_indisponivel"
+    },
+    "50": {
+      "estado": "resumo_indisponivel"
+    }
+  },
+  "treino": {
+    "induced_failure": 292,
+    "pass": 36800,
+    "unknown": 88,
+    "ausente": 0,
+    "denominador": 37092,
+    "metodos": 9295,
+    "metodos_com_alvo": 9273,
+    "posicoes": [
+      15,
+      26,
+      42
+    ],
+    "suficiente": false
+  },
+  "validacao": {
+    "induced_failure": 0,
+    "pass": 0,
+    "unknown": 0,
+    "ausente": 0,
+    "denominador": 0,
+    "metodos": 0,
+    "metodos_com_alvo": 0,
+    "posicoes": [
+      50
+    ],
+    "suficiente": false
+  },
+  "artefatos_sha256": {
+    "alvos-15.csv": "6ef61b4b92d297d39c0201684877f13a39ed1e96c3414ed49b49c1bc04330b44",
+    "alvos-26.csv": "2a94abf5a8a957738780dedbbe2846d8f4764cf585156e75bd1447312db17cad"
+  }
+}
