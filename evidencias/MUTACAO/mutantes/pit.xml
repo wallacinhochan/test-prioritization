@@ -13,11 +13,14 @@
           <features><feature>+EXPORT</feature></features>
           <mutators><mutator>DEFAULTS</mutator></mutators>
           <outputFormats><outputFormat>XML</outputFormat></outputFormats>
+          <parseSurefireConfig>false</parseSurefireConfig>
+          <skipFailingTests>true</skipFailingTests>
           <threads>1</threads>
           <timestampedReports>false</timestampedReports>
           <reportsDirectory>/evidencia/pit/exportacao</reportsDirectory>
           <jvmArgs>
             <jvmArg>-Duser.timezone=UTC</jvmArg>
+            <jvmArg>-Xmx512m</jvmArg>
             <jvmArg>--add-opens=java.base/java.lang.reflect=ALL-UNNAMED</jvmArg>
             <jvmArg>--add-opens=java.base/java.lang=ALL-UNNAMED</jvmArg>
             <jvmArg>--add-opens=java.base/java.util=ALL-UNNAMED</jvmArg>

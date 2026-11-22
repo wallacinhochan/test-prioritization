@@ -10,6 +10,27 @@ Primeiro gate na posição 26, SHA `04cc0339d6510ffdcb47db4676c34b40ecff6b28`. O
 4. Recriar uma cópia da árvore compilada para cada execução. Reproduzir as metas JaCoCo e Surefire com as configurações das execuções originais. Comparar o controle completo com a execução intacta reutilizando os binários. Preservar a classe original, os XML, logs, códigos de saída e hashes. Verificar os rótulos da primeira variante repetida e repetir o controle após restaurar o bytecode.
 5. Associar invocações pelas regras da [KAN-17](../../KAN-17/README.md). Publicar o gate quando controle, positivo, negativo, repetição e restauração forem verificados. A posição 96 fica com publicação pendente até o congelamento do modelo.
 
-## Estado
+## Reprodução
 
-Gate da posição 26 em preparação.
+Na raiz do repositório, use PowerShell 7.5, o clone da auditoria e acesso autorizado ao Docker. Passe `-Fonte` se o clone estiver em outro caminho.
+
+```powershell
+$mutantes = './evidencias/MUTACAO/mutantes'
+& "$mutantes/executar.ps1" -Posicao 26 -Fase controle
+& "$mutantes/executar.ps1" -Posicao 26 -Fase pit
+& "$mutantes/manifestar.ps1" -Posicao 26
+# Versione os candidatos e o manifesto antes de iniciar os replays.
+& "$mutantes/executar.ps1" -Posicao 26 -Fase replay
+& "$mutantes/rotular.ps1" -Posicao 26
+& "$mutantes/executar.ps1" -Posicao 26 -Fase encerrar
+```
+
+O contêiner próprio de cada revisão preserva a árvore compilada de referência. Cada replay recria `/trabalho` a partir dessa árvore, remove relatórios e cobertura anteriores, verifica os hashes da classe original e da variante e executa em novo processo Maven com o fork padrão do Surefire. As metas usam as execuções `prepare-agent` do JaCoCo 0.8.13 e `default-test` do Surefire 3.5.4. A execução intacta verifica Java, fuso, classpath, argumentos JVM registrados pelo JaCoCo e o conjunto de invocações com os respectivos desfechos. Os hashes da árvore de testes e dos binários são comparados antes e depois de cada substituição e restauração.
+
+O identificador do mutante concatena classe binária, método, descritor JVM, mutador e índices do PIT, usando `|` entre os campos. A seleção usa o primeiro representante por classe e hash seguindo a ordem do hash com a semente. Também exclui candidatos cujo bytecode tem o hash do original e mutações com mais de um índice. `pos-<posição>/candidatos.csv` e `manifesto.json` preservam a seleção e apontam para os dados em `local/<posição>/pit/`.
+
+## Posição 26
+
+O controle limpo produziu 59.452 invocações em 227 XML, com 59.439 aprovações, 13 skips e zero falhas ou erros. O SHA-256 do arquivo fonte coincide com o registrado pela KAN-14. O controle levou 324,288 s. A primeira tentativa de preparação do PIT terminou antes de lançar o Maven porque o POM histórico usa CRLF. A busca pela seção de plugins passou a aceitar ambos os finais de linha. A tentativa anterior está em `local/26/pit-tentativa-01/`.
+
+A segunda tentativa está em `local/26/pit-tentativa-02/`. A JVM de cobertura do PIT rejeitou `SystemPropertiesTest#testGetJavaAwtHeadless()`, que passou no Surefire. A geração configura `skipFailingTests=true` e `parseSurefireConfig=false` para que o PIT ignore a falha durante o cálculo de cobertura. O descritor `META-INF/maven/plugin.xml` do PIT 1.19.4 documenta que a importação da configuração do Surefire pode sobrescrever a opção. O dry run usa os argumentos JVM fixados em `pit.xml`. Controle e replays continuam com todo o conjunto de testes e a configuração do Surefire, incluindo o teste em questão.
