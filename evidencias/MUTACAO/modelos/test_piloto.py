@@ -1,3 +1,4 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -55,7 +56,7 @@ class PilotoTest(unittest.TestCase):
                 self.assertEqual(len(selection['selected']), size)
                 self.assertGreater(len(set(selection['methods'].values())), 1)
 
-    def test_models_freeze_without_reading_final_replay(self):
+    def test_models_freeze_and_verify_artifacts_before_final_replay(self):
         selection = piloto.frozen_selection(26)
         small = selection['selected'][:25]
         selection = {**selection, 'selected': small,
@@ -69,9 +70,10 @@ class PilotoTest(unittest.TestCase):
             self.assertIn(position, piloto.DEVELOPMENT)
             return {'estado': 'disponivel', 't1': stats}, (['m'], labels, totals)
 
-        with tempfile.TemporaryDirectory(dir=piloto.BASE / 'local') as temp:
-            output = Path(temp) / 'run'
-            output.mkdir()
+        scratch = piloto.BASE / 'local'
+        scratch.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=scratch) as temp:
+            output = Path(temp)
             with (patch.object(piloto, 'frozen_selection', return_value=selection),
                   patch.object(piloto, 'load_replay', side_effect=replay),
                   patch.object(piloto, 'workspace', return_value=output),
@@ -85,3 +87,35 @@ class PilotoTest(unittest.TestCase):
                 self.assertEqual({row['test_id'] for row in entries}, set(small))
                 self.assertEqual([int(row['rank']) for row in entries],
                                  list(range(1, len(small) + 1)))
+
+            final_labels = {('m', small[0]): 'induced_failure'}
+            final_totals = piloto.aggregate(final_labels, ['m'], small)
+            final_stats = piloto.denominators(final_totals, small)
+            final_replay = (['m'], final_labels, final_totals)
+            manifest = (output / 'congelamento.json').read_bytes()
+            commit = 'a' * 40
+
+            def frozen_git(command, *args):
+                if command == 'rev-parse':
+                    return commit.encode()
+                self.assertEqual(command, 'show')
+                name = args[0].rsplit('/', 1)[1]
+                if name == 'congelamento.json':
+                    return manifest
+                return (piloto.BASE / name).read_bytes()
+
+            with (patch.object(piloto, 'git', side_effect=frozen_git),
+                  patch.object(piloto, 'frozen_selection', return_value=selection),
+                  patch.object(piloto, 'load_replay',
+                               return_value=({'estado': 'disponivel', 't1': final_stats},
+                                             final_replay)) as load_replay,
+                  patch('builtins.print')):
+                piloto.final(output.name, commit, 'synthetic fixture')
+                ranking = output / 'ranking-96.csv'
+                ranking.write_bytes(ranking.read_bytes() + b'\n')
+                with self.assertRaisesRegex(ValueError, 'Artefato divergente'):
+                    piloto.final(output.name, commit, 'synthetic fixture')
+                load_replay.assert_called_once_with(96, selection, after_freeze=commit)
+                result = json.loads((output / 'teste-final.json').read_bytes())
+                self.assertFalse(result['teste_final']['suficiente'])
+                self.assertEqual(len(result['deteccoes']), 3)
