@@ -1,0 +1,92 @@
+{
+  "protocolo": "tp-mutation-v1",
+  "posicao": 26,
+  "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+  "pai": "a5585689a31f47b3f95808f8666d062e18097707",
+  "imagem": "sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6",
+  "fonte_tar_sha256": "e5b16f44806bd523023fc6e0fe074e3b5fad10731de06a10c050053a9b719230",
+  "classes": [
+    "org.apache.commons.lang3.LocaleUtils"
+  ],
+  "pit": "1.19.4",
+  "pit_junit5": "1.2.3",
+  "semente": "tp-mutation-v1",
+  "congelado_utc": "2026-11-22T19:46:15.9950501+00:00",
+  "candidatos_csv_sha256": "7e5f45b876ae8fde5f3143990a9976dafca2e3dc6de0d5da536572da967d6e0b",
+  "exportados": 77,
+  "elegiveis": 77,
+  "selecionados": [
+    {
+      "mutation_id": "org.apache.commons.lang3.LocaleUtils|localeLookupList|(Ljava/util/Locale;Ljava/util/Locale;)Ljava/util/List;|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|42",
+      "classe": "org.apache.commons.lang3.LocaleUtils",
+      "metodo": "localeLookupList",
+      "descritor_jvm": "(Ljava/util/Locale;Ljava/util/Locale;)Ljava/util/List;",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+      "indices": [
+        42
+      ],
+      "selecao_sha256": "06561757e90516e360db1a0fcdcadc77653963d097a4837024c6cadf7aef3ec6",
+      "bytecode_sha256": "e6605432d7048bb15b9766ac4a1b755433a250adfd12906b76277b8f53c77893",
+      "original_sha256": "3fb8f66fe3d340dcdb910b286a4798e3db6c908751683e85daa660013fe4e005",
+      "detalhes_sha256": "7961cab9f76773268ed9c255f9ca4e49f15b08ec7c255a22e4f2e00033d2dd1e",
+      "bytecode": "export/org/apache/commons/lang3/LocaleUtils/mutants/38/org.apache.commons.lang3.LocaleUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/LocaleUtils/mutants/38/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.LocaleUtils|availableLocaleList|()Ljava/util/List;|org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator|4",
+      "classe": "org.apache.commons.lang3.LocaleUtils",
+      "metodo": "availableLocaleList",
+      "descritor_jvm": "()Ljava/util/List;",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indices": [
+        4
+      ],
+      "selecao_sha256": "06d5baec67c955aca2297befa3049d67f6cfd716ce0fc0d7f643bc1e7e75daba",
+      "bytecode_sha256": "24f1927b46ea0faab66c311063abeb5e863d51061b0d84470ac50f326cacf682",
+      "original_sha256": "3fb8f66fe3d340dcdb910b286a4798e3db6c908751683e85daa660013fe4e005",
+      "detalhes_sha256": "bfa0ee7b36ff41c382e0b910cacafa7e27acd4536385336d244f04ac4e356e18",
+      "bytecode": "export/org/apache/commons/lang3/LocaleUtils/mutants/0/org.apache.commons.lang3.LocaleUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/LocaleUtils/mutants/0/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.LocaleUtils|languagesByCountry|(Ljava/lang/String;)Ljava/util/List;|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|4",
+      "classe": "org.apache.commons.lang3.LocaleUtils",
+      "metodo": "languagesByCountry",
+      "descritor_jvm": "(Ljava/lang/String;)Ljava/util/List;",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+      "indices": [
+        4
+      ],
+      "selecao_sha256": "0855cd721f142ef2fcca425879dcb7fb2a524a5ad60152c83747c187fdb10618",
+      "bytecode_sha256": "45879b1ef86c7aa706de2e64ec578af047e6a33b6901e52577ada9e087729fba",
+      "original_sha256": "3fb8f66fe3d340dcdb910b286a4798e3db6c908751683e85daa660013fe4e005",
+      "detalhes_sha256": "344b849ac9f7e5b830ddaa5aaffb4d841e045ab0db57bb1eb45bed8b1dba0c16",
+      "bytecode": "export/org/apache/commons/lang3/LocaleUtils/mutants/29/org.apache.commons.lang3.LocaleUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/LocaleUtils/mutants/29/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.LocaleUtils|lambda$languagesByCountry$2|(Ljava/lang/String;Ljava/util/Locale;)Z|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|7",
+      "classe": "org.apache.commons.lang3.LocaleUtils",
+      "metodo": "lambda$languagesByCountry$2",
+      "descritor_jvm": "(Ljava/lang/String;Ljava/util/Locale;)Z",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+      "indices": [
+        7
+      ],
+      "selecao_sha256": "09645f8989729995ac1b7f44471d8563b70fdfe738b0c0adbc0c46783676f436",
+      "bytecode_sha256": "d04d2b6b8e7f23ba1e9172ba2e9e1abc323b2d4671e494f238ea5eae8954806f",
+      "original_sha256": "3fb8f66fe3d340dcdb910b286a4798e3db6c908751683e85daa660013fe4e005",
+      "detalhes_sha256": "12127187e2b6eafdaa268cc7bcb7de43edaefb5535ec8f32b9de2280d5a6b7f2",
+      "bytecode": "export/org/apache/commons/lang3/LocaleUtils/mutants/31/org.apache.commons.lang3.LocaleUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/LocaleUtils/mutants/31/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    }
+  ]
+}
