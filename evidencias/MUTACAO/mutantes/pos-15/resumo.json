@@ -1,0 +1,173 @@
+{
+  "posicao": 15,
+  "sha": "970e4d66452c146165233129c913616ff666ff77",
+  "gate_aprovado": true,
+  "equivalencia_controle": true,
+  "repeticao_coincidente": true,
+  "restauracao": true,
+  "rotulos": "local/15/rotulos.csv",
+  "rotulos_sha256": "f81969be798296d6d1cf5167a78e2b8fa60b1c4d0cb4ef0c7ce5f9734946175f",
+  "manifesto_sha256": "ebb697cc6761c1de4303b4a2fb08ba47134c96b027a1468e5322cacb698f918a",
+  "inventario_sha256": "36079a382a8d97855b4a6a7356676fc68cf488ae782ef1f1fda551712b2203b7",
+  "original_primeira_variante_sha256": "758fa27388c8767c920212e63bb054ce82fbcf2c4af77a4b11905e6b9697173a",
+  "contagens": {
+    "induced_failure": 280,
+    "pass": 18280,
+    "unknown": 44
+  },
+  "pit_duracao_ms": 198605,
+  "rodadas": [
+    {
+      "rodada": "controle",
+      "estado": "complete",
+      "codigo": 0,
+      "duracao_ms": 307269,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 0,
+        "error": 0,
+        "skip": 13,
+        "pass": 59438,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "8f7a6c031514cc97fd3485d728480ebe66f891bbe3402af1752ddab712fb1014",
+      "maven_log_sha256": "3425cfccdbd2b2e370852842bfb8729d7917612ecdb9b8fba37dd6fe3a54d7ff",
+      "xml_manifesto_sha256": "b0825d94ecc75fb0d4b6635e9ea36034462538faeed5aac49b5e7266731042e1"
+    },
+    {
+      "rodada": "intacto",
+      "estado": "complete",
+      "codigo": 0,
+      "duracao_ms": 217167,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 0,
+        "error": 0,
+        "skip": 13,
+        "pass": 59438,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "8f7a6c031514cc97fd3485d728480ebe66f891bbe3402af1752ddab712fb1014",
+      "maven_log_sha256": "946d7bb342e7c0cd761f1b17f247f1143f6fb0ebfa080731dd1e7c1c9b3736b6",
+      "xml_manifesto_sha256": "e497103f9c3dbff6fa3584d7cae20df333c08901ff9e6f69e81f3720d383918f"
+    },
+    {
+      "rodada": "variante-1",
+      "estado": "complete",
+      "codigo": 1,
+      "duracao_ms": 211897,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 3,
+        "error": 0,
+        "skip": 13,
+        "pass": 59435,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "574bebaf0e7669da626f1df61f6a7fc5db533f971c5a16f69e126be7233d1cbc",
+      "maven_log_sha256": "b5c4674a4b5e77195d823bdc63a1a7de736b01500516ed44caebe4418449193f",
+      "xml_manifesto_sha256": "d22644a16ed845efd1298e722ebf980000d9873eb2657704f994bcf336b055dd"
+    },
+    {
+      "rodada": "variante-2",
+      "estado": "complete",
+      "codigo": 1,
+      "duracao_ms": 214637,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 241,
+        "error": 4,
+        "skip": 13,
+        "pass": 59193,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "5877e414b52b6812e05a427d784283f3f08125473dfc0754de73a415d122ba00",
+      "maven_log_sha256": "d6e783ccae42ecf88f2c38b3235bc7b51e5de126ec77a564ca5df35d0a9265d2",
+      "xml_manifesto_sha256": "46fdd9440bc2f7eeb58e52f80ef3f2a0370bec36ea421fa3430c258ccd668642"
+    },
+    {
+      "rodada": "variante-3",
+      "estado": "complete",
+      "codigo": 1,
+      "duracao_ms": 214304,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 18,
+        "error": 0,
+        "skip": 13,
+        "pass": 59420,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "b0aefafe6609c4b81fb37dd7b5f43a1b6b8a955264c9343520503fb0ea2ebede",
+      "maven_log_sha256": "4f35cbc655df2182cf3cd9d7aef1a994be8375d1b825706e5ab99f9a7c111f11",
+      "xml_manifesto_sha256": "08eb6e3f367b1b2064b09d1945707c07f6b67357c5d8217b87eaf18973914312"
+    },
+    {
+      "rodada": "variante-4",
+      "estado": "complete",
+      "codigo": 1,
+      "duracao_ms": 209658,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 14,
+        "error": 0,
+        "skip": 13,
+        "pass": 59424,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "60873986d7973569195074bfe9de6da10b452dd241e4c0fd95cc6f765496804d",
+      "maven_log_sha256": "01e85e7b0e1b7420d8c7cbb14ecdfe46241d4937cf0d9eef994106813c1e9115",
+      "xml_manifesto_sha256": "35d46ac4351463ea43a411d3b442608cbaf354b0fe927453c50914e6b7e51eef"
+    },
+    {
+      "rodada": "repeticao",
+      "estado": "complete",
+      "codigo": 1,
+      "duracao_ms": 212123,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 3,
+        "error": 0,
+        "skip": 13,
+        "pass": 59435,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "574bebaf0e7669da626f1df61f6a7fc5db533f971c5a16f69e126be7233d1cbc",
+      "maven_log_sha256": "6f4173eedcce1d08d3a951222c69c95c76fc82cbddd6c2ed713c3c4a7ff0abb6",
+      "xml_manifesto_sha256": "6dd2681b16158eca22754a8c974511513ade91dba3a5b9c7f12934255e852b61"
+    },
+    {
+      "rodada": "restaurado",
+      "estado": "complete",
+      "codigo": 0,
+      "duracao_ms": 190551,
+      "xml": 227,
+      "contagem": {
+        "total": 59451,
+        "failure": 0,
+        "error": 0,
+        "skip": 13,
+        "pass": 59438,
+        "sem_associacao": 0
+      },
+      "diagnostico": [],
+      "invocacoes_sha256": "8f7a6c031514cc97fd3485d728480ebe66f891bbe3402af1752ddab712fb1014",
+      "maven_log_sha256": "cfee03015e9d51d55cca5d3930a2ae0b7884f3fbc0fd6595b96e9bb7d3d7ee8d",
+      "xml_manifesto_sha256": "c16a52c9af3fa6d59ac1f46c7d9e141e43cc81b365f61830a3b00ecaf042435a"
+    }
+  ]
+}
