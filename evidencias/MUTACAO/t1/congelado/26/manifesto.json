@@ -1,0 +1,41 @@
+{
+  "protocolo": "af6bdfc",
+  "contrato": "0.1.0",
+  "seletor": "1.0.0",
+  "posicao": 26,
+  "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+  "pai": "a5585689a31f47b3f95808f8666d062e18097707",
+  "ordem": "test_id crescente (ordem ordinal, sensível a maiúsculas), todas as prioridades empatadas",
+  "inventario": "JUnit Launcher.discover, filtros do pom efetivo, árvore Git e classpath da mesma revisão",
+  "imagem": "sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6",
+  "candidatos": 4652,
+  "selecionados": 4648,
+  "fallback": [],
+  "custo": {
+    "ns": 463476900,
+    "ms": 463,
+    "node": "v24.15.0",
+    "plataforma": "win32",
+    "arquitetura": "x64",
+    "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+    "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+  },
+  "entradas_sha256": {
+    "fonte.tar": "e5b16f44806bd523023fc6e0fe074e3b5fad10731de06a10c050053a9b719230",
+    "pom-efetivo.xml": "4256e2fd7cad3178b91920962007ebd953c30d7d0b2b29813d6942d1715ab83d",
+    "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+    "classes.txt": "8a79b9606101b26c71cbb46001fe8805caeba272a9d12b0589429f7c195d96db",
+    "metodos.tsv": "93e6f989cb7d8bea56eb2666e7684e9ee33b14a01e538f19f4cfddd459a0621c",
+    "jdeps.txt": "d4de4b431d386c42cf605310778623d18d77f17258999268c25304a60b5179d7",
+    "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+    "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+    "descoberta.log": "c423e07c5286d351d16e2962fbd135dfd90636cb8df1889425ca114bb9faec35"
+  },
+  "saidas_sha256": {
+    "diff.patch": "7209380102cc11fe504ecd39a4fe9de9356a76c6537db136f2879635337a17f1",
+    "selection.csv": "7d7ea5bf053f57ca6c02c26e3059f5c25c3fa31762b5c0309844bf2be2ca6145",
+    "rankings.csv": "c7599f43420204ee6b37804be64d50d89cee3be99f804f9c0ae82d5296ff0c46",
+    "overhead.csv": "3c3aa8e90677cd518ca6214eee841775206eebc249671e73ee22c37825c19d28",
+    "decisoes.json": "e6ca282721f48ea1bcefae78a22203b15108e03060bb7c21fa7836e678b1f347"
+  }
+}
