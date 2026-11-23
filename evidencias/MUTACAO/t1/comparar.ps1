@@ -33,6 +33,9 @@ foreach ($posicao in ($Posicoes | Sort-Object -Unique)) {
         continue
     }
 
+    if ($posicao -eq 96) {
+        node (Join-Path $PSScriptRoot verificar-holdout.mjs) $Congelamento $arquivoResumo
+    }
     $resumo = Get-Content -LiteralPath $arquivoResumo -Raw | ConvertFrom-Json
     if ($resumo.sha -cne $sha -or $resumo.posicao -ne $posicao) {
         throw "Resumo com revisão divergente na posição $posicao."
@@ -88,6 +91,9 @@ foreach ($posicao in ($Posicoes | Sort-Object -Unique)) {
         manifesto_ref = "$ref/manifesto.json"
         manifesto_sha256 = $resumo.manifesto_sha256
         rotulos_sha256 = $resumo.rotulos_sha256
+    }
+    if ($posicao -eq 96) {
+        $publicacoes["96"].congelamento_modelo = $resumo.congelamento_modelo
     }
 }
 

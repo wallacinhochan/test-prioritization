@@ -84,7 +84,7 @@ O avaliador conferiu os hashes do congelamento `0d3cd01`, do manifesto de mutant
 
 ## Comparação consolidada das posições 15, 26, 42 e 50
 
-O T1 congelado preservou **15/15 mutantes detectados pelo T0** entre 16 avaliados. Os 15 casos comparáveis tiveram detecção nos dois cenários, com intervalo de preservação **[100%, 100%]** entre os detectados pelo T0. Na posição 50, uma variante ficou desconhecida em ambos os cenários. Seu replay não mostrou falha induzida e deixou 11 métodos desconhecidos por cenário. A posição 96 fica reservada para o teste final. [Decisões por mutante e hashes das quatro publicações](comparacao/pre-holdout.json)
+O T1 congelado preservou **15/15 mutantes detectados pelo T0** entre 16 avaliados. Os 15 casos comparáveis tiveram detecção nos dois cenários, com intervalo de preservação **[100%, 100%]** entre os detectados pelo T0. Na posição 50, uma variante ficou desconhecida em ambos os cenários. Seu replay não mostrou falha induzida e deixou 11 métodos desconhecidos por cenário. A posição 96 ficou reservada para o teste final e foi avaliada separadamente após a liberação. [Decisões por mutante e hashes das quatro publicações](comparacao/pre-holdout.json)
 
 | Posição | Mutantes avaliados | Comparáveis | Detectados por T0 | Preservados por T1 | Pares método–mutante positivos em T0 / T1 | Pares desconhecidos em T0 / T1 |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -95,3 +95,15 @@ O T1 congelado preservou **15/15 mutantes detectados pelo T0** entre 16 avaliado
 | Total | 16 | 15 | 15 | 15 | 313 / 313 | 176 / 176 |
 
 O T1 excluiu 16 de 18.617 métodos somados por revisão (0,086%). O custo do seletor variou de 399 a 463 ms, com inventário e saída do jdeps preparados. As contagens resultam da projeção sobre o replay T0. O tempo físico de T1 está indisponível.
+
+## Resultado final com a posição 96
+
+A posição 96 preservou os **3/3** mutantes detectados pelo T0, com intervalo **[100%, 100%]**. O quarto mutante, de `TypeUtils.isAssignable` para `GenericArrayType`, ficou desconhecido em ambos os cenários. O replay registrou zero positivos e 12 métodos desconhecidos dessa variante em cada cenário. Os seis pares método–mutante positivos da revisão foram retidos, e seus 48 desconhecidos permaneceram desconhecidos. A seleção excluiu 4 de 4.663 métodos (0,086%) e levou 404 ms com inventário e jdeps preparados. [Comparação das cinco posições](comparacao/consolidado.json)
+
+Nas cinco posições, **18 dos 20 mutantes** tiveram detecção conhecida e comparável. T0 detectou esses 18 e T1 preservou todos (**18/18**, intervalo **[100%, 100%]** entre os detectados pelo T0). Os outros dois mutantes, das posições 50 e 96, ficaram desconhecidos nos dois cenários. A projeção reteve 319 pares método–mutante positivos e manteve 224 desconhecidos. O T1 excluiu 20 de 23.280 métodos (0,086%). O custo do seletor ficou entre 399 e 463 ms por revisão, com entradas preparadas. O tempo físico de T1 está indisponível.
+
+Antes de abrir os rótulos da posição 96, o comparador verificou a sequência Git do congelamento dos modelos `cbb462b`, da liberação no relatório `6e97157` e da publicação do replay `f4a9da2`. Também conferiu o registro local da liberação e os hashes do T1 que o modelo congelado usou. O consolidado registra os hashes do manifesto de mutantes, do resumo e dos rótulos. O CSV bruto permanece ignorado.
+
+```powershell
+./evidencias/MUTACAO/t1/comparar.ps1 -Posicoes 15,26,42,50,96 -HoldoutLiberado
+```
