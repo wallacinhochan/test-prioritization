@@ -1,4 +1,12 @@
-# KAN-12 — Avaliação do objeto de estudo para a Entrega 3
+# KAN-12 — Definição do objeto de estudo
+
+## Decisão de 22/11/2026
+
+Wallace confirmou o **Apache Commons Lang** como objeto do estudo principal. A pesquisa mantém o desenho de comparação T0–T3 para seleção e priorização de testes de regressão. A decisão se apoia no ambiente reproduzível, na coleta por método e nas cinco suítes T0 verificadas na Entrega 3. [Entrega 3](../ENTREGA-3/README.md)
+
+As mutações têm a função de gerar exemplos rotulados para treinar KNN e Random Forest. A validação e o teste em dados sintéticos documentados no piloto verificaram o procedimento de treinamento e ranking. As contagens sintéticas permanecem separadas das falhas naturais na avaliação do estudo principal. A escassez de falhas naturais observadas limita as análises que dependem de detecção de regressões. [Piloto de mutação](../MUTACAO/RELATORIO.md)
+
+## Histórico do parecer exploratório
 
 **Parecer parcial de 20/11/2026.** Wallace aprovou o Apache Commons Lang para o **piloto exploratório**, com os mesmos 100 SHAs candidatos da KAN-10 e lote preliminar nas posições **1, 26, 50, 75 e 100**. A recomendação é executar esse piloto e reavaliar o objeto do estudo principal depois da coleta histórica. Duas suítes completas em UTC comprovam a execução de T0 nos extremos do recorte. Os dados disponíveis ainda são insuficientes para avaliar KNN ou Random Forest com falhas naturais. A escolha definitiva depende das evidências abaixo e da aprovação de Wallace. [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12) · [Decisão do piloto na KAN-11](https://cin-team-test-prioritization.atlassian.net/browse/KAN-11?focusedCommentId=10005)
 
@@ -62,7 +70,7 @@ O Commons Lang tem evidência operacional mais diretamente aplicável à Entrega
 
 | Critério da KAN-12 | Estado |
 | --- | --- |
-| Decisão justificada e rastreável | Atendido para o piloto aprovado. Para a escolha definitiva, pendem a avaliação após KAN-14/KAN-16 e a autorização de Wallace. |
+| Decisão justificada e rastreável | Commons Lang confirmado por Wallace em 22/11/2026, com justificativa e limites registrados nesta nota. |
 | Riscos remanescentes explicitados | Documentados. Incluem cobertura histórica, associação por método, ordem e duração, possíveis efeitos ambientais, insuficiência de positivos e custo de validar jsoup. |
 
 A **KAN-12 permanece Em andamento**. A **KAN-18 permanece formalmente bloqueada pela KAN-12** no vínculo `Blocks` de ID `10009`, com status `BackLog` na consulta de 20/11/2026. A KAN-17, sua outra dependência direta, está concluída. A viabilidade de preparar T1 exploratório no piloto é um parecer técnico. O desbloqueio formal depende do atendimento e aceite da KAN-12 ou de uma mudança explícita de dependência autorizada pela coordenação. [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12) · [KAN-18](https://cin-team-test-prioritization.atlassian.net/browse/KAN-18)
@@ -71,4 +79,4 @@ A **KAN-12 permanece Em andamento**. A **KAN-18 permanece formalmente bloqueada 
 
 O lote da KAN-14 terminou com cinco suítes completas, 298.770 invocações e zero falhas ou erros. A KAN-16 associou todas as invocações observadas a 23.280 registros por método e revisão. Há duração válida em 23.222 registros e a ordem global de início permanece indisponível. [Resultados preliminares](../ENTREGA-3/README.md) · [Resumo da coleta](../KAN-16/resumo-lote.json)
 
-O resultado confirma a viabilidade operacional do Commons Lang para o piloto da Entrega 3. As cinco suítes não acrescentaram episódios naturais observados, e as 95 posições fora do piloto não forneceram novas execuções. A evidência ainda é insuficiente para aprovar o objeto do estudo principal com avaliação temporal supervisionada. A KAN-12 segue em andamento e a comparação T0 × T1 fica pendente enquanto o bloqueio da KAN-18 permanecer.
+O resultado confirma a viabilidade operacional do Commons Lang para o piloto da Entrega 3. As cinco suítes não acrescentaram episódios naturais observados, e as 95 posições fora do piloto não forneceram novas execuções. A evidência disponível na reavaliação limitava a medição temporal de detecção de falhas naturais. A confirmação posterior do Commons Lang está registrada no início desta nota.
