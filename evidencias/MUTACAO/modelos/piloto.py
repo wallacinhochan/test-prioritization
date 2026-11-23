@@ -129,8 +129,8 @@ def aggregate(labels, mutations, methods):
     return totals
 
 
-def load_replay(position, selection, *, after_freeze=None):
-    require(position in DEVELOPMENT or (position == FINAL and after_freeze),
+def load_replay(position, selection, *, after_freeze=None, release=None):
+    require(position in DEVELOPMENT or (position == FINAL and after_freeze and release),
             'A posição 96 está fechada para leitura.')
     base = BASE.parent / 'mutantes'
     public = (base / f'pos-{position}').relative_to(ROOT).as_posix()
@@ -148,8 +148,9 @@ def load_replay(position, selection, *, after_freeze=None):
         freeze_ref = f'{PREFIX}/congelamento.json'
         recorded = summary.get('congelamento_modelo')
         require(recorded == {'commit': after_freeze, 'referencia': freeze_ref,
-                             'sha256': digest(git('show', f'{after_freeze}:{freeze_ref}'))},
-                'O replay final está vinculado a outro congelamento.')
+                             'sha256': digest(git('show', f'{after_freeze}:{freeze_ref}')),
+                             'liberacao': release},
+                'O replay final diverge do congelamento ou da liberação.')
     sha = selection['sha']
     relative = f'local/{position}/rotulos.csv'
     require((summary['posicao'], summary['sha'], summary['rotulos']) ==
@@ -394,7 +395,7 @@ def final(run, commit, release):
     require(orders['T1'] == selection['selected'] and all(
         len(order) == len(orders['T1']) and set(order) == set(orders['T1'])
         for order in orders.values()), 'Ranking final diverge do conjunto T1.')
-    report, replay = load_replay(FINAL, selection, after_freeze=commit)
+    report, replay = load_replay(FINAL, selection, after_freeze=commit, release=release.strip())
     adequate = sufficiency({FINAL: report}, (FINAL,))
     result = {'natureza': 'mutacao_sintetica', 'congelamento': commit, 'liberacao': release,
               'posicao': report, 'teste_final': adequate,

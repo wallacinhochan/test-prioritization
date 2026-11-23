@@ -41,7 +41,7 @@ Depois da publicação coordenada pelo produtor:
 & $python "$modelos/piloto.py" final piloto-v1 --commit <sha-completo> --liberacao '<referência da liberação>'
 ```
 
-O comando final verifica o manifesto a partir do Git, os hashes dos artefatos locais, o código e a ordem antes de abrir o replay final. O resumo publicado pelo produtor deve estar em um commit descendente do congelamento e registrar o mesmo caminho, commit e SHA-256 do manifesto. O teste final usa as predições gravadas no congelamento. Registre `teste-final.json` como evidência, inclusive se o teste final for insuficiente.
+O comando final verifica o manifesto a partir do Git, os hashes dos artefatos locais, o código e a ordem antes de abrir o replay final. O resumo publicado pelo produtor deve estar em um commit descendente do congelamento e registrar o mesmo caminho, commit e SHA-256 do manifesto, junto com a referência da liberação da coordenação. O teste final usa as predições gravadas no congelamento. Registre `teste-final.json` como evidência, inclusive se o teste final for insuficiente.
 
 ## Diagnóstico inicial
 
@@ -50,3 +50,5 @@ A posição 26 passou as verificações de controle, repetição e restauração
 Os oito testes verificam o alvo com lacunas, a detecção com lacunas, a ordenação ordinal, as entradas T1 congeladas e o vínculo da publicação de 96 ao congelamento. Com dados fabricados, também verificam o congelamento e o diagnóstico de teste final insuficiente. Uma alteração no ranking congelado deve ser rejeitada antes de abrir o replay. O diagnóstico inicial usa o replay real da posição 26.
 
 Após a publicação de 15 no commit `90f3143`, a execução `diagnostico treino-15-26` verificou 280 positivos e 18.264 negativos em T1 nessa revisão. Junto com 26, o treino parcial tem 292 positivos, 36.800 negativos e 88 desconhecidos, sem observações ausentes. O denominador conhecido é 37.092. Ainda faltam a revisão 42 no treino e a revisão 50 na validação. [Diagnóstico após a posição 15](diagnostico-treino-15-26.json)
+
+Após a publicação de 42 no commit `2fbfccf`, a execução `diagnostico treino-15-26-42` confirmou a suficiência do treino. A revisão 42 tem 17 positivos e 18.551 negativos em T1. O treino completo tem 309 positivos, 55.351 negativos e 132 desconhecidos, com denominador de 55.660 e alvo conhecido em 13.915 de 13.948 pares SHA e método. A posição 50 ainda aguardava publicação. [Diagnóstico do treino completo](diagnostico-treino-15-26-42.json)

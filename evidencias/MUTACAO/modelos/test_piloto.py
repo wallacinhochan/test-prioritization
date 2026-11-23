@@ -46,14 +46,14 @@ class PilotoTest(unittest.TestCase):
     def test_final_publication_must_follow_freeze_before_reading(self):
         with patch.object(piloto, 'git', side_effect=[b'older\n', b'older\n']) as git:
             with self.assertRaisesRegex(ValueError, 'suceder'):
-                piloto.load_replay(96, {}, after_freeze='freeze')
+                piloto.load_replay(96, {}, after_freeze='freeze', release='coordenação')
         self.assertEqual([call.args[0] for call in git.call_args_list], ['log', 'merge-base'])
 
     def test_final_summary_must_bind_to_exact_freeze(self):
         reads = [b'newer\n', b'freeze\n', b'{"congelamento_modelo": {"commit": "other"}}', b'{}']
         with patch.object(piloto, 'git', side_effect=reads) as git:
-            with self.assertRaisesRegex(ValueError, 'outro congelamento'):
-                piloto.load_replay(96, {}, after_freeze='freeze')
+            with self.assertRaisesRegex(ValueError, 'diverge do congelamento'):
+                piloto.load_replay(96, {}, after_freeze='freeze', release='coordenação')
         self.assertEqual([call.args[0] for call in git.call_args_list],
                          ['log', 'merge-base', 'show', 'show'])
 
@@ -123,7 +123,8 @@ class PilotoTest(unittest.TestCase):
                 ranking.write_bytes(ranking.read_bytes() + b'\n')
                 with self.assertRaisesRegex(ValueError, 'Artefato divergente'):
                     piloto.final(output.name, commit, 'synthetic fixture')
-                load_replay.assert_called_once_with(96, selection, after_freeze=commit)
+                load_replay.assert_called_once_with(96, selection, after_freeze=commit,
+                                                    release='synthetic fixture')
                 result = json.loads((output / 'teste-final.json').read_bytes())
                 self.assertFalse(result['teste_final']['suficiente'])
                 self.assertEqual(len(result['deteccoes']), 3)
