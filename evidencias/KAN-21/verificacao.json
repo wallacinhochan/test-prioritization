@@ -1,0 +1,193 @@
+{
+  "publication": "92aff717b2521317966e8e4076afb79a77aa0287",
+  "inputs": {
+    "treino_sintetico.csv": {
+      "path": "evidencias\\KAN-19\\local\\confirmacao\\treino_sintetico.csv",
+      "sha256": "bdb13c98bbb2bc4ec92d44ddfb2e1ce6146d89b680e1eb048e1a43d6f8a8a20d",
+      "rows": 13915
+    },
+    "features_inferencia.csv": {
+      "path": "evidencias\\KAN-19\\local\\principal-a\\features_inferencia.csv",
+      "sha256": "98c77fff5f268ae6717de057ef59d016b28ff4bc5ad7d06bacedf5e502c41661",
+      "rows": 23269
+    }
+  },
+  "coverage": [
+    {
+      "position": 1,
+      "commit_sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+      "t1_rows": 4649,
+      "t1_ranking_sha256": "8fa4a4b2553cf5e4e3a678cd672b0d497186e14b3beeae10fa928e6ba9ef36b2",
+      "status": "sem_ranking_por_anterioridade"
+    },
+    {
+      "position": 2,
+      "commit_sha": "766c028c96afbc831e842684c85e90fdad08722c",
+      "t1_rows": 4649,
+      "t1_ranking_sha256": "481058f9d5a9fb98e606c9b26127e4ab7b024f1e56f0e29bb89ed23d808edbf1",
+      "status": "sem_ranking_por_anterioridade"
+    },
+    {
+      "position": 26,
+      "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "t1_rows": 4648,
+      "t1_ranking_sha256": "df8cd5d25a393e4761f2978ff17c6973ba34867b46b0ba5a2b30fede0a7f1ac6",
+      "status": "sem_ranking_por_anterioridade"
+    },
+    {
+      "position": 50,
+      "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "t1_rows": 4653,
+      "t1_ranking_sha256": "515aba1a0f619715ef4ff329918e6e4321c4c63a159ca976f550955dfb7e29f4",
+      "status": "ranked"
+    },
+    {
+      "position": 75,
+      "commit_sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "t1_rows": 7,
+      "t1_ranking_sha256": "e56145cbc36ce54a442f94d8f8d94c11e70c58c4e550c3a90439e176de69abba",
+      "status": "ranked"
+    },
+    {
+      "position": 100,
+      "commit_sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "t1_rows": 4663,
+      "t1_ranking_sha256": "666c930535b2097b9464f962dcefa39827712aa45c9ae7847d490596ba191594",
+      "status": "ranked"
+    }
+  ],
+  "estimator": "RandomForestRegressor",
+  "parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "criterion": "squared_error",
+    "max_depth": null,
+    "max_features": 1.0,
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 5,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 200,
+    "n_jobs": 1,
+    "oob_score": false,
+    "random_state": 20261122,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "packages": {
+      "scikit-learn": "1.7.2",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "joblib": "1.5.2",
+      "threadpoolctl": "3.6.0"
+    },
+    "clock": "perf_counter_ns",
+    "csv_unit": "ms",
+    "process": "Um processo por execução, n_jobs=1, cache não controlado."
+  },
+  "code_sha256": "e9b150a4a4e1e138eecf3c8e3b38654f05d6b30ee4118567337726b74fb0666c",
+  "features": {
+    "columns": [
+      "distancia_rota",
+      "rota_ausente",
+      "arestas_lexicais",
+      "classe_semente",
+      "comprimento_nome",
+      "quantidade_parametros",
+      "classe_aninhada"
+    ],
+    "availability": "Vetores estáticos KAN-19 materializados após descoberta e seleção T1.",
+    "measurement": "Extração dos vetores sem medida publicada. Conversão incluída em inference."
+  },
+  "iteration": {
+    "training": "position crescente, test_id ordinal UTF-16 crescente",
+    "inference": "position crescente, ordem de entrada do ranking T1",
+    "output": "position crescente, score decrescente, test_id ordinal UTF-16 crescente"
+  },
+  "ranking_without_source_ref_sha256": "11d192f3bc15661c41f3d3025f27fc064b76ca8d76c154cfb7cf2b0655f0a85b",
+  "runs": {
+    "replay-a": {
+      "training": {
+        "cut_position": 42,
+        "cut_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+        "positions": {
+          "15": "970e4d66452c146165233129c913616ff666ff77",
+          "26": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "42": "7a55ebb455857756d81056dd879e38dfb4d84d66"
+        },
+        "rows_by_position": {
+          "15": 4636,
+          "26": 4637,
+          "42": 4642
+        },
+        "available_from_position": 50,
+        "available_from_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+        "fit_ns": 528038800,
+        "availability": "Alvos sintéticos KAN-19 congelados antes da inferência no replay."
+      },
+      "inference": {
+        "positions": [
+          50,
+          75,
+          100
+        ],
+        "elapsed_ns": {
+          "50": 27702100,
+          "75": 5987100,
+          "100": 49614300
+        },
+        "interval": "Conversão dos vetores disponíveis, predict, ordenação e construção das linhas."
+      },
+      "output_sha256": {
+        "overhead.csv": "1906eb3b0bcd0e03503acb0bb38250db1e98c11db14e651b6e6bb025e46f7ac2",
+        "RandomForest.joblib": "0cf8fa43e516da601128c9142d23169e950f54535e3c3dd20bdd8eb30b7915a4",
+        "rankings.csv": "cc35a574a2457e85c1e0f7a1f125ca94805096270adf5f0ac45bd650eff27501"
+      }
+    },
+    "replay-b": {
+      "training": {
+        "cut_position": 42,
+        "cut_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+        "positions": {
+          "15": "970e4d66452c146165233129c913616ff666ff77",
+          "26": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "42": "7a55ebb455857756d81056dd879e38dfb4d84d66"
+        },
+        "rows_by_position": {
+          "15": 4636,
+          "26": 4637,
+          "42": 4642
+        },
+        "available_from_position": 50,
+        "available_from_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+        "fit_ns": 502188000,
+        "availability": "Alvos sintéticos KAN-19 congelados antes da inferência no replay."
+      },
+      "inference": {
+        "positions": [
+          50,
+          75,
+          100
+        ],
+        "elapsed_ns": {
+          "50": 28724700,
+          "75": 6513900,
+          "100": 49360400
+        },
+        "interval": "Conversão dos vetores disponíveis, predict, ordenação e construção das linhas."
+      },
+      "output_sha256": {
+        "overhead.csv": "03de0a91bd6ce42b5278cfd97302e1daa6bbbb4983c0b77e74ad7a26c7c46c98",
+        "RandomForest.joblib": "0cf8fa43e516da601128c9142d23169e950f54535e3c3dd20bdd8eb30b7915a4",
+        "rankings.csv": "f753c775489f9bd312687b358befb21956257650a35d064a5af4e3a78f0a88d9"
+      }
+    }
+  }
+}
