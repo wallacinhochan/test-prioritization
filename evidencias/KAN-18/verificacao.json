@@ -1,0 +1,304 @@
+[
+  {
+    "posicao": 1,
+    "sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+    "pai": "562cc561dc9b6329eb005156cbe1608a6e3cc8d9",
+    "candidatos": 4649,
+    "selecionados": 4649,
+    "fallback": [
+      "Diff sem classe-alvo Java mapeada"
+    ],
+    "custo": {
+      "ns": 495982600,
+      "ms": 496,
+      "node": "v24.15.0",
+      "plataforma": "win32",
+      "arquitetura": "x64",
+      "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+      "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+    },
+    "saidas_sha256": {
+      "diff.patch": "f181885adf170b96e32752461551bd51e872b57c7fa5f3316814f9fc6baab732",
+      "selection.csv": "0d9aeebbcecdec40b63677546fda3fd6098773cf6fd2952fc1d4ac09fdb991e5",
+      "rankings.csv": "8fa4a4b2553cf5e4e3a678cd672b0d497186e14b3beeae10fa928e6ba9ef36b2",
+      "overhead.csv": "f7bcf08fed1042b2ce98166d0f2176d6879ada00b826f79044f0240058eda1ea",
+      "decisoes.json": "c707f262624433693942f9b98f35b0eada6796d0a4a99579b1918ea23c3e8a36"
+    },
+    "entradas_sha256": {
+      "fonte.tar": "4e89aae29613b869701b42fb784822100da6b82c24d2339fc1631e643b9bcdfe",
+      "pom-efetivo.xml": "e8a027a93d3b801b51e5f4ca7882fdc585a7539310a6390ac69c39e0e7ed7fa4",
+      "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+      "classes.txt": "8a79b9606101b26c71cbb46001fe8805caeba272a9d12b0589429f7c195d96db",
+      "metodos.tsv": "2e1b48bdf1e644e7c41fd9b8fa49d779d14550a6ed27032ae1a571948dbab2bd",
+      "jdeps.txt": "8f4b3e6a680a0c13eed81b412daa9d5f1a107d10ce3ad5e897cb78708d1d2aad",
+      "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+      "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+      "descoberta.log": "c9a3fbbbd4f8100d001b38c9166c9b9176fd052865ee3fadd69db26184ee7a8a"
+    },
+    "codigo_sha256": {
+      "seletor": "6292c7319007fb9a04002bee35196949c86b501d2525e08f57f28719f5569baf",
+      "seletor_piloto": "8a5d5e8786257320265aece6e1bc5b2825e148fd5633590eea9efbbe5c597363",
+      "recorte_kan10": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed"
+    },
+    "t0": {
+      "estado": "chaves_iguais",
+      "metodos": 4649,
+      "so_t0": [],
+      "so_inventario": [],
+      "falhas": 0,
+      "retidas": 0,
+      "duracoes_ausentes_t1_executados": 0
+    }
+  },
+  {
+    "posicao": 2,
+    "sha": "766c028c96afbc831e842684c85e90fdad08722c",
+    "pai": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+    "candidatos": 4649,
+    "selecionados": 4649,
+    "fallback": [
+      "Alteração sem mapeamento Java compilado: M pom.xml",
+      "Diff sem classe-alvo Java mapeada"
+    ],
+    "custo": {
+      "ns": 538650800,
+      "ms": 539,
+      "node": "v24.15.0",
+      "plataforma": "win32",
+      "arquitetura": "x64",
+      "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+      "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+    },
+    "saidas_sha256": {
+      "diff.patch": "e8bc557a3c7b63f7a5fcb4221d691c5b12f0989018af38a0fb852b1526e711ab",
+      "selection.csv": "edbfe69f5e510a30f4b7d51df3813cc24019abff9c63671f843cbd7fdea68a89",
+      "rankings.csv": "481058f9d5a9fb98e606c9b26127e4ab7b024f1e56f0e29bb89ed23d808edbf1",
+      "overhead.csv": "05f1e7ebd6c59da1ca45093bbae85f33265b3b73d69daee7ece414a9a97e8709",
+      "decisoes.json": "5bccfb1316aaf6247d39f73eb7b8a78ff866237df78f80340a21296488930be0"
+    },
+    "entradas_sha256": {
+      "fonte.tar": "5aa554fd9bbd085981befec1f0d0ae7d691e63834fcc68ff535fbd45726a23c4",
+      "pom-efetivo.xml": "727af4ec8f57fe499c7b83e2ea822a4e1f35ac53f440df0642d1ac9de0a0a26e",
+      "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+      "classes.txt": "8a79b9606101b26c71cbb46001fe8805caeba272a9d12b0589429f7c195d96db",
+      "metodos.tsv": "2e1b48bdf1e644e7c41fd9b8fa49d779d14550a6ed27032ae1a571948dbab2bd",
+      "jdeps.txt": "8f4b3e6a680a0c13eed81b412daa9d5f1a107d10ce3ad5e897cb78708d1d2aad",
+      "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+      "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+      "descoberta.log": "08a171656710fc942a6f917be0e6054ce9c789dc80034d4de3dd2b97828794f6"
+    },
+    "codigo_sha256": {
+      "seletor": "6292c7319007fb9a04002bee35196949c86b501d2525e08f57f28719f5569baf",
+      "seletor_piloto": "8a5d5e8786257320265aece6e1bc5b2825e148fd5633590eea9efbbe5c597363",
+      "recorte_kan10": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed"
+    },
+    "t0": {
+      "estado": "sem_t0_completo",
+      "metodos": null,
+      "so_t0": null,
+      "so_inventario": null,
+      "falhas": null,
+      "retidas": null,
+      "duracoes_ausentes_t1_executados": null
+    }
+  },
+  {
+    "posicao": 26,
+    "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+    "pai": "a5585689a31f47b3f95808f8666d062e18097707",
+    "candidatos": 4652,
+    "selecionados": 4648,
+    "fallback": [],
+    "custo": {
+      "ns": 433468600,
+      "ms": 433,
+      "node": "v24.15.0",
+      "plataforma": "win32",
+      "arquitetura": "x64",
+      "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+      "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+    },
+    "saidas_sha256": {
+      "diff.patch": "7209380102cc11fe504ecd39a4fe9de9356a76c6537db136f2879635337a17f1",
+      "selection.csv": "0f0f2a793f43c089275a366e000391cdbb64d75e884c900440142ff48f6d38c5",
+      "rankings.csv": "df8cd5d25a393e4761f2978ff17c6973ba34867b46b0ba5a2b30fede0a7f1ac6",
+      "overhead.csv": "3b768b8300dd4c7664389ef49f9c6af3f6a1653b527938d8eb1650fb5fa86be4",
+      "decisoes.json": "e6ca282721f48ea1bcefae78a22203b15108e03060bb7c21fa7836e678b1f347"
+    },
+    "entradas_sha256": {
+      "fonte.tar": "e5b16f44806bd523023fc6e0fe074e3b5fad10731de06a10c050053a9b719230",
+      "pom-efetivo.xml": "4256e2fd7cad3178b91920962007ebd953c30d7d0b2b29813d6942d1715ab83d",
+      "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+      "classes.txt": "8a79b9606101b26c71cbb46001fe8805caeba272a9d12b0589429f7c195d96db",
+      "metodos.tsv": "93e6f989cb7d8bea56eb2666e7684e9ee33b14a01e538f19f4cfddd459a0621c",
+      "jdeps.txt": "d4de4b431d386c42cf605310778623d18d77f17258999268c25304a60b5179d7",
+      "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+      "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+      "descoberta.log": "c423e07c5286d351d16e2962fbd135dfd90636cb8df1889425ca114bb9faec35"
+    },
+    "codigo_sha256": {
+      "seletor": "6292c7319007fb9a04002bee35196949c86b501d2525e08f57f28719f5569baf",
+      "seletor_piloto": "8a5d5e8786257320265aece6e1bc5b2825e148fd5633590eea9efbbe5c597363",
+      "recorte_kan10": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed"
+    },
+    "t0": {
+      "estado": "chaves_iguais",
+      "metodos": 4652,
+      "so_t0": [],
+      "so_inventario": [],
+      "falhas": 0,
+      "retidas": 0,
+      "duracoes_ausentes_t1_executados": 1
+    }
+  },
+  {
+    "posicao": 50,
+    "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+    "pai": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+    "candidatos": 4657,
+    "selecionados": 4653,
+    "fallback": [],
+    "custo": {
+      "ns": 503079700,
+      "ms": 503,
+      "node": "v24.15.0",
+      "plataforma": "win32",
+      "arquitetura": "x64",
+      "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+      "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+    },
+    "saidas_sha256": {
+      "diff.patch": "496b8ffa5b5e11086b330f726c4b34cafb7fa5520d659dab0555a89a114bd7c2",
+      "selection.csv": "96fc6822a0552e979ec1009a3481b157a16d1c81d411d717c4ff6767f002a507",
+      "rankings.csv": "515aba1a0f619715ef4ff329918e6e4321c4c63a159ca976f550955dfb7e29f4",
+      "overhead.csv": "5a37a70724838ae4008c29fc333b78a85552bcbd12da7fc0c5d9b18b1599de07",
+      "decisoes.json": "b2d20dabf1ea77bb9110ef6855157f19e48049b96dd0315fb02f8222f56da542"
+    },
+    "entradas_sha256": {
+      "fonte.tar": "547f623d8e17ffbfd925ef6bff4f74336f9e4a3f5ae6caca83606d4274f63cf5",
+      "pom-efetivo.xml": "bd107c3a0d23b127d895fb186f027bea7d8e555140406cccd7c8cd2f934e667b",
+      "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+      "classes.txt": "8a79b9606101b26c71cbb46001fe8805caeba272a9d12b0589429f7c195d96db",
+      "metodos.tsv": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef",
+      "jdeps.txt": "85a7badce992fc90f7cf01e3f53e4d8c03495fee5b3e3c849c72c461a62a844c",
+      "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+      "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+      "descoberta.log": "6be2ad9cf096fd2c9cfd4eec89b7b22506d0b62ac13abf4b084133ee33bd75cb"
+    },
+    "codigo_sha256": {
+      "seletor": "6292c7319007fb9a04002bee35196949c86b501d2525e08f57f28719f5569baf",
+      "seletor_piloto": "8a5d5e8786257320265aece6e1bc5b2825e148fd5633590eea9efbbe5c597363",
+      "recorte_kan10": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed"
+    },
+    "t0": {
+      "estado": "chaves_iguais",
+      "metodos": 4657,
+      "so_t0": [],
+      "so_inventario": [],
+      "falhas": 0,
+      "retidas": 0,
+      "duracoes_ausentes_t1_executados": 0
+    }
+  },
+  {
+    "posicao": 75,
+    "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+    "pai": "9167659d8eec4323d569cebd39381235c098c901",
+    "candidatos": 4659,
+    "selecionados": 7,
+    "fallback": [],
+    "custo": {
+      "ns": 521794800,
+      "ms": 522,
+      "node": "v24.15.0",
+      "plataforma": "win32",
+      "arquitetura": "x64",
+      "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+      "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+    },
+    "saidas_sha256": {
+      "diff.patch": "72b31db5e78a68b7d7a1c9d976101a1322542cc0f31131b29303cc9340f00f9f",
+      "selection.csv": "792c6a1b6177e52b7a3dad35c4816ad96e946f9e7d39c6b2338b94df700619ea",
+      "rankings.csv": "e56145cbc36ce54a442f94d8f8d94c11e70c58c4e550c3a90439e176de69abba",
+      "overhead.csv": "a6c99a354b8354cc37e90fb0c557031e207338ecf616f6316a1a0656bb5f530f",
+      "decisoes.json": "0d657e18eb7d88655eccb8c93023c016e57130679aca2faccbb8d4c290506ad9"
+    },
+    "entradas_sha256": {
+      "fonte.tar": "ca1d817602511cc012cf8d9906fc6ba2caaff5c3e65a03bb46a14fe65afa17fa",
+      "pom-efetivo.xml": "88914b8f3a05fecea4c96c69ac4ac73292d0ad63dae591a03f2082057081b6e1",
+      "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+      "classes.txt": "8a79b9606101b26c71cbb46001fe8805caeba272a9d12b0589429f7c195d96db",
+      "metodos.tsv": "2abe4194b295f0da22c87b860f35ea4c022e83d1a30f729b7ad5ac77e01bc475",
+      "jdeps.txt": "92e0890f4d3fd6d860adb6ee05342f9af0b6413689b43f77d8396b4692b8a96e",
+      "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+      "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+      "descoberta.log": "ec7589c0a09c25c7fd766bf2cafce826850b5ce3ed1b7c2a6a42cc2f0e524cb0"
+    },
+    "codigo_sha256": {
+      "seletor": "6292c7319007fb9a04002bee35196949c86b501d2525e08f57f28719f5569baf",
+      "seletor_piloto": "8a5d5e8786257320265aece6e1bc5b2825e148fd5633590eea9efbbe5c597363",
+      "recorte_kan10": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed"
+    },
+    "t0": {
+      "estado": "chaves_iguais",
+      "metodos": 4659,
+      "so_t0": [],
+      "so_inventario": [],
+      "falhas": 0,
+      "retidas": 0,
+      "duracoes_ausentes_t1_executados": 0
+    }
+  },
+  {
+    "posicao": 100,
+    "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+    "pai": "626e7e93aea200e6910be5597ac30de602649745",
+    "candidatos": 4663,
+    "selecionados": 4663,
+    "fallback": [
+      "Alteração sem mapeamento Java compilado: M pom.xml",
+      "Diff sem classe-alvo Java mapeada"
+    ],
+    "custo": {
+      "ns": 382073000,
+      "ms": 382,
+      "node": "v24.15.0",
+      "plataforma": "win32",
+      "arquitetura": "x64",
+      "intervalo": "do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais",
+      "cache": "um processo, sem cache do seletor, cache do sistema operacional não controlado"
+    },
+    "saidas_sha256": {
+      "diff.patch": "bf791fd0f77e961ce18ad3bcb220e36b0f3831f675ecab02d3617e33bd4ea9d9",
+      "selection.csv": "70994a5c33eeeb10975189337d0717a4a8334dc46aa0d79f628c8bb3f01e51fc",
+      "rankings.csv": "666c930535b2097b9464f962dcefa39827712aa45c9ae7847d490596ba191594",
+      "overhead.csv": "43814f54d13d2f2a42b3a7763044bed2332b361cdbe8a7bbf22bbc442195e9f3",
+      "decisoes.json": "ecb233c02453389fb416522f8d2c442b245b8088044e65865351c27799de7e0f"
+    },
+    "entradas_sha256": {
+      "fonte.tar": "d9d3736b176743f464afe2787a607d41b547c6ef49df5c7d92d2b0ef78a064eb",
+      "pom-efetivo.xml": "4c4011a32a4924d289c167bd5c7a6b367b7450104635ea10c1ad036f566f99cd",
+      "classpath.txt": "42af02f143e94d6727c6004d21b8392669e5325fb0f32b558e511a220bc44ef4",
+      "classes.txt": "c3ff701056248c395e60654096398a551212c84e265628d20ad49b73a12019ed",
+      "metodos.tsv": "0607b6238cf837e49b824908482da733abb6e4d15f66c578889d033f0ea371aa",
+      "jdeps.txt": "a3b0708ff3829c7677d6800b9929bafbf8eabd96ecb5849129179bbc2f54f9f1",
+      "DescobertaT0.java": "7db0cb2c9fb4a1140ba0b38280dd03dcf5532cb1afd8129ce04d0cab6b69bb6c",
+      "descobrir.sh": "156100fbd8872a41aff892a76af06706b7ad71090bb4dce02b672bcd5ab5f3d2",
+      "descoberta.log": "52e06269d9ce6845bd91c62c5ee9b9629e0f6f253a6763fabffed5330925c60b"
+    },
+    "codigo_sha256": {
+      "seletor": "6292c7319007fb9a04002bee35196949c86b501d2525e08f57f28719f5569baf",
+      "seletor_piloto": "8a5d5e8786257320265aece6e1bc5b2825e148fd5633590eea9efbbe5c597363",
+      "recorte_kan10": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed"
+    },
+    "t0": {
+      "estado": "chaves_iguais",
+      "metodos": 4663,
+      "so_t0": [],
+      "so_inventario": [],
+      "falhas": 0,
+      "retidas": 0,
+      "duracoes_ausentes_t1_executados": 1
+    }
+  }
+]
