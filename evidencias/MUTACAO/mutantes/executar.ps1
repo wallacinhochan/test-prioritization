@@ -76,14 +76,17 @@ try {
         }
         git -C $repo diff --quiet $commitModelo -- $refModelo
         if ($LASTEXITCODE) { throw 'O congelamento local diverge do commit.' }
-        $modelo = Get-Content -LiteralPath $registroModelo -Raw | ConvertFrom-Json
+        $registroGit = Join-Path $local congelamento-modelo-git.json
+        git -C $repo show "${commitModelo}:$refModelo" > $registroGit
+        if ($LASTEXITCODE) { throw 'Falha ao recuperar o congelamento a partir do Git.' }
+        $modelo = Get-Content -LiteralPath $registroGit -Raw | ConvertFrom-Json
         if ($modelo.versao -ne 1 -or !$modelo.treino.suficiente -or !$modelo.validacao.suficiente) {
             throw 'O congelamento não confirma suficiência de treino e validação.'
         }
         [ordered]@{
             commit = $commitModelo
             referencia = $refModelo
-            sha256 = (Get-FileHash -LiteralPath $registroModelo).Hash.ToLowerInvariant()
+            sha256 = (Get-FileHash -LiteralPath $registroGit).Hash.ToLowerInvariant()
             liberacao = $Liberacao.Trim()
         } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $local congelamento.json)
     }

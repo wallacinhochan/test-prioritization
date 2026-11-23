@@ -55,6 +55,17 @@ Na posição 15, a sessão de acompanhamento terminou depois da execução do co
 
 Na posição 42, a primeira rodada restaurada foi interrompida com o daemon Linux do Docker indisponível. O contêiner preservou um log parcial sem resumo final Maven ou XML completos. A tentativa está em `local/42/restaurado-interrompido/`. Após reativar o Docker, a restauração foi executada em uma nova cópia da árvore compilada original. Os quatro replays, a repetição e os demais controles completos foram preservados.
 
+## Revisões publicadas
+
+Cada revisão abaixo tem quatro variantes, controle equivalente ao original, repetição coincidente e restauração do bytecode confirmada. Os resumos versionados registram as referências e os hashes dos CSVs locais.
+
+| Posição | Uso | Falhas induzidas | Aprovações observadas | Desconhecidos | Evidência |
+| ---: | --- | ---: | ---: | ---: | --- |
+| 15 | Treino | 280 | 18.280 | 44 | [Resumo](pos-15/resumo.json) |
+| 26 | Viabilidade e treino | 12 | 18.552 | 44 | [Resumo](pos-26/resumo.json) |
+| 42 | Treino | 17 | 18.567 | 44 | [Resumo](pos-42/resumo.json) |
+| 50 | Validação | 4 | 18.580 | 44 | [Resumo](pos-50/resumo.json) |
+
 ## Consumo pelos modelos
 
 Use as posições aprovadas no [protocolo](../README.md). Para cada revisão, confira `pos-<posição>/resumo.json` e os hashes do manifesto e do CSV local. Junte `rotulos.csv` ao inventário pelo SHA completo e pelo `test_id` da KAN-17. Cada linha é única por `sha`, `mutation_id` e `test_id`. Os campos `controle` e `replay` dão o resultado associado por método.
