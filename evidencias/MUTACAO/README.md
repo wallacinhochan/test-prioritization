@@ -2,6 +2,8 @@
 
 As cinco suítes da Entrega 3 produziram 23.280 registros por método e revisão com zero falhas observadas. Este piloto complementar introduz alterações no código de produção, uma por variante, para medir a detecção sintética e testar a viabilidade de treinar rankings. Os testes permanecem inalterados. [Entrega 3](../ENTREGA-3/README.md) · [PIT](https://pitest.org/quickstart/basic_concepts/) · [Luo et al.](https://arxiv.org/abs/1807.08823)
 
+O [relatório final do piloto](RELATORIO.md) consolida os replays, a preservação pelo T1 e os postos de detecção com os modelos congelados.
+
 ## Revisões fixadas
 
 | Posição | SHA | Primeiro pai | Uso |

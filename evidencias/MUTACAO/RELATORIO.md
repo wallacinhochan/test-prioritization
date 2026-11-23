@@ -1,43 +1,51 @@
 # Resultados do piloto de mutação no Apache Commons Lang
 
-O piloto mede a detecção de alterações sintéticas em cinco revisões do Apache Commons Lang. O lote histórico da Entrega 3 (posições 1, 26, 50, 75 e 100) somou 298.770 invocações e 23.280 pares de revisão e método, com zero falhas observadas. As posições 26 e 50 também fazem parte do recorte de mutação (15, 26, 42, 50 e 96). Os resultados de mutação têm validade para as variantes escolhidas e as suítes executadas. A auditoria histórica continua na KAN-12 e a KAN-18 segue formalmente bloqueada. [Entrega 3](../ENTREGA-3/README.md) · [Protocolo do piloto](README.md)
+Em cinco revisões, T0 detectou 18 das 20 variantes sintéticas. A projeção sobre T1 preservou as 18 detecções, com 20 métodos excluídos de 23.280 pares de revisão e método (0,086%). Duas variantes ficaram indeterminadas nos dois cenários. No teste final, KNN e Random Forest anteciparam as três detecções observadas em relação à ordem T1.
 
-**Piloto em andamento.** Esta versão consolida os resultados de treino e validação. A posição 96 foi liberada exclusivamente para o teste final após o congelamento. A avaliação está em andamento.
+O lote histórico da Entrega 3 (posições 1, 26, 50, 75 e 100) registrou 298.770 invocações e 23.280 pares de revisão e método em UTC, com zero falhas observadas. O piloto de mutação usou as posições 15, 26, 42, 50 e 96. Os dois recortes compartilham as posições 26 e 50. [Entrega 3](../ENTREGA-3/README.md) · [Protocolo do piloto](README.md)
 
-## Geração e validação
+## Execuções e rótulos
 
-O protocolo foi fixado em `af6bdfc`. A unidade de observação dos replays é o par mutante e método dentro de cada SHA. Um positivo requer aprovação no controle e falha na variante. Um negativo requer aprovação observada no controle e na variante. O pipeline mantém skips, ausências, ambiguidades e problemas de infraestrutura como desconhecidos. [Geração e rótulos](mutantes/README.md)
+Cada variante alterou o bytecode de produção, com os testes intactos. O manifesto de cada revisão congelou quatro variantes por hash antes dos replays. O rótulo por SHA, mutante e método é positivo quando o método passa no controle e falha na variante. A aprovação observada nas duas execuções dá o rótulo negativo. Skip, ausência, ambiguidade e infraestrutura permanecem desconhecidos. Os números da tabela agregam rótulos, com denominador distinto da contagem de mutantes.
 
-Na posição 26, a geração exportou 77 variantes de `LocaleUtils`. O manifesto de `b0652c9` fixou quatro variantes por hash antes dos replays. O controle limpo registrou 59.439 aprovações e 13 skips em 59.452 invocações, sem falhas ou erros. A execução intacta com os binários reutilizados reproduziu os desfechos do controle limpo. [Manifesto da posição 26](mutantes/pos-26/manifesto.json)
+| Posição | Partição | Variantes | Positivos | Negativos | Desconhecidos | Detecções T0 / T1 |
+| ---: | --- | ---: | ---: | ---: | ---: | ---: |
+| [15](mutantes/pos-15/resumo.json) | Treino | 4 | 280 | 18.280 | 44 | 4 / 4 |
+| [26](mutantes/pos-26/resumo.json) | Treino | 4 | 12 | 18.552 | 44 | 4 / 4 |
+| [42](mutantes/pos-42/resumo.json) | Treino | 4 | 17 | 18.567 | 44 | 4 / 4 |
+| [50](mutantes/pos-50/resumo.json) | Validação | 4 | 4 | 18.580 | 44 | 3 / 3 |
+| [96](mutantes/pos-96/resumo.json) | Teste final | 4 | 6 | 18.598 | 48 | 3 / 3 |
+| **Total** | | **20** | **319** | **92.577** | **224** | **18 / 18** |
 
-Os quatro replays da posição 26 concluíram e a verificação foi versionada em `41318d9`. Entre os 18.608 rótulos por mutante e método, houve 12 positivos, 18.552 negativos e 44 desconhecidos. A repetição da primeira variante coincidiu por método, e a restauração reproduziu o controle. A conferência independente verificou os SHA-256 do manifesto e do CSV de rótulos e confirmou que o CSV bruto é ignorado pelo Git. [Verificação da posição 26](mutantes/pos-26/resumo.json)
+As cinco revisões confirmaram equivalência entre o controle limpo e a cópia intacta, coincidência dos rótulos na repetição e restauração do resultado original. Na posição 26, o PIT exportou 77 variantes de `LocaleUtils` e o manifesto de `b0652c9` fixou quatro. O resumo `41318d9` verificou a viabilidade para ampliar o piloto. Na posição 15, a evidência de controle foi recuperada do contêiner após perda da sessão. Na posição 42, uma interrupção do Docker exigiu repetir somente a restauração a partir da mesma árvore compilada. A conferência da coordenação validou os hashes dos manifestos e CSVs de rótulos e as etapas completas de cada revisão. [Geração, comandos e ocorrências](mutantes/README.md)
 
-Na posição 15, o controle registrou 59.451 invocações sem falhas ou erros. O manifesto congelado em `d7909b9` fixou quatro variantes. Após a verificação de repetição e restauração, o replay registrou 280 positivos, 18.280 negativos e 44 desconhecidos entre 18.604 rótulos. O resumo foi versionado em `90f3143`. A conferência independente verificou o manifesto, o CSV ignorado pelo Git e as oito etapas completas. [Verificação da posição 15](mutantes/pos-15/resumo.json)
+## Preservação pelo T1
 
-Na posição 42, o controle completo registrou 59.953 invocações sem falhas ou erros. As quatro variantes foram congeladas em `a9defea`. Após uma interrupção do Docker, apenas a etapa de restauração foi reexecutada a partir da mesma árvore compilada. A repetição coincidiu e o controle restaurado reproduziu o controle limpo. Os quatro replays produziram 17 positivos, 18.567 negativos e 44 desconhecidos entre 18.628 rótulos. A conferência independente validou os hashes e as oito etapas completas do resumo em `2fbfccf`. [Verificação da posição 42](mutantes/pos-42/resumo.json) · [Ocorrências da ampliação](mutantes/README.md#ocorrências-na-ampliação)
+A seleção estática por dependências e a ordem T1 foram congeladas em `0d3cd01`. O seletor excluiu quatro métodos de `IDKeyTest` por revisão. T1 reteve os 319 rótulos positivos e os 224 desconhecidos no nível de método. A preservação foi de 18/18 (100%) entre os mutantes detectados pelo T0. O intervalo relativo a desfechos T1 desconhecidos entre esses 18 foi [100%, 100%]. As duas variantes sem detecção observada, uma na posição 50 e outra na 96, ficaram indeterminadas por lacunas e estão fora do denominador da preservação.
 
-Na posição 50, o controle registrou 59.953 invocações sem falhas ou erros. As quatro variantes foram congeladas em `fd97f58`. Após a verificação de repetição e restauração, os replays produziram 4 positivos, 18.580 negativos e 44 desconhecidos entre 18.628 rótulos. A conferência independente validou o manifesto, o CSV de rótulos ignorado pelo Git e as oito etapas completas do resumo em `940d22d`. [Verificação da posição 50](mutantes/pos-50/resumo.json)
-
-## Seleção de testes
-
-As listas e a ordem T1 foram congeladas em `0d3cd01` antes do acesso aos rótulos. T1 selecionou 23.260 dos 23.280 pares revisão e método, reduzindo a população em 20 pares (0,086%). Em cada revisão, a regra excluiu quatro métodos de `IDKeyTest`. O seletor levou de 399 a 463 ms por revisão sobre inventário e saída do jdeps preparados. A medida abrange apenas a seleção. A verificação independente do comparador em `5c3d222` passou nos três testes existentes. [Seleção T1 e comparador](t1/README.md)
-
-Na posição 26, T0 detectou 4/4 mutantes e a projeção sobre T1 preservou as quatro detecções e os 12 rótulos positivos. A preservação ficou em 4/4 (100%), com intervalo de [100%, 100%] diante das lacunas de observação. Os 44 rótulos desconhecidos permaneceram desconhecidos no nível de método. Esse intervalo expressa a incerteza por desfechos desconhecidos no conjunto observado. O tempo físico de execução de T1 permanece indisponível. [Comparação por mutante, commit `2570ea0`](t1/comparacao/pos-26.json)
-
-Nas quatro posições de treino e validação, T0 detectou 15 dos 16 mutantes e T1 preservou as 15 detecções, com intervalo de [100%, 100%] entre as detecções confirmadas de T0. Um mutante da posição 50 ficou indeterminado nos dois cenários. T1 reteve os 313 rótulos positivos, preservou os 176 desconhecidos e excluiu 16 dos 18.617 métodos (0,086%). [Comparação anterior ao teste final, commit `38992db`](t1/comparacao/pre-holdout.json)
+O seletor levou de 399 a 463 ms por revisão sobre inventário e saída do jdeps preparados. A avaliação reaplicou o conjunto T1 à matriz do replay T0. O tempo físico de execução do T1 permanece indisponível. [Método e reprodução](t1/README.md) · [Comparação por revisão e mutante, commit `085709c`](t1/comparacao/consolidado.json)
 
 ## Dataset e ranking
 
-As posições 15, 26 e 42 compõem o treino, 50 a validação e 96 o teste final. KNN, Random Forest e a ordem de referência usam a mesma lista T1 de métodos candidatos. As entradas são limitadas a informações disponíveis antes da execução. A posição 96 fica reservada até o congelamento das características, modelos e regra de ranking. [Protocolo de ranking](README.md)
+Para cada SHA e método, o alvo é a fração de falhas induzidas entre os rótulos conhecidos. As sete características usam a assinatura do teste e as rotas estáticas do T1, disponíveis antes da execução. O treino teve 55.660 observações conhecidas em T1 (309 positivas e 55.351 negativas), com 132 desconhecidas. A validação teve 18.568 conhecidas (4 positivas e 18.564 negativas), com 44 desconhecidas. Os dois modelos foram ajustados no treino e ordenaram a mesma população do T1.
 
-Na posição 26, a população T1 teve 12 rótulos positivos e 18.536 negativos, com 44 desconhecidos excluídos do denominador. Houve alvo para 4.637 dos 4.648 métodos selecionados. O commit `44c661a` registra o diagnóstico inicial e a implementação. A verificação independente executou os seis testes de modelos e os três testes do comparador. [Diagnóstico da posição 26](modelos/diagnostico-gate-26.json) · [Método de avaliação de ranking](modelos/README.md)
+Na validação, os primeiros postos observados do T1 foram 1.693, 1.693 e 999. O KNN os antecipou para 15, 15 e 221 e a Random Forest para 25, 25 e 268, respectivamente. A quarta variante ficou indeterminada nas três ordens. [Diagnóstico](modelos/diagnostico-validacao-50.json) · [Postos na validação](modelos/deteccao-validacao-50.json)
 
-O diagnóstico de treino parcial consolidou 37.092 observações conhecidas em T1 nas posições 15 e 26, incluindo 292 positivos, com 88 desconhecidos fora do denominador. A posição 42 completou as revisões de treino. A verificação independente executou os oito testes da implementação atualizada, incluindo a exigência de que o replay final esteja ligado ao manifesto de congelamento. [Diagnóstico parcial, commit `c6329c7`](modelos/diagnostico-treino-15-26.json)
+### Teste final na posição 96
 
-O diagnóstico do treino completo confirmou 55.660 observações conhecidas em T1 nas posições 15, 26 e 42, com 309 positivos e 55.351 negativos. Os 132 desconhecidos ficaram fora do denominador. O conjunto de treino cumpriu o critério de suficiência do protocolo. [Diagnóstico do treino, commit `1f7c153`](modelos/diagnostico-treino-15-26-42.json)
+O commit `cbb462b` fixou as características, os modelos e as três ordens antes do replay final. A coordenação conferiu os hashes dos 21 artefatos nas duas execuções e o conjunto idêntico de 4.659 métodos por ordem, incluindo a ordem T1 original. Os manifestos das duas execuções diferem apenas no registro de HEAD, pois houve um commit da comparação T1 entre elas. A liberação foi registrada em `6e97157`, com SHA-256 do manifesto `121b9e14784fdd8a706977b6fee4f9fb2d8997e3ce3f3bff8961ab5f3306baea`. O resumo de replay em `f4a9da2` referencia esse congelamento e essa liberação. [Manifesto](modelos/congelamento.json) · [Resumo do replay](mutantes/pos-96/resumo.json)
 
-A validação da posição 50 confirmou 18.568 observações conhecidas em T1, com 4 positivos e 18.564 negativos. Houve 44 desconhecidos. Nos três mutantes com detecção confirmada, os primeiros postos observados do T1 foram 1.693, 1.693 e 999. O KNN reduziu esses postos para 15, 15 e 221 e a Random Forest para 25, 25 e 268, respectivamente. O quarto mutante ficou indeterminado nas três ordens. [Diagnóstico da validação](modelos/diagnostico-validacao-50.json) · [Detecção na validação por mutante](modelos/deteccao-validacao-50.json)
+| Variante de `TypeUtils` | Primeiro posto T1 | Primeiro posto KNN | Primeiro posto Random Forest |
+| --- | ---: | ---: | ---: |
+| `containsTypeVariables`, igualdade | 3.685 | 2 | 14 |
+| `containsTypeVariables`, ordem | 3.685 | 2 | 14 |
+| `isAssignable`, `GenericArrayType` | Indeterminado | Indeterminado | Indeterminado |
+| `isAssignable`, `WildcardType` | 3.705 | 28 | 25 |
 
-## Liberação do teste final
+O teste final cumpriu o critério de suficiência do piloto, com 18.588 observações conhecidas em T1 (6 positivas e 18.582 negativas), além de 48 desconhecidas. Os postos da tabela são as primeiras detecções observadas. O diagnóstico registra também a primeira posição em que uma detecção seria possível diante de lacunas. Na variante indeterminada, cada ordem tem 12 desconhecidos. [Diagnóstico e postos do teste final, commit `2da6096`](modelos/teste-final.json)
 
-A posição 96 fica autorizada para replay e avaliação final com as características, os modelos e as três ordens fixados em `cbb462b79df5de284678ce0ac7c06f20e26d12c1`. O SHA-256 do manifesto é `121b9e14784fdd8a706977b6fee4f9fb2d8997e3ce3f3bff8961ab5f3306baea`. A conferência independente verificou os 21 hashes da execução e da repetição, o código e a igualdade do conjunto de 4.659 métodos entre os rankings, incluindo a ordem T1 original. O resumo do replay final ainda estava ausente no Git. A reprodução dos artefatos teve hashes idênticos nas duas execuções. O campo de proveniência do manifesto repetido aponta para outro HEAD por causa de um commit da comparação T1 ocorrido entre as execuções. [Manifesto de congelamento](modelos/congelamento.json)
+## Limites e reprodução
+
+A seleção reduziu pouco a quantidade de métodos, e os ganhos de ranking foram medidos em postos. As estimativas cobrem as 20 alterações artificiais escolhidas. As quatro variantes finais pertencem a uma única classe, com duas no mesmo método. Essa concentração e as cinco revisões limitam a generalização para regressões naturais e ambientes de CI. O piloto confirma viabilidade para estudar detecção sintética. A decisão sobre o objeto do estudo principal segue na KAN-12, e a KAN-18 permanece formalmente bloqueada. [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12) · [KAN-18](https://cin-team-test-prioritization.atlassian.net/browse/KAN-18)
+
+Os resultados versionados registram caminhos e SHA-256 para reprodução. Os CSVs brutos, XML, logs e modelos serializados ficam em diretórios locais ignorados pelo Git. Passaram os três testes automatizados do comparador e os oito testes dos modelos. A execução independente da comparação das cinco revisões reproduziu integralmente o JSON versionado. [Reprodução dos mutantes](mutantes/README.md#reprodução) · [Reprodução da seleção](t1/README.md#reprodução) · [Reprodução dos rankings](modelos/README.md#reprodução)
