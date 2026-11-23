@@ -51,6 +51,6 @@ Get-FileHash evidencias/KAN-19/local/confirmacao/resumo.json
 Get-FileHash evidencias/KAN-19/local/repeticao/resumo.json
 ```
 
-Use nomes de execução novos. As duas execuções produziram resumos idênticos com os mesmos hashes dos cinco CSVs. O [resumo versionado](resumo.json) registra código, entradas, população e fontes verificadas. Os CSVs gerados ficam em `local/`.
+Use nomes de execução novos. As duas execuções produziram resumos idênticos com os mesmos hashes dos cinco CSVs. O [resumo versionado](resumo.json) registra código, entradas, população e fontes verificadas. Os CSVs gerados ficam em `local/`, ignorado pelo Git. O commit local de implementação é `17cf974b4e0d27f18066af366b1ac3513c2dee94`.
 
 O pipeline compara cada linha da auditoria com o cálculo sobre o prefixo anterior isolado e com um cálculo que substitui todos os resultados da posição alvo em diante por falhas e durações artificiais. Os valores e a proveniência permaneceram idênticos nas cinco posições T1. A verificação independente conferiu unicidade das chaves, 9.301 pares T1–T0, identidade dos vetores entre features e treino, treino restrito a 15/26/42 e ancestralidade estrita por posição das fontes históricas. Um caso de controle confirmou que o histórico reage a uma falha anterior, preserva a duração zero e mantém ausências vazias. As features operacionais são calculadas somente na função que recebe recorte e seleção estática congelada. Os resultados T0 e os rótulos entram nos seus próprios fluxos depois dessa seleção.
