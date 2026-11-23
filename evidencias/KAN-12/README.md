@@ -71,9 +71,9 @@ O Commons Lang tem evidência operacional mais diretamente aplicável à Entrega
 | Critério da KAN-12 | Estado |
 | --- | --- |
 | Decisão justificada e rastreável | Commons Lang confirmado por Wallace em 22/11/2026, com justificativa e limites registrados nesta nota. |
-| Riscos remanescentes explicitados | Documentados. Incluem cobertura histórica, associação por método, ordem e duração, possíveis efeitos ambientais, insuficiência de positivos e custo de validar jsoup. |
+| Riscos remanescentes explicitados | Os cinco T0 cobrem 5 dos 100 SHAs, sem falhas naturais observadas, com duas durações ausentes entre métodos executados e sem ordem global de início. O piloto sintético fornece evidência auxiliar em uma amostra pequena de mutações e tem alcance limitado para regressões naturais. |
 
-A **KAN-12 permanece Em andamento**. A **KAN-18 permanece formalmente bloqueada pela KAN-12** no vínculo `Blocks` de ID `10009`, com status `BackLog` na consulta de 20/11/2026. A KAN-17, sua outra dependência direta, está concluída. A viabilidade de preparar T1 exploratório no piloto é um parecer técnico. O desbloqueio formal depende do atendimento e aceite da KAN-12 ou de uma mudança explícita de dependência autorizada pela coordenação. [KAN-12](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12) · [KAN-18](https://cin-team-test-prioritization.atlassian.net/browse/KAN-18)
+Em 22/11/2026, com autorização de Wallace, a **KAN-12 foi concluída no Jira**. O comentário de aceite vincula esta nota à decisão publicada em `4107125a07659763f56a457ce84540fa3e008f16`. A verificação usou `git show --check 4107125`, `git branch -r --contains 4107125` e a leitura do resumo da KAN-16 e do relatório de mutação. Após a transição, a consulta aos dois cartões confirmou a **KAN-18 em BackLog**, com as duas dependências diretas concluídas (KAN-12 e KAN-17). O vínculo original `Blocks` de ID `10009` foi preservado. A coordenação pode abrir a KAN-18. [Comentário de aceite](https://cin-team-test-prioritization.atlassian.net/browse/KAN-12?focusedCommentId=10014) · [KAN-18](https://cin-team-test-prioritization.atlassian.net/browse/KAN-18)
 
 ## Reavaliação com os cinco T0
 
