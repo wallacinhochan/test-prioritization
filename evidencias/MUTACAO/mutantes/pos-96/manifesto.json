@@ -1,0 +1,92 @@
+{
+  "protocolo": "tp-mutation-v1",
+  "posicao": 96,
+  "sha": "5454931eb735deb59e9b671fd8a14cd4c14d8272",
+  "pai": "0cebd847c3ce33c634050fb02c307acb106e0b55",
+  "imagem": "sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6",
+  "fonte_tar_sha256": "73447f264967cab0097a3c036da1d3c656655bfa9f0697e504cf5ed5e99f8720",
+  "classes": [
+    "org.apache.commons.lang3.reflect.TypeUtils"
+  ],
+  "pit": "1.19.4",
+  "pit_junit5": "1.2.3",
+  "semente": "tp-mutation-v1",
+  "congelado_utc": "2026-11-23T01:09:55.3710611+00:00",
+  "candidatos_csv_sha256": "32bcbce72442f16bbe7814a982d0be6e89b2d204f597175a36557c856a970ab5",
+  "exportados": 380,
+  "elegiveis": 380,
+  "selecionados": [
+    {
+      "mutation_id": "org.apache.commons.lang3.reflect.TypeUtils|containsTypeVariables|(Ljava/lang/reflect/Type;)Z|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|100",
+      "classe": "org.apache.commons.lang3.reflect.TypeUtils",
+      "metodo": "containsTypeVariables",
+      "descritor_jvm": "(Ljava/lang/reflect/Type;)Z",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+      "indices": [
+        100
+      ],
+      "selecao_sha256": "00b8af80e09fbe3ab135ddbcaf82a875b6ac0c4c03ec06e567691ee1916158a7",
+      "bytecode_sha256": "00c8d489d0e92365e3a7aa6600649511f060ef915d793bbb33a3acd1558f48e5",
+      "original_sha256": "d731345a593bee728f45ae6436c4016e392790424d3bfb13a4f124756b4de215",
+      "detalhes_sha256": "09a0debdc2354a75871ac160dd6cbdc4cfa147330423bc67843de9aa8be9057c",
+      "bytecode": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/25/org.apache.commons.lang3.reflect.TypeUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/25/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.reflect.TypeUtils|containsTypeVariables|(Ljava/lang/reflect/Type;)Z|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE|22",
+      "classe": "org.apache.commons.lang3.reflect.TypeUtils",
+      "metodo": "containsTypeVariables",
+      "descritor_jvm": "(Ljava/lang/reflect/Type;)Z",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+      "indices": [
+        22
+      ],
+      "selecao_sha256": "01268aaa6331c00d38e00d7b95b92a74795181827e82d695189c872896942be2",
+      "bytecode_sha256": "9368d2a22aadf628ab06d8aa3c985e6fe3fe99c80981f6eb68fbb70443cce51d",
+      "original_sha256": "d731345a593bee728f45ae6436c4016e392790424d3bfb13a4f124756b4de215",
+      "detalhes_sha256": "a4b6ff60616fd478736ca7afaa3ac2df18003236089c7533ba2413532436814d",
+      "bytecode": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/17/org.apache.commons.lang3.reflect.TypeUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/17/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.reflect.TypeUtils|isAssignable|(Ljava/lang/reflect/Type;Ljava/lang/reflect/GenericArrayType;Ljava/util/Map;)Z|org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator|8",
+      "classe": "org.apache.commons.lang3.reflect.TypeUtils",
+      "metodo": "isAssignable",
+      "descritor_jvm": "(Ljava/lang/reflect/Type;Ljava/lang/reflect/GenericArrayType;Ljava/util/Map;)Z",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indices": [
+        8
+      ],
+      "selecao_sha256": "0134a5e8849ca3e25f3401c55b850b2138ce669be29462d22bf7208312151227",
+      "bytecode_sha256": "dfd61d373a979fb2c2a967736596ec09e8544e098482dbe1187c082ee9026fab",
+      "original_sha256": "d731345a593bee728f45ae6436c4016e392790424d3bfb13a4f124756b4de215",
+      "detalhes_sha256": "33fdd12d97fa374a2ccdd1c15f22b92339a5e438ab26a6cfc2e3f5334c1567b3",
+      "bytecode": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/180/org.apache.commons.lang3.reflect.TypeUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/180/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    },
+    {
+      "mutation_id": "org.apache.commons.lang3.reflect.TypeUtils|isAssignable|(Ljava/lang/reflect/Type;Ljava/lang/reflect/WildcardType;Ljava/util/Map;)Z|org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator|191",
+      "classe": "org.apache.commons.lang3.reflect.TypeUtils",
+      "metodo": "isAssignable",
+      "descritor_jvm": "(Ljava/lang/reflect/Type;Ljava/lang/reflect/WildcardType;Ljava/util/Map;)Z",
+      "operador": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indices": [
+        191
+      ],
+      "selecao_sha256": "0296ae52a68d7883bf6b6b11b8eef922450b6b34639fe0903977fd01cd63079b",
+      "bytecode_sha256": "f8a008d725b83bbad8451874bc7f2c40c3045577c18a6f76990aa1c4ea6858c6",
+      "original_sha256": "d731345a593bee728f45ae6436c4016e392790424d3bfb13a4f124756b4de215",
+      "detalhes_sha256": "0b8e119984387750c4060446477d9ddded984e862eae8577e4e65d5ea50617a5",
+      "bytecode": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/266/org.apache.commons.lang3.reflect.TypeUtils.class",
+      "detalhes": "export/org/apache/commons/lang3/reflect/TypeUtils/mutants/266/details.txt",
+      "elegivel": true,
+      "situacao": "elegivel"
+    }
+  ]
+}
