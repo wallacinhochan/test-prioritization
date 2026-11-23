@@ -81,3 +81,17 @@ T0 detectou os quatro mutantes de `LocaleUtils`, e o T1 congelado preservou os q
 A projeção reteve os 12 rótulos positivos. Os 44 rótulos desconhecidos continuaram desconhecidos no nível de método. Cada mutante tinha ao menos uma falha induzida conhecida em ambos os cenários, o que resolve sua detecção mesmo com essas lacunas. A redução foi de 4/4.652 métodos (0,086%). O seletor levou 463 ms com inventário e jdeps preparados. O tempo físico de T1 ficou indisponível.
 
 O avaliador conferiu os hashes do congelamento `0d3cd01`, do manifesto de mutantes fixado em `b0652c9` e dos rótulos. O resumo de replay confirmou controle equivalente, repetição coincidente e restauração. O JSON versionado guarda contagens e referências. O CSV bruto permanece ignorado pelo Git.
+
+## Comparação consolidada das posições 15, 26, 42 e 50
+
+O T1 congelado preservou **15/15 mutantes detectados pelo T0** entre 16 avaliados. Os 15 casos comparáveis tiveram detecção nos dois cenários, com intervalo de preservação **[100%, 100%]** entre os detectados pelo T0. Na posição 50, uma variante ficou desconhecida em ambos os cenários. Seu replay não mostrou falha induzida e deixou 11 métodos desconhecidos por cenário. A posição 96 fica reservada para o teste final. [Decisões por mutante e hashes das quatro publicações](comparacao/pre-holdout.json)
+
+| Posição | Mutantes avaliados | Comparáveis | Detectados por T0 | Preservados por T1 | Pares método–mutante positivos em T0 / T1 | Pares desconhecidos em T0 / T1 |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 15 | 4 | 4 | 4 | 4 | 280 / 280 | 44 / 44 |
+| 26 | 4 | 4 | 4 | 4 | 12 / 12 | 44 / 44 |
+| 42 | 4 | 4 | 4 | 4 | 17 / 17 | 44 / 44 |
+| 50 | 4 | 3 | 3 | 3 | 4 / 4 | 44 / 44 |
+| Total | 16 | 15 | 15 | 15 | 313 / 313 | 176 / 176 |
+
+O T1 excluiu 16 de 18.617 métodos somados por revisão (0,086%). O custo do seletor variou de 399 a 463 ms, com inventário e saída do jdeps preparados. As contagens resultam da projeção sobre o replay T0. O tempo físico de T1 está indisponível.
