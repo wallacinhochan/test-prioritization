@@ -1,0 +1,154 @@
+{
+  "versao": 1,
+  "natureza": "mutacao_sintetica",
+  "t1_commit": "0d3cd01e68bf223eca124332f74d4486ae6bd6f7",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "posicoes": {
+    "15": {
+      "estado": "disponivel",
+      "sha": "970e4d66452c146165233129c913616ff666ff77",
+      "publicacao_commit": "90f3143568981bc996243b31e97d477f9e2ab897",
+      "resumo_sha256": "dd870f0009ee82451d8125fcc06338e1d9d398343de2e3f6c33cadfcd4070930",
+      "manifesto_sha256": "ebb697cc6761c1de4303b4a2fb08ba47134c96b027a1468e5322cacb698f918a",
+      "rotulos_sha256": "f81969be798296d6d1cf5167a78e2b8fa60b1c4d0cb4ef0c7ce5f9734946175f",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 280,
+        "pass": 18280,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18560,
+        "metodos": 4651,
+        "metodos_com_alvo": 4640
+      },
+      "t1": {
+        "induced_failure": 280,
+        "pass": 18264,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18544,
+        "metodos": 4647,
+        "metodos_com_alvo": 4636
+      }
+    },
+    "26": {
+      "estado": "disponivel",
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "publicacao_commit": "41318d967d7458851925312112224e5e00d01f43",
+      "resumo_sha256": "00731dde7d0ee34ffeb006c8d6a9cabe65326627dd1d2e51f8c9840af193dcd7",
+      "manifesto_sha256": "be1e9f200bf448595a502547abef6d5220d24a9fa29ed37eb8f7e372a97f68d6",
+      "rotulos_sha256": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 12,
+        "pass": 18552,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18564,
+        "metodos": 4652,
+        "metodos_com_alvo": 4641
+      },
+      "t1": {
+        "induced_failure": 12,
+        "pass": 18536,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18548,
+        "metodos": 4648,
+        "metodos_com_alvo": 4637
+      }
+    },
+    "42": {
+      "estado": "disponivel",
+      "sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+      "publicacao_commit": "2fbfccf6091d5bde289f9caf1ea8692dedc86248",
+      "resumo_sha256": "a6c0043af8f07b9d06e6243e716ce649b807f9f68925efe16df79a2d9150fe98",
+      "manifesto_sha256": "351049aeccb5e8639873afe6ce4708ce6736440fe0a9beafdf8e7995799689b5",
+      "rotulos_sha256": "50a853cc2196ed6a3a2832722bf699520f99e620ece95147ef80448004f9a746",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 17,
+        "pass": 18567,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18584,
+        "metodos": 4657,
+        "metodos_com_alvo": 4646
+      },
+      "t1": {
+        "induced_failure": 17,
+        "pass": 18551,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18568,
+        "metodos": 4653,
+        "metodos_com_alvo": 4642
+      }
+    },
+    "50": {
+      "estado": "disponivel",
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "publicacao_commit": "940d22dcf5088e4e84352ead6ee9deeae2817395",
+      "resumo_sha256": "acfb69412e3a4fa10d6881ec53d2a3f03f67d4016fbee9f7016b0a480b6359cd",
+      "manifesto_sha256": "adecb92cdccc22aef90ae518ba48788accf65b4026912b7a9854ca1b7910ba1c",
+      "rotulos_sha256": "a3f3faf491b9043975ba4c15eb352ae3c84733dfb7945a48483e1c15be4596ce",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 4,
+        "pass": 18580,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18584,
+        "metodos": 4657,
+        "metodos_com_alvo": 4646
+      },
+      "t1": {
+        "induced_failure": 4,
+        "pass": 18564,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18568,
+        "metodos": 4653,
+        "metodos_com_alvo": 4642
+      }
+    }
+  },
+  "treino": {
+    "induced_failure": 309,
+    "pass": 55351,
+    "unknown": 132,
+    "ausente": 0,
+    "denominador": 55660,
+    "metodos": 13948,
+    "metodos_com_alvo": 13915,
+    "posicoes": [
+      15,
+      26,
+      42
+    ],
+    "suficiente": true
+  },
+  "validacao": {
+    "induced_failure": 4,
+    "pass": 18564,
+    "unknown": 44,
+    "ausente": 0,
+    "denominador": 18568,
+    "metodos": 4653,
+    "metodos_com_alvo": 4642,
+    "posicoes": [
+      50
+    ],
+    "suficiente": true
+  },
+  "artefatos_sha256": {
+    "alvos-15.csv": "6ef61b4b92d297d39c0201684877f13a39ed1e96c3414ed49b49c1bc04330b44",
+    "alvos-26.csv": "2a94abf5a8a957738780dedbbe2846d8f4764cf585156e75bd1447312db17cad",
+    "alvos-42.csv": "36315655d8665a5aaffbdb9410d02916a49aacb868cb7e2d98efb9146cc47b0d",
+    "alvos-50.csv": "48c5ecb05eaacde821102bdbe86cf4a468d34aee53e031a2db17d3bea1a729d2"
+  }
+}
