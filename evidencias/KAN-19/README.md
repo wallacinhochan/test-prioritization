@@ -1,8 +1,40 @@
 # KAN-19 — Dataset temporal por revisão e método
 
-O dataset mantém o Apache Commons Lang, os 100 SHAs da KAN-10 e a identidade exata `classe#metodo(tipos)` da KAN-17. As entradas de KNN e Random Forest são as mesmas sete features estáticas sobre os métodos selecionados em T1. A decisão da KAN-12 destina os rótulos sintéticos ao treino. Os resultados de validação e teste sintéticos do piloto permanecem nas evidências de mutação. [Cartão KAN-19](https://cin-team-test-prioritization.atlassian.net/browse/KAN-19) · [Decisão KAN-12](../KAN-12/README.md) · [Contrato KAN-15](../KAN-15/README.md) · [Identidade KAN-17](../KAN-17/README.md) · [Piloto de mutação](../MUTACAO/modelos/README.md)
+O dataset mantém o Apache Commons Lang, os 100 SHAs da KAN-10 e a identidade exata `classe#metodo(tipos)` da KAN-17. As entradas de KNN e Random Forest são as mesmas sete features estáticas sobre os métodos selecionados em T1. A decisão da KAN-12 destina os rótulos sintéticos ao treino. [Cartão KAN-19](https://cin-team-test-prioritization.atlassian.net/browse/KAN-19) · [Decisão KAN-12](../KAN-12/README.md) · [Contrato KAN-15](../KAN-15/README.md) · [Identidade KAN-17](../KAN-17/README.md)
 
-## Variáveis e observabilidade
+## Inferência e cobertura do estudo principal
+
+`principal.py` usa a publicação da KAN-18 em `260c1af381b3137b1591af9f33e47e987ac7b2b2`. Confere posição, SHA, primeiro pai e hash da KAN-10. Compara o manifesto de cada seleção em `KAN-18/local/selecao/<sha>/` com a verificação versionada, valida os cinco hashes de saída e confere o hash do inventário em `KAN-18/local/entradas/<sha>/metodos.tsv`. Valida chaves do inventário, da seleção e do ranking, caminhos das referências, decisões por classe e postos ordinais. Usa a classe raiz da descoberta nas features de rota e a assinatura exata nas features do método. [KAN-18](../KAN-18/README.md) · [Verificação publicada](../KAN-18/verificacao.json)
+
+| Posição KAN-10 | Métodos selecionados com features | Métodos T0 completo | Pares T1–T0 |
+| ---: | ---: | ---: | ---: |
+| 1 | 4.649 | 4.649 | 4.649 |
+| 2 | 4.649 | — | — |
+| 26 | 4.648 | 4.652 | 4.648 |
+| 50 | 4.653 | 4.657 | 4.653 |
+| 75 | 7 | 4.659 | 7 |
+| 100 | 4.663 | 4.663 | 4.663 |
+| **Total** | **23.269** | **23.280** | **18.620** |
+
+- `features_inferencia.csv` contém as mesmas chaves e ordem de cada `rankings.csv` formal. SHA, posição e método identificam a linha. As sete colunas preditivas estão preenchidas nas 23.269 linhas e seguem a proveniência e a codificação da tabela abaixo.
+- `cobertura_principal.csv` contém os 100 SHAs. A seleção está disponível em 6, dos quais 5 têm T0 completo. A posição 2 tem features e uma lacuna no oráculo. As 94 posições restantes têm seleção e T0 indisponíveis.
+- `juncao_t1_t0.csv` contém a interseção por `(commit_sha, test_id)` com o oráculo completo, em arquivo próprio. Preserva `pass`, `skip`, duração, ordem e referência da KAN-16. Os 18.620 pares pertencem aos cinco SHAs com T0. Houve zero falhas e zero positivos naturais observados. A ordem global segue indisponível.
+
+Os cortes 42 e 50 classificam somente a auditoria inicial abaixo. Os CSVs do estudo principal registram posição cronológica e cobertura para os seis SHAs formais, sem atribuir partições. Detecção e antecipação de falhas naturais continuam sem suporte na amostra.
+
+Na raiz do repositório, com os arquivos locais da publicação KAN-18 e os CSVs KAN-16 disponíveis, execute com nomes novos:
+
+```powershell
+$kanPython = "$env:USERPROFILE/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe"
+& $kanPython -B evidencias/KAN-19/principal.py principal-a
+& $kanPython -B evidencias/KAN-19/principal.py principal-b
+Get-FileHash evidencias/KAN-19/local/principal-a/resumo_principal.json
+Get-FileHash evidencias/KAN-19/local/principal-b/resumo_principal.json
+```
+
+As duas execuções produziram resumos idênticos e os mesmos hashes dos três CSVs. A verificação comparou as chaves do inventário com as do oráculo em cada T0 completo e reconciliou falhas, falhas retidas e durações ausentes com a publicação da KAN-18. Uma checagem independente comparou os CSVs com os rankings e o T0 originais e confirmou que a leitura de um ranking com bytes alterados era rejeitada pelo hash. O resumo identifica a tentativa de seleção publicada. Para usar uma nova execução da KAN-18 com hashes de overhead ou logs diferentes, é preciso vinculá-la à sua própria verificação. [Resumo principal](resumo_principal.json)
+
+## Variáveis e observabilidade na auditoria inicial
 
 | Variável | Proveniência e instante de observação | Disponibilidade e ausência |
 | --- | --- | --- |
@@ -21,9 +53,9 @@ A KAN-11 encontrou lacunas nas fontes históricas. As cinco execuções KAN-16 f
 
 O vetor compartilhado é a lista `features_modelo` no resumo. SHA, posição, identidade, partição, alvos, contagens de rótulos e auditoria de histórico são metadados ou saídas auxiliares. As sete entradas estão completas na população disponível. Zero com indicador de rota ausente é uma codificação estrutural. A exportação preserva os valores brutos. Para reproduzir a transformação do piloto, ajuste o escalonamento padrão do KNN exclusivamente nos exemplos de treino de cada janela e aplique os mesmos parâmetros às revisões posteriores. A Random Forest usa as mesmas colunas sem escalonamento. Uma revisão sem inventário T1 fica sem vetor e um método sem observações sintéticas conhecidas fica sem alvo. [Implementação de referência do piloto](../MUTACAO/modelos/README.md)
 
-## Partições e saídas
+## Partições e saídas da auditoria inicial
 
-Para este dataset, adotei os limites de posição 42 e 50 para refletir a divisão já congelada no piloto. Os limites classificam todos os 100 SHAs, inclusive os sem dados. A avaliação principal depende de seleção e oráculo comparáveis na mesma revisão.
+Nesta auditoria, os limites de posição 42 e 50 refletem a divisão congelada no piloto. Os limites classificam todos os 100 SHAs, inclusive os sem dados. As contagens T1 abaixo usam exclusivamente as seleções do piloto de mutação. As features e os rótulos sintéticos de validação (50) e teste (96) seguem como evidência auxiliar nos artefatos verificados do piloto. [Validação e teste do piloto](../MUTACAO/modelos/README.md)
 
 | Partição | Posições do recorte | T0 completos | Métodos T0 `pass` / `skip` | T1 congelado disponível | Pares T1 com T0 |
 | --- | --- | --- | --- | --- | ---: |
@@ -37,9 +69,9 @@ Para este dataset, adotei os limites de posição 42 e 50 para refletir a divis�
 - `historico_replay.csv` enumera os denominadores e posições-fonte por método selecionado. A lista usa posições da KAN-10 e inclui somente resultados executados que contribuem ao denominador histórico.
 - `cobertura.csv` registra cobertura por SHA dos 100 candidatos, com o estado de elegibilidade original da KAN-10 e contagens das referências disponíveis. T1 ausente fica vazio. T1 disponível com zero junções tem contagem zero.
 
-A janela de avaliação tem dois T0 completos sem positivos naturais e nenhum par T1–T0. A validação tem pares comparáveis na posição 50 e zero positivos naturais. A ordem global de T0 continua indisponível. A evidência atual permite verificar o dataset e a integração de rótulos sintéticos. A avaliação natural de detecção e a suficiência de episódios entre janelas continuam sem suporte. A janela expansiva e o reajuste a cada dez commits ficam com a etapa de treinamento prevista na Entrega 2.
+Na auditoria inicial, as seleções do piloto geram pares com T0 nas posições 26 e 50. O conjunto formal da KAN-18 amplia essa cobertura para os cinco T0 completos. A janela expansiva e o reajuste a cada dez commits ficam com a etapa de treinamento prevista na Entrega 2.
 
-## Reprodução e verificação
+## Reprodução e verificação do treino sintético
 
 Na raiz do repositório, use CPython 3.12.14 e Git no PATH. São necessários os CSVs locais da KAN-16 em `evidencias/KAN-16/local/lote/` e os replays publicados das posições 15, 26 e 42 em `evidencias/MUTACAO/mutantes/local/`. O procedimento da KAN-16 descreve como reexportar os CSVs a partir das referências brutas. Um replay indisponível ou reprovado fica registrado no resumo e deixa o treino parcial. Um CSV de T0 ausente ou hash divergente interrompe a exportação. [Reprodução KAN-16](../KAN-16/README.md#reprodução) · [Replays e rótulos](../MUTACAO/mutantes/README.md)
 
@@ -53,4 +85,4 @@ Get-FileHash evidencias/KAN-19/local/repeticao/resumo.json
 
 Use nomes de execução novos. As duas execuções produziram resumos idênticos com os mesmos hashes dos cinco CSVs. O [resumo versionado](resumo.json) registra código, entradas, população e fontes verificadas. Os CSVs gerados ficam em `local/`, ignorado pelo Git. O commit local de implementação é `17cf974b4e0d27f18066af366b1ac3513c2dee94`.
 
-O pipeline compara cada linha da auditoria com o cálculo sobre o prefixo anterior isolado e com um cálculo que substitui todos os resultados da posição alvo em diante por falhas e durações artificiais. Os valores e a proveniência permaneceram idênticos nas cinco posições T1. A verificação independente conferiu unicidade das chaves, 9.301 pares T1–T0, identidade dos vetores entre features e treino, treino restrito a 15/26/42 e ancestralidade estrita por posição das fontes históricas. Um caso de controle confirmou que o histórico reage a uma falha anterior, preserva a duração zero e mantém ausências vazias. As features operacionais são calculadas somente na função que recebe recorte e seleção estática congelada. Os resultados T0 e os rótulos entram nos seus próprios fluxos depois dessa seleção.
+O pipeline compara cada linha da auditoria com o cálculo sobre o prefixo anterior isolado e com um cálculo que substitui todos os resultados da posição alvo em diante por falhas e durações artificiais. Os valores e a proveniência permaneceram idênticos nas cinco posições T1. A verificação independente conferiu unicidade das chaves, 9.301 pares T1–T0, identidade dos vetores entre features e treino, treino restrito a 15/26/42 e anterioridade estrita por posição das fontes históricas. Um caso de controle confirmou que o histórico reage a uma falha anterior, preserva a duração zero e mantém ausências vazias. As features operacionais são calculadas somente na função que recebe recorte e seleção estática congelada. Os resultados T0 e os rótulos entram nos seus próprios fluxos depois dessa seleção. A reprodução feita após o encaixe com a KAN-18 produziu o mesmo resumo versionado, incluindo o hash do treino sintético.

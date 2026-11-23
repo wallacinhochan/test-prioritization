@@ -1,0 +1,153 @@
+{
+  "protocolo": "kan19-kan18-v1",
+  "kan18_commit": "260c1af381b3137b1591af9f33e47e987ac7b2b2",
+  "verificacao_ref": "evidencias/KAN-18/verificacao.json",
+  "verificacao_sha256": "51cedf0c7299eb23e2f347cce1fd8e53a2644db1ddc6b1761ca8486d690f2216",
+  "sha256_entrada": {
+    "commits.csv": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed",
+    "t0_runs.csv": "0e6501204268a8501127ce64ded2fb88af60615ad5f8cc81d8cf990e5fb7141b",
+    "t0_results.csv": "6a78de8d515ee42f782c2c1ed890a3111cef15fe106ea61321f6285784923800"
+  },
+  "features_modelo": [
+    "distancia_rota",
+    "rota_ausente",
+    "arestas_lexicais",
+    "classe_semente",
+    "comprimento_nome",
+    "quantidade_parametros",
+    "classe_aninhada"
+  ],
+  "selecao": {
+    "1": {
+      "sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+      "manifesto_ref": "evidencias/KAN-18/local/selecao/921c1b4e09ed7b6900ad7243cffb33b373980cc5/manifesto.json",
+      "manifesto_sha256": "35fe1ae562dd8e434a58ff6c1ef4e4f5e6a11ef53b8388054fae7872574949aa",
+      "ranking_sha256": "8fa4a4b2553cf5e4e3a678cd672b0d497186e14b3beeae10fa928e6ba9ef36b2",
+      "selection_sha256": "0d9aeebbcecdec40b63677546fda3fd6098773cf6fd2952fc1d4ac09fdb991e5",
+      "decisoes_sha256": "c707f262624433693942f9b98f35b0eada6796d0a4a99579b1918ea23c3e8a36",
+      "inventario_sha256": "2e1b48bdf1e644e7c41fd9b8fa49d779d14550a6ed27032ae1a571948dbab2bd"
+    },
+    "2": {
+      "sha": "766c028c96afbc831e842684c85e90fdad08722c",
+      "manifesto_ref": "evidencias/KAN-18/local/selecao/766c028c96afbc831e842684c85e90fdad08722c/manifesto.json",
+      "manifesto_sha256": "643980ffcdb997d3e5f4fdd58a31edf2e20635e554d3580843c02cd319807898",
+      "ranking_sha256": "481058f9d5a9fb98e606c9b26127e4ab7b024f1e56f0e29bb89ed23d808edbf1",
+      "selection_sha256": "edbfe69f5e510a30f4b7d51df3813cc24019abff9c63671f843cbd7fdea68a89",
+      "decisoes_sha256": "5bccfb1316aaf6247d39f73eb7b8a78ff866237df78f80340a21296488930be0",
+      "inventario_sha256": "2e1b48bdf1e644e7c41fd9b8fa49d779d14550a6ed27032ae1a571948dbab2bd"
+    },
+    "26": {
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "manifesto_ref": "evidencias/KAN-18/local/selecao/04cc0339d6510ffdcb47db4676c34b40ecff6b28/manifesto.json",
+      "manifesto_sha256": "453a83cf5f7e81437564cee52c2c9ff45a405def8dd6dbff025e1d4fe9cfcdaf",
+      "ranking_sha256": "df8cd5d25a393e4761f2978ff17c6973ba34867b46b0ba5a2b30fede0a7f1ac6",
+      "selection_sha256": "0f0f2a793f43c089275a366e000391cdbb64d75e884c900440142ff48f6d38c5",
+      "decisoes_sha256": "e6ca282721f48ea1bcefae78a22203b15108e03060bb7c21fa7836e678b1f347",
+      "inventario_sha256": "93e6f989cb7d8bea56eb2666e7684e9ee33b14a01e538f19f4cfddd459a0621c"
+    },
+    "50": {
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "manifesto_ref": "evidencias/KAN-18/local/selecao/f24c027ff83b90beab2ec28696721200abb4f9e9/manifesto.json",
+      "manifesto_sha256": "8b36b2b59293393cd226fed667e28655df0ee77c6a59793bb911b014298ae20c",
+      "ranking_sha256": "515aba1a0f619715ef4ff329918e6e4321c4c63a159ca976f550955dfb7e29f4",
+      "selection_sha256": "96fc6822a0552e979ec1009a3481b157a16d1c81d411d717c4ff6767f002a507",
+      "decisoes_sha256": "b2d20dabf1ea77bb9110ef6855157f19e48049b96dd0315fb02f8222f56da542",
+      "inventario_sha256": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef"
+    },
+    "75": {
+      "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "manifesto_ref": "evidencias/KAN-18/local/selecao/bfcaa941b0849956972517c8559c0827c8fe5386/manifesto.json",
+      "manifesto_sha256": "a82668dc7263835dca4d428afc99b50481d1170539040ad2048f49256d7f3983",
+      "ranking_sha256": "e56145cbc36ce54a442f94d8f8d94c11e70c58c4e550c3a90439e176de69abba",
+      "selection_sha256": "792c6a1b6177e52b7a3dad35c4816ad96e946f9e7d39c6b2338b94df700619ea",
+      "decisoes_sha256": "0d657e18eb7d88655eccb8c93023c016e57130679aca2faccbb8d4c290506ad9",
+      "inventario_sha256": "2abe4194b295f0da22c87b860f35ea4c022e83d1a30f729b7ad5ac77e01bc475"
+    },
+    "100": {
+      "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "manifesto_ref": "evidencias/KAN-18/local/selecao/598dfc163b8b410fb3bb8794521206ec8dcec82a/manifesto.json",
+      "manifesto_sha256": "9ce2e92bbe84717043bdf5885004a3b582c11e61ce0900b5598102487c215cd3",
+      "ranking_sha256": "666c930535b2097b9464f962dcefa39827712aa45c9ae7847d490596ba191594",
+      "selection_sha256": "70994a5c33eeeb10975189337d0717a4a8334dc46aa0d79f628c8bb3f01e51fc",
+      "decisoes_sha256": "ecb233c02453389fb416522f8d2c442b245b8088044e65865351c27799de7e0f",
+      "inventario_sha256": "0607b6238cf837e49b824908482da733abb6e4d15f66c578889d033f0ea371aa"
+    }
+  },
+  "linhas_inferencia": 23269,
+  "linhas_juncao": 18620,
+  "falhas_t0": 0,
+  "falhas_retidas_t1": 0,
+  "revisoes_formais": [
+    {
+      "position": 1,
+      "commit_sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+      "eligibility_kan10": "pending",
+      "t0_status": "complete",
+      "t0_methods": 4649,
+      "t0_failures": 0,
+      "t1_candidates": 4649,
+      "t1_selected": 4649,
+      "t1_with_t0": 4649
+    },
+    {
+      "position": 2,
+      "commit_sha": "766c028c96afbc831e842684c85e90fdad08722c",
+      "eligibility_kan10": "pending",
+      "t0_status": "sem_t0",
+      "t0_methods": null,
+      "t0_failures": null,
+      "t1_candidates": 4649,
+      "t1_selected": 4649,
+      "t1_with_t0": null
+    },
+    {
+      "position": 26,
+      "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "eligibility_kan10": "pending",
+      "t0_status": "complete",
+      "t0_methods": 4652,
+      "t0_failures": 0,
+      "t1_candidates": 4652,
+      "t1_selected": 4648,
+      "t1_with_t0": 4648
+    },
+    {
+      "position": 50,
+      "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "eligibility_kan10": "pending",
+      "t0_status": "complete",
+      "t0_methods": 4657,
+      "t0_failures": 0,
+      "t1_candidates": 4657,
+      "t1_selected": 4653,
+      "t1_with_t0": 4653
+    },
+    {
+      "position": 75,
+      "commit_sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "eligibility_kan10": "pending",
+      "t0_status": "complete",
+      "t0_methods": 4659,
+      "t0_failures": 0,
+      "t1_candidates": 4659,
+      "t1_selected": 7,
+      "t1_with_t0": 7
+    },
+    {
+      "position": 100,
+      "commit_sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "eligibility_kan10": "eligible",
+      "t0_status": "complete",
+      "t0_methods": 4663,
+      "t0_failures": 0,
+      "t1_candidates": 4663,
+      "t1_selected": 4663,
+      "t1_with_t0": 4663
+    }
+  ],
+  "sha256_saida": {
+    "cobertura_principal.csv": "05e3137ab0f3910722bd108a8214fda8e83ea17ff11e390ccffb951af20e3b25",
+    "features_inferencia.csv": "98c77fff5f268ae6717de057ef59d016b28ff4bc5ad7d06bacedf5e502c41661",
+    "juncao_t1_t0.csv": "93c1140298f58cbbfdf5785be4c177344a746dfe11e2409deb3ba5f02200fb50"
+  }
+}
