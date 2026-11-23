@@ -58,3 +58,20 @@ Após a publicação de 42 no commit `2fbfccf`, a execução `diagnostico treino
 O replay de 50 foi publicado em `940d22d`. Foram observados 4 positivos e 18.564 negativos em T1, com 44 desconhecidos e nenhuma ausência. O denominador é 18.568, com 4.642 métodos com alvo de 4.653 selecionados. KNN antecipou os postos observados 1.693, 1.693 e 999 para 15, 15 e 221. A Random Forest os antecipou para 25, 25 e 268. O quarto mutante permaneceu indeterminado nas três ordens. O resultado distingue a primeira detecção observada das posições possíveis quando há lacunas. [Diagnóstico do desenvolvimento](diagnostico-validacao-50.json) · [Detecção por mutante](deteccao-validacao-50.json)
 
 A execução `congelar piloto-v1` ajustou os modelos no treino e gravou as predições das cinco revisões. A repetição `congelar piloto-v1-repeticao` reproduziu os SHA-256 dos 21 artefatos, incluindo modelos serializados, características, alvos e rankings. Para a posição 96, cada ranking contém os 4.659 métodos T1 e usa somente entradas pré-execução e os modelos ajustados no treino. O acesso ao resultado final depende da publicação após a liberação da coordenação. [Manifesto de congelamento](congelamento.json)
+
+## Teste final
+
+A coordenação liberou a posição 96 em `RELATORIO.md@6e97157d56bdfacb9533944974463ee83306f39c`. Após a publicação do replay em `f4a9da22a142bf29166dfb446e50c0d75b23354c`, a execução abaixo verificou a liberação, o congelamento e os 21 artefatos e avaliou os rankings gravados. O teste final foi suficiente, com 6 falhas induzidas, 18.582 aprovações e 48 desconhecidos em T1. Não houve linhas ausentes. O denominador conhecido foi de 18.588, com alvo para 4.647 dos 4.659 métodos.
+
+```powershell
+& $python "$modelos/piloto.py" final piloto-v1 --commit cbb462b79df5de284678ce0ac7c06f20e26d12c1 --liberacao 'RELATORIO.md@6e97157d56bdfacb9533944974463ee83306f39c'
+```
+
+| Variante de TypeUtils na ordem do manifesto | T1 | KNN | Random Forest |
+| --- | ---: | ---: | ---: |
+| 1 · `containsTypeVariables`, igualdade | 3.685 (7) | 2 (0) | 14 (1) |
+| 2 · `containsTypeVariables`, ordem | 3.685 (7) | 2 (0) | 14 (1) |
+| 3 · `isAssignable`, `GenericArrayType` | Indeterminado | Indeterminado | Indeterminado |
+| 4 · `isAssignable`, `WildcardType` | 3.705 (8) | 28 (1) | 25 (1) |
+
+Cada célula com detecção mostra o primeiro posto observado e, entre parênteses, as lacunas que o precedem. Na variante 3, cada ordem tem 4.647 aprovações e 12 desconhecidos. O primeiro posto em que uma detecção seria possível é 1.128 em T1, 27 em KNN e 1 na Random Forest. O diagnóstico preserva a identidade canônica de cada mutante, os postos possíveis, as contagens e os hashes. A comparação cobre quatro mutações sintéticas de uma classe na revisão final. [Diagnóstico e postos do teste final](teste-final.json)
