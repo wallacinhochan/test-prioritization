@@ -1,0 +1,173 @@
+{
+  "protocolo": "kan19-v1",
+  "codigo": {
+    "dataset.py": "5af236452ae767c02611022a5b47f497c889455c0ccd50679bba0e4c4e66f5b5",
+    "piloto.py": "bc20520de06c9adcb6b68b14c939419dc65a6ddd1857ad3102fd2fe1d3313005"
+  },
+  "sha256_entrada": {
+    "commits.csv": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed",
+    "t0_runs.csv": "0e6501204268a8501127ce64ded2fb88af60615ad5f8cc81d8cf990e5fb7141b",
+    "t0_results.csv": "6a78de8d515ee42f782c2c1ed890a3111cef15fe106ea61321f6285784923800"
+  },
+  "t1_commit": "0d3cd01e68bf223eca124332f74d4486ae6bd6f7",
+  "t1_manifestos": {
+    "15": "d5ee8d4611051f93b226d4af8005a37682083d2816ea5c034446943c9fe488d6",
+    "26": "1347c09b84b39a66dbc8aac950357771811ebdb541117b701d3da5bf5f4fef4e",
+    "42": "058821e48a6cc8581ef8b61b57ba84aebb3481d195614d71ebeb0d4e59d7b72c",
+    "50": "9d8f1c071001466e7959c8c84cd773d3b044218ee6a3a693b6b2242fc7241388",
+    "96": "4f084cb9b12b09796dc2cc3316077d80f0a44efeccd5def2ed7f890be7a8a49c"
+  },
+  "features_modelo": [
+    "distancia_rota",
+    "rota_ausente",
+    "arestas_lexicais",
+    "classe_semente",
+    "comprimento_nome",
+    "quantidade_parametros",
+    "classe_aninhada"
+  ],
+  "t0_completo": [
+    1,
+    26,
+    50,
+    75,
+    100
+  ],
+  "linhas_t0": 23280,
+  "falhas_t0": 0,
+  "positivos_naturais_confirmados": 0,
+  "linhas_t1": 23260,
+  "linhas_treino": 13915,
+  "alvos_sinteticos_positivos": 290,
+  "replays_treino": {
+    "15": {
+      "estado": "disponivel",
+      "sha": "970e4d66452c146165233129c913616ff666ff77",
+      "publicacao_commit": "90f3143568981bc996243b31e97d477f9e2ab897",
+      "resumo_sha256": "dd870f0009ee82451d8125fcc06338e1d9d398343de2e3f6c33cadfcd4070930",
+      "manifesto_sha256": "ebb697cc6761c1de4303b4a2fb08ba47134c96b027a1468e5322cacb698f918a",
+      "rotulos_sha256": "f81969be798296d6d1cf5167a78e2b8fa60b1c4d0cb4ef0c7ce5f9734946175f",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 280,
+        "pass": 18280,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18560,
+        "metodos": 4651,
+        "metodos_com_alvo": 4640
+      },
+      "t1": {
+        "induced_failure": 280,
+        "pass": 18264,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18544,
+        "metodos": 4647,
+        "metodos_com_alvo": 4636
+      }
+    },
+    "26": {
+      "estado": "disponivel",
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "publicacao_commit": "41318d967d7458851925312112224e5e00d01f43",
+      "resumo_sha256": "00731dde7d0ee34ffeb006c8d6a9cabe65326627dd1d2e51f8c9840af193dcd7",
+      "manifesto_sha256": "be1e9f200bf448595a502547abef6d5220d24a9fa29ed37eb8f7e372a97f68d6",
+      "rotulos_sha256": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 12,
+        "pass": 18552,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18564,
+        "metodos": 4652,
+        "metodos_com_alvo": 4641
+      },
+      "t1": {
+        "induced_failure": 12,
+        "pass": 18536,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18548,
+        "metodos": 4648,
+        "metodos_com_alvo": 4637
+      }
+    },
+    "42": {
+      "estado": "disponivel",
+      "sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+      "publicacao_commit": "2fbfccf6091d5bde289f9caf1ea8692dedc86248",
+      "resumo_sha256": "a6c0043af8f07b9d06e6243e716ce649b807f9f68925efe16df79a2d9150fe98",
+      "manifesto_sha256": "351049aeccb5e8639873afe6ce4708ce6736440fe0a9beafdf8e7995799689b5",
+      "rotulos_sha256": "50a853cc2196ed6a3a2832722bf699520f99e620ece95147ef80448004f9a746",
+      "publicador_gate_aprovado": true,
+      "variantes": 4,
+      "t0": {
+        "induced_failure": 17,
+        "pass": 18567,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18584,
+        "metodos": 4657,
+        "metodos_com_alvo": 4646
+      },
+      "t1": {
+        "induced_failure": 17,
+        "pass": 18551,
+        "unknown": 44,
+        "ausente": 0,
+        "denominador": 18568,
+        "metodos": 4653,
+        "metodos_com_alvo": 4642
+      }
+    }
+  },
+  "auditoria_historico": {
+    "15": {
+      "t1": 4647,
+      "t1_com_t0": 0,
+      "historico_recente": 0,
+      "taxa_historica": 4633,
+      "duracao_historica": 4633
+    },
+    "26": {
+      "t1": 4648,
+      "t1_com_t0": 4648,
+      "historico_recente": 0,
+      "taxa_historica": 4633,
+      "duracao_historica": 4633
+    },
+    "42": {
+      "t1": 4653,
+      "t1_com_t0": 0,
+      "historico_recente": 0,
+      "taxa_historica": 4637,
+      "duracao_historica": 4637
+    },
+    "50": {
+      "t1": 4653,
+      "t1_com_t0": 4653,
+      "historico_recente": 0,
+      "taxa_historica": 4637,
+      "duracao_historica": 4637
+    },
+    "96": {
+      "t1": 4659,
+      "t1_com_t0": 0,
+      "historico_recente": 0,
+      "taxa_historica": 4644,
+      "duracao_historica": 4644
+    }
+  },
+  "verificacao_temporal": "prefixo e substituicao de todos os resultados a partir do alvo",
+  "sha256_saida": {
+    "cobertura.csv": "e099d8e9e340411f451d581d22c9b6fc114f331e40f6b45ffa7dbc98c379ce1e",
+    "features_t1.csv": "c76f727ac5d1862511807c1a338be059b4239e2306e5cd9686dc8501d8aa48ed",
+    "historico_replay.csv": "68d1297970846daef04bf8796c4a6755cd950cbaea25b4cd993e139516937929",
+    "oraculo_t0.csv": "1d972c3dd8ec0a15c580bbf04667ab1194c5fc1485db288b32785bbcd2d45c30",
+    "treino_sintetico.csv": "bdb13c98bbb2bc4ec92d44ddfb2e1ce6146d89b680e1eb048e1a43d6f8a8a20d"
+  }
+}
