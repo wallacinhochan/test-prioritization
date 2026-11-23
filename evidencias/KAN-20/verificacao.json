@@ -1,0 +1,153 @@
+{
+  "publicacao": "92aff717b2521317966e8e4076afb79a77aa0287",
+  "sha256_entrada": {
+    "treino_sintetico.csv": "bdb13c98bbb2bc4ec92d44ddfb2e1ce6146d89b680e1eb048e1a43d6f8a8a20d",
+    "features_inferencia.csv": "98c77fff5f268ae6717de057ef59d016b28ff4bc5ad7d06bacedf5e502c41661"
+  },
+  "features_modelo": [
+    "distancia_rota",
+    "rota_ausente",
+    "arestas_lexicais",
+    "classe_semente",
+    "comprimento_nome",
+    "quantidade_parametros",
+    "classe_aninhada"
+  ],
+  "treino": [
+    {
+      "posicao": 15,
+      "sha": "970e4d66452c146165233129c913616ff666ff77",
+      "linhas": 4636
+    },
+    {
+      "posicao": 26,
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "linhas": 4637
+    },
+    {
+      "posicao": 42,
+      "sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+      "linhas": 4642
+    }
+  ],
+  "alvos_positivos": 290,
+  "corte_inclusivo_treino": 42,
+  "cobertura": [
+    {
+      "posicao": 1,
+      "sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+      "linhas_t1": 4649,
+      "ranking_t1_sha256": "8fa4a4b2553cf5e4e3a678cd672b0d497186e14b3beeae10fa928e6ba9ef36b2",
+      "estado": "sem_ranking_anterioridade"
+    },
+    {
+      "posicao": 2,
+      "sha": "766c028c96afbc831e842684c85e90fdad08722c",
+      "linhas_t1": 4649,
+      "ranking_t1_sha256": "481058f9d5a9fb98e606c9b26127e4ab7b024f1e56f0e29bb89ed23d808edbf1",
+      "estado": "sem_ranking_anterioridade"
+    },
+    {
+      "posicao": 26,
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "linhas_t1": 4648,
+      "ranking_t1_sha256": "df8cd5d25a393e4761f2978ff17c6973ba34867b46b0ba5a2b30fede0a7f1ac6",
+      "estado": "sem_ranking_anterioridade"
+    },
+    {
+      "posicao": 50,
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "linhas_t1": 4653,
+      "ranking_t1_sha256": "515aba1a0f619715ef4ff329918e6e4321c4c63a159ca976f550955dfb7e29f4",
+      "estado": "ranking",
+      "overhead_t1_sha256": "5a37a70724838ae4008c29fc333b78a85552bcbd12da7fc0c5d9b18b1599de07"
+    },
+    {
+      "posicao": 75,
+      "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "linhas_t1": 7,
+      "ranking_t1_sha256": "e56145cbc36ce54a442f94d8f8d94c11e70c58c4e550c3a90439e176de69abba",
+      "estado": "ranking",
+      "overhead_t1_sha256": "a6c99a354b8354cc37e90fb0c557031e207338ecf616f6316a1a0656bb5f530f"
+    },
+    {
+      "posicao": 100,
+      "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "linhas_t1": 4663,
+      "ranking_t1_sha256": "666c930535b2097b9464f962dcefa39827712aa45c9ae7847d490596ba191594",
+      "estado": "ranking",
+      "overhead_t1_sha256": "43814f54d13d2f2a42b3a7763044bed2332b361cdbe8a7bbf22bbc442195e9f3"
+    }
+  ],
+  "demais_posicoes": "sem T1 formal e sem vetores de inferência na publicação",
+  "ordem_treino": "ordem física do CSV de treino, preservada no fit",
+  "ordem_inferencia": "posição crescente e ordem T1 dentro do SHA, antes do predict",
+  "ordem_ranking": "score decrescente, test_id crescente em unidades UTF-16 ordinais",
+  "linhas_ranking_reproduzidas": 9323,
+  "modelo": {
+    "preprocessamento": {
+      "copy": true,
+      "with_mean": true,
+      "with_std": true
+    },
+    "knn": {
+      "algorithm": "kd_tree",
+      "leaf_size": 30,
+      "metric": "euclidean",
+      "metric_params": null,
+      "n_jobs": 1,
+      "n_neighbors": 15,
+      "p": 2,
+      "weights": "uniform"
+    },
+    "artefato": "knn.joblib"
+  },
+  "ambiente": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "bibliotecas": {
+      "scikit-learn": "1.7.2",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "joblib": "1.5.2",
+      "threadpoolctl": "3.6.0"
+    },
+    "plataforma": "Windows-11-10.0.26200-SP0",
+    "arquitetura": "AMD64",
+    "processador": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+    "cache": "processo novo por rodada; cache do SO não controlado"
+  },
+  "codigo_sha256": {
+    "ordenar.py": "51da483136b640b36eaae968cab816b1e7b43c8e237c2c7d3a9e2bc66d03c8b7",
+    "piloto.py": "bc20520de06c9adcb6b68b14c939419dc65a6ddd1857ad3102fd2fe1d3313005"
+  },
+  "rodadas": [
+    {
+      "rodada": "replay-a",
+      "training_ns": 32080800,
+      "inference_ns_por_sha": {
+        "f24c027ff83b90beab2ec28696721200abb4f9e9": 72396000,
+        "bfcaa941b0849956972517c8559c0827c8fe5386": 1438200,
+        "598dfc163b8b410fb3bb8794521206ec8dcec82a": 60212600
+      },
+      "sha256_saida": {
+        "knn.joblib": "6391ee6d661e1be1b155103de39157bd6e052654dee0ff99cb4842e547152ab9",
+        "overhead.csv": "40762ea4751e5c4c84b1ccc0738ed27c3f6fe03ad86747b6fa42c26514d2086d",
+        "rankings.csv": "848df1de7e1b7d85bbfcbd8805dd7d024061cd7a51a27e647e2e8323cf58e3dc"
+      }
+    },
+    {
+      "rodada": "replay-b",
+      "training_ns": 25523600,
+      "inference_ns_por_sha": {
+        "f24c027ff83b90beab2ec28696721200abb4f9e9": 72411400,
+        "bfcaa941b0849956972517c8559c0827c8fe5386": 1230100,
+        "598dfc163b8b410fb3bb8794521206ec8dcec82a": 57054500
+      },
+      "sha256_saida": {
+        "knn.joblib": "6391ee6d661e1be1b155103de39157bd6e052654dee0ff99cb4842e547152ab9",
+        "overhead.csv": "72c49de634d5c6c43ad781088e22d747d899a60e6bb4585018c522d2907baf74",
+        "rankings.csv": "f6051434c9fad5474dc9b30caf091d6044d5036cb2c56eb5fae54e0e4cce40d4"
+      }
+    }
+  ]
+}
