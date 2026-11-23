@@ -11,7 +11,9 @@ param(
 
     [string]$Fonte = (Join-Path ([IO.Path]::GetTempPath()) 'kan10-commons-lang-598dfc163b8b.git'),
 
-    [string]$Congelamento
+    [string]$Congelamento,
+
+    [string]$Liberacao
 )
 
 $ErrorActionPreference = 'Stop'
@@ -56,6 +58,9 @@ try {
         }
     }
     if ($Posicao -eq 96 -and $Fase -ceq 'replay') {
+        if ([string]::IsNullOrWhiteSpace($Liberacao)) {
+            throw 'O replay da posição 96 requer a referência da liberação pela coordenação.'
+        }
         if (!$Congelamento -or !(Test-Path -LiteralPath $Congelamento -PathType Leaf)) {
             throw 'O replay da posição 96 requer a referência ao registro de congelamento do modelo.'
         }
@@ -79,6 +84,7 @@ try {
             commit = $commitModelo
             referencia = $refModelo
             sha256 = (Get-FileHash -LiteralPath $registroModelo).Hash.ToLowerInvariant()
+            liberacao = $Liberacao.Trim()
         } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $local congelamento.json)
     }
     if ($Fase -ceq 'encerrar') {

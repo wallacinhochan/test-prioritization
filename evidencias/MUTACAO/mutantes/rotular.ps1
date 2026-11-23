@@ -12,8 +12,17 @@ $ErrorActionPreference = 'Stop'
 $local = Join-Path $PSScriptRoot "local/$Posicao"
 $publico = Join-Path $PSScriptRoot "pos-$Posicao"
 $manifesto = Get-Content -LiteralPath (Join-Path $publico manifesto.json) -Raw | ConvertFrom-Json
-if ($Posicao -eq 96 -and !(Test-Path -LiteralPath (Join-Path $local congelamento.json))) {
-    throw 'Rótulos do holdout aguardam o registro de congelamento do modelo.'
+if ($Posicao -eq 96) {
+    $registro = Join-Path $local congelamento.json
+    if (!(Test-Path -LiteralPath $registro -PathType Leaf)) {
+        throw 'Rótulos do holdout aguardam o congelamento do modelo e a liberação da coordenação.'
+    }
+    $congelamentoModelo = Get-Content -LiteralPath $registro -Raw | ConvertFrom-Json
+    if ($congelamentoModelo.commit -cnotmatch '\A[0-9a-f]{40}\z' -or
+        $congelamentoModelo.sha256 -cnotmatch '\A[0-9a-f]{64}\z' -or
+        [string]::IsNullOrWhiteSpace($congelamentoModelo.liberacao)) {
+        throw 'Registro de autorização do holdout incompleto.'
+    }
 }
 
 function Get-HashArquivo([string]$Arquivo) {
@@ -240,8 +249,7 @@ $resumo = [ordered]@{
     rodadas = $rodadas.ToArray()
 }
 if ($Posicao -eq 96) {
-    $resumo.congelamento_modelo = Get-Content -LiteralPath (Join-Path $local congelamento.json) -Raw |
-        ConvertFrom-Json
+    $resumo.congelamento_modelo = $congelamentoModelo
 }
 $json = $resumo | ConvertTo-Json -Depth 8
 [IO.File]::WriteAllText((Join-Path $publico resumo.json), $json.Replace("`r`n", "`n") + "`n")

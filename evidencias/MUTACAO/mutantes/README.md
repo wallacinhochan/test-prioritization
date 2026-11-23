@@ -49,10 +49,16 @@ Na variante 3, o Surefire registrou um erro de teste e omitiu a mensagem textual
 
 O CSV do gate está em `local/26/rotulos.csv`. Os XML de cada replay estão em `local/26/variante-N/surefire/`. A classe original, os logs Maven e os manifestos de hash ficam nas respectivas pastas em `local/26/`.
 
+## Ocorrências na ampliação
+
+Na posição 15, a sessão de acompanhamento terminou depois da execução do controle. A rodada completa foi recuperada do contêiner, com código 0, 59.451 invocações e os XML originais.
+
+Na posição 42, a primeira rodada restaurada foi interrompida com o daemon Linux do Docker indisponível. O contêiner preservou um log parcial sem resumo final Maven ou XML completos. A tentativa está em `local/42/restaurado-interrompido/`. Após reativar o Docker, a restauração foi executada em uma nova cópia da árvore compilada original. Os quatro replays, a repetição e os demais controles completos foram preservados.
+
 ## Consumo pelos modelos
 
 Use as posições aprovadas no [protocolo](../README.md). Para cada revisão, confira `pos-<posição>/resumo.json` e os hashes do manifesto e do CSV local. Junte `rotulos.csv` ao inventário pelo SHA completo e pelo `test_id` da KAN-17. Cada linha é única por `sha`, `mutation_id` e `test_id`. Os campos `controle` e `replay` dão o resultado associado por método.
 
 Conte `induced_failure` como positivo e `pass` como negativo observado. Exclua `unknown` do denominador. O alvo do método por revisão é a fração de positivos entre as observações conhecidas, com alvo ausente se todas forem desconhecidas. Use apenas atributos pré-execução e histórico estritamente anterior. As posições 15, 26 e 42 são de treino, a 50 é de validação e a 96 fica reservada para avaliação final após o congelamento do modelo.
 
-Na posição 96, prepare o controle limpo e congele o manifesto pelo fluxo acima. Para o replay, passe `-Fase replay -Congelamento ./evidencias/MUTACAO/modelos/congelamento.json` com o arquivo já versionado. O executor confere a suficiência do treino e da validação e registra o commit e o SHA-256 do congelamento. O resumo final inclui essa referência.
+Na posição 96, prepare o controle limpo e congele o manifesto pelo fluxo acima. O replay aguarda o congelamento versionado e a liberação da coordenação. Para o replay, passe `-Fase replay -Congelamento ./evidencias/MUTACAO/modelos/congelamento.json -Liberacao $referenciaDaCoordenacao`. O executor confere a suficiência do treino e da validação e registra o commit, o SHA-256 do congelamento e a referência da liberação no resumo final.
