@@ -65,6 +65,9 @@ Cada revisão abaixo tem quatro variantes, controle equivalente ao original, rep
 | 26 | Viabilidade e treino | 12 | 18.552 | 44 | [Resumo](pos-26/resumo.json) |
 | 42 | Treino | 17 | 18.567 | 44 | [Resumo](pos-42/resumo.json) |
 | 50 | Validação | 4 | 18.580 | 44 | [Resumo](pos-50/resumo.json) |
+| 96 | Teste final | 6 | 18.598 | 48 | [Resumo](pos-96/resumo.json) |
+
+O [manifesto de variantes da posição 96](pos-96/manifesto.json) foi congelado em `d3cb78b`. A publicação dos rótulos em `f4a9da2` sucedeu o congelamento do modelo em `cbb462b` e a liberação da coordenação em `RELATORIO.md@6e97157d56bdfacb9533944974463ee83306f39c`. O CSV do teste final está em `local/96/rotulos.csv`.
 
 ## Consumo pelos modelos
 
