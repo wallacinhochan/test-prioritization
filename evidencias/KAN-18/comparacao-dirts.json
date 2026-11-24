@@ -1,0 +1,129 @@
+{
+  "data": "2026-11-24",
+  "recorte": "../KAN-10/commits.csv",
+  "imagem_piloto": "sha256:1a9f509b7ddc690a46bed17a8ba381d699eae04821ea325ce29f28175f3fde24",
+  "dirts_commit": "62efcec2f909f93fffdd4ae1da24b0aee1071749",
+  "unidade": "par revisão–método JUnit",
+  "revisoes": [
+    {
+      "posicao": 4,
+      "sha": "f8b03db1797fbc34aa6cc3ec8eee655ba7b3d28d",
+      "pai": "71c905200de7d1d260a2a40a29d96c7e8a976a6e",
+      "candidatos": 4651,
+      "t1_anterior": 4647,
+      "starts": 0,
+      "dirts": 0,
+      "controle_dirts": 0,
+      "rodada_dirts": "independente",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 11,
+      "sha": "6513eb0bbb4b3e8d427cce632f786c115f2a3516",
+      "pai": "756436b7b18febab0c5035257b211b52c009819c",
+      "candidatos": 4651,
+      "t1_anterior": 48,
+      "starts": 48,
+      "dirts": 48,
+      "controle_dirts": 0,
+      "rodada_dirts": "estado continuo",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 26,
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "pai": "a5585689a31f47b3f95808f8666d062e18097707",
+      "candidatos": 4652,
+      "t1_anterior": 4648,
+      "starts": 4640,
+      "dirts": 50,
+      "controle_dirts": 0,
+      "rodada_dirts": "independente",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 39,
+      "sha": "c140fc8154e8c680aad63239eaaaac14d85d5683",
+      "pai": "557252762bb29887ddeaf9c99f16572bae19316c",
+      "candidatos": 4657,
+      "t1_anterior": 4653,
+      "starts": 31,
+      "dirts": 13,
+      "controle_dirts": 0,
+      "rodada_dirts": "estado continuo",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 46,
+      "sha": "1441ba9f3cd172ccfbd2d0c2ce336f4a9750a0a2",
+      "pai": "ad6890f9e63a5c08866725d65d3b216a82aeb5cc",
+      "candidatos": 4657,
+      "t1_anterior": 17,
+      "starts": 0,
+      "dirts": 0,
+      "controle_dirts": 0,
+      "rodada_dirts": "estado continuo",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 50,
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "pai": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "candidatos": 4657,
+      "t1_anterior": 4653,
+      "starts": 562,
+      "dirts": 72,
+      "controle_dirts": 0,
+      "rodada_dirts": "independente",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 64,
+      "sha": "f5c9f68475633f8b235f45710ea8116fa7681c1f",
+      "pai": "817d50f746adfb485355d8d3a3ae4b9833ed3f63",
+      "candidatos": 4658,
+      "t1_anterior": 4654,
+      "starts": 0,
+      "dirts": 0,
+      "controle_dirts": 0,
+      "rodada_dirts": "estado continuo",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 75,
+      "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "pai": "9167659d8eec4323d569cebd39381235c098c901",
+      "candidatos": 4659,
+      "t1_anterior": 7,
+      "starts": 7,
+      "dirts": 7,
+      "controle_dirts": 0,
+      "rodada_dirts": "independente",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 96,
+      "sha": "5454931eb735deb59e9b671fd8a14cd4c14d8272",
+      "pai": "0cebd847c3ce33c634050fb02c307acb106e0b55",
+      "candidatos": 4663,
+      "t1_anterior": 4659,
+      "starts": 4651,
+      "dirts": 51,
+      "controle_dirts": 0,
+      "rodada_dirts": "estado continuo",
+      "fallback_integral": false
+    },
+    {
+      "posicao": 100,
+      "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "pai": "626e7e93aea200e6910be5597ac30de602649745",
+      "candidatos": 4663,
+      "t1_anterior": 4663,
+      "starts": 4663,
+      "dirts": 4663,
+      "controle_dirts": 0,
+      "rodada_dirts": "independente",
+      "fallback_integral": true
+    }
+  ]
+}
