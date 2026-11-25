@@ -1,25 +1,36 @@
-#Requires -Version 7.5
-param(
+﻿param(
     [Parameter(Mandatory)][int[]]$Posicoes,
-    [string]$Oraculo = (Join-Path $PSScriptRoot '../KAN-16/local/lote')
+    [string]$Oraculo = (Join-Path $PSScriptRoot '../KAN-16/local/lote'),
+    [switch]$SemT0
 )
 $ErrorActionPreference = 'Stop'
 $recorte = Import-Csv -LiteralPath (Join-Path $PSScriptRoot '../KAN-10/commits.csv')
-$runs = Import-Csv -LiteralPath (Join-Path $Oraculo 't0_runs.csv') | Group-Object commit_sha -AsHashTable -AsString
-$resultados = Import-Csv -LiteralPath (Join-Path $Oraculo 't0_results.csv') | Group-Object commit_sha -AsHashTable -AsString
-
+$runs = @{}
+$resultados = @{}
+if (!$SemT0) {
+    $runs = Import-Csv -LiteralPath (Join-Path $Oraculo 't0_runs.csv') | Group-Object commit_sha -AsHashTable -AsString
+    $resultados = Import-Csv -LiteralPath (Join-Path $Oraculo 't0_results.csv') | Group-Object commit_sha -AsHashTable -AsString
+}
 $relatorio = foreach ($posicao in $Posicoes) {
     $revisao = $recorte | Where-Object position -eq "$posicao"
     if (!$revisao) { throw "Posição ausente da KAN-10: $posicao" }
     $sha = $revisao.commit_sha
-    $pasta = Join-Path $PSScriptRoot "local/selecao/$sha"
-    $manifesto = Get-Content -LiteralPath (Join-Path $pasta 'manifesto.json') -Raw | ConvertFrom-Json -AsHashtable
+    $pasta = Join-Path $PSScriptRoot "local/dirts/selecao/$sha"
+    $manifesto = Get-Content -LiteralPath (Join-Path $pasta 'manifesto.json') -Raw | ConvertFrom-Json
     if ($manifesto.sha -cne $sha -or $manifesto.pai -cne $revisao.first_parent_sha -or $manifesto.posicao -ne $posicao) {
         throw "Proveniência divergente: $sha"
     }
+    if ($manifesto.seletor -cne '2.0.0' -or $manifesto.ferramenta.nome -cne 'DIRTS') {
+        throw "Seletor inesperado: $sha"
+    }
+    $entradas = Join-Path $PSScriptRoot "local/dirts/entradas/$sha"
+    foreach ($prop in $manifesto.entradas_sha256.PSObject.Properties) {
+        $hash = (Get-FileHash -LiteralPath (Join-Path $entradas $prop.Name)).Hash.ToLowerInvariant()
+        if ($hash -cne $prop.Value) { throw "Entrada divergente: $sha $($prop.Name)" }
+    }
     foreach ($nome in 'diff.patch','selection.csv','rankings.csv','overhead.csv','decisoes.json') {
         $hash = (Get-FileHash -LiteralPath (Join-Path $pasta $nome)).Hash.ToLowerInvariant()
-        if ($hash -cne $manifesto.saidas_sha256[$nome]) { throw "Hash divergente: $sha $nome" }
+        if ($hash -cne $manifesto.saidas_sha256.$nome) { throw "Hash divergente: $sha $nome" }
     }
 
     $candidatos = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)

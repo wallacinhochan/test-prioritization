@@ -1,0 +1,7 @@
+ARG BASE=test-prioritization/commons-lang:kan18-reconstruida
+FROM ${BASE}
+LABEL org.opencontainers.image.revision="62efcec2f909f93fffdd4ae1da24b0aee1071749"
+ADD dirts.tar /opt/dirts-source/
+RUN printf '%s\n' '<settings><mirrors><mirror><id>central</id><mirrorOf>*</mirrorOf><url>https://repo.maven.apache.org/maven2</url></mirror></mirrors></settings>' > /opt/dirts-settings.xml
+ENV MAVEN_ARGS="-s /opt/dirts-settings.xml"
+RUN mvn -B -ntp -f /opt/dirts-source/pom.xml -Dmaven.repo.local=/opt/dirts-maven -DskipTests install
