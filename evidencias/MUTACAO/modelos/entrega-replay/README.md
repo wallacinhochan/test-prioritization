@@ -38,6 +38,66 @@ distancia_rota, rota_ausente, arestas_lexicais, classe_semente,
 comprimento_nome, quantidade_parametros, classe_aninhada
 ```
 
+## Experimento de balanceamento
+
+A pergunta desta etapa é qual estratégia de balanceamento ajuda a Random
+Forest a detectar mais mutantes dentro do orçamento de tempo, em comparação
+com o treino original. A Random Forest sem balanceamento é a baseline desta
+comparação. A suíte completa (T0) fornece a referência de tempo e de detecção
+do experimento de seleção e priorização.
+
+### Prepare os dados
+
+1. Na raiz do repositório, execute
+   `(cd evidencias/MUTACAO/modelos/entrega-replay && sha256sum -c SHA256SUMS)`.
+2. Em `metodos.csv`, separe as posições 15, 26 e 42 para treino e a 50 para
+   validação. Em ambos os conjuntos, use os métodos com `selecionado_t1 == 1`.
+   No ajuste, use apenas linhas de treino com alvo conhecido.
+3. Use somente as sete características listadas acima para prever a taxa de
+   detecção. O modelo produz um escore para cada método. Ordene os métodos
+   por escore decrescente e use a mesma regra de desempate por `test_id`
+   em todas as configurações. A posição 96 fica fora desta comparação.
+
+### Compare quatro estratégias
+
+| Estratégia | Como ajustar a Random Forest |
+| --- | --- |
+| Baseline | Use os exemplos de treino com peso uniforme. |
+| Ponderação | Aumente o peso de exemplos com `alvo > 0`. |
+| Oversampling | Reamostre exemplos com `alvo > 0` com reposição. |
+| Undersampling | Reamostre exemplos com `alvo == 0` sem reposição e conserve os positivos. |
+
+Use o mesmo modelo, as mesmas características e os mesmos hiperparâmetros.
+Fixe e registre a semente, os pesos e as razões de amostragem. Preserve os
+valores contínuos do alvo e aplique as alterações apenas no treino.
+Qualquer ajuste feito olhando os resultados da posição 50 deve ser reportado
+como validação de desenvolvimento.
+
+### Avalie os rankings sob orçamento de tempo
+
+- Antes da comparação, defina a regra para calcular o tempo-base de T0 a
+  partir de informação disponível antes da predição, como medições
+  históricas. Use essa mesma referência para os quatro rankings e calcule
+  os limites de 25%, 50% e 75%. Fixe qual dos três será o orçamento principal.
+- Para cada mutante, cruze o ranking da posição 50 com `observacoes.csv`
+  pelas chaves `sha` e `test_id`, filtrando pelo `mutation_id`. Comece o
+  relógio pelo overhead de preparação aplicável e acumule `duracao_ms`
+  na ordem prevista. Conte o mutante uma vez, quando terminar o primeiro
+  teste rotulado como `induced_failure` dentro do limite.
+- Registre separadamente os casos em que rótulos desconhecidos impedem
+  confirmar a ausência de detecção. Identifique as contagens como resultados
+  da simulação retrospectiva sobre falhas induzidas.
+
+### Resultados esperados
+
+Entregue uma tabela com uma linha por estratégia e, para cada orçamento,
+o número de mutantes detectados e a diferença em relação à baseline.
+Inclua a regra de orçamento, o overhead medido, as configurações e as
+contagens de alvos zero e positivos antes e depois do balanceamento.
+Use o orçamento principal para indicar qual estratégia teve o melhor
+resultado observado. Registre como empate se duas ou mais obtiverem a
+mesma contagem.
+
 ## Validação e reprodução
 
 Dentro desta pasta, confira os arquivos com `sha256sum -c SHA256SUMS`.
