@@ -1,0 +1,28 @@
+{
+  "regra": "Compara estratégias de balanceamento e registra a escolha.\n\nRegra de decisão (fixada ANTES de executar):\n  - Orçamento principal: 50% do tempo-base T0 (média histórica das revisões de treino).\n  - Folds: (a) oficial: treino 15/26/42 -> validação 50;\n           (b) desenvolvimento: deixa uma de {15,26,42} de fora, treina nas outras duas.\n  - Métrica de decisão: soma, nos 4 folds, de mutantes detectados no orçamento principal,\n    média sobre N sementes (balanceamento e Random Forest variam juntos).\n  - Desempate: menor posto médio da primeira detecção; depois menor overhead.\n  - A estratégia escolhida precisa superar a baseline; senão, mantém-se a baseline (sem balancear).",
+  "sementes": 10,
+  "razao": 1.0,
+  "resumo": {
+    "baseline": {
+      "posto_medio": 65.383,
+      "overhead_ms": 776.915,
+      "det_50_total": 15.0
+    },
+    "ponderacao": {
+      "posto_medio": 54.6,
+      "overhead_ms": 742.154,
+      "det_50_total": 15.0
+    },
+    "oversampling": {
+      "posto_medio": 51.21,
+      "overhead_ms": 1373.882,
+      "det_50_total": 15.0
+    },
+    "undersampling": {
+      "posto_medio": 71.677,
+      "overhead_ms": 258.596,
+      "det_50_total": 14.8
+    }
+  },
+  "escolhida": "baseline"
+}

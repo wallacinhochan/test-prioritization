@@ -1,0 +1,5 @@
+estrategia,posto_medio,overhead_ms,det_50_total
+baseline,65.38,776.91,15.0
+ponderacao,54.6,742.15,15.0
+oversampling,51.21,1373.88,15.0
+undersampling,71.68,258.6,14.8

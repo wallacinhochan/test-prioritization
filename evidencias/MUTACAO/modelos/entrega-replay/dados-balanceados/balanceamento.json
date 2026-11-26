@@ -1,0 +1,20 @@
+{
+  "seed": 20261122,
+  "razao": 1.0,
+  "origem": "metodos.csv",
+  "antes": {
+    "linhas": 13915,
+    "zeros": 13705,
+    "positivos": 210
+  },
+  "estrategias": {
+    "ponderacao": {
+      "peso_positivo": 65.26190476190476,
+      "depois": {
+        "linhas": 13915,
+        "zeros": 13705,
+        "positivos": 210
+      }
+    }
+  }
+}
