@@ -79,6 +79,8 @@ def exportar(repo, output):
         summary = json.loads((directory / 'resumo.json').read_bytes())
         historical = json.loads(subprocess.check_output(
             ['git', 'show', f'HEAD:{(directory / "resumo.json").relative_to(repo)}'], cwd=repo))
+            # Quando for rodar no windows, comente a linha acima e descomente a linha abaixo
+            # ['git', 'show', f'HEAD:{(directory / "resumo.json").relative_to(repo).as_posix()}'], cwd=repo))
         manifest_data = (directory / 'manifesto.json').read_bytes()
         manifest = json.loads(manifest_data)
         data = (local / 'rotulos.csv').read_bytes()
