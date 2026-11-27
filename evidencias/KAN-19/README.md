@@ -1,5 +1,42 @@
 # KAN-19 — Dataset temporal por revisão e método
 
+## Expansão direta congelada na revisão 50
+
+`expansao50.py` lê as tabelas diretamente do commit KAN-18 `ef577158bc012d87784bbfab1b9ccb4ee80cf812`. Confere os hashes, a identidade do SHA e primeiro pai, e a igualdade do ranking com os 416 IDs selecionados em T1. O hash SHA-256 do conjunto canônico é `89405dc449113d63f2394ee4dbf506a34505f31721403fdc9bf11ce34a37dcb7`.
+
+A política `expansao-direta/assinatura-v1` usa comprimento do nome, número de parâmetros e indicador de classe aninhada, derivados da identidade JUnit antes da execução. O CSV de auditoria preserva a evidência separadamente. Nos 368 métodos com aresta direta de bytecode, a auditoria registra distância 1 e `rota_ausente=0`. Nos 48 métodos com `sem_evidencia_rota`, os dois campos ficam vazios. Esse estado indica desconhecimento. `arestas_lexicais` e `classe_semente` ficam vazias em todas as linhas, pois a exportação fornece a aresta e as sementes de destino, sem as medidas do vetor anterior.
+
+### Compatibilidade do treino
+
+A janela sintética anterior é 15, 26 e 42. As posições 15 e 42 carecem de seleção congelada na nova variante. Na 26, o inventário da seleção e o resumo do replay sintético têm o mesmo SHA-256 `93e6f989cb7d8bea56eb2666e7684e9ee33b14a01e538f19f4cfddd459a0621c`. A seleção contém 56 IDs, e o CSV de rótulos por método está indisponível no workspace, o que impede validar a interseção rotulada e a suficiência do treino. O resumo agregado sozinho não determina os alvos desses 56 IDs. As posições 4, 11 e 39 têm seleção na partição de treino, mas não dispõem de rótulos aprovados para a janela.
+
+O fluxo técnico ajusta KNN com `StandardScaler` e Random Forest com os parâmetros do piloto sobre os mesmos 16 exemplos artificiais, sem balanceamento. O treino usa apenas a fixture. O oráculo e os rótulos do holdout 96 ficam fora do fluxo. Os resultados são gravados em `rankings_fixture.csv` e `overhead_fixture.csv`, com manifesto marcado `teste_tecnico_fixture_sem_ranking_experimental`.
+
+### Reprodução e custos
+
+Na raiz do worktree, com o commit congelado disponível no Git e nomes de rodada novos:
+
+```powershell
+python -B evidencias/KAN-19/expansao50.py rodada-a
+python -B evidencias/KAN-19/expansao50.py rodada-b
+python -B -m unittest discover -s evidencias/KAN-19 -p test_expansao50.py -v
+```
+
+O teste compara as chaves, escores e postos dos dois cenários em duas execuções, além dos bytes do vetor e dos hashes de saída. Os 416 IDs de cada cenário coincidiram exatamente com T1 e os postos foram contíguos, com empate ordinal. As rodadas locais usaram Python 3.11.0 e scikit-learn 1.9.1.
+
+| Fase | Rodada A (ms) | Rodada B (ms) |
+| --- | ---: | ---: |
+| Seleção herdada da KAN-18 | 78.575 | 78.575 |
+| Extração compartilhada | 4,857 | 4,416 |
+| Ajuste KNN com fixture | 944,168 | 107,178 |
+| Inferência T2 | 5,039 | 3,720 |
+| Ajuste RF com fixture | 252,536 | 329,908 |
+| Inferência T3 | 19,269 | 28,026 |
+
+A extração mede a montagem dos vetores e das linhas de auditoria em memória uma vez por SHA. A inferência mede preparo da matriz, predição, ordenação e montagem das linhas. Medições locais excluem I/O, verificações, descoberta JUnit e jdeps. O manifesto registra nanossegundos. A fase `selection` preserva a referência e a medição publicada.
+
+Para a KAN-22, a validação de contrato e tempos de integração está disponível. A emissão de escores experimentais depende de congelar seleções compatíveis nas posições 15 e 42, recuperar os rótulos verificáveis da janela e comprovar cobertura e suficiência por chave. Uma janela reduzida exige decisão específica e evidência própria. A junção ao oráculo vem após o congelamento dos rankings experimentais.
+
 ## DIRTS provisório
 
 `dirts.py` vincula cada seleção à [verificação DIRTS publicada](../KAN-18/verificacao-dirts.json). Confere posição, SHA, primeiro pai, hash do recorte, versão, imagem, hashes das cinco saídas e hash do inventário JUnit. Confere a seleção completa por `(commit_sha, test_id)`, a raiz de execução, o motivo por classe e a ordem de T1. As posições 50, 75 e 100 forneceram respectivamente 72, 7 e 4.663 métodos.
