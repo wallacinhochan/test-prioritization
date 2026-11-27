@@ -1,0 +1,29 @@
+{
+  "data_kind": "physical_instrumentation_pilot",
+  "official_budget_evaluation": false,
+  "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+  "class": "org.apache.commons.lang3.StringUtilsTest",
+  "image_id": "sha256:1a9f509b7ddc690a46bed17a8ba381d699eae04821ea325ce29f28175f3fde24",
+  "platform": "linux/amd64",
+  "initial_maven_cache": "cold",
+  "timezone": "UTC",
+  "exit_code": 0,
+  "events": 351,
+  "methods_started": 154,
+  "parameterized_registrations": 12,
+  "matched_xml_outcomes": {"successful": 163, "skipped": 1},
+  "timing": {
+    "prepare_ms": 178080,
+    "runner_ms": 16150,
+    "reports_ms": 30,
+    "container_mark_resolution_ms": 10,
+    "junit_plan_elapsed_ns": 2042715406
+  },
+  "local_output": "evidencias/KAN-23/local/piloto-8075ee66-943f-4c73-b334-4bdf0e0fcad5",
+  "sha256": {
+    "evidencia/eventos.tsv": "9ff1a1a04f86e238e4abc0cce6a0e75249ffde3ccfaf52be3887a9e180cac79e",
+    "evidencia/surefire-reports/TEST-org.apache.commons.lang3.StringUtilsTest.xml": "eedfaef88761b8e8aa2b49a4908f4c5a67f4a4b2337e8673ae8238ece9dc7a03",
+    "evidencia/marcos.tsv": "be0a3aeb714b602a6f0922fb2eef0e2eced142a18929b06af1bee3fd3fde3719",
+    "maven.log": "90dfb68a1545fcee7e6ab178810e1ae33ac8db4c5d303c9ede46a3f9b54e4cb9"
+  }
+}
