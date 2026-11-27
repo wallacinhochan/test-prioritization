@@ -2,6 +2,7 @@
 import csv
 import hashlib
 import json
+import re
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
@@ -18,23 +19,38 @@ def read_lines(path):
     return path.read_text(encoding="utf-8-sig").splitlines()
 
 
-def collect_xml(folder):
+def collect_xml(folder, log):
     files = sorted(folder.glob("TEST-*.xml"))
     assert files, folder
     totals = dict.fromkeys(("tests", "skipped", "failures", "errors"), 0)
     roots = set()
     hashes = {}
+    discrepancias = {}
+    declaradas = 0
     for file in files:
         data = file.read_bytes()
         suite = ET.fromstring(data)
         assert suite.tag == "testsuite", file
         roots.add(suite.attrib["name"].split("$", 1)[0])
-        for key in totals:
-            totals[key] += int(suite.attrib[key])
-        assert len(suite.findall("testcase")) == int(suite.attrib["tests"]), file
+        found = len(suite.findall("testcase"))
+        declared = int(suite.attrib["tests"])
+        declaradas += declared
+        totals["tests"] += found
+        if declared != found:
+            discrepancias[file.name] = {"atributo_tests": declared, "elementos_testcase": found}
+        for key, tag in (("skipped", "skipped"), ("failures", "failure"), ("errors", "error")):
+            count = len(suite.findall(f"testcase/{tag}"))
+            assert count == int(suite.attrib[key]), file
+            totals[key] += count
         hashes[file.name] = sha256(data)
+    summaries = re.findall(r"^\[(?:INFO|WARNING|ERROR)\] Tests run: (\d+), Failures: (\d+), "
+                           r"Errors: (\d+), Skipped: (\d+)\s*$",
+                           log.read_text(encoding="utf-8"), re.MULTILINE)
+    assert summaries and tuple(map(int, summaries[-1])) == tuple(totals[key] for key in
+                                                                ("tests", "failures", "errors", "skipped")), log
     assert totals["failures"] == totals["errors"] == 0, folder
-    return dict(**totals, relatorios=len(files), raizes=sorted(roots), sha256_xml=hashes)
+    return dict(**totals, relatorios=len(files), raizes=sorted(roots), sha256_xml=hashes,
+                testes_atributo_tests=declaradas, discrepancias_xml=discrepancias)
 
 
 def main(out, checkout):
@@ -72,7 +88,8 @@ console.log(JSON.stringify([...items].map(([id, row]) => [id, row.classe])));
             previous = json.loads((HERE / "validacao-expansao.json").read_text(encoding="utf-8-sig"))
             expected = next(row for row in previous if row["posicao"] == 50)["sha256_lista_expandida"]
             assert sha256("".join(test + "\n" for test in selection["expansao"]).encode()) == expected
-        execution = {mode: collect_xml(directory / f"{mode}-xml") for mode in ("reuso", "t0")}
+        execution = {mode: collect_xml(directory / f"{mode}-xml", directory / f"{mode}.log")
+                     for mode in ("reuso", "t0")}
         assert set(execution["reuso"]["raizes"]) == roots["expansao"], pos
         reports = {}
         for name, tests in selection.items():

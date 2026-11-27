@@ -1,0 +1,44 @@
+{
+  "tipo": "Maven instrumentado, sem executar a su\u00edte",
+  "revisoes": {
+    "49": {
+      "motivo": "estado_invalido",
+      "argumentos_maven": [
+        "-B",
+        "-ntp",
+        "-Dstyle.color=never",
+        "-Duser.timezone=UTC",
+        "-Drat.skip=true",
+        "-Dmaven.repo.local=/maven-cache",
+        "test"
+      ]
+    },
+    "50": {
+      "motivo": "diff_nao_suportado",
+      "argumentos_maven": [
+        "-B",
+        "-ntp",
+        "-Dstyle.color=never",
+        "-Duser.timezone=UTC",
+        "-Drat.skip=true",
+        "-Dmaven.repo.local=/maven-cache",
+        "test"
+      ]
+    }
+  },
+  "retornos": {
+    "inicializacao": 1,
+    "arvore_reuso_49": 1,
+    "reconstrucao_49": 1,
+    "arvore_fallback_49": 0,
+    "reuso_test_49": 0,
+    "arvore_t0_49": 0,
+    "t0_test_49": 0,
+    "arvore_fallback_50": 0,
+    "reuso_test_50": 0,
+    "arvore_t0_50": 0,
+    "t0_test_50": 0,
+    "pai_isolado_49": 0,
+    "dirts_pai_isolado_49": 1
+  }
+}
