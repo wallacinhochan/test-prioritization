@@ -1,8 +1,8 @@
 """Cria piloto_balanceado.py a partir de piloto.py (que NÃO é alterado).
 
-Mudança única no treino: a Random Forest usa sample_weight (peso = zeros/positivos nos exemplos
-com alvo > 0, a ponderação escolhida em REGISTRO-BALANCEAMENTO.md). O KNN continua sem balanceamento
-(o KNeighborsRegressor não aceita sample_weight e o balanceamento piorou o KNN na comparação).
+Variante exploratória da etapa 3, descrita em entrega-replay/BALANCEAMENTO.md.
+A Random Forest usa sample_weight (peso = zeros/positivos nos exemplos com alvo > 0).
+O KNN continua sem balanceamento. A regra de 50% selecionou baseline para ambos.
 O manifesto passa a registrar o hash do piloto_balanceado.py e o campo `balanceamento`.
 
 Uso (de dentro de evidencias/MUTACAO/modelos):  python criar_piloto_balanceado.py

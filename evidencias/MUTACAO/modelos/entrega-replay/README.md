@@ -3,6 +3,10 @@
 A coleta reproduziu mutações do Apache Commons Lang. As falhas são induzidas.
 Treine nas posições 15, 26 e 42 e compare as estratégias na posição 50.
 
+## Resultado versionado
+
+A regra prévia de 50% selecionou baseline para RF e KNN. A RF ponderada foi levada à etapa 3 como variante exploratória após a análise do corte de 25%. O arquivo `dados-balanceados/treino_balanceado.csv` contém a exportação SMOTE da comparação. Os resultados por fold e semente, a proveniência dos artefatos e a regra de tempo do replay sintético estão em [BALANCEAMENTO.md](BALANCEAMENTO.md).
+
 ## Arquivos
 
 - `dados/metodos.csv` contém uma linha por revisão e método, a seleção T1,
@@ -38,7 +42,7 @@ distancia_rota, rota_ausente, arestas_lexicais, classe_semente,
 comprimento_nome, quantidade_parametros, classe_aninhada
 ```
 
-## Experimento de balanceamento
+## Protocolo proposto para a comparação
 
 A pergunta desta etapa é qual estratégia de balanceamento ajuda a Random
 Forest a detectar mais mutantes dentro do orçamento de tempo, em comparação
