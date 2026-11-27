@@ -1,0 +1,6 @@
+commit_sha,commit_order,committed_at,eligibility_status,exclusion_reason,build_changed,tests_changed,source_ref
+5555555555555555555555555555555555555555,5,2026-01-05T00:00:00Z,eligible,,false,false,evidencias/KAN-23/README.md#fixture-controlada
+4444444444444444444444444444444444444444,4,2026-01-04T00:00:00Z,eligible,,false,false,evidencias/KAN-23/README.md#fixture-controlada
+3333333333333333333333333333333333333333,3,2026-01-03T00:00:00Z,eligible,,false,false,evidencias/KAN-23/README.md#fixture-controlada
+2222222222222222222222222222222222222222,2,2026-01-02T00:00:00Z,eligible,,false,false,evidencias/KAN-23/README.md#fixture-controlada
+1111111111111111111111111111111111111111,1,2026-01-01T00:00:00Z,eligible,,false,false,evidencias/KAN-23/README.md#fixture-controlada

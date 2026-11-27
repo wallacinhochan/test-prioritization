@@ -1,0 +1,6 @@
+commit_sha,scenario,run_status,suite_duration_ms,source_ref
+1111111111111111111111111111111111111111,T0,complete,103,evidencias/KAN-23/README.md#fixture-controlada
+2222222222222222222222222222222222222222,T0,incomplete,150,evidencias/KAN-23/README.md#fixture-controlada
+3333333333333333333333333333333333333333,T0,complete,200,evidencias/KAN-23/README.md#fixture-controlada
+4444444444444444444444444444444444444444,T0,complete,300,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T0,complete,99,evidencias/KAN-23/README.md#fixture-controlada

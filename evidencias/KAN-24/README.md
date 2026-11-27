@@ -58,6 +58,8 @@ git log -1 --format=%H -- evidencias/KAN-24
 
 ## Integração com KAN-23 e KAN-26
 
+O [replay serial da KAN-23](../KAN-23/README.md) aplica esta regra aos CSVs KAN-15 e inclui uma fixture controlada que reproduz a tabela acima.
+
 No avaliador, resolva a referência histórica juntando `commits` e `t0_runs`, com proveniência da tentativa e corte de disponibilidade. Após congelar seleção e rankings, junte `t0_results` por `(commit_sha, test_id)`, leia `overhead` por SHA, cenário e fase, e incorpore as medições compatíveis de preparo e runner. Aplique os três cortes aos mesmos eventos de cada cenário. Entregue à KAN-26, por SHA, cenário e percentual, a referência do limite, seu valor, o estado de disponibilidade e o prefixo com instantes acumulados e desfechos. Limites, durações, resultados e derivados do próprio SHA avaliado ficam no avaliador. Features históricas seguem o corte de observabilidade da KAN-15/KAN-19.
 
 O verificador exercita a aritmética e o corte serial. A aplicação principal depende de uma linha do tempo comparável e da integração com a KAN-23. A KAN-16 informa zero métodos com ordem global observada no lote, dois métodos executados sem duração válida e zero falhas naturais. Os tempos de parede e as somas por método cobrem intervalos diferentes. A coleta atual permite conferir a calibração, mas não sustenta uma comparação observada de detecção T0–T3 sob orçamento. As métricas da Entrega 2 permanecem as aprovadas, inclusive detecção relativa somente com denominador positivo, primeira falha não observada quando aplicável e APFDc complementar na população compartilhada de T1–T3. [KAN-23](https://cin-team-test-prioritization.atlassian.net/browse/KAN-23) · [KAN-26](https://cin-team-test-prioritization.atlassian.net/browse/KAN-26)

@@ -1,0 +1,5 @@
+commit_sha,scenario,test_id,outcome,duration_ms,execution_order,source_ref
+5555555555555555555555555555555555555555,T0,demo.Suite#testD(),pass,36,4,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T0,demo.Suite#testC(),fail,10,3,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T0,demo.Suite#testB(),fail,15,2,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T0,demo.Suite#testA(),pass,20,1,evidencias/KAN-23/README.md#fixture-controlada

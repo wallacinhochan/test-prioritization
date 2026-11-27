@@ -1,0 +1,10 @@
+commit_sha,scenario,test_id,rank,score,source_ref
+5555555555555555555555555555555555555555,T3,demo.Suite#testA(),3,1,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T3,demo.Suite#testC(),2,2,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T3,demo.Suite#testB(),1,3,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T2,demo.Suite#testA(),3,1,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T2,demo.Suite#testB(),2,2,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T2,demo.Suite#testC(),1,3,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T1,demo.Suite#testC(),3,,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T1,demo.Suite#testB(),2,,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T1,demo.Suite#testA(),1,,evidencias/KAN-23/README.md#fixture-controlada
