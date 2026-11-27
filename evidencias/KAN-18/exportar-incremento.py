@@ -1,8 +1,10 @@
 """Export the 47–48 delta against the immutable ef57715 publication."""
 import json
+import csv
 import re
 import subprocess
 import sys
+import tarfile
 from collections import defaultdict
 from importlib import import_module
 from pathlib import Path
@@ -16,23 +18,29 @@ PREVIOUS = "ef577158bc012d87784bbfab1b9ccb4ee80cf812"
 TARGETS = (47, 48)
 
 
-def main(run, upstream, out, *, control=None):
+def main(run, upstream, out, *, control=None, kan29=False):
     training = control is not None
-    targets = (15, 42) if training else TARGETS
-    destination = "evidencias/KAN-18/congelado-expansao-lote-03" if training else DEST
-    lot = "03" if training else "02"
+    targets = (58, 59, 60) if kan29 else (15, 42) if training else TARGETS
+    lot = "04" if kan29 else "03" if training else "02"
+    destination = f"evidencias/KAN-18/congelado-expansao-lote-{lot}"
     previous = common.manifest_data(OLD / "manifesto.json")
     for name, expected in previous["saidas_sha256"].items():
         assert common.hash_file(OLD / name) == expected, name
     prior_lots = {}
     occupied = set()
-    if training:
+    if training or kan29:
         prior = HERE / "congelado-expansao-lote-02"
         prior_manifest = common.manifest_data(prior / "manifesto.json")
         for name, expected in prior_manifest["saidas_sha256"].items():
             assert common.hash_file(prior / name) == expected, name
         prior_lots["41a22e394de36512921bad82a4a28d029d8bb55f"] = common.hash_file(prior / "manifesto.json")
         occupied = {row["sha"] for row in common.rows(prior / "cobertura.csv")}
+    if kan29:
+        prior = HERE / "congelado-expansao-lote-03"
+        for name, expected in common.manifest_data(prior / "manifesto.json")["saidas_sha256"].items():
+            assert common.hash_file(prior / name) == expected, name
+        prior_lots["ba7f204693007f18db648fdf16e34f52c62397f7"] = common.hash_file(prior / "manifesto.json")
+        occupied.update(row["sha"] for row in common.rows(prior / "cobertura.csv"))
     audit = common.rows(OLD / "cobertura.csv")
     assert len(audit) == 100 and [int(row["posicao"]) for row in audit if row["holdout"] == "true"] == [96]
     times = common.rows(run / "tempos.csv")
@@ -50,7 +58,7 @@ def main(run, upstream, out, *, control=None):
         assert subprocess.check_output([*git, "rev-parse", f"{sha}^1"], text=True).strip() == parent
         folder = run / str(pos)
         assert common.lines(folder / "sha") == [sha] and common.lines(run / f"{pos}.parent") == [parent]
-        if training:
+        if training or kan29:
             for archive, expected in ((f"{pos}.tar", sha), (f"{parent}.tar", parent)):
                 with (run / archive).open("rb") as stream:
                     identity = subprocess.check_output([*git, "get-tar-commit-id"], stdin=stream).decode().strip()
@@ -102,7 +110,7 @@ def main(run, upstream, out, *, control=None):
                 assert continuity == "reancorado_primeiro_pai" and measured[f"inicializacao_{pos}"][1] == 0
                 assert "DIRTS included: []" in common.lines(control_folder / "controle.log")
             else:
-                prev_seal = (run / "inicializacao.hashes" if pos == 47 else run / str(pos - 1) / "continuo.hashes")
+                prev_seal = (run / "inicializacao.hashes" if pos == targets[0] else run / str(pos - 1) / "continuo.hashes")
                 if continuity == "incremental":
                     assert common.hash_file(prev_seal) == common.hash_file(folder / "estado-pai.hashes")
                 else:
@@ -144,7 +152,7 @@ def main(run, upstream, out, *, control=None):
                                    str(bool(fallback)).lower(), "|".join(sorted(evidence)),
                                    graph_hash if evidence else "", state))
         stages = {phase: {"ns": ns, "rc": rc} for phase, (ns, rc) in measured.items()
-                  if re.search(fr"_{pos}$", phase) or (pos == 47 and phase == "inicializacao")}
+                  if re.search(fr"_{pos}$", phase) or (pos == targets[0] and phase == "inicializacao")}
         controls = {"pai_isolado", "dirts_pai_isolado", "controle_sem_diff", "dirts_alvo_isolado", "validacao_isolada"}
         production = sum(value["ns"] for phase, value in stages.items() if phase.rsplit("_", 1)[0] not in controls)
         cost = "" if audit_fallback else (production + 500000) // 1000000
@@ -194,20 +202,66 @@ def main(run, upstream, out, *, control=None):
     (out / ".gitattributes").write_bytes(b"*.csv -text\n*.json -text\n")
     for name in ("selection", "rankings", "overhead", "rotas", "cobertura"):
         common.write_csv(out / f"{name}.csv", output[name], name)
+    if kan29:
+        publications = (("base", OLD), ("02", HERE / "congelado-expansao-lote-02"),
+                        ("03", HERE / "congelado-expansao-lote-03"), ("04", out))
+        availability = {}
+        for label, publication in publications:
+            costs = {row["commit_sha"]: row for row in common.rows(publication / "overhead.csv")}
+            for row in common.rows(publication / "cobertura.csv"):
+                if row["estado_selecao"] != "congelado":
+                    continue
+                sha = row["sha"]
+                assert sha not in availability and sha in costs
+                cost = costs[sha]
+                availability[sha] = (label, row["continuidade"], row["candidatos"], row["selecionados"],
+                                     row["fallback"], cost["measurement_status"], cost["duration_ms"])
+        assert len(availability) == 18
+        with (out / "disponibilidade.csv").open("w", encoding="utf-8", newline="") as stream:
+            writer = csv.writer(stream, lineterminator="\n")
+            writer.writerow(("posicao", "sha", "pai", "particao", "holdout", "estado_selecao", "lote",
+                             "continuidade", "candidatos", "selecionados", "fallback", "estado_custo_t1",
+                             "custo_selecao_ms"))
+            for row in audit:
+                details = availability.get(row["sha"])
+                writer.writerow((*[row[key] for key in ("posicao", "sha", "pai", "particao", "holdout")],
+                                 "congelado" if details else "indisponivel", *(details or ("",) * 7)))
+
     m = {"contrato": "0.1.0", "seletor": common.VERSION, "lote": lot, "publicacao_base": PREVIOUS,
          "manifesto_base_sha256": common.hash_file(OLD / "manifesto.json"),
          "ordem": previous["ordem"], "politica": previous["politica"], "fallback": previous["fallback"],
          "ambiente": previous["ambiente_reuso"], "holdout": previous["holdout"],
-         "cobertura": {"posicoes_delta": list(targets), "soma_com_base": 15 if training else 13,
-                       "lacunas": 85 if training else 87},
+         "cobertura": {"posicoes_delta": list(targets), "soma_com_base": 18 if kan29 else 15 if training else 13,
+                       "lacunas": 82 if kan29 else 85 if training else 87},
          "execucao_fisica_de_testes": False,
          "custo": "inicializacao atribuida ao primeiro alvo; selecao ate lista pronta; controles isolados fora do overhead",
          "entradas_comuns_sha256": {p.name: common.hash_file(p) for p in sorted(run.iterdir()) if p.is_file()},
          "codigo_exportador_sha256_lf": common.digest(Path(__file__).read_bytes().replace(b"\r\n", b"\n")),
          "revisoes": entries,
          "saidas_sha256": {p.name: common.hash_file(p) for p in sorted(out.glob("*.csv"))}}
-    if training:
+    if kan29:
+        final = targets[-1]
+        checkpoint = run / f"estado-{final}.tar"
+        if checkpoint.exists():
+            seal_path = run / f"estado-{final}.hashes"
+            sha_path = run / f"estado-{final}.sha"
+            seal = dict((name, checksum) for checksum, name in
+                        (line.split("  ", 1) for line in common.lines(seal_path)))
+            assert common.hash_file(seal_path) == common.hash_file(run / str(final) / "continuo.hashes")
+            assert common.lines(sha_path) == [entries[f"posicao-{final:03}"]["sha"]]
+            exported = {}
+            with tarfile.open(checkpoint) as archive:
+                for member in archive:
+                    assert member.isdir() or member.isfile(), member.name
+                    if member.isfile():
+                        assert member.name.startswith(".dirts/") and member.name not in exported
+                        exported[member.name] = common.digest(archive.extractfile(member).read())
+            assert exported == seal
+            m["checkpoint_local"] = {"sha": common.lines(sha_path)[0], "arquivo": checkpoint.name,
+                                     "sha256": common.hash_file(checkpoint), "selo_sha256": common.hash_file(seal_path)}
+    if prior_lots:
         m["manifestos_lotes_anteriores_sha256"] = prior_lots
+    if training:
         m["controle_treino_entradas_sha256"] = {f.name: common.hash_file(f) for f in sorted(control.iterdir()) if f.is_file()}
         m["custo"] = "cada alvo inclui sua propria inicializacao; controles sem diff fora do overhead; execucao fisica indisponivel; fallback definido na auditoria tem custo final desconhecido"
     (out / "manifesto.json").write_text(json.dumps(m, indent=2, ensure_ascii=False) + "\n",

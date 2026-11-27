@@ -10,7 +10,7 @@ base = import_module("preparar-reuso")
 HERE = Path(__file__).resolve().parent
 
 
-def main(upstream, out, *, targets=(47, 48), runner="coletar-incremento.sh", reanchor=False):
+def main(upstream, out, *, targets=(47, 48), runner="coletar-incremento.sh", reanchor=False, adaptar=False):
     git = ["git", f"--git-dir={upstream.resolve()}"]
     with (HERE / "../KAN-10/commits.csv").open(encoding="utf-8-sig", newline="") as stream:
         history = {int(row["position"]): row for row in csv.DictReader(stream)}
@@ -57,7 +57,22 @@ def main(upstream, out, *, targets=(47, 48), runner="coletar-incremento.sh", rea
     assert "initialize()" in helpers and "expand_roots()" in helpers and "for pos in 49 50" in suffix
     # T0 is an inventory reference here, so its physical Maven cache is unnecessary.
     helpers = helpers.replace("cp -a /opt/dirts-maven /t0-cache\n", "")
-    put(out / "rodar.sh", helpers + "\n" + (HERE / runner).read_text(encoding="utf-8-sig"))
+    shell = (HERE / runner).read_text(encoding="utf-8-sig")
+    if adaptar:
+        assert runner == "coletar-incremento.sh" and not reanchor
+        assert tuple(targets) == tuple(range(targets[0], targets[-1] + 1))
+        shell = shell.replace("/out/47.parent", f"/out/{targets[0]}.parent")
+        shell = shell.replace("for pos in 47 48;", "for pos in " + " ".join(map(str, targets)) + ";")
+        final = targets[-1]
+        shell += f"""
+cd /work/state
+if valid_state "$(cat /out/{final}/sha)"; then
+    tar -cf /out/estado-{final}.tar .dirts
+    cp /work/state.sha /out/estado-{final}.sha
+    cp /work/state.hashes /out/estado-{final}.hashes
+fi
+"""
+    put(out / "rodar.sh", helpers + "\n" + shell)
     put(out / "DescobertaT0.java", (HERE / "../KAN-16/DescobertaT0.java").read_text(encoding="utf-8-sig"))
     subprocess.run(["docker", "run", "--rm", "--pull", "never", "--platform", "linux/amd64",
                     "--mount", f"type=bind,source={out.resolve()},target=/out",
