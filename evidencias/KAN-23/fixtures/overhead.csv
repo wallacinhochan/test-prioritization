@@ -1,0 +1,9 @@
+commit_sha,scenario,phase,measurement_status,duration_ms,source_ref
+5555555555555555555555555555555555555555,T1,selection,measured,5,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T2,selection,measured,5,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T2,features,measured,4,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T2,inference,measured,1,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T2,training,measured,100,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T3,selection,measured,5,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T3,features,measured,4,evidencias/KAN-23/README.md#fixture-controlada
+5555555555555555555555555555555555555555,T3,inference,measured,12,evidencias/KAN-23/README.md#fixture-controlada

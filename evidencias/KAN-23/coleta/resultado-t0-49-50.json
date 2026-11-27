@@ -1,0 +1,157 @@
+{
+  "data_kind": "instrumented_technical_t0",
+  "official_budget_evaluation": false,
+  "image_id": "sha256:1a9f509b7ddc690a46bed17a8ba381d699eae04821ea325ce29f28175f3fde24",
+  "configuration": {
+    "platform": "linux/amd64",
+    "timezone": "UTC",
+    "maven_cache_initial": "cold",
+    "surefire_forks": 1,
+    "junit_parallel": false,
+    "executor": "piloto-surefire.sh/full-suite",
+    "wall_interval": "prepare_start through reports_finish in container"
+  },
+  "attempts": [
+    {
+      "position": 49,
+      "attempt": {
+        "sha": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+        "exit_code": 0,
+        "finish": "2026-11-27T18:43:17.9749538+00:00",
+        "start": "2026-11-27T18:30:36.6710007+00:00"
+      },
+      "local_artifact_dir": "evidencias/KAN-23/local/t0-f2ae43f1-956e-4ca2-abb0-66255da7aaf1/cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "derived_available_locally_at": "2026-11-27T22:43:28.327057+00:00",
+      "methods_total": 4657,
+      "methods_without_duration_all_skipped": 11,
+      "raw_files_verified": 457,
+      "raw_key_sha256": {
+        "eventos.tsv": "9e18743be019d50ed268206e2113edd10d9672c1570d736be3b166364704d3c0",
+        "eventos.tsv.clock.tsv": "85cc3051f133d946622afbf892c8d01b613cd21a49de026b775b046e18f0cbb8",
+        "marcos.tsv": "e112fdee7bbe0819577af5fabb36ac6b16f3a77658943b2feaff060a2e6cb54f"
+      },
+      "archive_sha256": "f8377c766797e042fc07d3a5b7a7698d4fbe245ee604118baf96ea57f2050199",
+      "derived_sha256": {
+        "contrato.json": "30ac6f57578f660ff85d7e752906433361b3ac053eca23db30484b9427c538c7",
+        "invocacoes.json": "944e6c7c40dd9205fc72c265598365c47e89b117e10b6915af70afe4c28a00aa",
+        "metodos.json": "73ebf6096b15df2e1b0055c7e40664834f451ed1794a04d96f54a067d1092bda",
+        "resumo.json": "177efa9b62ad287f2602afeb11090fe11aa7a2ea270f134fde21c554c2195ecb",
+        "t0_results.csv": "16a711f96951a075263ff0e131393d921e16e1112048e1c2dad7aa21118de62f",
+        "t0_runs.csv": "b779d651e37a8d3e3bf939051178491c21938a210e4dbf0cf11ccc0342d7c963"
+      },
+      "reconciliation": {
+        "events": 176243,
+        "xml_cases": 59953,
+        "xml_outcomes": {
+          "pass": 59940,
+          "skip": 13
+        },
+        "matched_cases": 59953,
+        "matched_outcomes": {
+          "pass": 59940,
+          "skip": 13
+        },
+        "methods_with_start": 4649,
+        "methods_with_duration": 4646,
+        "matched_method_duration_ns": 347169322246,
+        "methods_skip_only_without_start": 8,
+        "gaps": {},
+        "unmatched_xml_by_class": {},
+        "clock": {
+          "plan_origin_lower_ns": 358766789517,
+          "plan_origin_upper_ns": 358785487281,
+          "plan_origin_interval_width_ns": 18697764,
+          "prepare_ms": 337170,
+          "runner_ms": 386840,
+          "reports_ms": 3080,
+          "wall_ms": 727090
+        },
+        "maven_totals": {
+          "tests": 59953,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        },
+        "maven_log_sha256": "3ccceb70b49e1b37966ba6848a044f862c135bd08c31d49bb75ca4b58051fbd4"
+      }
+    },
+    {
+      "position": 50,
+      "attempt": {
+        "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+        "exit_code": 0,
+        "finish": "2026-11-27T18:30:35.4433970+00:00",
+        "start": "2026-11-27T18:14:15.7926720+00:00"
+      },
+      "local_artifact_dir": "evidencias/KAN-23/local/t0-f2ae43f1-956e-4ca2-abb0-66255da7aaf1/f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "derived_available_locally_at": "2026-11-27T22:43:06.079839+00:00",
+      "methods_total": 4657,
+      "methods_without_duration_all_skipped": 11,
+      "raw_files_verified": 457,
+      "raw_key_sha256": {
+        "eventos.tsv": "d6095667d3c68e5108cf85d17e136ccf25596636ddbc74ba20f6e02d3faa7c69",
+        "eventos.tsv.clock.tsv": "382b2c7007bced21b1001f55e26124fd0f38275f9812ded4389cd0edf56f7d35",
+        "marcos.tsv": "849fb44b21d62b77cff4881f5ede1995af4faede3f0c584fe39bbd88ea6da46c"
+      },
+      "archive_sha256": "547f623d8e17ffbfd925ef6bff4f74336f9e4a3f5ae6caca83606d4274f63cf5",
+      "derived_sha256": {
+        "contrato.json": "30ac6f57578f660ff85d7e752906433361b3ac053eca23db30484b9427c538c7",
+        "invocacoes.json": "e16c6157bda71543f07f4de3e16fe2b9b468ca484022d050c54bb1f403dd1548",
+        "metodos.json": "34d124d6a70af648029a507d5740688db9634efddd72ffea4064dca8e1e96fec",
+        "resumo.json": "ec4f49b53dba3d213f0f0bff1ee7f8bddc20d3336010735a2d21754242ad00a1",
+        "t0_results.csv": "f39f27347979055f92bfd8a2903360911a1e341ef9f62de0a172f7bbc5dccf83",
+        "t0_runs.csv": "e7bb40676a8a592881866f7c9d88b34bd1927d6c77cb2f2857274c4d738a5751"
+      },
+      "reconciliation": {
+        "events": 176243,
+        "xml_cases": 59953,
+        "xml_outcomes": {
+          "pass": 59940,
+          "skip": 13
+        },
+        "matched_cases": 59953,
+        "matched_outcomes": {
+          "pass": 59940,
+          "skip": 13
+        },
+        "methods_with_start": 4649,
+        "methods_with_duration": 4646,
+        "matched_method_duration_ns": 652015277175,
+        "methods_skip_only_without_start": 8,
+        "gaps": {},
+        "unmatched_xml_by_class": {},
+        "clock": {
+          "plan_origin_lower_ns": 190833337077,
+          "plan_origin_upper_ns": 190859950630,
+          "plan_origin_interval_width_ns": 26613553,
+          "prepare_ms": 156930,
+          "runner_ms": 726660,
+          "reports_ms": 30630,
+          "wall_ms": 914220
+        },
+        "maven_totals": {
+          "tests": 59953,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        },
+        "maven_log_sha256": "924ceb5d6c9594bf86a94f96370195b23dbae35b3fe19f95c032eb1ad25a874f"
+      }
+    }
+  ],
+  "frozen_ranked_methods_matched_at_50": {
+    "T1": 416,
+    "T2": 416,
+    "T3": 416
+  },
+  "technical_calibration": {
+    "cutoff": "2026-11-27T22:43:59.163593+00:00",
+    "reference_position": 49,
+    "target_position": 50,
+    "budget_ms": {
+      "25": 181772,
+      "50": 363545,
+      "75": 545317
+    }
+  }
+}

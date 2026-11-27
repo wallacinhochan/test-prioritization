@@ -1,0 +1,60 @@
+{
+  "contract_version": "0.1.0",
+  "data_kind": "synthetic",
+  "references": {
+    "1111111111111111111111111111111111111111": {
+      "attempt": "fixture-1",
+      "available_at": "2026-01-02T00:00:00Z",
+      "configuration": "serial-sintetico-v1"
+    },
+    "2222222222222222222222222222222222222222": {
+      "attempt": "fixture-2",
+      "available_at": "2026-01-02T00:00:00Z",
+      "configuration": "serial-sintetico-v1"
+    },
+    "3333333333333333333333333333333333333333": {
+      "attempt": "fixture-3",
+      "available_at": "2026-01-06T00:00:00Z",
+      "configuration": "serial-sintetico-v1"
+    },
+    "4444444444444444444444444444444444444444": {
+      "attempt": "fixture-4",
+      "available_at": "2026-01-02T00:00:00Z",
+      "configuration": "outra"
+    }
+  },
+  "targets": {
+    "1111111111111111111111111111111111111111": {
+      "cutoff": "2026-01-05T00:00:00Z",
+      "configuration": "serial-sintetico-v1"
+    },
+    "5555555555555555555555555555555555555555": {
+      "cutoff": "2026-01-05T00:00:00Z",
+      "configuration": "serial-sintetico-v1",
+      "startup": {
+        "T0": {
+          "duration_ms": 5,
+          "source_ref": "evidencias/KAN-23/README.md#fixture-controlada"
+        },
+        "T1": {
+          "duration_ms": 5,
+          "source_ref": "evidencias/KAN-23/README.md#fixture-controlada"
+        },
+        "T2": {
+          "duration_ms": 5,
+          "source_ref": "evidencias/KAN-23/README.md#fixture-controlada"
+        },
+        "T3": {
+          "duration_ms": 5,
+          "source_ref": "evidencias/KAN-23/README.md#fixture-controlada"
+        }
+      },
+      "selection_ref": "evidencias/KAN-23/README.md#fixture-controlada",
+      "ranking_refs": {
+        "T1": "evidencias/KAN-23/README.md#fixture-controlada",
+        "T2": "evidencias/KAN-23/README.md#fixture-controlada",
+        "T3": "evidencias/KAN-23/README.md#fixture-controlada"
+      }
+    }
+  }
+}
