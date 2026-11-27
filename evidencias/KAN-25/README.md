@@ -29,6 +29,10 @@ python -B evidencias/KAN-25/metricas.py $dados $replay
 python -B -m unittest discover -s evidencias/KAN-25 -v
 ```
 
+O código reutilizável está em `src/test_prioritization/metrics` e o ponto de
+entrada estável é `scripts/metricas.py`. `metricas.py` permanece neste diretório
+como wrapper compatível com as reproduções publicadas.
+
 O teste de integração extrai o commit KAN-23 `c6e1ca1` para uma pasta temporária e executa os dois CLIs. Na revisão sintética `5555555…`, T0 tem quatro métodos elegíveis e dois falhos. T1–T3 selecionam três métodos e detectam as duas falhas na execução integral. As reduções T0/T1/T2/T3 são 0/25/25/25% e os tempos são 99/55/60/71 ms. O teste unitário também verifica perda de uma falha, denominador zero, duração zero e custo ausente. [Testes](test_metricas.py)
 
 O campo `data_kind` vem do manifesto combinado ao replay e `modo` identifica a avaliação serial. Os números acima são de uma fixture controlada. A revisão 50 em `d2c0e7a` é replay sintético auxiliar, sem orçamento oficial. Seus rótulos ficam fora desta validação. Para reportar resultados da avaliação principal, são necessários artefatos aprovados e comparáveis da KAN-28. [RQ2](../KAN-26/README.md) · [APFDc](../KAN-27/README.md)

@@ -1,5 +1,9 @@
 # KAN-26 — Detecção sob orçamento da RQ2
 
+A implementação reutilizável está em
+`src/test_prioritization/metrics/detection.py`. `deteccao.py` preserva a
+importação histórica.
+
 Os quatro cenários usam os cortes de 25%, 50% e 75% do T0 histórico definidos na KAN-24. O CLI recebe os prefixos KAN-23, conserva a referência histórica, a tentativa atual, os eventos, os custos e as lacunas, e verifica que o orçamento inteiro em ms corresponde ao piso do percentual. O denominador vem de todos os métodos falhos no T0 completo do **SHA avaliado**. [KAN-26](https://cin-team-test-prioritization.atlassian.net/browse/KAN-26) · [Regra KAN-24](../KAN-24/README.md) · [CLI](../KAN-25/README.md#cli-e-validação)
 
 - A contagem usa métodos falhos distintos concluídos até o orçamento, inclusive na fronteira. A proporção divide essa contagem pelas falhas de referência quando o denominador é positivo.

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "project": "Apache Commons Lang",
+  "repository": "https://github.com/apache/commons-lang.git",
+  "ref": "rel/commons-lang-3.20.0",
+  "commit": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+  "revision_inventory": "../../evidencias/KAN-10/commits.csv",
+  "environment": "../../infra/commons-lang/README.md",
+  "notes": "KAN-10-upstream.git is an optional local bare source and is not part of this repository."
+}

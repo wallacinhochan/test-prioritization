@@ -1,5 +1,9 @@
 # KAN-27 — APFDc complementar
 
+A implementação reutilizável está em
+`src/test_prioritization/metrics/apfdc.py`. `apfdc.py` preserva a importação
+histórica.
+
 Cada método com `fail` no T0 do SHA avaliado representa um evento de falha distinto, com peso unitário, detectado apenas por esse método. Trata-se de uma aproximação observável quando falta o mapeamento de testes para defeitos independentes. O custo é a duração do método em ms no T0. Métodos comprovadamente ignorados ficam fora do cálculo. O APFDc compara a ordem sobre a seleção compartilhada de T1–T3, com o mesmo vetor de custos. [KAN-27](https://cin-team-test-prioritization.atlassian.net/browse/KAN-27) · [Protocolo, seção 5](https://docs.google.com/document/d/13vJhblJTfYqXugi6Vey-nF3gxNk_Um_n/edit)
 
 Para cada método falho selecionado, calcule o tempo restante desde a metade de sua execução, `C − início − custo/2`, em que `C` é o custo total da população. Some esses valores e divida por `C × número de métodos falhos selecionados`. O resultado está entre 0 e 1. O cálculo mede o efeito do ranking com custos por método. Preparo, overhead operacional e orçamento pertencem às métricas de tempo e detecção.
