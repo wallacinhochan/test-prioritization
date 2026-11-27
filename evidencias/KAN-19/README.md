@@ -8,7 +8,22 @@ A política `expansao-direta/assinatura-v1` usa comprimento do nome, número de 
 
 ### Compatibilidade do treino
 
-A janela sintética anterior é 15, 26 e 42. As posições 15 e 42 carecem de seleção congelada na nova variante. Na 26, o inventário da seleção e o resumo do replay sintético têm o mesmo SHA-256 `93e6f989cb7d8bea56eb2666e7684e9ee33b14a01e538f19f4cfddd459a0621c`. A seleção contém 56 IDs, e o CSV de rótulos por método está indisponível no workspace, o que impede validar a interseção rotulada e a suficiência do treino. O resumo agregado sozinho não determina os alvos desses 56 IDs. As posições 4, 11 e 39 têm seleção na partição de treino, mas não dispõem de rótulos aprovados para a janela.
+A janela sintética é 15, 26 e 42. `auditar_treino_expansao.py` importa os CSVs de replay do PR #2 em `1070e62788e9a180539c9df7ca10b65d48ee978c`. Valida os checksums, a proveniência, os inventários, as chaves dos mutantes e os alvos recalculados a partir das observações. Deriva novamente as três features de assinatura e confere sua igualdade com as colunas correspondentes do pacote. O cálculo usa `induced_failure / (induced_failure + pass)`.
+
+| Posição | Métodos no pacote | Alvos conhecidos | Alvos positivos | Cruzamento com o novo T1 |
+| ---: | ---: | ---: | ---: | --- |
+| 15 | 4.651 | 4.640 | 185 | Seleção indisponível |
+| 26 | 4.652 | 4.641 | 10 | 56 IDs, 53 alvos conhecidos, 9 positivos |
+| 42 | 4.657 | 4.646 | 15 | Seleção indisponível |
+
+Na posição 26, a interseção tem 11 falhas induzidas, 201 aprovações e 12 observações desconhecidas. Três métodos ficam com alvo vazio. O hash do inventário concorda com o resumo do replay histórico. O hash dos rótulos-fonte informado pelo pacote concorda com o resumo versionado; a proveniência registra outro hash para o resumo local. Na posição 15, o pacote representa a coleta alternativa documentada, com 203 falhas induzidas frente às 280 do resumo histórico. Na 42, as contagens concordam e os hashes de rótulos identificam coletas distintas. A auditoria mantém o pacote do PR #2 como fonte única e expõe as diferenças.
+
+```powershell
+python -B evidencias/KAN-19/auditar_treino_expansao.py
+python -B -m unittest discover -s evidencias/KAN-19 -p test_auditar_treino_expansao.py -v
+```
+
+Para uma publicação que complete a janela, execute o mesmo auditor com `--t1 SHA_COMPLETO --rodada NOME`. O ajuste experimental exige alvos conhecidos em todas as três posições, pelo menos 15 exemplos, alvos positivos e alvos zero. A saída inclui treino por chave, rankings e overhead com hashes em um diretório novo. O alvo continua sendo a revisão 50 original de 416 IDs. O fluxo atual recusa o ajuste com a publicação incompleta.
 
 O fluxo técnico ajusta KNN com `StandardScaler` e Random Forest com os parâmetros do piloto sobre os mesmos 16 exemplos artificiais, sem balanceamento. O treino usa apenas a fixture. O oráculo e os rótulos do holdout 96 ficam fora do fluxo. Os resultados são gravados em `rankings_fixture.csv` e `overhead_fixture.csv`, com manifesto marcado `teste_tecnico_fixture_sem_ranking_experimental`.
 
@@ -35,7 +50,7 @@ O teste compara as chaves, escores e postos dos dois cenários em duas execuçõ
 
 A extração mede a montagem dos vetores e das linhas de auditoria em memória uma vez por SHA. A inferência mede preparo da matriz, predição, ordenação e montagem das linhas. Medições locais excluem I/O, verificações, descoberta JUnit e jdeps. O manifesto registra nanossegundos. A fase `selection` preserva a referência e a medição publicada.
 
-Para a KAN-22, a validação de contrato e tempos de integração está disponível. A emissão de escores experimentais depende de congelar seleções compatíveis nas posições 15 e 42, recuperar os rótulos verificáveis da janela e comprovar cobertura e suficiência por chave. Uma janela reduzida exige decisão específica e evidência própria. A junção ao oráculo vem após o congelamento dos rankings experimentais.
+Para a KAN-22, a validação de contrato e tempos de integração está disponível. A emissão de escores experimentais depende de congelar as seleções das posições 15 e 42 e verificar a cobertura rotulada por chave. Uma janela reduzida exige decisão específica e evidência própria. A junção ao oráculo vem após o congelamento dos rankings experimentais.
 
 ## DIRTS provisório
 

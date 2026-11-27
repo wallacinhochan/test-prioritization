@@ -90,7 +90,7 @@ def root(test_id):
     return test_id.split('#', 1)[0].split('$', 1)[0]
 
 
-def run(output):
+def run(output, *, training=None, training_audit=None):
     ids, routes, selection, revision, coverage, publication_hash = frozen_input()
     start = perf_counter_ns()
     features = [(POSITION, SHA, test_id, *vector(test_id)) for test_id in ids]
@@ -99,7 +99,21 @@ def run(output):
     route_counts = Counter(row[3] for row in audit)
     piloto.require(route_counts == revision['rotas_por_metodo'], 'Cobertura de rotas divergente')
 
-    x_train, y_train = fixture()
+    technical = training is None
+    if technical:
+        x_train, y_train = fixture()
+        training_info = {
+            'origem': 'fixture interno com alvos artificiais', 'linhas': len(x_train),
+            'balanceamento': False, 'janela_experimental': [15, 26, 42],
+            'cobertura_janela': {p: {k: coverage[p][k] for k in ('estado_selecao', 'selecionados')}
+                                 for p in (15, 26, 42)},
+        }
+    else:
+        piloto.require(training_audit['treino']['suficiente'], 'Treino experimental insuficiente')
+        x_train = [row[3:-1] for row in training]
+        y_train = [row[-1] for row in training]
+        training_info = {'origem': 'replay sintético versionado', 'balanceamento': False,
+                         'auditoria': training_audit}
     models = {
         'T2': make_pipeline(StandardScaler(), KNeighborsRegressor(**piloto.KNN)),
         'T3': RandomForestRegressor(**piloto.FOREST),
@@ -120,24 +134,18 @@ def run(output):
             (SHA, scenario, 'inference', 'measured', inference / 1e6, source),
         ])
     report = {
-        'estado': 'teste_tecnico_fixture_sem_ranking_experimental',
+        'estado': ('teste_tecnico_fixture_sem_ranking_experimental' if technical else
+                   'ranking_experimental_congelado_sem_avaliacao'),
         'posicao': POSITION, 'sha': SHA, 'selecionados': len(ids),
         'publicacao_t1': PUBLICATION, 'manifesto_t1_sha256': publication_hash,
         'conjunto_t1_sha256': set_hash(ids),
         'politica_features': POLICY, 'features_modelo': FEATURES, 'rotas_por_metodo': route_counts,
-        'treino': {
-            'origem': 'fixture interno com alvos artificiais', 'linhas': len(x_train),
-            'balanceamento': False, 'janela_experimental': [15, 26, 42],
-            'cobertura_janela': {p: {k: coverage[p][k] for k in ('estado_selecao', 'selecionados')}
-                                 for p in (15, 26, 42)},
-            'estado_experimental': 'janela sem selecao compativel em 15 e 42; '
-                                   'rotulos por metodo de 26 indisponiveis na sessao',
-        },
+        'treino': training_info,
         'tempos': {'extracao_compartilhada_ns': extraction, 'modelos': timings},
         'escopo': {
             'selection': 'herdado da publicação T1',
             'features': 'construção dos vetores e auditoria de rotas em memória, uma vez por SHA',
-            'training': 'fit com vetores e alvos de fixture em memória',
+            'training': 'fit com vetores e alvos em memória',
             'inference': 'matriz, predict, ordenação e construção das linhas em memória',
             'excluido_das_medicoes_locais': 'I/O, hashes, verificações, descoberta JUnit e jdeps',
         },
@@ -150,8 +158,12 @@ def run(output):
         stage.mkdir()
         piloto.write_csv(stage / 'features_inferencia.csv', (*KEYS, *FEATURES), features)
         piloto.write_csv(stage / 'auditoria_rotas.csv', (*KEYS, *AUDIT_FIELDS), audit)
-        piloto.write_csv(stage / 'rankings_fixture.csv', RANK_FIELDS, rankings)
-        piloto.write_csv(stage / 'overhead_fixture.csv', COST_FIELDS, costs)
+        suffix = '_fixture' if technical else ''
+        piloto.write_csv(stage / f'rankings{suffix}.csv', RANK_FIELDS, rankings)
+        piloto.write_csv(stage / f'overhead{suffix}.csv', COST_FIELDS, costs)
+        if not technical:
+            piloto.write_csv(stage / 'treino_sintetico.csv', (*KEYS, *FEATURES, 'target_synthetic'),
+                             training)
         report['sha256_saida'] = {path.name: piloto.digest(path.read_bytes())
                                   for path in sorted(stage.iterdir())}
         piloto.write_json(stage / 'manifesto.json', report)
