@@ -10,7 +10,7 @@ base = import_module("preparar-reuso")
 HERE = Path(__file__).resolve().parent
 
 
-def main(upstream, out):
+def main(upstream, out, *, targets=(47, 48), runner="coletar-incremento.sh", reanchor=False):
     git = ["git", f"--git-dir={upstream.resolve()}"]
     with (HERE / "../KAN-10/commits.csv").open(encoding="utf-8-sig", newline="") as stream:
         history = {int(row["position"]): row for row in csv.DictReader(stream)}
@@ -19,21 +19,18 @@ def main(upstream, out):
     def put(path, text):
         path.write_text(text, encoding="utf-8", newline="\n")
 
-    for pos in (46, 47, 48):
+    for pos in targets:
         sha = history[pos]["commit_sha"]
         parent = history[pos]["first_parent_sha"]
         name = str(pos)
         assert subprocess.check_output([*git, "rev-parse", f"{sha}^1"], text=True).strip() == parent
-        if pos == 46:
-            name = sha
+
         subprocess.run([*git, "archive", "--format=tar", f"--output={out / (name + '.tar')}", sha],
                        check=True)
-        if pos == 47:
-            subprocess.run([*git, "archive", "--format=tar", f"--output={out / (sha + '.tar')}", sha],
-                           check=True)
-        if pos == 46:
-            continue
-        assert parent == history[pos - 1]["commit_sha"]
+        if not reanchor:
+            assert parent == history[pos - 1]["commit_sha"]
+        subprocess.run([*git, "archive", "--format=tar", f"--output={out / (parent + '.tar')}", parent],
+                       check=True)
         put(out / f"{pos}.parent", parent + "\n")
         target = out / name
         target.mkdir()
@@ -60,7 +57,7 @@ def main(upstream, out):
     assert "initialize()" in helpers and "expand_roots()" in helpers and "for pos in 49 50" in suffix
     # T0 is an inventory reference here, so its physical Maven cache is unnecessary.
     helpers = helpers.replace("cp -a /opt/dirts-maven /t0-cache\n", "")
-    put(out / "rodar.sh", helpers + "\n" + (HERE / "coletar-incremento.sh").read_text(encoding="utf-8-sig"))
+    put(out / "rodar.sh", helpers + "\n" + (HERE / runner).read_text(encoding="utf-8-sig"))
     put(out / "DescobertaT0.java", (HERE / "../KAN-16/DescobertaT0.java").read_text(encoding="utf-8-sig"))
     subprocess.run(["docker", "run", "--rm", "--pull", "never", "--platform", "linux/amd64",
                     "--mount", f"type=bind,source={out.resolve()},target=/out",
