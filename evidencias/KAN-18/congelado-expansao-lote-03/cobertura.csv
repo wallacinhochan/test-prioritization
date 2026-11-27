@@ -1,0 +1,3 @@
+"posicao","sha","pai","particao","holdout","estado_selecao","continuidade","candidatos","dirts","selecionados","fallback"
+"15","970e4d66452c146165233129c913616ff666ff77","d96a28a7e282e090dba3f54779e78db6e68c7107","treino","false","congelado","reancorado_primeiro_pai","4651","0","318","false"
+"42","7a55ebb455857756d81056dd879e38dfb4d84d66","e1da3a23a177e73a0d22ec95ac319d7956cf417a","treino","false","congelado","reancorado_primeiro_pai","4657","0","153","false"

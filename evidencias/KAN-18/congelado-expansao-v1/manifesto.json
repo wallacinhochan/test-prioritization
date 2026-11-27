@@ -1,0 +1,551 @@
+{
+  "contrato": "0.1.0",
+  "seletor": "dirts-expansao-direta-reuso/1.0.0",
+  "veredito": "670381c27d7ff48983e8fd097d52ba3878b94a1e",
+  "ordem": "commit_order KAN-10, test_id crescente ordinal, score vazio em T1",
+  "politica": "uniao DIRTS com dependentes diretos de bytecode de Java de producao; sem filtro textual",
+  "fallback": "inventario integral em configuracao ou selecao indisponivel; recuperar estado do pai antes do fallback se viavel",
+  "reuso": "somente estado selado do primeiro pai; reancorar quando indisponivel; sem interpolar lacunas",
+  "referencias": {
+    "T0": "inventario por SHA, execucao fisica nas posicoes 49 e 50",
+    "DIRTS_puro": "conjuntos de referencia com hashes e contagens por posicao"
+  },
+  "ordem_validada": {
+    "revisoes": 100,
+    "vinculos_consecutivos": 99,
+    "sha256_kan10": "ed7545c232b5df2271d48f59ef4c733c798de1ab54399e5f61e6e3f07b3a60ed"
+  },
+  "ambiente_reuso": {
+    "imagem": "sha256:fad87a144128c905f9ba915f61c03abe436372c2c6e26a02a18984369c42a4ea",
+    "dirts_commit": "62efcec2f909f93fffdd4ae1da24b0aee1071749"
+  },
+  "ambiente_legado": {
+    "imagem_base_piloto": "sha256:1a9f509b7ddc690a46bed17a8ba381d699eae04821ea325ce29f28175f3fde24",
+    "dirts_commit": "62efcec2f909f93fffdd4ae1da24b0aee1071749"
+  },
+  "custo": "selection inclui inicializacao no primeiro alvo e preparo ate lista pronta; execucao e T0 em fases brutas; piloto legado sem tempo comparavel",
+  "holdout": {
+    "posicao": 96,
+    "rotulos_lidos": false
+  },
+  "saidas_sha256": {
+    "commits.csv": "e9118670d02f986054d7a4050e5305d4c00ad72445eeee8f04b5bb22be5d088d",
+    "selection.csv": "b112d4cab912b3a9413e21761503d5acb25f7ddf783c42e918f38c16e3c1288b",
+    "rankings.csv": "2a0ab88adb8b2fb2ec5f5ea676cc663856f7ca7f33f247249263e19fac0dd715",
+    "overhead.csv": "9ff27a3b4d60df6f33fd0f0e07fc1119c0aedb83fda7bab5fce837deb2fbae0d",
+    "cobertura.csv": "fb4d5dbd690c17c3e685feca686a099e3ad2f4783d9f9e997f5ca55b1e3d74c6",
+    "rotas.csv": "538b32a46fdf818ceed909af6fa09df7e619fa5e2459b978c4022c63bd697971"
+  },
+  "codigo_sha256_lf": "44f8f70d0ef0e2858965cdbd5eeb796738dbf247bc6bbcb649b13ab59c207424",
+  "revisoes": {
+    "posicao-004": {
+      "posicao": 4,
+      "sha": "f8b03db1797fbc34aa6cc3ec8eee655ba7b3d28d",
+      "pai": "71c905200de7d1d260a2a40a29d96c7e8a976a6e",
+      "particao": "treino",
+      "holdout": false,
+      "continuidade": "isolado",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/main/java/org/apache/commons/lang3/StringUtils.java"
+      ],
+      "candidatos": 4651,
+      "selecionados": 1018,
+      "dirts_puro": 0,
+      "rotas_por_metodo": {
+        "direta_jdeps": 1018
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "c50a215cf55feedd62a9ebf7d8aa1ff3979cca5656cf05d6acf94d2d29df09e8",
+        "dirts": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "t1": "0b4ecc1594484d7f8321bc8f21851efd59aefc144fdf59ce8eefa9075ea377a8"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/4/metodos.tsv",
+          "sha256": "36079a382a8d97855b4a6a7356676fc68cf488ae782ef1f1fda551712b2203b7"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/4/ids-finais.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/4/ids-inventario.txt",
+          "sha256": "c50a215cf55feedd62a9ebf7d8aa1ff3979cca5656cf05d6acf94d2d29df09e8"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/4/jdeps.txt",
+          "sha256": "8f4b3e6a680a0c13eed81b412daa9d5f1a107d10ce3ad5e897cb78708d1d2aad"
+        }
+      ]
+    },
+    "posicao-011": {
+      "posicao": 11,
+      "sha": "6513eb0bbb4b3e8d427cce632f786c115f2a3516",
+      "pai": "756436b7b18febab0c5035257b211b52c009819c",
+      "particao": "treino",
+      "holdout": false,
+      "continuidade": "historico_reancorado_sem_validacao_cronologica",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/main/java/org/apache/commons/lang3/EnumUtils.java"
+      ],
+      "candidatos": 4651,
+      "selecionados": 48,
+      "dirts_puro": 48,
+      "rotas_por_metodo": {
+        "direta_jdeps": 48
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "c50a215cf55feedd62a9ebf7d8aa1ff3979cca5656cf05d6acf94d2d29df09e8",
+        "dirts": "22b9b7a12961956df32c80f2ef58954c8ce81d6db47bea4bdf07fa1de10e85c2",
+        "t1": "22b9b7a12961956df32c80f2ef58954c8ce81d6db47bea4bdf07fa1de10e85c2"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/11/metodos.tsv",
+          "sha256": "36079a382a8d97855b4a6a7356676fc68cf488ae782ef1f1fda551712b2203b7"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/estado-continuo/11/ids-finais.txt",
+          "sha256": "22b9b7a12961956df32c80f2ef58954c8ce81d6db47bea4bdf07fa1de10e85c2"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/11/ids-inventario.txt",
+          "sha256": "c50a215cf55feedd62a9ebf7d8aa1ff3979cca5656cf05d6acf94d2d29df09e8"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/11/jdeps.txt",
+          "sha256": "8f4b3e6a680a0c13eed81b412daa9d5f1a107d10ce3ad5e897cb78708d1d2aad"
+        }
+      ]
+    },
+    "posicao-026": {
+      "posicao": 26,
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "pai": "a5585689a31f47b3f95808f8666d062e18097707",
+      "particao": "treino",
+      "holdout": false,
+      "continuidade": "isolado",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/main/java/org/apache/commons/lang3/LocaleUtils.java"
+      ],
+      "candidatos": 4652,
+      "selecionados": 56,
+      "dirts_puro": 50,
+      "rotas_por_metodo": {
+        "direta_jdeps": 56
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "9c38a6a0f9992f436d659b45397c6e1eae271f83adbd1cb64b8a70b29bd3009d",
+        "dirts": "6b43c1085652fe828ed5f63316486d9eaa5ef688d82016c80c5784c2dde42d13",
+        "t1": "6e08e3953c36c5830cfe41f0b96cb75545b312d31f6edf71fe1d41570b49b8ae"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/linux-pares-20261124-131107/26/metodos.tsv",
+          "sha256": "93e6f989cb7d8bea56eb2666e7684e9ee33b14a01e538f19f4cfddd459a0621c"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/26/ids-finais.txt",
+          "sha256": "6b43c1085652fe828ed5f63316486d9eaa5ef688d82016c80c5784c2dde42d13"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/linux-pares-20261124-131107/26/ids-inventario.txt",
+          "sha256": "9c38a6a0f9992f436d659b45397c6e1eae271f83adbd1cb64b8a70b29bd3009d"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/dirts/entradas/04cc0339d6510ffdcb47db4676c34b40ecff6b28/jdeps.txt",
+          "sha256": "d4de4b431d386c42cf605310778623d18d77f17258999268c25304a60b5179d7"
+        }
+      ]
+    },
+    "posicao-039": {
+      "posicao": 39,
+      "sha": "c140fc8154e8c680aad63239eaaaac14d85d5683",
+      "pai": "557252762bb29887ddeaf9c99f16572bae19316c",
+      "particao": "treino",
+      "holdout": false,
+      "continuidade": "historico_reancorado_sem_validacao_cronologica",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/changes/changes.xml",
+        "M\tsrc/main/java/org/apache/commons/lang3/tuple/MutablePair.java",
+        "M\tsrc/test/java/org/apache/commons/lang3/tuple/MutablePairTest.java"
+      ],
+      "candidatos": 4657,
+      "selecionados": 31,
+      "dirts_puro": 13,
+      "rotas_por_metodo": {
+        "direta_jdeps": 31
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b",
+        "dirts": "605fd2b1bd927c46ac5876dd2fcd2ad5c2e3add0c23e7fcf7afcedd7a822c972",
+        "t1": "6a9e7bedfb972723bc911e1bfd6f2f8cba02d1ab1dce2951c0c8c3da584d9d3c"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/39/metodos.tsv",
+          "sha256": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/estado-continuo/39/ids-finais.txt",
+          "sha256": "605fd2b1bd927c46ac5876dd2fcd2ad5c2e3add0c23e7fcf7afcedd7a822c972"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/39/ids-inventario.txt",
+          "sha256": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/39/jdeps.txt",
+          "sha256": "8b2de783c48cb6d9e0ad110be09edcf728fa71a7280e15a525a03a9144bda0d6"
+        }
+      ]
+    },
+    "posicao-046": {
+      "posicao": 46,
+      "sha": "1441ba9f3cd172ccfbd2d0c2ce336f4a9750a0a2",
+      "pai": "ad6890f9e63a5c08866725d65d3b216a82aeb5cc",
+      "particao": "validacao",
+      "holdout": false,
+      "continuidade": "historico_reancorado_sem_validacao_cronologica",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java"
+      ],
+      "candidatos": 4657,
+      "selecionados": 17,
+      "dirts_puro": 0,
+      "rotas_por_metodo": {
+        "direta_jdeps": 17
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b",
+        "dirts": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "t1": "daa932fef1df2af3ed033f2f8fc0ac02e5c9ba8e3644e571b12b4abd109e51a8"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/46/metodos.tsv",
+          "sha256": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/estado-continuo/46/ids-finais.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/46/ids-inventario.txt",
+          "sha256": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/46/jdeps.txt",
+          "sha256": "9f8ec5c934d4ef4d0f06a4ee8d3c0aae3d28705e9a74e08f0359e1caf468c4b5"
+        }
+      ]
+    },
+    "posicao-049": {
+      "posicao": 49,
+      "sha": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "pai": "913225106ac80fdf01e5b0bbfe42991d424f2642",
+      "particao": "validacao",
+      "holdout": false,
+      "continuidade": "cronologico_validado",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/changes/changes.xml",
+        "M\tsrc/main/java/org/apache/commons/lang3/concurrent/TimedSemaphore.java"
+      ],
+      "candidatos": 4657,
+      "selecionados": 295,
+      "dirts_puro": 295,
+      "rotas_por_metodo": {
+        "sem_evidencia_rota": 278,
+        "direta_jdeps": 17
+      },
+      "fases_medidas_ns": {
+        "arvore_reuso": 371843484,
+        "dirts": 40211894656,
+        "selo": 34692435,
+        "inventario_jdeps": 54607868198,
+        "selecao": 146340440,
+        "expansao": 120216840,
+        "reuso_test": 16639839356,
+        "arvore_t0": 179039898,
+        "t0_test": 356811757095,
+        "inicializacao": 118753634021
+      },
+      "sha256_conjuntos": {
+        "t0": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b",
+        "dirts": "88561dd160e6e4beeef909ec4e8e00f39b4dbb0e4cf1f1c119d3c84125d1ed92",
+        "t1": "88561dd160e6e4beeef909ec4e8e00f39b4dbb0e4cf1f1c119d3c84125d1ed92"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/49/metodos.tsv",
+          "sha256": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/49/ids-dirts.txt",
+          "sha256": "88561dd160e6e4beeef909ec4e8e00f39b4dbb0e4cf1f1c119d3c84125d1ed92"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/49/continuo.hashes",
+          "sha256": "67a4be8422a1548e001dc4b2202472b88a6cbf49f8d41762831edc0ea265ec14"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/49/isolado/dirts-roots.txt",
+          "sha256": "7dd4564e68e3d3a18afd030c99a7a584f97fbda332ffa67cd8867a613a2f3d9f"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/inicializacao.hashes",
+          "sha256": "93fb633940c743065fc1ceb861b9a931dd73cce6f09fce1c96bc02f01aa0a4cc"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/tempos.csv",
+          "sha256": "08374d56aee0a6eda0541872ff253f1de454efea6c00a89987b6aeb9fd3e9280"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/49/jdeps.txt",
+          "sha256": "85a7badce992fc90f7cf01e3f53e4d8c03495fee5b3e3c849c72c461a62a844c"
+        }
+      ]
+    },
+    "posicao-050": {
+      "posicao": 50,
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "pai": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "particao": "validacao",
+      "holdout": false,
+      "continuidade": "cronologico_validado",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/changes/changes.xml",
+        "M\tsrc/main/java/org/apache/commons/lang3/JavaVersion.java",
+        "M\tsrc/main/java/org/apache/commons/lang3/SystemUtils.java",
+        "M\tsrc/test/java/org/apache/commons/lang3/SystemUtilsTest.java"
+      ],
+      "candidatos": 4657,
+      "selecionados": 416,
+      "dirts_puro": 72,
+      "rotas_por_metodo": {
+        "sem_evidencia_rota": 48,
+        "direta_jdeps": 368
+      },
+      "fases_medidas_ns": {
+        "arvore_reuso": 672782018,
+        "dirts": 35548602146,
+        "selo": 34163093,
+        "inventario_jdeps": 42066799117,
+        "selecao": 137038837,
+        "expansao": 115538806,
+        "reuso_test": 157909100590,
+        "arvore_t0": 262210189,
+        "t0_test": 310287472254
+      },
+      "sha256_conjuntos": {
+        "t0": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b",
+        "dirts": "4309aa5e53a999fedaabd15caec93e7a5c289a3753918c18b43ed8a29e755404",
+        "t1": "89405dc449113d63f2394ee4dbf506a34505f31721403fdc9bf11ce34a37dcb7"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/50/metodos.tsv",
+          "sha256": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/50/ids-dirts.txt",
+          "sha256": "4309aa5e53a999fedaabd15caec93e7a5c289a3753918c18b43ed8a29e755404"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/50/continuo.hashes",
+          "sha256": "eaf5c3441aedaa58708e00ade62b506ee483d2b06c373b8ab728aeae43761a85"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/50/isolado/dirts-roots.txt",
+          "sha256": "9500e395c7951dc2e5b2b65b3be4856cfd5b60ae87c1df390284aed52c988241"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/inicializacao.hashes",
+          "sha256": "93fb633940c743065fc1ceb861b9a931dd73cce6f09fce1c96bc02f01aa0a4cc"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/tempos.csv",
+          "sha256": "08374d56aee0a6eda0541872ff253f1de454efea6c00a89987b6aeb9fd3e9280"
+        },
+        {
+          "caminho_workspace": "KAN-18-reuso-filtro/evidencias/KAN-18/local/reuso-49-50-v2/50/jdeps.txt",
+          "sha256": "85a7badce992fc90f7cf01e3f53e4d8c03495fee5b3e3c849c72c461a62a844c"
+        }
+      ]
+    },
+    "posicao-064": {
+      "posicao": 64,
+      "sha": "f5c9f68475633f8b235f45710ea8116fa7681c1f",
+      "pai": "817d50f746adfb485355d8d3a3ae4b9833ed3f63",
+      "particao": "avaliacao",
+      "holdout": false,
+      "continuidade": "historico_reancorado_sem_validacao_cronologica",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/main/java/org/apache/commons/lang3/time/StopWatch.java"
+      ],
+      "candidatos": 4658,
+      "selecionados": 26,
+      "dirts_puro": 0,
+      "rotas_por_metodo": {
+        "direta_jdeps": 26
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "7109b0ee28c399228463cdf6c76baf5e886559102b078518ea3887961bbe43d5",
+        "dirts": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "t1": "72f7b0cdd1c833045f6f948457efa499920b200eaa572c0de4f95040e1956a3c"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/64/metodos.tsv",
+          "sha256": "235d6da5995155a2a9999c6ed5b60dc9bf362e4674809ab45bb7e1b23a549ab2"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/estado-continuo/64/ids-finais.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/64/ids-inventario.txt",
+          "sha256": "7109b0ee28c399228463cdf6c76baf5e886559102b078518ea3887961bbe43d5"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/64/jdeps.txt",
+          "sha256": "2c30de47e27fdba64eacdca23b9f75119fc010d454eb43bb51e2fd7d1a4e9445"
+        }
+      ]
+    },
+    "posicao-075": {
+      "posicao": 75,
+      "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "pai": "9167659d8eec4323d569cebd39381235c098c901",
+      "particao": "avaliacao",
+      "holdout": false,
+      "continuidade": "isolado",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/test/java/org/apache/commons/lang3/time/FastDateParser_TimeZoneStrategyTest.java"
+      ],
+      "candidatos": 4659,
+      "selecionados": 7,
+      "dirts_puro": 7,
+      "rotas_por_metodo": {
+        "sem_evidencia_rota": 7
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "0e8995efc79ba5aad37761906da74353763ed5caeed014dca974a7b7a28a6a5f",
+        "dirts": "0a4a42e7e3b6beab457c2a982efdad5efee66cabad1015704b1a4192088069ee",
+        "t1": "0a4a42e7e3b6beab457c2a982efdad5efee66cabad1015704b1a4192088069ee"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/linux-pares-20261124-131107/75/metodos.tsv",
+          "sha256": "2abe4194b295f0da22c87b860f35ea4c022e83d1a30f729b7ad5ac77e01bc475"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/75/ids-finais.txt",
+          "sha256": "0a4a42e7e3b6beab457c2a982efdad5efee66cabad1015704b1a4192088069ee"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/linux-pares-20261124-131107/75/ids-inventario.txt",
+          "sha256": "0e8995efc79ba5aad37761906da74353763ed5caeed014dca974a7b7a28a6a5f"
+        }
+      ]
+    },
+    "posicao-096": {
+      "posicao": 96,
+      "sha": "5454931eb735deb59e9b671fd8a14cd4c14d8272",
+      "pai": "0cebd847c3ce33c634050fb02c307acb106e0b55",
+      "particao": "avaliacao",
+      "holdout": true,
+      "continuidade": "historico_reancorado_sem_validacao_cronologica",
+      "fallback_integral": false,
+      "diff_nome_status": [
+        "M\tsrc/changes/changes.xml",
+        "M\tsrc/main/java/org/apache/commons/lang3/reflect/TypeUtils.java",
+        "A\tsrc/test/java/org/apache/commons/lang3/reflect/Lang1792Test.java"
+      ],
+      "candidatos": 4663,
+      "selecionados": 112,
+      "dirts_puro": 51,
+      "rotas_por_metodo": {
+        "direta_jdeps": 112
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9",
+        "dirts": "f67c6dfa2433de25eabc7a28951d146b47dea5172e41d98cf5a88a4c08866537",
+        "t1": "18431e103c9bcb8d2cde2eb3cd0a3a079d909b6aaa5cfed9137d6309aaa4761c"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/96/metodos.tsv",
+          "sha256": "0607b6238cf837e49b824908482da733abb6e4d15f66c578889d033f0ea371aa"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/estado-continuo/96/ids-finais.txt",
+          "sha256": "f67c6dfa2433de25eabc7a28951d146b47dea5172e41d98cf5a88a4c08866537"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/96/ids-inventario.txt",
+          "sha256": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/estudo-20261124-134619/96/jdeps.txt",
+          "sha256": "a3b0708ff3829c7677d6800b9929bafbf8eabd96ecb5849129179bbc2f54f9f1"
+        }
+      ]
+    },
+    "posicao-100": {
+      "posicao": 100,
+      "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "pai": "626e7e93aea200e6910be5597ac30de602649745",
+      "particao": "avaliacao",
+      "holdout": false,
+      "continuidade": "fallback_integral",
+      "fallback_integral": true,
+      "diff_nome_status": [
+        "M\tpom.xml"
+      ],
+      "candidatos": 4663,
+      "selecionados": 4663,
+      "dirts_puro": 4663,
+      "rotas_por_metodo": {
+        "fallback": 4663
+      },
+      "fases_medidas_ns": {},
+      "sha256_conjuntos": {
+        "t0": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9",
+        "dirts": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9",
+        "t1": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9"
+      },
+      "entradas": [
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/linux-pares-20261124-131107/100/metodos.tsv",
+          "sha256": "0607b6238cf837e49b824908482da733abb6e4d15f66c578889d033f0ea371aa"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/dirts-20261124-151151/100/ids-finais.txt",
+          "sha256": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9"
+        },
+        {
+          "caminho_workspace": "KAN-18-checkout/evidencias/KAN-18/local/starts-poc/linux-pares-20261124-131107/100/ids-inventario.txt",
+          "sha256": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9"
+        }
+      ]
+    }
+  }
+}

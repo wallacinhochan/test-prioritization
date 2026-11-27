@@ -1,0 +1,134 @@
+[
+  {
+    "posicao": 4,
+    "sha": "f8b03db1797fbc34aa6cc3ec8eee655ba7b3d28d",
+    "inventario": 4651,
+    "t1_anterior": 4647,
+    "dirts": 0,
+    "expansao": 1018,
+    "incremento_mediano_ms": 52.948,
+    "sha256_jdeps": "8f4b3e6a680a0c13eed81b412daa9d5f1a107d10ce3ad5e897cb78708d1d2aad",
+    "sha256_lista_expandida": "0b4ecc1594484d7f8321bc8f21851efd59aefc144fdf59ce8eefa9075ea377a8"
+  },
+  {
+    "posicao": 11,
+    "sha": "6513eb0bbb4b3e8d427cce632f786c115f2a3516",
+    "inventario": 4651,
+    "t1_anterior": 48,
+    "dirts": 48,
+    "expansao": 48,
+    "incremento_mediano_ms": 59.755,
+    "sha256_jdeps": "8f4b3e6a680a0c13eed81b412daa9d5f1a107d10ce3ad5e897cb78708d1d2aad",
+    "sha256_lista_expandida": "22b9b7a12961956df32c80f2ef58954c8ce81d6db47bea4bdf07fa1de10e85c2"
+  },
+  {
+    "posicao": 26,
+    "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+    "inventario": 4652,
+    "t1_anterior": 4648,
+    "dirts": 50,
+    "expansao": 56,
+    "incremento_mediano_ms": 59.724,
+    "sha256_jdeps": "d4de4b431d386c42cf605310778623d18d77f17258999268c25304a60b5179d7",
+    "sha256_lista_expandida": "6e08e3953c36c5830cfe41f0b96cb75545b312d31f6edf71fe1d41570b49b8ae",
+    "mutantes": {
+      "total": 4,
+      "detectados_t0": 4,
+      "detectados_dirts": 4,
+      "detectados_expansao": 4
+    },
+    "soma_duracoes_intacto_ms": {
+      "t0": 177042.0,
+      "dirts": 21686.0,
+      "expansao": 75905.0
+    }
+  },
+  {
+    "posicao": 39,
+    "sha": "c140fc8154e8c680aad63239eaaaac14d85d5683",
+    "inventario": 4657,
+    "t1_anterior": 4653,
+    "dirts": 13,
+    "expansao": 31,
+    "incremento_mediano_ms": 41.306,
+    "sha256_jdeps": "8b2de783c48cb6d9e0ad110be09edcf728fa71a7280e15a525a03a9144bda0d6",
+    "sha256_lista_expandida": "6a9e7bedfb972723bc911e1bfd6f2f8cba02d1ab1dce2951c0c8c3da584d9d3c"
+  },
+  {
+    "posicao": 46,
+    "sha": "1441ba9f3cd172ccfbd2d0c2ce336f4a9750a0a2",
+    "inventario": 4657,
+    "t1_anterior": 17,
+    "dirts": 0,
+    "expansao": 17,
+    "incremento_mediano_ms": 42.669,
+    "sha256_jdeps": "9f8ec5c934d4ef4d0f06a4ee8d3c0aae3d28705e9a74e08f0359e1caf468c4b5",
+    "sha256_lista_expandida": "daa932fef1df2af3ed033f2f8fc0ac02e5c9ba8e3644e571b12b4abd109e51a8"
+  },
+  {
+    "posicao": 50,
+    "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+    "inventario": 4657,
+    "t1_anterior": 4653,
+    "dirts": 72,
+    "expansao": 416,
+    "incremento_mediano_ms": 50.424,
+    "sha256_jdeps": "85a7badce992fc90f7cf01e3f53e4d8c03495fee5b3e3c849c72c461a62a844c",
+    "sha256_lista_expandida": "89405dc449113d63f2394ee4dbf506a34505f31721403fdc9bf11ce34a37dcb7",
+    "mutantes": {
+      "total": 4,
+      "detectados_t0": 3,
+      "detectados_dirts": 2,
+      "detectados_expansao": 3
+    },
+    "soma_duracoes_intacto_ms": {
+      "t0": 176733.0,
+      "dirts": 33.0,
+      "expansao": 74820.0
+    }
+  },
+  {
+    "posicao": 64,
+    "sha": "f5c9f68475633f8b235f45710ea8116fa7681c1f",
+    "inventario": 4658,
+    "t1_anterior": 4654,
+    "dirts": 0,
+    "expansao": 26,
+    "incremento_mediano_ms": 54.344,
+    "sha256_jdeps": "2c30de47e27fdba64eacdca23b9f75119fc010d454eb43bb51e2fd7d1a4e9445",
+    "sha256_lista_expandida": "72f7b0cdd1c833045f6f948457efa499920b200eaa572c0de4f95040e1956a3c"
+  },
+  {
+    "posicao": 75,
+    "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+    "inventario": 4659,
+    "t1_anterior": 7,
+    "dirts": 7,
+    "expansao": 7,
+    "incremento_mediano_ms": 0.0,
+    "sha256_jdeps": null,
+    "sha256_lista_expandida": "0a4a42e7e3b6beab457c2a982efdad5efee66cabad1015704b1a4192088069ee"
+  },
+  {
+    "posicao": 96,
+    "sha": "5454931eb735deb59e9b671fd8a14cd4c14d8272",
+    "inventario": 4663,
+    "t1_anterior": 4659,
+    "dirts": 51,
+    "expansao": 112,
+    "incremento_mediano_ms": 47.248,
+    "sha256_jdeps": "a3b0708ff3829c7677d6800b9929bafbf8eabd96ecb5849129179bbc2f54f9f1",
+    "sha256_lista_expandida": "18431e103c9bcb8d2cde2eb3cd0a3a079d909b6aaa5cfed9137d6309aaa4761c"
+  },
+  {
+    "posicao": 100,
+    "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+    "inventario": 4663,
+    "t1_anterior": 4663,
+    "dirts": 4663,
+    "expansao": 4663,
+    "incremento_mediano_ms": 0.0,
+    "sha256_jdeps": null,
+    "sha256_lista_expandida": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9"
+  }
+]
