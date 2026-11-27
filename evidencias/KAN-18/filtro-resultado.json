@@ -1,0 +1,283 @@
+{
+  "controles": [
+    {
+      "controle": "comentario",
+      "resultado": "equivalente"
+    },
+    {
+      "controle": "espacos",
+      "resultado": "equivalente"
+    },
+    {
+      "controle": "literal",
+      "resultado": "tokens_distintos"
+    },
+    {
+      "controle": "operador",
+      "resultado": "tokens_distintos"
+    },
+    {
+      "controle": "deprecated",
+      "resultado": "tokens_distintos"
+    },
+    {
+      "controle": "unicode",
+      "resultado": "incerto"
+    },
+    {
+      "controle": "lexico",
+      "resultado": "incerto"
+    }
+  ],
+  "revisoes": [
+    {
+      "posicao": 4,
+      "sha": "f8b03db1797fbc34aa6cc3ec8eee655ba7b3d28d",
+      "pai": "71c905200de7d1d260a2a40a29d96c7e8a976a6e",
+      "fallback_integral": false,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "incerto"
+      ],
+      "metodos": {
+        "t0": 4651,
+        "dirts": 0,
+        "expansao": 1018,
+        "filtro": 1018
+      },
+      "sha256": {
+        "t0": "c50a215cf55feedd62a9ebf7d8aa1ff3979cca5656cf05d6acf94d2d29df09e8",
+        "dirts": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "expansao": "0b4ecc1594484d7f8321bc8f21851efd59aefc144fdf59ce8eefa9075ea377a8",
+        "filtro": "0b4ecc1594484d7f8321bc8f21851efd59aefc144fdf59ce8eefa9075ea377a8"
+      }
+    },
+    {
+      "posicao": 11,
+      "sha": "6513eb0bbb4b3e8d427cce632f786c115f2a3516",
+      "pai": "756436b7b18febab0c5035257b211b52c009819c",
+      "fallback_integral": false,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "tokens_distintos"
+      ],
+      "metodos": {
+        "t0": 4651,
+        "dirts": 48,
+        "expansao": 48,
+        "filtro": 48
+      },
+      "sha256": {
+        "t0": "c50a215cf55feedd62a9ebf7d8aa1ff3979cca5656cf05d6acf94d2d29df09e8",
+        "dirts": "22b9b7a12961956df32c80f2ef58954c8ce81d6db47bea4bdf07fa1de10e85c2",
+        "expansao": "22b9b7a12961956df32c80f2ef58954c8ce81d6db47bea4bdf07fa1de10e85c2",
+        "filtro": "22b9b7a12961956df32c80f2ef58954c8ce81d6db47bea4bdf07fa1de10e85c2"
+      }
+    },
+    {
+      "posicao": 26,
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "pai": "a5585689a31f47b3f95808f8666d062e18097707",
+      "fallback_integral": false,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "tokens_distintos"
+      ],
+      "metodos": {
+        "t0": 4652,
+        "dirts": 50,
+        "expansao": 56,
+        "filtro": 56
+      },
+      "sha256": {
+        "t0": "9c38a6a0f9992f436d659b45397c6e1eae271f83adbd1cb64b8a70b29bd3009d",
+        "dirts": "6b43c1085652fe828ed5f63316486d9eaa5ef688d82016c80c5784c2dde42d13",
+        "expansao": "6e08e3953c36c5830cfe41f0b96cb75545b312d31f6edf71fe1d41570b49b8ae",
+        "filtro": "6e08e3953c36c5830cfe41f0b96cb75545b312d31f6edf71fe1d41570b49b8ae"
+      },
+      "mutantes_rotulados": 4,
+      "mutantes_detectados": {
+        "t0": 4,
+        "dirts": 4,
+        "expansao": 4,
+        "filtro": 4
+      }
+    },
+    {
+      "posicao": 39,
+      "sha": "c140fc8154e8c680aad63239eaaaac14d85d5683",
+      "pai": "557252762bb29887ddeaf9c99f16572bae19316c",
+      "fallback_integral": false,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "tokens_distintos",
+        "tokens_distintos"
+      ],
+      "metodos": {
+        "t0": 4657,
+        "dirts": 13,
+        "expansao": 31,
+        "filtro": 31
+      },
+      "sha256": {
+        "t0": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b",
+        "dirts": "605fd2b1bd927c46ac5876dd2fcd2ad5c2e3add0c23e7fcf7afcedd7a822c972",
+        "expansao": "6a9e7bedfb972723bc911e1bfd6f2f8cba02d1ab1dce2951c0c8c3da584d9d3c",
+        "filtro": "6a9e7bedfb972723bc911e1bfd6f2f8cba02d1ab1dce2951c0c8c3da584d9d3c"
+      }
+    },
+    {
+      "posicao": 46,
+      "sha": "1441ba9f3cd172ccfbd2d0c2ce336f4a9750a0a2",
+      "pai": "ad6890f9e63a5c08866725d65d3b216a82aeb5cc",
+      "fallback_integral": false,
+      "suprimir_expansao": true,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "equivalente"
+      ],
+      "metodos": {
+        "t0": 4657,
+        "dirts": 0,
+        "expansao": 17,
+        "filtro": 0
+      },
+      "sha256": {
+        "t0": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b",
+        "dirts": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "expansao": "daa932fef1df2af3ed033f2f8fc0ac02e5c9ba8e3644e571b12b4abd109e51a8",
+        "filtro": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "posicao": 50,
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "pai": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "fallback_integral": false,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "tokens_distintos",
+        "tokens_distintos",
+        "tokens_distintos"
+      ],
+      "metodos": {
+        "t0": 4657,
+        "dirts": 72,
+        "expansao": 416,
+        "filtro": 416
+      },
+      "sha256": {
+        "t0": "2ac9a6e7197f4d0aecf10a6c80fc029f416f394224290e9dbc122b1e9d4bff6b",
+        "dirts": "4309aa5e53a999fedaabd15caec93e7a5c289a3753918c18b43ed8a29e755404",
+        "expansao": "89405dc449113d63f2394ee4dbf506a34505f31721403fdc9bf11ce34a37dcb7",
+        "filtro": "89405dc449113d63f2394ee4dbf506a34505f31721403fdc9bf11ce34a37dcb7"
+      },
+      "mutantes_rotulados": 4,
+      "mutantes_detectados": {
+        "t0": 3,
+        "dirts": 2,
+        "expansao": 3,
+        "filtro": 3
+      }
+    },
+    {
+      "posicao": 64,
+      "sha": "f5c9f68475633f8b235f45710ea8116fa7681c1f",
+      "pai": "817d50f746adfb485355d8d3a3ae4b9833ed3f63",
+      "fallback_integral": false,
+      "suprimir_expansao": true,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "equivalente"
+      ],
+      "metodos": {
+        "t0": 4658,
+        "dirts": 0,
+        "expansao": 26,
+        "filtro": 0
+      },
+      "sha256": {
+        "t0": "7109b0ee28c399228463cdf6c76baf5e886559102b078518ea3887961bbe43d5",
+        "dirts": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "expansao": "72f7b0cdd1c833045f6f948457efa499920b200eaa572c0de4f95040e1956a3c",
+        "filtro": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "posicao": 75,
+      "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "pai": "9167659d8eec4323d569cebd39381235c098c901",
+      "fallback_integral": false,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": true,
+      "comparacoes_java": [
+        "tokens_distintos"
+      ],
+      "metodos": {
+        "t0": 4659,
+        "dirts": 7,
+        "expansao": 7,
+        "filtro": 7
+      },
+      "sha256": {
+        "t0": "0e8995efc79ba5aad37761906da74353763ed5caeed014dca974a7b7a28a6a5f",
+        "dirts": "0a4a42e7e3b6beab457c2a982efdad5efee66cabad1015704b1a4192088069ee",
+        "expansao": "0a4a42e7e3b6beab457c2a982efdad5efee66cabad1015704b1a4192088069ee",
+        "filtro": "0a4a42e7e3b6beab457c2a982efdad5efee66cabad1015704b1a4192088069ee"
+      }
+    },
+    {
+      "posicao": 96,
+      "sha": "5454931eb735deb59e9b671fd8a14cd4c14d8272",
+      "pai": "0cebd847c3ce33c634050fb02c307acb106e0b55",
+      "fallback_integral": false,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": false,
+      "comparacoes_java": [
+        "tokens_distintos"
+      ],
+      "metodos": {
+        "t0": 4663,
+        "dirts": 51,
+        "expansao": 112,
+        "filtro": 112
+      },
+      "sha256": {
+        "t0": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9",
+        "dirts": "f67c6dfa2433de25eabc7a28951d146b47dea5172e41d98cf5a88a4c08866537",
+        "expansao": "18431e103c9bcb8d2cde2eb3cd0a3a079d909b6aaa5cfed9137d6309aaa4761c",
+        "filtro": "18431e103c9bcb8d2cde2eb3cd0a3a079d909b6aaa5cfed9137d6309aaa4761c"
+      }
+    },
+    {
+      "posicao": 100,
+      "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "pai": "626e7e93aea200e6910be5597ac30de602649745",
+      "fallback_integral": true,
+      "suprimir_expansao": false,
+      "difflimitado_a_modificacoes_java": false,
+      "comparacoes_java": [],
+      "metodos": {
+        "t0": 4663,
+        "dirts": 4663,
+        "expansao": 4663,
+        "filtro": 4663
+      },
+      "sha256": {
+        "t0": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9",
+        "dirts": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9",
+        "expansao": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9",
+        "filtro": "c0c60cbc70f07f8603d3d758e79e6f41a2fa638ed2072e2c08a92aff7ea284e9"
+      }
+    }
+  ],
+  "sha256_csv_replay": {
+    "dados/observacoes.csv": "edf3f80283186ea743794d99148161e1f04d049c9204335283af41bc10c8e964",
+    "dados/metodos.csv": "7fefb40122efa93d6b6d17a1d56822661d43c68c40170a780c55d4c20f770544"
+  }
+}
