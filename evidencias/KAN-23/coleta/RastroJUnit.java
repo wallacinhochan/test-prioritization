@@ -29,6 +29,7 @@ public final class RastroJUnit implements TestExecutionListener {
             writer = Files.newBufferedWriter(Path.of(output), StandardCharsets.UTF_8,
                     StandardOpenOption.CREATE_NEW, StandardOpenOption.WRITE);
             origin = System.nanoTime();
+            anchor("start");
             writer.write("seq\tns\tevent\tunique_id_b64\tsource_b64\tdetail_b64\n");
             record("plan_start", null, "");
         } catch (IOException error) {
@@ -43,6 +44,7 @@ public final class RastroJUnit implements TestExecutionListener {
         }
         try {
             record("plan_finish", null, "");
+            anchor("finish");
             writer.close();
         } catch (IOException error) {
             throw new UncheckedIOException(error);
@@ -73,6 +75,18 @@ public final class RastroJUnit implements TestExecutionListener {
 
     private static String encode(String value) {
         return Base64.getEncoder().encodeToString(value.getBytes(StandardCharsets.UTF_8));
+    }
+
+    private void anchor(String name) throws IOException {
+        if (!Boolean.getBoolean("kan23.anchor")) {
+            return;
+        }
+        long before = System.nanoTime() - origin;
+        String uptime = Files.readString(Path.of("/proc/uptime")).split(" ", 2)[0];
+        long after = System.nanoTime() - origin;
+        Files.writeString(Path.of(output + ".clock.tsv"),
+                name + "\t" + before + "\t" + uptime + "\t" + after + "\n",
+                StandardOpenOption.CREATE, StandardOpenOption.APPEND);
     }
 
     private void record(String event, TestIdentifier test, String detail) {

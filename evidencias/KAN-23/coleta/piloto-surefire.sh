@@ -20,9 +20,12 @@ maven clean test-compile
 cp -R /coletor/. target/test-classes/
 marcar runner_start
 codigo=0
+if [ "$#" -gt 0 ]; then
+    set -- "-Dtest=$1"
+fi
 maven -DforkCount=1 -DreuseForks=true \
     -Djunit.jupiter.execution.parallel.enabled=false \
-    -Dkan23.trace=/evidencia/eventos.tsv "-Dtest=$1" surefire:test || codigo=$?
+    -Dkan23.trace=/evidencia/eventos.tsv -Dkan23.anchor=true "$@" surefire:test || codigo=$?
 marcar reports_start
 cp -R target/surefire-reports /evidencia/
 marcar reports_finish
