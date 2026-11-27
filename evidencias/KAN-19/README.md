@@ -1,5 +1,116 @@
 # KAN-19 — Dataset temporal por revisão e método
 
+## Expansão direta congelada na revisão 50
+
+`expansao50.py` lê as tabelas diretamente do commit KAN-18 `ef577158bc012d87784bbfab1b9ccb4ee80cf812`. Confere os hashes, a identidade do SHA e primeiro pai, e a igualdade do ranking com os 416 IDs selecionados em T1. O hash SHA-256 do conjunto canônico é `89405dc449113d63f2394ee4dbf506a34505f31721403fdc9bf11ce34a37dcb7`.
+
+A política `expansao-direta/assinatura-v1` usa comprimento do nome, número de parâmetros e indicador de classe aninhada, derivados da identidade JUnit antes da execução. O CSV de auditoria preserva a evidência separadamente. Nos 368 métodos com aresta direta de bytecode, a auditoria registra distância 1 e `rota_ausente=0`. Nos 48 métodos com `sem_evidencia_rota`, os dois campos ficam vazios. Esse estado indica desconhecimento. `arestas_lexicais` e `classe_semente` ficam vazias em todas as linhas, pois a exportação fornece a aresta e as sementes de destino, sem as medidas do vetor anterior.
+
+### Compatibilidade do treino
+
+A janela sintética é 15, 26 e 42. `auditar_treino_expansao.py` importa os CSVs de replay do PR #2 em `1070e62788e9a180539c9df7ca10b65d48ee978c`. Valida os checksums, a proveniência, os inventários, as chaves dos mutantes e os alvos recalculados a partir das observações. Deriva novamente as três features de assinatura e confere sua igualdade com as colunas correspondentes do pacote. O cálculo usa `induced_failure / (induced_failure + pass)`.
+
+| Posição | IDs T1 | Alvos conhecidos | Alvos positivos | Alvos zero |
+| ---: | ---: | ---: | ---: | ---: |
+| 15 | 318 | 318 | 157 | 161 |
+| 26 | 56 | 53 | 9 | 44 |
+| 42 | 153 | 153 | 15 | 138 |
+| Total | 527 | 524 | 181 | 343 |
+
+Na posição 26, a interseção tem 11 falhas induzidas, 201 aprovações e 12 observações desconhecidas. Três métodos ficam com alvo vazio. O hash do inventário concorda com o resumo do replay histórico. O hash dos rótulos-fonte informado pelo pacote concorda com o resumo versionado; a proveniência registra outro hash para o resumo local. Na posição 15, o pacote representa a coleta alternativa documentada, com 203 falhas induzidas frente às 280 do resumo histórico. Na 42, as contagens concordam e os hashes de rótulos identificam coletas distintas. A auditoria mantém o pacote do PR #2 como fonte única e expõe as diferenças.
+
+```powershell
+python -B evidencias/KAN-19/auditar_treino_expansao.py
+python -B -m unittest discover -s evidencias/KAN-19 -p test_auditar_treino_expansao.py -v
+```
+
+O ajuste experimental passou após validar a publicação base e os lotes 02–03, incluindo a linhagem dos manifestos e os hashes das saídas. A janela 15, 26 e 42 passou com 524 alvos conhecidos, incluindo 181 positivos e 343 zero. KNN com `StandardScaler` e Random Forest foram ajustados sem balanceamento, usando apenas as três features de assinatura. A revisão 50 continua vinculada à publicação base com os 416 IDs originais. Os rankings experimentais foram congelados antes de qualquer consulta ao oráculo. O holdout 96 ficou fora do ajuste.
+
+```powershell
+python -B evidencias/KAN-19/auditar_treino_expansao.py --t1 ba7f204693007f18db648fdf16e34f52c62397f7 --rodada reproducao-nova
+python -B -m unittest discover -s evidencias/KAN-19 -p test_auditar_treino_expansao.py -v
+```
+
+O teste compara os escores e postos da nova execução com a publicação versionada e confere os 416 pares exatos por cenário, postos contíguos e desempate ordinal. Na rodada congelada, a extração compartilhada levou 1,858 ms, a inferência T2 levou 5,347 ms e a T3 levou 19,409 ms. Os ajustes levaram 809,956 ms e 213,920 ms, respectivamente. [Manifesto experimental](expansao50-experimental-v1/manifesto.json) · [Rankings](expansao50-experimental-v1/rankings.csv) · [Overhead](expansao50-experimental-v1/overhead.csv)
+
+O fluxo técnico ajusta KNN com `StandardScaler` e Random Forest com os parâmetros do piloto sobre os mesmos 16 exemplos artificiais, sem balanceamento. O treino usa apenas a fixture. O oráculo e os rótulos do holdout 96 ficam fora do fluxo. Os resultados são gravados em `rankings_fixture.csv` e `overhead_fixture.csv`, com manifesto marcado `teste_tecnico_fixture_sem_ranking_experimental`.
+
+### Reprodução e custos
+
+Na raiz do worktree, com o commit congelado disponível no Git e nomes de rodada novos:
+
+```powershell
+python -B evidencias/KAN-19/expansao50.py rodada-a
+python -B evidencias/KAN-19/expansao50.py rodada-b
+python -B -m unittest discover -s evidencias/KAN-19 -p test_expansao50.py -v
+```
+
+O teste compara as chaves, escores e postos dos dois cenários em duas execuções, além dos bytes do vetor e dos hashes de saída. Os 416 IDs de cada cenário coincidiram exatamente com T1 e os postos foram contíguos, com empate ordinal. As rodadas locais usaram Python 3.11.0 e scikit-learn 1.9.1.
+
+| Fase | Rodada A (ms) | Rodada B (ms) |
+| --- | ---: | ---: |
+| Seleção herdada da KAN-18 | 78.575 | 78.575 |
+| Extração compartilhada | 4,857 | 4,416 |
+| Ajuste KNN com fixture | 944,168 | 107,178 |
+| Inferência T2 | 5,039 | 3,720 |
+| Ajuste RF com fixture | 252,536 | 329,908 |
+| Inferência T3 | 19,269 | 28,026 |
+
+A extração mede a montagem dos vetores e das linhas de auditoria em memória uma vez por SHA. A inferência mede preparo da matriz, predição, ordenação e montagem das linhas. Medições locais excluem I/O, verificações, descoberta JUnit e jdeps. O manifesto registra nanossegundos. A fase `selection` preserva a referência e a medição publicada.
+
+Para a KAN-22, o diretório experimental fornece os rankings congelados, o overhead e o treino por chave. A avaliação abaixo junta esses rankings ao replay sintético versionado do PR #2.
+
+### Detecção sintética na revisão 50
+
+O avaliador valida os cinco hashes do commit de congelamento `a06d381c7a9e0fc896e7c5ae84d94a452eedc56a`, a igualdade das 416 chaves T1/T2/T3 e os postos de cada ranking antes de abrir os rótulos. Filtra somente a posição 50 e verifica o produto dos quatro mutantes pelo inventário de 4.657 métodos. O pacote do PR #2 informa um hash dos rótulos-fonte diferente do resumo histórico, com as mesmas contagens agregadas. A avaliação usa o pacote versionado e confere os alvos e contagens a partir das suas próprias observações.
+
+| Mutante (método e índice PIT) | Falhas observadas T0 | T1 posto (lacunas anteriores) | T2 posto (lacunas anteriores) | T3 posto (lacunas anteriores) |
+| --- | ---: | ---: | ---: | ---: |
+| `JavaVersion.get` · 290 | 1 | 50 (0) | 60 (1) | 223 (1) |
+| `SystemUtils.isOsMatch` · 22 | 1 | 306 (1) | 135 (1) | 93 (0) |
+| `SystemUtils.isOsNameMatch` · 4 | 0 | Indeterminado | Indeterminado | Indeterminado |
+| `SystemUtils.isOsVersionMatch` · 47 | 2 | 306 (1) | 135 (1) | 93 (0) |
+
+Cada mutante tem 4.646 observações conhecidas e 11 desconhecidas em T0. Em T1, T2 e T3, tem 412 conhecidas e quatro desconhecidas. Nenhuma observação está ausente. T0 serve como referência de detecção observada e carece de ordem global comparável. Os quatro cenários confirmam detecção para 3 de 4 mutantes e conservam indeterminado o mesmo mutante.
+
+KNN e RF anteciparam dois mutantes e atrasaram um em relação ao T1 ordinal. Os dois ganhos têm a mesma assinatura de primeiro posto entre cenários. A avaliação desta revisão sustenta o resultado por mutante. A generalização e a superioridade sob orçamento oficial seguem em aberto. Esta rodada mede postos e mantém indisponível o orçamento oficial, pois falta uma base de tempo comparável e disponível antes da predição para aplicar os limites.
+
+```powershell
+python -B evidencias/KAN-19/avaliar_expansao50.py
+```
+
+[Resultado por mutante com os IDs completos e primeiros postos possíveis](avaliacao-expansao50.json)
+
+## DIRTS provisório
+
+`dirts.py` vincula cada seleção à [verificação DIRTS publicada](../KAN-18/verificacao-dirts.json). Confere posição, SHA, primeiro pai, hash do recorte, versão, imagem, hashes das cinco saídas e hash do inventário JUnit. Confere a seleção completa por `(commit_sha, test_id)`, a raiz de execução, o motivo por classe e a ordem de T1. As posições 50, 75 e 100 forneceram respectivamente 72, 7 e 4.663 métodos.
+
+O vetor provisório usa comprimento do nome, quantidade de parâmetros e classe aninhada, disponíveis na identidade descoberta antes da execução. As quatro features de rota ou semente da publicação anterior ficam fora deste vetor. A rematerialização oficial depende do parecer da KAN-18, da aprovação do contrato de features e de treino sintético compatível e congelado.
+
+Na raiz do worktree, aponte para os artefatos locais da publicação verificada. Para os rankings de integração, o programa usa 16 exemplos de fixture com alvos fabricados e os parâmetros dos modelos do piloto. O fluxo usa apenas as entradas do seletor, o recorte e essa fixture.
+
+```powershell
+$env:KAN18_DIRTS = (Resolve-Path ../KAN-18-checkout/evidencias/KAN-18/local/dirts).Path
+python -B evidencias/KAN-19/dirts.py rodada-a --kan18-local $env:KAN18_DIRTS
+python -B evidencias/KAN-19/dirts.py rodada-b --kan18-local $env:KAN18_DIRTS
+python -B -m unittest discover -s evidencias/KAN-19 -v
+python -B -m unittest discover -s evidencias/MUTACAO/modelos -v
+```
+
+Use nomes de rodada novos. Cada uma gera `features_inferencia.csv`, `rankings.csv`, `overhead.csv` e `manifesto.json` em `local/dirts-provisorio-<rodada>/`. O manifesto marca `provisorio_fixture` e registra hashes, ambiente, cobertura e custos. O teste reproduz vetores, escores e postos em duas execuções e rejeita um ranking T1 alterado. A execução local usou Windows x64, Python 3.11.0 e scikit-learn 1.9.1. As versões completas constam no manifesto gerado.
+
+### Custos do teste de integração
+
+Uma rodada local produziu as medições abaixo em milissegundos. A extração mede a montagem dos vetores e linhas com as identidades em memória. É uma medição compartilhada por SHA, registrada nos dois cenários para leitura isolada de cada cenário. A inferência inclui preparar a matriz, escalonar no KNN, prever, ordenar e montar as linhas. As duas janelas excluem I/O, hashes, verificação de contrato e descoberta JUnit. A seleção é herdada da KAN-18. O ajuste com fixture é registrado separadamente.
+
+| Posição | Métodos | Extração (ms) | Inferência T2 (ms) | Inferência T3 (ms) |
+| ---: | ---: | ---: | ---: | ---: |
+| 50 | 72 | 0,480 | 4,009 | 30,952 |
+| 75 | 7 | 0,056 | 2,474 | 38,567 |
+| 100 | 4.663 | 25,730 | 99,318 | 79,358 |
+
+Os resultados das seções seguintes pertencem às publicações históricas da KAN-19.
+
 O dataset mantém o Apache Commons Lang, os 100 SHAs da KAN-10 e a identidade exata `classe#metodo(tipos)` da KAN-17. As entradas de KNN e Random Forest são as mesmas sete features estáticas sobre os métodos selecionados em T1. A decisão da KAN-12 destina os rótulos sintéticos ao treino. [Cartão KAN-19](https://cin-team-test-prioritization.atlassian.net/browse/KAN-19) · [Decisão KAN-12](../KAN-12/README.md) · [Contrato KAN-15](../KAN-15/README.md) · [Identidade KAN-17](../KAN-17/README.md)
 
 ## Inferência e cobertura do estudo principal

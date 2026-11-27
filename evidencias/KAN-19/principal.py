@@ -13,11 +13,12 @@ KEYS = ('position', 'commit_sha', 'test_id')
 OUTPUTS = ('diff.patch', 'selection.csv', 'rankings.csv', 'overhead.csv', 'decisoes.json')
 
 
-def load_selection(reference, commit, recorte_hash):
+def load_selection(reference, commit, recorte_hash, *,
+                   local=BASE.parent / 'KAN-18' / 'local',
+                   reference_root=f'{KAN18}/local', extract=piloto.features):
     pos, sha, parent = (commit[key] for key in ('position', 'commit_sha', 'first_parent_sha'))
     piloto.require((reference['posicao'], reference['sha'], reference['pai']) ==
                    (int(pos), sha, parent), f'Verificação fora do recorte: {pos}')
-    local = BASE.parent / 'KAN-18' / 'local'
     directory = local / 'selecao' / sha
     manifest_bytes = (directory / 'manifesto.json').read_bytes()
     manifest = json.loads(manifest_bytes)
@@ -36,7 +37,7 @@ def load_selection(reference, commit, recorte_hash):
         candidates[method] = row['raiz']
 
     decisions = json.loads(assets['decisoes.json'])
-    prefix = f'{KAN18}/local/selecao/{sha}'
+    prefix = f'{reference_root}/selecao/{sha}'
     selected = {}
     seen = set()
     for row in piloto.records(assets['selection.csv']):
@@ -52,7 +53,7 @@ def load_selection(reference, commit, recorte_hash):
                        f'Seleção divergente: {sha}/{method}')
         seen.add(method)
         if row['selected'] == 'true':
-            selected[method] = piloto.features(method, root, decisions)
+            selected[method] = root
 
     order = sorted(selected, key=piloto.ordinal)
     ranks = list(piloto.records(assets['rankings.csv']))
@@ -63,7 +64,8 @@ def load_selection(reference, commit, recorte_hash):
                        (sha, 'T1', method, str(rank), '', f'{prefix}/manifesto.json#ordem')
                        for rank, (method, row) in enumerate(zip(order, ranks), 1)),
                    f'Inventário ou ranking divergente: {sha}')
-    return [(int(pos), sha, method, *selected[method]) for method in order], candidates, {
+    return [(int(pos), sha, method, *extract(method, selected[method], decisions))
+            for method in order], candidates, {
         'sha': sha,
         'manifesto_ref': f'{prefix}/manifesto.json',
         'manifesto_sha256': piloto.digest(manifest_bytes),

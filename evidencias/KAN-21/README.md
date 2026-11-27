@@ -1,5 +1,9 @@
 # KAN-21 — Ranking T3 com Random Forest
 
+Na revisão 50 da expansão direta congelada, a Random Forest reproduziu os escores e postos técnicos dos 416 IDs de T1 em duas execuções, com treino de fixture sem balanceamento. [Regra de features, reprodução e lacuna de treino experimental](../KAN-19/README.md#expansão-direta-congelada-na-revisão-50)
+
+O teste provisório DIRTS roda a Random Forest com a configuração do piloto e treino de fixture. Nas posições 50, 75 e 100, o teste verificou 4.742 chaves T3, postos contíguos e desempates ordinais contra T1. Os resultados abaixo pertencem ao replay histórico. [Reprodução, escopo e custos DIRTS](../KAN-19/README.md#dirts-provisório)
+
 Teste técnico inicial de ordenação no Apache Commons Lang, seguindo a sequência de replay por primeiro pai da KAN-10. O corte em 42 corresponde ao último SHA com exemplos sintéticos deste ajuste. As partições do estudo e o reajuste em janela expansiva ficam com a KAN-22. A disponibilidade descrita aqui é a do replay com artefatos preparados. A execução não mede detecção de regressões, qualidade preditiva ou desempenho histórico.
 
 ## Entradas e corte

@@ -1,0 +1,222 @@
+{
+  "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+  "posicao": 50,
+  "congelamento": "a06d381c7a9e0fc896e7c5ae84d94a452eedc56a",
+  "manifesto_congelamento_sha256": "be48ad5ef1f7d6c7be08d416c53372ca0c5b1e00f16f25b09e302f02b57284d5",
+  "t1": "ef577158bc012d87784bbfab1b9ccb4ee80cf812",
+  "pacote_replay": "1070e62788e9a180539c9df7ca10b65d48ee978c",
+  "sha256_indice_replay": "c5653f5c4fcb1895b4b511c0202f74ea6f54cfc87322bb6020d5272041de7556",
+  "rotulos_fonte_sha256": "d70d2e625a90e6ec075b41da62d8f6207a55a555d15a1742afaf91c4cccbc148",
+  "rotulos_resumo_historico_sha256": "a3f3faf491b9043975ba4c15eb352ae3c84733dfb7945a48483e1c15be4596ce",
+  "denominador_mutantes": 4,
+  "detectados": {
+    "T0": 3,
+    "T1": 3,
+    "T2": 3,
+    "T3": 3
+  },
+  "mutantes": {
+    "org.apache.commons.lang3.JavaVersion|get|(Ljava/lang/String;)Lorg/apache/commons/lang3/JavaVersion;|org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator|290": {
+      "T0": {
+        "estado": "detectado",
+        "primeira_posicao_observada": null,
+        "primeira_posicao_possivel": null,
+        "lacunas_antes": null,
+        "induced_failure": 1,
+        "pass": 4645,
+        "unknown": 11,
+        "ausente": 0,
+        "metodos": 4657,
+        "denominador_conhecido": 4646
+      },
+      "T1": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 50,
+        "primeira_posicao_possivel": 50,
+        "lacunas_antes": 0,
+        "induced_failure": 1,
+        "pass": 411,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T2": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 60,
+        "primeira_posicao_possivel": 10,
+        "lacunas_antes": 1,
+        "induced_failure": 1,
+        "pass": 411,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T3": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 223,
+        "primeira_posicao_possivel": 108,
+        "lacunas_antes": 1,
+        "induced_failure": 1,
+        "pass": 411,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      }
+    },
+    "org.apache.commons.lang3.SystemUtils|isOsMatch|(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|22": {
+      "T0": {
+        "estado": "detectado",
+        "primeira_posicao_observada": null,
+        "primeira_posicao_possivel": null,
+        "lacunas_antes": null,
+        "induced_failure": 1,
+        "pass": 4645,
+        "unknown": 11,
+        "ausente": 0,
+        "metodos": 4657,
+        "denominador_conhecido": 4646
+      },
+      "T1": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 306,
+        "primeira_posicao_possivel": 150,
+        "lacunas_antes": 1,
+        "induced_failure": 1,
+        "pass": 411,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T2": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 135,
+        "primeira_posicao_possivel": 10,
+        "lacunas_antes": 1,
+        "induced_failure": 1,
+        "pass": 411,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T3": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 93,
+        "primeira_posicao_possivel": 93,
+        "lacunas_antes": 0,
+        "induced_failure": 1,
+        "pass": 411,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      }
+    },
+    "org.apache.commons.lang3.SystemUtils|isOsNameMatch|(Ljava/lang/String;Ljava/lang/String;)Z|org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE|4": {
+      "T0": {
+        "estado": "indeterminado",
+        "primeira_posicao_observada": null,
+        "primeira_posicao_possivel": null,
+        "lacunas_antes": null,
+        "induced_failure": 0,
+        "pass": 4646,
+        "unknown": 11,
+        "ausente": 0,
+        "metodos": 4657,
+        "denominador_conhecido": 4646
+      },
+      "T1": {
+        "estado": "indeterminado",
+        "primeira_posicao_observada": null,
+        "primeira_posicao_possivel": 150,
+        "lacunas_antes": null,
+        "induced_failure": 0,
+        "pass": 412,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T2": {
+        "estado": "indeterminado",
+        "primeira_posicao_observada": null,
+        "primeira_posicao_possivel": 10,
+        "lacunas_antes": null,
+        "induced_failure": 0,
+        "pass": 412,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T3": {
+        "estado": "indeterminado",
+        "primeira_posicao_observada": null,
+        "primeira_posicao_possivel": 108,
+        "lacunas_antes": null,
+        "induced_failure": 0,
+        "pass": 412,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      }
+    },
+    "org.apache.commons.lang3.SystemUtils|isOsVersionMatch|(Ljava/lang/String;Ljava/lang/String;)Z|org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator|47": {
+      "T0": {
+        "estado": "detectado",
+        "primeira_posicao_observada": null,
+        "primeira_posicao_possivel": null,
+        "lacunas_antes": null,
+        "induced_failure": 2,
+        "pass": 4644,
+        "unknown": 11,
+        "ausente": 0,
+        "metodos": 4657,
+        "denominador_conhecido": 4646
+      },
+      "T1": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 306,
+        "primeira_posicao_possivel": 150,
+        "lacunas_antes": 1,
+        "induced_failure": 2,
+        "pass": 410,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T2": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 135,
+        "primeira_posicao_possivel": 10,
+        "lacunas_antes": 1,
+        "induced_failure": 2,
+        "pass": 410,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      },
+      "T3": {
+        "estado": "detectado",
+        "primeira_posicao_observada": 93,
+        "primeira_posicao_possivel": 93,
+        "lacunas_antes": 0,
+        "induced_failure": 2,
+        "pass": 410,
+        "unknown": 4,
+        "ausente": 0,
+        "metodos": 416,
+        "denominador_conhecido": 412
+      }
+    }
+  },
+  "ordem_t0": "indisponivel",
+  "orcamento_oficial": "indisponivel"
+}

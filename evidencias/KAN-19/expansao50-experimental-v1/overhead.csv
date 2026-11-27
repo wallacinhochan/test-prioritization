@@ -1,0 +1,9 @@
+commit_sha,scenario,phase,measurement_status,duration_ms,source_ref
+f24c027ff83b90beab2ec28696721200abb4f9e9,T2,selection,measured,78575,evidencias/KAN-18/congelado-expansao-v1/manifesto.json#posicao-050
+f24c027ff83b90beab2ec28696721200abb4f9e9,T2,features,measured,1.8575,evidencias/KAN-19/expansao50-experimental-v1/manifesto.json
+f24c027ff83b90beab2ec28696721200abb4f9e9,T2,training,measured,809.9557,evidencias/KAN-19/expansao50-experimental-v1/manifesto.json
+f24c027ff83b90beab2ec28696721200abb4f9e9,T2,inference,measured,5.347,evidencias/KAN-19/expansao50-experimental-v1/manifesto.json
+f24c027ff83b90beab2ec28696721200abb4f9e9,T3,selection,measured,78575,evidencias/KAN-18/congelado-expansao-v1/manifesto.json#posicao-050
+f24c027ff83b90beab2ec28696721200abb4f9e9,T3,features,measured,1.8575,evidencias/KAN-19/expansao50-experimental-v1/manifesto.json
+f24c027ff83b90beab2ec28696721200abb4f9e9,T3,training,measured,213.9195,evidencias/KAN-19/expansao50-experimental-v1/manifesto.json
+f24c027ff83b90beab2ec28696721200abb4f9e9,T3,inference,measured,19.4088,evidencias/KAN-19/expansao50-experimental-v1/manifesto.json

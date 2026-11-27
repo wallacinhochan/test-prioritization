@@ -1,5 +1,9 @@
 # KAN-20 — Ranking T2 com KNN
 
+Na revisão 50 da expansão direta congelada, o KNN reproduziu os escores e postos técnicos dos 416 IDs de T1 em duas execuções, com treino de fixture sem balanceamento. [Regra de features, reprodução e lacuna de treino experimental](../KAN-19/README.md#expansão-direta-congelada-na-revisão-50)
+
+O teste provisório DIRTS roda o KNN com a configuração do piloto e `StandardScaler` ajustado no treino de fixture. Nas posições 50, 75 e 100, o teste verificou 4.742 chaves T2, postos contíguos e desempates ordinais contra T1. Os resultados abaixo pertencem ao replay histórico. [Reprodução, escopo e custos DIRTS](../KAN-19/README.md#dirts-provisório)
+
 Ajuste único de referência para o Apache Commons Lang no [replay técnico inicial](../KAN-19/README.md). O corte de disponibilidade segue a posição KAN-10, ordenada pelo primeiro pai. Este replay demonstra a produção do ranking com as entradas congeladas e antecedência por posição. Sua cobertura é a da publicação atual e os resultados medem ordenação e tempo local, sem avaliação histórica de desempenho ou alteração das partições da pesquisa.
 
 ## Entradas e disponibilidade
