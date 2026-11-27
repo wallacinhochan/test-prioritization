@@ -1,0 +1,126 @@
+{
+  "tempo_base_ms": 200842.0,
+  "tabela": [
+    {
+      "estrategia": "baseline",
+      "overhead_ms": 515.2,
+      "mutantes": 4,
+      "duracoes_substituidas": 0,
+      "detectados_25": 3,
+      "indeterminados_25": 1,
+      "detectados_50": 3,
+      "indeterminados_50": 1,
+      "detectados_75": 3,
+      "indeterminados_75": 1,
+      "delta_25": 0,
+      "delta_50": 0,
+      "delta_75": 0
+    },
+    {
+      "estrategia": "ponderacao",
+      "overhead_ms": 537.1,
+      "mutantes": 4,
+      "duracoes_substituidas": 0,
+      "detectados_25": 3,
+      "indeterminados_25": 1,
+      "detectados_50": 3,
+      "indeterminados_50": 1,
+      "detectados_75": 3,
+      "indeterminados_75": 1,
+      "delta_25": 0,
+      "delta_50": 0,
+      "delta_75": 0
+    },
+    {
+      "estrategia": "oversampling",
+      "overhead_ms": 1056.0,
+      "mutantes": 4,
+      "duracoes_substituidas": 0,
+      "detectados_25": 2,
+      "indeterminados_25": 2,
+      "detectados_50": 3,
+      "indeterminados_50": 1,
+      "detectados_75": 3,
+      "indeterminados_75": 1,
+      "delta_25": -1,
+      "delta_50": 0,
+      "delta_75": 0
+    },
+    {
+      "estrategia": "undersampling",
+      "overhead_ms": 153.5,
+      "mutantes": 4,
+      "duracoes_substituidas": 0,
+      "detectados_25": 2,
+      "indeterminados_25": 2,
+      "detectados_50": 3,
+      "indeterminados_50": 1,
+      "detectados_75": 3,
+      "indeterminados_75": 1,
+      "delta_25": -1,
+      "delta_50": 0,
+      "delta_75": 0
+    }
+  ],
+  "configs": {
+    "baseline": {
+      "estrategia": "baseline",
+      "seed": 20261122,
+      "antes": {
+        "zeros": 13705,
+        "positivos": 210
+      },
+      "depois": {
+        "zeros": 13705,
+        "positivos": 210
+      },
+      "tempo_treino_ms": 496.48629990406334,
+      "tempo_ranking_ms": 18.670300021767616
+    },
+    "ponderacao": {
+      "estrategia": "ponderacao",
+      "seed": 20261122,
+      "antes": {
+        "zeros": 13705,
+        "positivos": 210
+      },
+      "peso_positivo": 65.26190476190476,
+      "depois": {
+        "zeros": 13705,
+        "positivos": 210
+      },
+      "tempo_treino_ms": 518.2316999416798,
+      "tempo_ranking_ms": 18.824500031769276
+    },
+    "oversampling": {
+      "estrategia": "oversampling",
+      "seed": 20261122,
+      "antes": {
+        "zeros": 13705,
+        "positivos": 210
+      },
+      "razao": 1.0,
+      "depois": {
+        "zeros": 13705,
+        "positivos": 13705
+      },
+      "tempo_treino_ms": 1036.8618000065908,
+      "tempo_ranking_ms": 19.17370001319796
+    },
+    "undersampling": {
+      "estrategia": "undersampling",
+      "seed": 20261122,
+      "antes": {
+        "zeros": 13705,
+        "positivos": 210
+      },
+      "razao": 1.0,
+      "depois": {
+        "zeros": 210,
+        "positivos": 210
+      },
+      "tempo_treino_ms": 136.288300040178,
+      "tempo_ranking_ms": 17.178399953991175
+    }
+  }
+}

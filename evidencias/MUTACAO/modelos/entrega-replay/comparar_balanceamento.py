@@ -16,11 +16,16 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import NearestNeighbors, KNeighborsRegressor
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
 FEATURES = ['distancia_rota', 'rota_ausente', 'arestas_lexicais', 'classe_semente',
             'comprimento_nome', 'quantidade_parametros', 'classe_aninhada']
 SEED = 20261122
-ESTRATEGIAS = ('baseline', 'ponderacao', 'oversampling', 'undersampling')
+ESTRATEGIAS = ('baseline', 'ponderacao', 'oversampling', 'undersampling', 'smote')
+CATEGORICAS = ['rota_ausente', 'classe_semente', 'classe_aninhada']  # no SMOTE: valor de um dos dois pais
+SMOTE_K = 5
 ORCAMENTOS = (0.25, 0.50, 0.75)
 POS_TREINO = (15, 26, 42)
 POS_VALIDACAO = 50
@@ -42,6 +47,33 @@ def particionar(metodos):
 
 
 # ---------------------------------------------------------- balanceamento
+
+def _smoter(treino, pos, razao, rng, k=SMOTE_K):
+    """SMOTE para regressão (SMOTER): interpola features E alvo entre um positivo e um vizinho positivo.
+    Features inteiras são arredondadas; as categóricas herdam o valor de um dos dois pais."""
+    neg_n = int((treino.alvo == 0).sum())
+    n_syn = max(int(round(razao * neg_n)) - len(pos), 0)
+    base = treino.iloc[pos]
+    x = base[FEATURES].to_numpy(dtype=float)
+    z = StandardScaler().fit_transform(x)
+    nn = NearestNeighbors(n_neighbors=min(k + 1, len(pos))).fit(z)
+    viz = nn.kneighbors(z, return_distance=False)[:, 1:]
+    i = rng.integers(0, len(pos), n_syn)
+    j = viz[i, rng.integers(0, viz.shape[1], n_syn)]
+    u = rng.random((n_syn, 1))
+    novo = x[i] + u * (x[j] - x[i])
+    cat = [FEATURES.index(c) for c in CATEGORICAS]
+    escolha = rng.random((n_syn, len(cat))) < 0.5
+    novo[:, cat] = np.where(escolha, x[i][:, cat], x[j][:, cat])
+    novo = np.round(novo)
+    alvo = base.alvo.to_numpy()
+    y = alvo[i] + u[:, 0] * (alvo[j] - alvo[i])
+    sint = base.iloc[i].reset_index(drop=True).copy()
+    sint[FEATURES] = novo
+    sint['alvo'] = y
+    sint['test_id'] = 'sintetico#' + pd.Series(range(n_syn)).astype(str)
+    return sint
+
 def balancear(treino, estrategia, seed=SEED, razao=1.0, peso_positivo=None):
     """Devolve (treino_balanceado, sample_weight, config).
 
@@ -68,6 +100,12 @@ def balancear(treino, estrategia, seed=SEED, razao=1.0, peso_positivo=None):
         extra = rng.choice(pos, size=max(n - len(pos), 0), replace=True)
         idx = np.concatenate([np.arange(len(treino)), extra])
         cfg['razao'] = razao
+    elif estrategia == 'smote':
+        sint = _smoter(treino, pos, razao, rng)
+        out = pd.concat([treino, sint], ignore_index=True)
+        cfg.update(razao=razao, k=SMOTE_K, sinteticos=int(len(sint)))
+        cfg['depois'] = {'zeros': int((out.alvo == 0).sum()), 'positivos': int((out.alvo > 0).sum())}
+        return out, np.ones(len(out)), cfg
     elif estrategia == 'undersampling':
         n = min(int(round(len(pos) / razao)), len(neg))
         keep = rng.choice(neg, size=n, replace=False)

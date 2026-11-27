@@ -1,5 +1,10 @@
-estrategia,posto_medio,overhead_ms,det_50_total
-baseline,65.38,776.91,15.0
-ponderacao,54.6,742.15,15.0
-oversampling,51.21,1373.88,15.0
-undersampling,71.68,258.6,14.8
+modelo,estrategia,posto_medio,overhead_ms,det_25_total,det_25_dp,det_50_total,det_50_dp,det_75_total,det_75_dp
+rf,baseline,66.12,599.13,13.0,0.71,15.0,0.0,15.0,0.0
+rf,ponderacao,54.12,637.41,15.0,0.0,15.0,0.0,15.0,0.0
+rf,oversampling,50.25,1106.55,14.2,0.45,15.0,0.0,15.0,0.0
+rf,undersampling,70.61,210.5,11.4,1.52,15.0,0.0,15.0,0.0
+rf,smote,55.73,1158.27,14.6,0.55,15.0,0.0,15.0,0.0
+knn,baseline,49.94,112.39,15.0,,15.0,,15.0,
+knn,oversampling,61.96,116.01,12.8,1.1,14.4,0.55,15.0,0.0
+knn,undersampling,66.65,20.99,15.0,0.0,15.0,0.0,15.0,0.0
+knn,smote,68.86,128.01,12.0,0.0,14.0,0.0,15.0,0.0

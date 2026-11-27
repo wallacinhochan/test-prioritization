@@ -8,12 +8,15 @@
     "positivos": 210
   },
   "estrategias": {
-    "ponderacao": {
-      "peso_positivo": 65.26190476190476,
+    "smote": {
+      "estrategia": "smote",
+      "razao": 1.0,
+      "k": 5,
+      "sinteticos": 13495,
       "depois": {
-        "linhas": 13915,
+        "linhas": 27410,
         "zeros": 13705,
-        "positivos": 210
+        "positivos": 13705
       }
     }
   }
