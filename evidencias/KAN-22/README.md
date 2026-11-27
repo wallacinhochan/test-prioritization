@@ -36,8 +36,18 @@ O manifesto da revisão 50 em a06d381 demonstra que os três lotes estavam dispo
 ### Consumo na KAN-23
 
 ```powershell
-python -B evidencias/KAN-22/validar_dirts.py dirts-consumo
+python -B evidencias/KAN-22/validar_dirts.py dirts-consumo --ate-lote 03
+python -B evidencias/KAN-22/validar_dirts.py dirts-lote04 --ate-lote 04
 python -B -m unittest discover -s evidencias/KAN-22 -v
 ```
 
-O comando materializa commits.csv, selection.csv, rankings.csv e overhead.csv em local/dirts-consumo/. O [relatório versionado](validacao-dirts.json) registra a cobertura dos 100 commits e os hashes da rodada validada. Use os rankings de replay técnico nas posições 64, 75 e 100, com 26, 7 e 4.663 métodos por cenário. O treino aparece uma vez por cenário na posição 64, primeiro SHA atendido, e fica fora do orçamento de execução. Os tempos locais de extração das features e inferência foram medidos. As três posições têm custo de seleção desconhecido no lote T1. Cortes de orçamento que dependam desse custo permanecem indisponíveis. A junção para simular o orçamento ainda exige os dados T0 e as referências de tempo que a KAN-23 valida.
+O comando `--ate-lote 03` reproduz a validação histórica de três lotes ([`validacao-dirts.json`](validacao-dirts.json)), preservada intacta para compatibilidade com a base `edf1259`: 15 de 100 revisões (11 sem modelo, 3 ranqueadas em 64, 75 e 100 com 26, 7 e 4.663 métodos por cenário, todas com custo de seleção desconhecido, 1 holdout excluído na posição 96 e 85 lacunas).
+
+#### Reconciliação com o lote 04 (18/100 revisões)
+
+O padrão `--ate-lote 04` incorpora o quarto lote congelado da KAN-18 ([`congelado-expansao-lote-04`](../KAN-18/congelado-expansao-lote-04/manifesto.json) no commit `767f08b`), conferindo o hash do manifesto, a linhagem criptográfica em relação à publicação base e aos lotes 02–03, os hashes de saída, a ausência de sobreposição entre lotes e a reconciliação com `disponibilidade.csv`. O [relatório versionado do lote 04](validacao-dirts-lote-04.json) registra:
+
+- **Cobertura nos 100 commits:** 18 revisões congeladas (11 `no_model`, **6 `ranked`**, 1 `excluded_holdout` na posição 96 sem leitura de rótulos) e 82 lacunas (`missing_t1`).
+- **Replay técnico pós-decisão 51 (`janela-50`, 524 alvos conhecidos sem balanceamento em 15, 26 e 42):** 5.087 métodos por cenário (`T2` e `T3`) nas posições **58 (75), 59 (75), 60 (241)**, 64 (26), 75 (7) e 100 (4.663). Duas rodadas independentes em CPython 3.12.14 com scikit-learn 1.7.2 reproduziram os mesmos hashes SHA-256 de `commits.csv`, `selection.csv` e `rankings.csv`.
+- **Custos medidos para consumo na KAN-23/KAN-29:** as três posições consecutivas **58, 59 e 60** possuem todas as fases de overhead T1–T3 medidas (`selection`: 520.303 ms, 148.021 ms e 151.683 ms; `features` e `inference` medidas localmente). O evento `training` aparece uma vez por cenário na posição **58**, primeiro SHA atendido pela `janela-50`, e permanece fora do orçamento de execução. As posições 64, 75 e 100 mantêm `selection` como `unknown`.
+- **Limites preservados:** o exercício histórico com disponibilidade vazia continua produzindo **zero rankings históricos**. A aplicação oficial dos orçamentos na KAN-23/KAN-29 continua condicionada à coleta de T0 instrumentado comparável (com ordem global e referência histórica publicada antes do corte) e à ampliação da seleção T1 nas 82 revisões restantes.
