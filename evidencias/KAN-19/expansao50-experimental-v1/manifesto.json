@@ -1,0 +1,178 @@
+{
+  "estado": "ranking_experimental_congelado_sem_avaliacao",
+  "posicao": 50,
+  "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+  "selecionados": 416,
+  "publicacao_t1": "ef577158bc012d87784bbfab1b9ccb4ee80cf812",
+  "manifesto_t1_sha256": "38156c385b0ee24915b230ffdb4439acb660467f147238492651c23b683456d1",
+  "conjunto_t1_sha256": "89405dc449113d63f2394ee4dbf506a34505f31721403fdc9bf11ce34a37dcb7",
+  "politica_features": "expansao-direta/assinatura-v1",
+  "features_modelo": [
+    "comprimento_nome",
+    "quantidade_parametros",
+    "classe_aninhada"
+  ],
+  "rotas_por_metodo": {
+    "sem_evidencia_rota": 48,
+    "direta_jdeps": 368
+  },
+  "treino": {
+    "origem": "replay sintético versionado",
+    "balanceamento": false,
+    "auditoria": {
+      "publicacao_pacote": "1070e62788e9a180539c9df7ca10b65d48ee978c",
+      "checksums_sha256": "c5653f5c4fcb1895b4b511c0202f74ea6f54cfc87322bb6020d5272041de7556",
+      "publicacao_t1": "ba7f204693007f18db648fdf16e34f52c62397f7",
+      "manifestos_t1_sha256": {
+        "ef577158bc012d87784bbfab1b9ccb4ee80cf812": "38156c385b0ee24915b230ffdb4439acb660467f147238492651c23b683456d1",
+        "41a22e394de36512921bad82a4a28d029d8bb55f": "b82944a76add5bfcfa148d00f8af5ed0bf0a0b00a23e72b4fdf70865da9ed702",
+        "ba7f204693007f18db648fdf16e34f52c62397f7": "b886dd2e473b96aa3a35df166affb26a48de3860622bdd8778b3ff975ea8ae67"
+      },
+      "revisoes": {
+        "15": {
+          "sha": "970e4d66452c146165233129c913616ff666ff77",
+          "mutantes": 4,
+          "pacote": {
+            "metodos": 4651,
+            "alvos_conhecidos": 4640,
+            "alvos_positivos": 185,
+            "alvos_zero": 4455,
+            "induced_failure": 203,
+            "pass": 18357,
+            "unknown": 44,
+            "ausente": 0
+          },
+          "replay_historico": {
+            "hash_rotulos_git": "f81969be798296d6d1cf5167a78e2b8fa60b1c4d0cb4ef0c7ce5f9734946175f",
+            "hash_rotulos_exportados": "5a57de6ce261b87103a2da09de7b657c9195be2dfc0075b495d2d19dd556af79",
+            "hash_rotulos_resumo_local": "5a57de6ce261b87103a2da09de7b657c9195be2dfc0075b495d2d19dd556af79",
+            "contagens_git": {
+              "induced_failure": 280,
+              "pass": 18280,
+              "unknown": 44
+            }
+          },
+          "estado_t1": "congelado",
+          "intersecao": {
+            "metodos": 318,
+            "alvos_conhecidos": 318,
+            "alvos_positivos": 157,
+            "alvos_zero": 161,
+            "induced_failure": 175,
+            "pass": 1097,
+            "unknown": 0,
+            "ausente": 0
+          }
+        },
+        "26": {
+          "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "mutantes": 4,
+          "pacote": {
+            "metodos": 4652,
+            "alvos_conhecidos": 4641,
+            "alvos_positivos": 10,
+            "alvos_zero": 4631,
+            "induced_failure": 12,
+            "pass": 18552,
+            "unknown": 44,
+            "ausente": 0
+          },
+          "replay_historico": {
+            "hash_rotulos_git": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a",
+            "hash_rotulos_exportados": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a",
+            "hash_rotulos_resumo_local": "37d002c6293c4e250d2d5ed61e287af2a246e59639c193d2fc043fd2c820900a",
+            "contagens_git": {
+              "induced_failure": 12,
+              "pass": 18552,
+              "unknown": 44
+            }
+          },
+          "estado_t1": "congelado",
+          "intersecao": {
+            "metodos": 56,
+            "alvos_conhecidos": 53,
+            "alvos_positivos": 9,
+            "alvos_zero": 44,
+            "induced_failure": 11,
+            "pass": 201,
+            "unknown": 12,
+            "ausente": 0
+          }
+        },
+        "42": {
+          "sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+          "mutantes": 4,
+          "pacote": {
+            "metodos": 4657,
+            "alvos_conhecidos": 4646,
+            "alvos_positivos": 15,
+            "alvos_zero": 4631,
+            "induced_failure": 17,
+            "pass": 18567,
+            "unknown": 44,
+            "ausente": 0
+          },
+          "replay_historico": {
+            "hash_rotulos_git": "50a853cc2196ed6a3a2832722bf699520f99e620ece95147ef80448004f9a746",
+            "hash_rotulos_exportados": "f35de3d3b5dcd1b8f37e96474737b2fdb047147238f5361e9e707d7594a2ddcf",
+            "hash_rotulos_resumo_local": "f35de3d3b5dcd1b8f37e96474737b2fdb047147238f5361e9e707d7594a2ddcf",
+            "contagens_git": {
+              "induced_failure": 17,
+              "pass": 18567,
+              "unknown": 44
+            }
+          },
+          "estado_t1": "congelado",
+          "intersecao": {
+            "metodos": 153,
+            "alvos_conhecidos": 153,
+            "alvos_positivos": 15,
+            "alvos_zero": 138,
+            "induced_failure": 17,
+            "pass": 595,
+            "unknown": 0,
+            "ausente": 0
+          }
+        }
+      },
+      "treino": {
+        "linhas": 524,
+        "alvos_positivos": 181,
+        "fracao_positivos": "181/524",
+        "suficiente": true
+      }
+    }
+  },
+  "tempos": {
+    "extracao_compartilhada_ns": 1857500,
+    "modelos": {
+      "T2": {
+        "fit_ns": 809955700,
+        "inference_ns": 5347000
+      },
+      "T3": {
+        "fit_ns": 213919500,
+        "inference_ns": 19408800
+      }
+    }
+  },
+  "escopo": {
+    "selection": "herdado da publicação T1",
+    "features": "construção dos vetores e auditoria de rotas em memória, uma vez por SHA",
+    "training": "fit com vetores e alvos em memória",
+    "inference": "matriz, predict, ordenação e construção das linhas em memória",
+    "excluido_das_medicoes_locais": "I/O, hashes, verificações, descoberta JUnit e jdeps"
+  },
+  "ambiente": {
+    "python": "3.11.0",
+    "host": "Windows-10-10.0.26200-SP0",
+    "scikit-learn": "1.9.1"
+  },
+  "sha256_saida": {
+    "auditoria_rotas.csv": "713329f9419cd176b5f98ee38cf8a0418419da04e41b535270f795d5f845e166",
+    "features_inferencia.csv": "7b654dc1b08c1d55fa711757de83279513efdbe3f0b4d95f1c467ac086e038fa",
+    "overhead.csv": "03490f13e24876930ae057525ef12c577ae8836cdcfccef4b23e0081891c46f7",
+    "rankings.csv": "3cdb69996966ed2388d3b4b1425146c585a732a9a6968aefa67f9d72f11c81c4",
+    "treino_sintetico.csv": "810f733d41d2534572e630322b9aa6609a27248859786a6bd4410f6d02e4f1e1"
+  }
+}

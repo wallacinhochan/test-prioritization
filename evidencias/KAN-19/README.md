@@ -10,11 +10,12 @@ A política `expansao-direta/assinatura-v1` usa comprimento do nome, número de 
 
 A janela sintética é 15, 26 e 42. `auditar_treino_expansao.py` importa os CSVs de replay do PR #2 em `1070e62788e9a180539c9df7ca10b65d48ee978c`. Valida os checksums, a proveniência, os inventários, as chaves dos mutantes e os alvos recalculados a partir das observações. Deriva novamente as três features de assinatura e confere sua igualdade com as colunas correspondentes do pacote. O cálculo usa `induced_failure / (induced_failure + pass)`.
 
-| Posição | Métodos no pacote | Alvos conhecidos | Alvos positivos | Cruzamento com o novo T1 |
-| ---: | ---: | ---: | ---: | --- |
-| 15 | 4.651 | 4.640 | 185 | Seleção indisponível |
-| 26 | 4.652 | 4.641 | 10 | 56 IDs, 53 alvos conhecidos, 9 positivos |
-| 42 | 4.657 | 4.646 | 15 | Seleção indisponível |
+| Posição | IDs T1 | Alvos conhecidos | Alvos positivos | Alvos zero |
+| ---: | ---: | ---: | ---: | ---: |
+| 15 | 318 | 318 | 157 | 161 |
+| 26 | 56 | 53 | 9 | 44 |
+| 42 | 153 | 153 | 15 | 138 |
+| Total | 527 | 524 | 181 | 343 |
 
 Na posição 26, a interseção tem 11 falhas induzidas, 201 aprovações e 12 observações desconhecidas. Três métodos ficam com alvo vazio. O hash do inventário concorda com o resumo do replay histórico. O hash dos rótulos-fonte informado pelo pacote concorda com o resumo versionado; a proveniência registra outro hash para o resumo local. Na posição 15, o pacote representa a coleta alternativa documentada, com 203 falhas induzidas frente às 280 do resumo histórico. Na 42, as contagens concordam e os hashes de rótulos identificam coletas distintas. A auditoria mantém o pacote do PR #2 como fonte única e expõe as diferenças.
 
@@ -23,7 +24,14 @@ python -B evidencias/KAN-19/auditar_treino_expansao.py
 python -B -m unittest discover -s evidencias/KAN-19 -p test_auditar_treino_expansao.py -v
 ```
 
-Para uma publicação que complete a janela, execute o mesmo auditor com `--t1 SHA_COMPLETO --rodada NOME`. O ajuste experimental exige alvos conhecidos em todas as três posições, pelo menos 15 exemplos, alvos positivos e alvos zero. A saída inclui treino por chave, rankings e overhead com hashes em um diretório novo. O alvo continua sendo a revisão 50 original de 416 IDs. O fluxo atual recusa o ajuste com a publicação incompleta.
+O ajuste experimental passou após validar a publicação base e os lotes 02–03, incluindo a linhagem dos manifestos e os hashes das saídas. A janela 15, 26 e 42 passou com 524 alvos conhecidos, incluindo 181 positivos e 343 zero. KNN com `StandardScaler` e Random Forest foram ajustados sem balanceamento, usando apenas as três features de assinatura. A revisão 50 continua vinculada à publicação base com os 416 IDs originais. Os rankings experimentais foram congelados antes de qualquer consulta ao oráculo. O holdout 96 ficou fora do ajuste.
+
+```powershell
+python -B evidencias/KAN-19/auditar_treino_expansao.py --t1 ba7f204693007f18db648fdf16e34f52c62397f7 --rodada reproducao-nova
+python -B -m unittest discover -s evidencias/KAN-19 -p test_auditar_treino_expansao.py -v
+```
+
+O teste compara os escores e postos da nova execução com a publicação versionada e confere os 416 pares exatos por cenário, postos contíguos e desempate ordinal. Na rodada congelada, a extração compartilhada levou 1,858 ms, a inferência T2 levou 5,347 ms e a T3 levou 19,409 ms. Os ajustes levaram 809,956 ms e 213,920 ms, respectivamente. [Manifesto experimental](expansao50-experimental-v1/manifesto.json) · [Rankings](expansao50-experimental-v1/rankings.csv) · [Overhead](expansao50-experimental-v1/overhead.csv)
 
 O fluxo técnico ajusta KNN com `StandardScaler` e Random Forest com os parâmetros do piloto sobre os mesmos 16 exemplos artificiais, sem balanceamento. O treino usa apenas a fixture. O oráculo e os rótulos do holdout 96 ficam fora do fluxo. Os resultados são gravados em `rankings_fixture.csv` e `overhead_fixture.csv`, com manifesto marcado `teste_tecnico_fixture_sem_ranking_experimental`.
 
@@ -50,7 +58,7 @@ O teste compara as chaves, escores e postos dos dois cenários em duas execuçõ
 
 A extração mede a montagem dos vetores e das linhas de auditoria em memória uma vez por SHA. A inferência mede preparo da matriz, predição, ordenação e montagem das linhas. Medições locais excluem I/O, verificações, descoberta JUnit e jdeps. O manifesto registra nanossegundos. A fase `selection` preserva a referência e a medição publicada.
 
-Para a KAN-22, a validação de contrato e tempos de integração está disponível. A emissão de escores experimentais depende de congelar as seleções das posições 15 e 42 e verificar a cobertura rotulada por chave. Uma janela reduzida exige decisão específica e evidência própria. A junção ao oráculo vem após o congelamento dos rankings experimentais.
+Para a KAN-22, o diretório experimental fornece os rankings congelados, o overhead e o treino por chave. A junção ao oráculo permanece pendente.
 
 ## DIRTS provisório
 
