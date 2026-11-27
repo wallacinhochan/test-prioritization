@@ -1,0 +1,101 @@
+{
+  "regra": "Compara estratégias de balanceamento e registra a escolha.\n\nRegra de decisão (fixada ANTES de executar):\n  - Orçamento principal: 50% do tempo-base T0 (média histórica das revisões de treino).\n  - Folds: (a) oficial: treino 15/26/42 -> validação 50;\n           (b) desenvolvimento: deixa uma de {15,26,42} de fora, treina nas outras duas.\n  - Métrica de decisão: soma, nos 4 folds, de mutantes detectados no orçamento principal,\n    média sobre N sementes (balanceamento e Random Forest variam juntos).\n  - Desempate: menor posto médio da primeira detecção; depois menor overhead.\n  - A estratégia escolhida precisa superar a baseline; senão, mantém-se a baseline (sem balancear).\n  - Modelos: Random Forest e KNN (StandardScaler + 15 vizinhos). O KNN do scikit-learn não aceita\n    sample_weight; por isso a ponderação só se aplica à Random Forest.",
+  "sementes": 5,
+  "razao": 1.0,
+  "resumo": {
+    "rf|baseline": {
+      "posto_medio": 66.125,
+      "overhead_ms": 599.133,
+      "det_25_total": 13.0,
+      "det_25_dp": 0.707,
+      "det_50_total": 15.0,
+      "det_50_dp": 0.0,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    },
+    "rf|ponderacao": {
+      "posto_medio": 54.121,
+      "overhead_ms": 637.41,
+      "det_25_total": 15.0,
+      "det_25_dp": 0.0,
+      "det_50_total": 15.0,
+      "det_50_dp": 0.0,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    },
+    "rf|oversampling": {
+      "posto_medio": 50.246,
+      "overhead_ms": 1106.546,
+      "det_25_total": 14.2,
+      "det_25_dp": 0.447,
+      "det_50_total": 15.0,
+      "det_50_dp": 0.0,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    },
+    "rf|undersampling": {
+      "posto_medio": 70.612,
+      "overhead_ms": 210.496,
+      "det_25_total": 11.4,
+      "det_25_dp": 1.517,
+      "det_50_total": 15.0,
+      "det_50_dp": 0.0,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    },
+    "rf|smote": {
+      "posto_medio": 55.733,
+      "overhead_ms": 1158.267,
+      "det_25_total": 14.6,
+      "det_25_dp": 0.548,
+      "det_50_total": 15.0,
+      "det_50_dp": 0.0,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    },
+    "knn|baseline": {
+      "posto_medio": 49.938,
+      "overhead_ms": 112.392,
+      "det_25_total": 15.0,
+      "det_25_dp": NaN,
+      "det_50_total": 15.0,
+      "det_50_dp": NaN,
+      "det_75_total": 15.0,
+      "det_75_dp": NaN
+    },
+    "knn|oversampling": {
+      "posto_medio": 61.958,
+      "overhead_ms": 116.014,
+      "det_25_total": 12.8,
+      "det_25_dp": 1.095,
+      "det_50_total": 14.4,
+      "det_50_dp": 0.548,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    },
+    "knn|undersampling": {
+      "posto_medio": 66.646,
+      "overhead_ms": 20.987,
+      "det_25_total": 15.0,
+      "det_25_dp": 0.0,
+      "det_50_total": 15.0,
+      "det_50_dp": 0.0,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    },
+    "knn|smote": {
+      "posto_medio": 68.858,
+      "overhead_ms": 128.01,
+      "det_25_total": 12.0,
+      "det_25_dp": 0.0,
+      "det_50_total": 14.0,
+      "det_50_dp": 0.0,
+      "det_75_total": 15.0,
+      "det_75_dp": 0.0
+    }
+  },
+  "escolhida_por_regra": {
+    "rf": "baseline",
+    "knn": "baseline"
+  }
+}

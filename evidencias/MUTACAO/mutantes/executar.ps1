@@ -13,7 +13,10 @@ param(
 
     [string]$Congelamento,
 
-    [string]$Liberacao
+    [string]$Liberacao,
+
+    [ValidatePattern('\Asha256:[0-9a-f]{64}\z')]
+    [string]$ImagemId = 'sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -21,7 +24,7 @@ $PSNativeCommandUseErrorActionPreference = $false
 $rev = Import-Csv (Join-Path $PSScriptRoot revisoes.csv) | Where-Object posicao -eq $Posicao
 $local = Join-Path $PSScriptRoot "local/$Posicao"
 $entrada = Join-Path $local entrada
-$imagem = 'sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6'
+$imagem = $ImagemId
 $nome = "tp-mutacao-v1-$Posicao"
 $null = New-Item -ItemType Directory -Force $local
 $lock = [IO.File]::Open((Join-Path $local execucao.lock), 'OpenOrCreate', 'ReadWrite', 'None')

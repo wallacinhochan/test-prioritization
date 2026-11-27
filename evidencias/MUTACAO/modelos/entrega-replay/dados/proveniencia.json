@@ -1,0 +1,130 @@
+{
+  "natureza": "mutacao_sintetica",
+  "t1_commit": "0d3cd01e68bf223eca124332f74d4486ae6bd6f7",
+  "revisoes": {
+    "15": {
+      "particao": "treino",
+      "sha": "970e4d66452c146165233129c913616ff666ff77",
+      "imagem": "sha256:7a1ae251ea8ea143890c53041c589d65c9c9cec0e553eb7413878f1768178ce3",
+      "manifesto_sha256": "ebb697cc6761c1de4303b4a2fb08ba47134c96b027a1468e5322cacb698f918a",
+      "rotulos_locais_sha256": "5a57de6ce261b87103a2da09de7b657c9195be2dfc0075b495d2d19dd556af79",
+      "rotulos_sha256_no_resumo_local": "5a57de6ce261b87103a2da09de7b657c9195be2dfc0075b495d2d19dd556af79",
+      "contagens_locais": {
+        "induced_failure": 203,
+        "pass": 18357,
+        "unknown": 44
+      },
+      "contagens_no_git": {
+        "induced_failure": 280,
+        "pass": 18280,
+        "unknown": 44
+      },
+      "metodos_com_duracao_intacto": 4651,
+      "metodos_t1_sem_duracao_intacto": 0,
+      "xml_manifestos": {
+        "controle": "ac77cd20f7d39f42887dee15a2fdcd329b864710ba1deea874c124d5d487d2c7",
+        "intacto": "ac107413072164e759008693703b01769af52d70c038bdff8a8ddf9fcb08f649",
+        "variante-1": "9d24187d9b7f97c0cd0d801f52fb789d96dd19fd1bb60da65df68c9392c2cee7",
+        "variante-2": "05c58e89e0bd66aa3f8e1d6761e06954c7eb6f6b1fd0d4fee8f3641e8be4ee72",
+        "variante-3": "713926113c96025184a78f6a5a2fae56dce82aa65a28331646e5019c7871e492",
+        "variante-4": "610d6c42272cd962dce305bd30f418cb08130eeb86768c96208acb08597fbb76",
+        "repeticao": "2f240f52330313cffaf3901c5f925a4b5617dd5a2c320b85d859b734d1ccb3ce",
+        "restaurado": "1a12383585297d48b9233633427b2e0729b9e6c8490a270942d9648d78fe31cb"
+      }
+    },
+    "26": {
+      "particao": "treino",
+      "sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "imagem": "sha256:7a1ae251ea8ea143890c53041c589d65c9c9cec0e553eb7413878f1768178ce3",
+      "manifesto_sha256": "be1e9f200bf448595a502547abef6d5220d24a9fa29ed37eb8f7e372a97f68d6",
+      "rotulos_locais_sha256": "682d96bc8f049872a3f63968806180c96c4892bdc01b379a4dc1abdf9a78ff3a",
+      "rotulos_sha256_no_resumo_local": "37d002c6293c4e250d2d5ed61e287af2a246e59639c193d2fc043fd2c820900a",
+      "contagens_locais": {
+        "induced_failure": 12,
+        "pass": 18552,
+        "unknown": 44
+      },
+      "contagens_no_git": {
+        "induced_failure": 12,
+        "pass": 18552,
+        "unknown": 44
+      },
+      "metodos_com_duracao_intacto": 4652,
+      "metodos_t1_sem_duracao_intacto": 0,
+      "xml_manifestos": {
+        "controle": "4c803d6bb7b2dc54ed10d5b12fe61f0004872d4278991aef7da992a53964ef9e",
+        "intacto": "cba0dd030b61413eb83dff8634ca186befbb4043c35731d22604a280d2a5e2d3",
+        "variante-1": "d0e8dfa8f5e9ef346569e07ee4c9b136fb53807c0d052c49dcedf07a328248f3",
+        "variante-2": "4faa04e41a2bd80aea1f61b6c7c1cef957a5c271ccfe3a0e8209e838bd0b7c8d",
+        "variante-3": "cec941ccd6b215e139919aa56cfb0aa22886f40353cd31eabc440b414b85033d",
+        "variante-4": "163cdc1cf8f55dc453a20c8118bc4b64974904c17158037a503bcfd234a53720",
+        "repeticao": "caeb1db2bdfd0b4fc07d40636faf075ff70eabc2a70217ba3f8aa048d9e1828c",
+        "restaurado": "80b4f9fb621c0716c74a0acd8130ad006fd70c572e7929b7cf5766863b87340b"
+      }
+    },
+    "42": {
+      "particao": "treino",
+      "sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+      "imagem": "sha256:7a1ae251ea8ea143890c53041c589d65c9c9cec0e553eb7413878f1768178ce3",
+      "manifesto_sha256": "351049aeccb5e8639873afe6ce4708ce6736440fe0a9beafdf8e7995799689b5",
+      "rotulos_locais_sha256": "f35de3d3b5dcd1b8f37e96474737b2fdb047147238f5361e9e707d7594a2ddcf",
+      "rotulos_sha256_no_resumo_local": "f35de3d3b5dcd1b8f37e96474737b2fdb047147238f5361e9e707d7594a2ddcf",
+      "contagens_locais": {
+        "induced_failure": 17,
+        "pass": 18567,
+        "unknown": 44
+      },
+      "contagens_no_git": {
+        "induced_failure": 17,
+        "pass": 18567,
+        "unknown": 44
+      },
+      "metodos_com_duracao_intacto": 4657,
+      "metodos_t1_sem_duracao_intacto": 0,
+      "xml_manifestos": {
+        "controle": "c88427a82ba5ac2941f99ba71947e9c5d8e671a6e10f0ec7a5079798e554f4f1",
+        "intacto": "165ffcb758aa69d458ee8071b5a8a8fff662ebe7090a56bb9125099cf24672a2",
+        "variante-1": "51d0bea4c729a2bbdea82a66d2b1108106a7f735f3187f8e557019e334c3386f",
+        "variante-2": "13f8f6425114ed3acd550aa0a3f17e033b6f18ced2dd7cd593e2289857743ccb",
+        "variante-3": "5c3ee6efb270781c074d959179a8d7ce95a4c6668482ab683129c504cf886d90",
+        "variante-4": "d917a1624588c1e430bf84350815f7734ca0c79c0dca2f81fdd72f25c467f9fb",
+        "repeticao": "a34c51d242f1abe97793e9036f9c74210b205d11b1cf9ed75ba0298321bec63b",
+        "restaurado": "196a21e8b93eaaf7d8ec65eeee1cad86bdd27800294eec93797499d497096f8f"
+      }
+    },
+    "50": {
+      "particao": "validacao",
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "imagem": "sha256:7a1ae251ea8ea143890c53041c589d65c9c9cec0e553eb7413878f1768178ce3",
+      "manifesto_sha256": "adecb92cdccc22aef90ae518ba48788accf65b4026912b7a9854ca1b7910ba1c",
+      "rotulos_locais_sha256": "d70d2e625a90e6ec075b41da62d8f6207a55a555d15a1742afaf91c4cccbc148",
+      "rotulos_sha256_no_resumo_local": "d70d2e625a90e6ec075b41da62d8f6207a55a555d15a1742afaf91c4cccbc148",
+      "contagens_locais": {
+        "induced_failure": 4,
+        "pass": 18580,
+        "unknown": 44
+      },
+      "contagens_no_git": {
+        "induced_failure": 4,
+        "pass": 18580,
+        "unknown": 44
+      },
+      "metodos_com_duracao_intacto": 4657,
+      "metodos_t1_sem_duracao_intacto": 0,
+      "xml_manifestos": {
+        "controle": "8e16e12d92bd6a0803f63a146deee5f3582dbad48b5cb4950ed6f30e136cdbde",
+        "intacto": "67e1111056f59c686f734ea25544ec813bf0c269432c259237dcf40a77e1a575",
+        "variante-1": "4ef98993d1d83f4e0feaeed033a87cabea5d04d9e548489f3416c76b01abb708",
+        "variante-2": "9d854f7c7cf661b141bfdaa635a5e814462a9b0dfa9b09e3f3fe4fc453d4bf65",
+        "variante-3": "1a789c930c17cea4007f41f2f11b2a499f4e83d8b7ef919ad5c5acdfa9ee10d1",
+        "variante-4": "07e4387fe9ddcd0939e950f8aa875b5b7b777d0a2211a1f1c2ca1539ba390f5f",
+        "repeticao": "ede610235d4b9be327534f513c0564e6b9fea2657f18f6649f09522890c63943",
+        "restaurado": "edd98ce0bce8edee9df56c4b302450d234a5dfda0d1c1f8486dbad0e84ba45ab"
+      }
+    }
+  },
+  "arquivos_sha256": {
+    "metodos.csv": "7fefb40122efa93d6b6d17a1d56822661d43c68c40170a780c55d4c20f770544",
+    "observacoes.csv": "edf3f80283186ea743794d99148161e1f04d049c9204335283af41bc10c8e964"
+  }
+}
