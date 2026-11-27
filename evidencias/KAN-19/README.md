@@ -1,5 +1,35 @@
 # KAN-19 — Dataset temporal por revisão e método
 
+## DIRTS provisório
+
+`dirts.py` vincula cada seleção à [verificação DIRTS publicada](../KAN-18/verificacao-dirts.json). Confere posição, SHA, primeiro pai, hash do recorte, versão, imagem, hashes das cinco saídas e hash do inventário JUnit. Confere a seleção completa por `(commit_sha, test_id)`, a raiz de execução, o motivo por classe e a ordem de T1. As posições 50, 75 e 100 forneceram respectivamente 72, 7 e 4.663 métodos.
+
+O vetor provisório usa comprimento do nome, quantidade de parâmetros e classe aninhada, disponíveis na identidade descoberta antes da execução. As quatro features de rota ou semente da publicação anterior ficam fora deste vetor. A rematerialização oficial depende do parecer da KAN-18, da aprovação do contrato de features e de treino sintético compatível e congelado.
+
+Na raiz do worktree, aponte para os artefatos locais da publicação verificada. Para os rankings de integração, o programa usa 16 exemplos de fixture com alvos fabricados e os parâmetros dos modelos do piloto. O fluxo usa apenas as entradas do seletor, o recorte e essa fixture.
+
+```powershell
+$env:KAN18_DIRTS = (Resolve-Path ../KAN-18-checkout/evidencias/KAN-18/local/dirts).Path
+python -B evidencias/KAN-19/dirts.py rodada-a --kan18-local $env:KAN18_DIRTS
+python -B evidencias/KAN-19/dirts.py rodada-b --kan18-local $env:KAN18_DIRTS
+python -B -m unittest discover -s evidencias/KAN-19 -v
+python -B -m unittest discover -s evidencias/MUTACAO/modelos -v
+```
+
+Use nomes de rodada novos. Cada uma gera `features_inferencia.csv`, `rankings.csv`, `overhead.csv` e `manifesto.json` em `local/dirts-provisorio-<rodada>/`. O manifesto marca `provisorio_fixture` e registra hashes, ambiente, cobertura e custos. O teste reproduz vetores, escores e postos em duas execuções e rejeita um ranking T1 alterado. A execução local usou Windows x64, Python 3.11.0 e scikit-learn 1.9.1. As versões completas constam no manifesto gerado.
+
+### Custos do teste de integração
+
+Uma rodada local produziu as medições abaixo em milissegundos. A extração mede a montagem dos vetores e linhas com as identidades em memória. É uma medição compartilhada por SHA, registrada nos dois cenários para leitura isolada de cada cenário. A inferência inclui preparar a matriz, escalonar no KNN, prever, ordenar e montar as linhas. As duas janelas excluem I/O, hashes, verificação de contrato e descoberta JUnit. A seleção é herdada da KAN-18. O ajuste com fixture é registrado separadamente.
+
+| Posição | Métodos | Extração (ms) | Inferência T2 (ms) | Inferência T3 (ms) |
+| ---: | ---: | ---: | ---: | ---: |
+| 50 | 72 | 0,480 | 4,009 | 30,952 |
+| 75 | 7 | 0,056 | 2,474 | 38,567 |
+| 100 | 4.663 | 25,730 | 99,318 | 79,358 |
+
+Os resultados das seções seguintes pertencem às publicações históricas da KAN-19.
+
 O dataset mantém o Apache Commons Lang, os 100 SHAs da KAN-10 e a identidade exata `classe#metodo(tipos)` da KAN-17. As entradas de KNN e Random Forest são as mesmas sete features estáticas sobre os métodos selecionados em T1. A decisão da KAN-12 destina os rótulos sintéticos ao treino. [Cartão KAN-19](https://cin-team-test-prioritization.atlassian.net/browse/KAN-19) · [Decisão KAN-12](../KAN-12/README.md) · [Contrato KAN-15](../KAN-15/README.md) · [Identidade KAN-17](../KAN-17/README.md)
 
 ## Inferência e cobertura do estudo principal
