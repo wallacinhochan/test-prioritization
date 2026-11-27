@@ -58,7 +58,28 @@ O teste compara as chaves, escores e postos dos dois cenários em duas execuçõ
 
 A extração mede a montagem dos vetores e das linhas de auditoria em memória uma vez por SHA. A inferência mede preparo da matriz, predição, ordenação e montagem das linhas. Medições locais excluem I/O, verificações, descoberta JUnit e jdeps. O manifesto registra nanossegundos. A fase `selection` preserva a referência e a medição publicada.
 
-Para a KAN-22, o diretório experimental fornece os rankings congelados, o overhead e o treino por chave. A junção ao oráculo permanece pendente.
+Para a KAN-22, o diretório experimental fornece os rankings congelados, o overhead e o treino por chave. A avaliação abaixo junta esses rankings ao replay sintético versionado do PR #2.
+
+### Detecção sintética na revisão 50
+
+O avaliador valida os cinco hashes do commit de congelamento `a06d381c7a9e0fc896e7c5ae84d94a452eedc56a`, a igualdade das 416 chaves T1/T2/T3 e os postos de cada ranking antes de abrir os rótulos. Filtra somente a posição 50 e verifica o produto dos quatro mutantes pelo inventário de 4.657 métodos. O pacote do PR #2 informa um hash dos rótulos-fonte diferente do resumo histórico, com as mesmas contagens agregadas. A avaliação usa o pacote versionado e confere os alvos e contagens a partir das suas próprias observações.
+
+| Mutante (método e índice PIT) | Falhas observadas T0 | T1 posto (lacunas anteriores) | T2 posto (lacunas anteriores) | T3 posto (lacunas anteriores) |
+| --- | ---: | ---: | ---: | ---: |
+| `JavaVersion.get` · 290 | 1 | 50 (0) | 60 (1) | 223 (1) |
+| `SystemUtils.isOsMatch` · 22 | 1 | 306 (1) | 135 (1) | 93 (0) |
+| `SystemUtils.isOsNameMatch` · 4 | 0 | Indeterminado | Indeterminado | Indeterminado |
+| `SystemUtils.isOsVersionMatch` · 47 | 2 | 306 (1) | 135 (1) | 93 (0) |
+
+Cada mutante tem 4.646 observações conhecidas e 11 desconhecidas em T0. Em T1, T2 e T3, tem 412 conhecidas e quatro desconhecidas. Nenhuma observação está ausente. T0 serve como referência de detecção observada e carece de ordem global comparável. Os quatro cenários confirmam detecção para 3 de 4 mutantes e conservam indeterminado o mesmo mutante.
+
+KNN e RF anteciparam dois mutantes e atrasaram um em relação ao T1 ordinal. Os dois ganhos têm a mesma assinatura de primeiro posto entre cenários. A avaliação desta revisão sustenta o resultado por mutante. A generalização e a superioridade sob orçamento oficial seguem em aberto. Esta rodada mede postos e mantém indisponível o orçamento oficial, pois falta uma base de tempo comparável e disponível antes da predição para aplicar os limites.
+
+```powershell
+python -B evidencias/KAN-19/avaliar_expansao50.py
+```
+
+[Resultado por mutante com os IDs completos e primeiros postos possíveis](avaliacao-expansao50.json)
 
 ## DIRTS provisório
 

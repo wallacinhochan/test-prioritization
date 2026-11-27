@@ -37,7 +37,7 @@ def package_rows():
         piloto.records(files['dados/observacoes.csv'])), piloto.digest(index)
 
 
-def replay_methods(position, source, methods, observations):
+def replay_methods(position, source, methods, observations, *, partition='treino'):
     original = piloto.frozen_selection(position)
     sha = original['sha']
     base = f'evidencias/MUTACAO/mutantes/pos-{position}'
@@ -45,7 +45,7 @@ def replay_methods(position, source, methods, observations):
     summary = json.loads(blob(PACKAGE_COMMIT, f'{base}/resumo.json'))
     manifest = json.loads(replay_manifest)
     mutations = {item['mutation_id'] for item in manifest['selecionados']}
-    piloto.require(source['particao'] == 'treino' and source['sha'] == sha == summary['sha'] ==
+    piloto.require(source['particao'] == partition and source['sha'] == sha == summary['sha'] ==
                    manifest['sha'] and original['pai'] == manifest['pai'] and
                    source['manifesto_sha256'] == summary['manifesto_sha256'] ==
                    piloto.digest(replay_manifest) and
@@ -57,7 +57,7 @@ def replay_methods(position, source, methods, observations):
     by_id = {}
     for row in methods:
         method = row['test_id']
-        piloto.require(row['sha'] == sha and row['particao'] == 'treino' and method not in by_id
+        piloto.require(row['sha'] == sha and row['particao'] == partition and method not in by_id
                        and method in original['methods'], f'Método inválido: {position}/{method}')
         by_id[method] = row
     piloto.require(by_id.keys() == original['methods'].keys(), f'Inventário divergente: {position}')
