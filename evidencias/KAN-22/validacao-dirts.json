@@ -1,0 +1,1144 @@
+{
+  "data_kind": "technical_synthetic_replay",
+  "contract_version": "0.1.0",
+  "cadence": 10,
+  "features": [
+    "comprimento_nome",
+    "quantidade_parametros",
+    "classe_aninhada"
+  ],
+  "sources": {
+    "training_package": "1070e62788e9a180539c9df7ca10b65d48ee978c",
+    "training_checksums_sha256": "c5653f5c4fcb1895b4b511c0202f74ea6f54cfc87322bb6020d5272041de7556",
+    "ranking_freeze": "a06d381c7a9e0fc896e7c5ae84d94a452eedc56a",
+    "ranking_freeze_manifest_sha256": "be48ad5ef1f7d6c7be08d416c53372ca0c5b1e00f16f25b09e302f02b57284d5",
+    "selection_lots": {
+      "congelado-expansao-v1": {
+        "commit": "ef577158bc012d87784bbfab1b9ccb4ee80cf812",
+        "manifest_sha256": "38156c385b0ee24915b230ffdb4439acb660467f147238492651c23b683456d1",
+        "seen_positions": [
+          4,
+          11,
+          26,
+          39,
+          46,
+          49,
+          50,
+          64,
+          75,
+          100
+        ]
+      },
+      "congelado-expansao-lote-02": {
+        "commit": "41a22e394de36512921bad82a4a28d029d8bb55f",
+        "manifest_sha256": "b82944a76add5bfcfa148d00f8af5ed0bf0a0b00a23e72b4fdf70865da9ed702",
+        "seen_positions": [
+          47,
+          48
+        ]
+      },
+      "congelado-expansao-lote-03": {
+        "commit": "ba7f204693007f18db648fdf16e34f52c62397f7",
+        "manifest_sha256": "b886dd2e473b96aa3a35df166affb26a48de3860622bdd8778b3ff975ea8ae67",
+        "seen_positions": [
+          15,
+          42
+        ]
+      }
+    },
+    "training_rows": {
+      "15": 318,
+      "26": 53,
+      "42": 153
+    },
+    "training_positive_rows": 181,
+    "training_sha256": "810f733d41d2534572e630322b9aa6609a27248859786a6bd4410f6d02e4f1e1",
+    "reference_features_50_sha256": "7b654dc1b08c1d55fa711757de83279513efdbe3f0b4d95f1c467ac086e038fa",
+    "reference_rankings_50_sha256": "3cdb69996966ed2388d3b4b1425146c585a732a9a6968aefa67f9d72f11c81c4"
+  },
+  "release": {
+    "kind": "experimental_checkpoint",
+    "position": 50,
+    "historical_position": null,
+    "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+    "historical_ranking_rows": 0
+  },
+  "input_sha256": {
+    "commits": "1b5b165a966fb3596cca68b360c2ac5048294eec6eea9e8edf1f52dac585c244",
+    "availability": "c8c8961087f0bafe12ead3510ea381d933919c6087473333afcd1708ca4d6995",
+    "train": "0f9259dcd573f5ec5c295eea1f4f75bde731a3528b7e6bdc59685114cc9415fa",
+    "selection": "1a85ccf315910e7628d800b0cf93cc426530a43fe5071355c91a90ac9660b9af",
+    "t1": "2438aa13d197bebd35e8dfd69836087bc154084d95cfbda43a86b3210e63c18b",
+    "overhead": "a7b7b28c472ab785705f85a97f3be0b3066570ca19de1b3738515628f3512bb7",
+    "features": "f9a1125a3cca86811efec2724db402b2f604968eff9807c0b0f4d7cb2590e697"
+  },
+  "window_log": [
+    {
+      "id": "janela-10",
+      "cut_position": 10,
+      "cut_sha": "756436b7b18febab0c5035257b211b52c009819c",
+      "decision_position": 11,
+      "decision_sha": "6513eb0bbb4b3e8d427cce632f786c115f2a3516",
+      "eligible_rows": 0,
+      "new_rows": 0,
+      "eligible_sources": [],
+      "status": "insufficient_labels",
+      "active_model_window": null
+    },
+    {
+      "id": "janela-20",
+      "cut_position": 20,
+      "cut_sha": "70fa706916dc59209281699477575e4d5292b936",
+      "decision_position": 21,
+      "decision_sha": "9bfde80e6dcfa2700e13c00b6776153103c29046",
+      "eligible_rows": 0,
+      "new_rows": 0,
+      "eligible_sources": [],
+      "status": "insufficient_labels",
+      "active_model_window": null
+    },
+    {
+      "id": "janela-30",
+      "cut_position": 30,
+      "cut_sha": "323a41a913c291f24ff4dd2c0c5a9660864a6717",
+      "decision_position": 31,
+      "decision_sha": "03e7c36d2dafca70e1f0e2c27a77ed4816cecf3f",
+      "eligible_rows": 0,
+      "new_rows": 0,
+      "eligible_sources": [],
+      "status": "insufficient_labels",
+      "active_model_window": null
+    },
+    {
+      "id": "janela-40",
+      "cut_position": 40,
+      "cut_sha": "fa8a90cf14a6e8c4d4fc35cf8153601566d8824a",
+      "decision_position": 41,
+      "decision_sha": "e1da3a23a177e73a0d22ec95ac319d7956cf417a",
+      "eligible_rows": 0,
+      "new_rows": 0,
+      "eligible_sources": [],
+      "status": "insufficient_labels",
+      "active_model_window": null
+    },
+    {
+      "id": "janela-50",
+      "cut_position": 50,
+      "cut_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "decision_position": 51,
+      "decision_sha": "428489af7e7f2c42ccc516ecc697330add8acc0e",
+      "eligible_rows": 524,
+      "new_rows": 524,
+      "eligible_sources": [
+        {
+          "commit_sha": "970e4d66452c146165233129c913616ff666ff77",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 15,
+          "rows": 318
+        },
+        {
+          "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 26,
+          "rows": 53
+        },
+        {
+          "commit_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 42,
+          "rows": 153
+        }
+      ],
+      "status": "fit",
+      "fit_ns": {
+        "T2": 376350600,
+        "T3": 1937668700
+      },
+      "training_rows": 524,
+      "first_ranked_sha": "f5c9f68475633f8b235f45710ea8116fa7681c1f",
+      "first_ranked_position": 64,
+      "models": {
+        "T2": "janela-50-T2.joblib",
+        "T3": "janela-50-T3.joblib"
+      },
+      "active_model_window": "janela-50"
+    },
+    {
+      "id": "janela-60",
+      "cut_position": 60,
+      "cut_sha": "21e65f8b312c6608b554e4f551315fb0651c3277",
+      "decision_position": 61,
+      "decision_sha": "a22cfcd0539b5fb208415ae118783fc9dc1f902d",
+      "eligible_rows": 524,
+      "new_rows": 0,
+      "eligible_sources": [
+        {
+          "commit_sha": "970e4d66452c146165233129c913616ff666ff77",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 15,
+          "rows": 318
+        },
+        {
+          "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 26,
+          "rows": 53
+        },
+        {
+          "commit_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 42,
+          "rows": 153
+        }
+      ],
+      "status": "no_new_labels",
+      "active_model_window": "janela-50"
+    },
+    {
+      "id": "janela-70",
+      "cut_position": 70,
+      "cut_sha": "290859fefa557346f04936318b2057795a1ea4a1",
+      "decision_position": 71,
+      "decision_sha": "d71293a58e209ddc3b3a893dfd2d37cc77349df6",
+      "eligible_rows": 524,
+      "new_rows": 0,
+      "eligible_sources": [
+        {
+          "commit_sha": "970e4d66452c146165233129c913616ff666ff77",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 15,
+          "rows": 318
+        },
+        {
+          "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 26,
+          "rows": 53
+        },
+        {
+          "commit_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 42,
+          "rows": 153
+        }
+      ],
+      "status": "no_new_labels",
+      "active_model_window": "janela-50"
+    },
+    {
+      "id": "janela-80",
+      "cut_position": 80,
+      "cut_sha": "7a94b882fc4bcf32f9ca02f60440499ae4d75d9d",
+      "decision_position": 81,
+      "decision_sha": "ba85f5e5b3e98234fa0cf22f2155bf41466c10f5",
+      "eligible_rows": 524,
+      "new_rows": 0,
+      "eligible_sources": [
+        {
+          "commit_sha": "970e4d66452c146165233129c913616ff666ff77",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 15,
+          "rows": 318
+        },
+        {
+          "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 26,
+          "rows": 53
+        },
+        {
+          "commit_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 42,
+          "rows": 153
+        }
+      ],
+      "status": "no_new_labels",
+      "active_model_window": "janela-50"
+    },
+    {
+      "id": "janela-90",
+      "cut_position": 90,
+      "cut_sha": "2b254908077f7fab15d90b6c9e97cd3b74e39adf",
+      "decision_position": 91,
+      "decision_sha": "8d5bc8725969e74be836b1acf6907ae15865c9d5",
+      "eligible_rows": 524,
+      "new_rows": 0,
+      "eligible_sources": [
+        {
+          "commit_sha": "970e4d66452c146165233129c913616ff666ff77",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 15,
+          "rows": 318
+        },
+        {
+          "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 26,
+          "rows": 53
+        },
+        {
+          "commit_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+          "available_position": "50",
+          "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#treino",
+          "origin_position": 42,
+          "rows": 153
+        }
+      ],
+      "status": "no_new_labels",
+      "active_model_window": "janela-50"
+    }
+  ],
+  "coverage": [
+    {
+      "position": 1,
+      "commit_sha": "921c1b4e09ed7b6900ad7243cffb33b373980cc5",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 2,
+      "commit_sha": "766c028c96afbc831e842684c85e90fdad08722c",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 3,
+      "commit_sha": "71c905200de7d1d260a2a40a29d96c7e8a976a6e",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 4,
+      "commit_sha": "f8b03db1797fbc34aa6cc3ec8eee655ba7b3d28d",
+      "t1_rows": 1018,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 5,
+      "commit_sha": "31ec8380e0f172593b32c3716466fe4276618492",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 6,
+      "commit_sha": "4916a1f9bd60a59214d7757bf0d482fcc72c8e4d",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 7,
+      "commit_sha": "fcff6555682bcf7a4ddf0722eb7379bd257d167e",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 8,
+      "commit_sha": "3205d8662857fca49ec46fb2dc7ebf0e6a3371c3",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 9,
+      "commit_sha": "c5b5045d49f57ce99143c7df70cc3d8eaeb940c0",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 10,
+      "commit_sha": "756436b7b18febab0c5035257b211b52c009819c",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 11,
+      "commit_sha": "6513eb0bbb4b3e8d427cce632f786c115f2a3516",
+      "t1_rows": 48,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 12,
+      "commit_sha": "354275cf114df6952d7bf58e8e125e9571a95bbb",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 13,
+      "commit_sha": "30c465267d2e9649cbb194b666b58ad492c624ea",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 14,
+      "commit_sha": "d96a28a7e282e090dba3f54779e78db6e68c7107",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 15,
+      "commit_sha": "970e4d66452c146165233129c913616ff666ff77",
+      "t1_rows": 318,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 16,
+      "commit_sha": "800f16d638189dcee798adae449bfd822367cf4d",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 17,
+      "commit_sha": "28552e87791297fa507d78ab351970f89d559443",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 18,
+      "commit_sha": "da0583008020c6a9cd02dca25e8d2fac5c2bbf14",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 19,
+      "commit_sha": "14a23988e2aae5aa0aa8366fcd5cf9bad151531a",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 20,
+      "commit_sha": "70fa706916dc59209281699477575e4d5292b936",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 21,
+      "commit_sha": "9bfde80e6dcfa2700e13c00b6776153103c29046",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 22,
+      "commit_sha": "77c2bb74ab2be041c3cb106f7ad376c14a143a9c",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 23,
+      "commit_sha": "798cb09d237c539c92fca254774dcff29a7e89d8",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 24,
+      "commit_sha": "02866edb1c7230c9d4b16c30d854758b5a1ddd02",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 25,
+      "commit_sha": "a5585689a31f47b3f95808f8666d062e18097707",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 26,
+      "commit_sha": "04cc0339d6510ffdcb47db4676c34b40ecff6b28",
+      "t1_rows": 56,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 27,
+      "commit_sha": "9391506061705c243038f7f235472eb9d5fe3651",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 28,
+      "commit_sha": "af1f7083e76c3f5b353958e14b222abc3a96f5a9",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 29,
+      "commit_sha": "e9e8e6fefd299f53e5a57325cfd7360bcdc1bd0c",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 30,
+      "commit_sha": "323a41a913c291f24ff4dd2c0c5a9660864a6717",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 31,
+      "commit_sha": "03e7c36d2dafca70e1f0e2c27a77ed4816cecf3f",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 32,
+      "commit_sha": "85476e754b9793dcdf9c743fa61f46c936d6cc16",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 33,
+      "commit_sha": "7cb24c31092e719790a0fd1ab7f29cb3c9bb6366",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 34,
+      "commit_sha": "ae061818e5bb2ebf4a94e915773c1d7e9cb853f5",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 35,
+      "commit_sha": "48d6e568bd692f1fffd21e2ce920b73c99d253b1",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 36,
+      "commit_sha": "e9dbead0b8b6a672865cb09c441c8ecd18452016",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 37,
+      "commit_sha": "3154ce223747fcea32f1325a7d0d43007bf0193f",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 38,
+      "commit_sha": "557252762bb29887ddeaf9c99f16572bae19316c",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 39,
+      "commit_sha": "c140fc8154e8c680aad63239eaaaac14d85d5683",
+      "t1_rows": 31,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 40,
+      "commit_sha": "fa8a90cf14a6e8c4d4fc35cf8153601566d8824a",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 41,
+      "commit_sha": "e1da3a23a177e73a0d22ec95ac319d7956cf417a",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 42,
+      "commit_sha": "7a55ebb455857756d81056dd879e38dfb4d84d66",
+      "t1_rows": 153,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 43,
+      "commit_sha": "f2f204d94025db09d39da3dbbaf3789b29c1f7f6",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 44,
+      "commit_sha": "4ec9b8e392dbcede3ce6926442e933950c29ce9d",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 45,
+      "commit_sha": "ad6890f9e63a5c08866725d65d3b216a82aeb5cc",
+      "t1_rows": 0,
+      "model_window": null,
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 46,
+      "commit_sha": "1441ba9f3cd172ccfbd2d0c2ce336f4a9750a0a2",
+      "t1_rows": 17,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 47,
+      "commit_sha": "df3e2715f41263d8998b7350301d106967748c0e",
+      "t1_rows": 3358,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 48,
+      "commit_sha": "913225106ac80fdf01e5b0bbfe42991d424f2642",
+      "t1_rows": 17,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 49,
+      "commit_sha": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "t1_rows": 295,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 50,
+      "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "t1_rows": 416,
+      "model_window": null,
+      "status": "no_model",
+      "historical_status": "no_model"
+    },
+    {
+      "position": 51,
+      "commit_sha": "428489af7e7f2c42ccc516ecc697330add8acc0e",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 52,
+      "commit_sha": "d9bda444238e7d7d29a36e6a8d52c2e434be6f9c",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 53,
+      "commit_sha": "8b6fdad38981e362bd0d2aff36558bc262d188f7",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 54,
+      "commit_sha": "f4762c32fd8f0506a81ae1e9b49a494c77840922",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 55,
+      "commit_sha": "2d86acde41006cf76aa4aa0d9989d260ef9e6ca8",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 56,
+      "commit_sha": "8eebf393331eb190e412fa236b9a799f875527c3",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 57,
+      "commit_sha": "1e3629c6ef9d4dd1d96327254bb88e62fd2f4aac",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 58,
+      "commit_sha": "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 59,
+      "commit_sha": "7b77ea4cfb73399e0dde72a8ab7742a2da5796d0",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 60,
+      "commit_sha": "21e65f8b312c6608b554e4f551315fb0651c3277",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 61,
+      "commit_sha": "a22cfcd0539b5fb208415ae118783fc9dc1f902d",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 62,
+      "commit_sha": "b5cb40c16ce29ae3bf22c0434f9ed520ce2495f0",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 63,
+      "commit_sha": "817d50f746adfb485355d8d3a3ae4b9833ed3f63",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 64,
+      "commit_sha": "f5c9f68475633f8b235f45710ea8116fa7681c1f",
+      "t1_rows": 26,
+      "model_window": "janela-50",
+      "status": "ranked",
+      "inference_ns": {
+        "T2": 8776200,
+        "T3": 145307400
+      },
+      "historical_status": "no_model",
+      "feature_ns": 129200,
+      "selection_measurement_status": "unknown"
+    },
+    {
+      "position": 65,
+      "commit_sha": "8646304c52e8eeaf673457de4180dd721887447a",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 66,
+      "commit_sha": "b77073c2ac343f3c7521c62df4a8ee71f26128ac",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 67,
+      "commit_sha": "728e570076d7b75c27c0eb42e72c68295186aca3",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 68,
+      "commit_sha": "3939c0a7996d905133ecde580084b0b59f6be52c",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 69,
+      "commit_sha": "7d14157cba192545070441186f3ea060955161d3",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 70,
+      "commit_sha": "290859fefa557346f04936318b2057795a1ea4a1",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 71,
+      "commit_sha": "d71293a58e209ddc3b3a893dfd2d37cc77349df6",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 72,
+      "commit_sha": "bbfe331ea832a1f98809c9f5c058369e61b3af74",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 73,
+      "commit_sha": "2703e48c9bc1b3a139d2864e141c182dfa9abfd5",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 74,
+      "commit_sha": "9167659d8eec4323d569cebd39381235c098c901",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 75,
+      "commit_sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "t1_rows": 7,
+      "model_window": "janela-50",
+      "status": "ranked",
+      "inference_ns": {
+        "T2": 5432600,
+        "T3": 78544900
+      },
+      "historical_status": "no_model",
+      "feature_ns": 37200,
+      "selection_measurement_status": "unknown"
+    },
+    {
+      "position": 76,
+      "commit_sha": "1ac4de078eb54c20c323d7a8ea439d15429cd293",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 77,
+      "commit_sha": "ce2ba7b282608da952d97eada2747ff00d13d14f",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 78,
+      "commit_sha": "d1411b643441c2907fcd87a439fb57f6ca85aef2",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 79,
+      "commit_sha": "02eb913afe55705d7cc5c1a742bb562ffb6af9ef",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 80,
+      "commit_sha": "7a94b882fc4bcf32f9ca02f60440499ae4d75d9d",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 81,
+      "commit_sha": "ba85f5e5b3e98234fa0cf22f2155bf41466c10f5",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 82,
+      "commit_sha": "c9ff6aa444da6041e305c0203946864ebd41c3f8",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 83,
+      "commit_sha": "d8c946e0d5940fac9b30bc5b392602855c81682d",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 84,
+      "commit_sha": "29b8ed519dee4eaf54205c9b7788b3cd10fa1db3",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 85,
+      "commit_sha": "e708ab9b6c888e243ee72d0e68327ae713de3235",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 86,
+      "commit_sha": "52d1b7bfdfe22fa8ff0e9f0c8a6a7b6a70f3ab69",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 87,
+      "commit_sha": "a5314fc71808ff0d3cbcb62fecdb326d662e80ca",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 88,
+      "commit_sha": "527f3553a448d467d52bc0aa2c9200acdbc2df69",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 89,
+      "commit_sha": "1db7018dacb53c5baf1b2c62d7a00f26d30115d5",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 90,
+      "commit_sha": "2b254908077f7fab15d90b6c9e97cd3b74e39adf",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 91,
+      "commit_sha": "8d5bc8725969e74be836b1acf6907ae15865c9d5",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 92,
+      "commit_sha": "7e7225be94ae9042157126b4e98e20bbd6531c13",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 93,
+      "commit_sha": "205d7d0b356c78828fee1d25a65ae120cced829b",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 94,
+      "commit_sha": "d631b6c4875c428230d6eb606fa982e36b38fff9",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 95,
+      "commit_sha": "0cebd847c3ce33c634050fb02c307acb106e0b55",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 96,
+      "commit_sha": "5454931eb735deb59e9b671fd8a14cd4c14d8272",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "excluded_holdout",
+      "historical_status": "excluded_holdout"
+    },
+    {
+      "position": 97,
+      "commit_sha": "3d673ad82c2cdc67c12cc517a4f334fd84fe2e3b",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 98,
+      "commit_sha": "ffc86e432bba72d9d54f09dd3f74b6cdb3c9198d",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 99,
+      "commit_sha": "626e7e93aea200e6910be5597ac30de602649745",
+      "t1_rows": 0,
+      "model_window": "janela-50",
+      "status": "missing_t1",
+      "historical_status": "missing_t1"
+    },
+    {
+      "position": 100,
+      "commit_sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "t1_rows": 4663,
+      "model_window": "janela-50",
+      "status": "ranked",
+      "inference_ns": {
+        "T2": 129697200,
+        "T3": 359571100
+      },
+      "historical_status": "no_model",
+      "feature_ns": 33265600,
+      "selection_measurement_status": "unknown"
+    }
+  ],
+  "coverage_counts": {
+    "missing_t1": 85,
+    "no_model": 11,
+    "ranked": 3,
+    "excluded_holdout": 1
+  },
+  "output_sha256": {
+    "commits.csv": "e9118670d02f986054d7a4050e5305d4c00ad72445eeee8f04b5bb22be5d088d",
+    "selection.csv": "1a85ccf315910e7628d800b0cf93cc426530a43fe5071355c91a90ac9660b9af",
+    "rankings.csv": "1aaaad86207f756f7e8fa01af456e1e6703999ba760835d7632c432324929ac6",
+    "overhead.csv": "72ca53118360bfbe5aa52b57322453cc6615de16b2e34a262cea33ad0bea7a60"
+  },
+  "environment": {
+    "python": "3.11.0",
+    "scikit-learn": "1.9.1",
+    "clock": "perf_counter_ns",
+    "cache": "uncontrolled"
+  }
+}

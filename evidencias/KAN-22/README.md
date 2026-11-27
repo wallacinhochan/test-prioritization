@@ -26,3 +26,18 @@ python -B -m unittest discover -s evidencias/KAN-22 -v
 ```
 
 Os testes geram fixtures temporárias e exercitam o CLI e os dois estimadores. As fixtures cobrem anterioridade, liberação tardia, rótulos indisponíveis, decisão sem rótulos novos, ausência de modelo e validação de T1. A rodada com o recorte real depende dos vetores, da publicação T1 correspondente e da evidência de liberação dos rótulos.
+
+## Validação com o DIRTS expandido
+
+A [KAN-22](https://cin-team-test-prioritization.atlassian.net/browse/KAN-22) exige atualização periódica, evidência do corte e medição à parte do ajuste. O validador lê os três lotes DIRTS diretamente dos commits Git identificados no relatório. Confere os hashes dos manifestos e dos CSVs, deriva as três features de assinatura pela política aprovada na KAN-19 e reproduz os 416 vetores da revisão 50. O treino congelado tem 524 alvos conhecidos, dos quais 181 positivos, nas posições 15, 26 e 42. Sua proveniência registra o pacote do PR #2 e os hashes auditados pela KAN-19.
+
+O manifesto da revisão 50 em a06d381 demonstra que os três lotes estavam disponíveis para aquele ajuste experimental. O replay técnico usa esse marco em conjunto para os três lotes. Isso torna a posição 51 a primeira decisão periódica elegível. As decisões em 11, 21, 31 e 41 ficam sem ajuste e as de 61, 71, 81 e 91 reutilizam os modelos de 51. Como a cronologia histórica de liberação permanece sem evidência, o validador também executa o protocolo histórico com a disponibilidade vazia e registra zero rankings históricos. Os rótulos de avaliação da revisão 50 e os rótulos do holdout 96 ficam fora da execução. A posição 96 é mantida somente na cronologia e marcada como excluída. O congelamento fixo da revisão 50 continua disponível em a06d381.
+
+### Consumo na KAN-23
+
+```powershell
+python -B evidencias/KAN-22/validar_dirts.py dirts-consumo
+python -B -m unittest discover -s evidencias/KAN-22 -v
+```
+
+O comando materializa commits.csv, selection.csv, rankings.csv e overhead.csv em local/dirts-consumo/. O [relatório versionado](validacao-dirts.json) registra a cobertura dos 100 commits e os hashes da rodada validada. Use os rankings de replay técnico nas posições 64, 75 e 100, com 26, 7 e 4.663 métodos por cenário. O treino aparece uma vez por cenário na posição 64, primeiro SHA atendido, e fica fora do orçamento de execução. Os tempos locais de extração das features e inferência foram medidos. As três posições têm custo de seleção desconhecido no lote T1. Cortes de orçamento que dependam desse custo permanecem indisponíveis. A junção para simular o orçamento ainda exige os dados T0 e as referências de tempo que a KAN-23 valida.

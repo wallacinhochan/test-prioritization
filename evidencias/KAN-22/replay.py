@@ -14,8 +14,8 @@ BASE = Path(__file__).resolve().parent
 EVIDENCE = BASE.parent
 sys.path.insert(0, str(EVIDENCE / 'KAN-21'))
 from ranking import (FEATURES, FOREST, OVERHEAD_FIELDS, RANK_FIELDS, ROOT, digest,
-                     ordinal, rank_revision, records, require, vector, write_csv, write_json)
-from piloto import KNN
+                     ordinal, rank_revision, records, require, write_csv, write_json)
+from piloto import KNN, rank_scores
 
 KEYS = ('position', 'commit_sha', 'test_id')
 SELECTION_FIELDS = ('commit_sha', 'scenario', 'test_id', 'selected', 'selection_reason',
@@ -23,7 +23,7 @@ SELECTION_FIELDS = ('commit_sha', 'scenario', 'test_id', 'selected', 'selection_
 AVAILABILITY_FIELDS = ('commit_sha', 'available_position', 'source_ref')
 
 
-def load_inputs(paths):
+def load_inputs(paths, feature_fields=FEATURES):
     provenance = {}
 
     def read(name, fields=None):
@@ -58,7 +58,7 @@ def load_inputs(paths):
 
     header, training = read('train')
     require(set((*KEYS, 'partition', 'target_synthetic')) <= set(header) and
-            tuple(name for name in header if name in FEATURES) == FEATURES,
+            tuple(name for name in header if name in FEATURES) == feature_fields,
             'Colunas de treino incompativeis com KAN-19')
     labeled, seen = [], set()
     for row in training:
@@ -76,7 +76,7 @@ def load_inputs(paths):
     _, selection = read('selection', SELECTION_FIELDS)
     _, baseline = read('t1', RANK_FIELDS)
     _, costs = read('overhead', OVERHEAD_FIELDS)
-    _, features = read('features', (*KEYS, *FEATURES))
+    _, features = read('features', (*KEYS, *feature_fields))
     by_sha, t1, selected, overhead = defaultdict(list), defaultdict(list), defaultdict(set), {}
     seen = set()
     reasons = {'dependency': 'true', 'fallback': 'true', 'no_dependency': 'false'}
@@ -134,10 +134,27 @@ def estimators():
 
 
 def replay(commits, labeled, availability, features, costs, reference, cadence=10,
-           make_models=estimators):
+           make_models=estimators, feature_fields=FEATURES):
     require(cadence > 0, 'Cadencia deve ser positiva')
     rankings, overhead, windows, coverage, fits = [], [], [], [], {}
     active = None
+
+    def vector(row):
+        return [int(row[name]) for name in feature_fields]
+
+    def rank(model, sha, scenario, features, source):
+        if feature_fields == FEATURES:
+            rows, elapsed = rank_revision(model, sha, features, source)
+            return [(r[0], scenario, *r[2:]) for r in rows], elapsed
+        start = perf_counter_ns()
+        methods = [row['test_id'] for row in features]
+        scores = model.predict([vector(row) for row in features])
+        lines = [(sha, scenario, method, position, score, source)
+                 for position, (method, score) in enumerate(rank_scores(methods, scores), 1)]
+        elapsed = perf_counter_ns() - start
+        require(len(lines) == len(methods) and {r[2] for r in lines} == set(methods)
+                and all(math.isfinite(r[4]) for r in lines), f'Ranking invalido: {sha}')
+        return lines, elapsed
     for pos, sha in sorted(commits.items()):
         if pos > 1 and (pos - 1) % cadence == 0:
             eligible = [row for origin, release, row in labeled if origin < pos and release < pos]
@@ -198,8 +215,8 @@ def replay(commits, labeled, availability, features, costs, reference, cadence=1
                 active.update(first_ranked_sha=sha, first_ranked_position=pos)
             cost = costs[sha]
             for scenario, model in fits[active['id']].items():
-                rows, elapsed = rank_revision(model, sha, features[sha], source)
-                rankings.extend((r[0], scenario, *r[2:]) for r in rows)
+                rows, elapsed = rank(model, sha, scenario, features[sha], source)
+                rankings.extend(rows)
                 entry['inference_ns'][scenario] = elapsed
                 overhead.extend([
                     (sha, scenario, 'selection', *(cost[key] for key in OVERHEAD_FIELDS[3:])),
