@@ -1,53 +1,60 @@
-# KAN-18 — Seleção estática T1 no estudo principal
+# KAN-18 — Seleção estática T1 com DIRTS
 
-O fluxo usa o primeiro pai e as posições do [recorte KAN-10](../KAN-10/commits.csv), o contrato [KAN-15 v0.1.0](../KAN-15/README.md) e a identidade de método da [KAN-17](../KAN-17/README.md). Reutiliza a descoberta e as funções de inventário, grafo e busca do [piloto de mutação](../MUTACAO/t1/README.md). A decisão da [KAN-12](../KAN-12/README.md) mantém Commons Lang como objeto do estudo e o piloto de mutação como evidência auxiliar.
+O seletor T1 2.0.0 usa **DIRTS 1.0**, compilado do commit `62efcec2f909f93fffdd4ae1da24b0aee1071749`. No estudo de dez revisões, o DIRTS reteve 4.904 métodos, ante 14.602 do STARTS e 32.649 do T1 anterior. A redução relativa ao T1 foi de **84,98%** na amostra e de **98,75%** no subconjunto de cinco revisões com alterações no código de produção além de comentários e formatação. O DIRTS venceu o STARTS em quatro revisões e empatou nas outras seis. Esse é o critério da substituição. As porcentagens medem tamanho da seleção. [Estudo comparativo](estudo-reducao-t1.md) · [Piloto STARTS](poc-starts.md) · [Projeto DIRTS](https://github.com/tum-i4/dirts)
 
 ## Regra de seleção
 
-1. Arquive o SHA alvo e prepare as classes de produção e de teste com Maven `clean test-compile`, o classpath de teste, o POM efetivo, o inventário de métodos do JUnit Launcher e a saída de `jdeps`. A sonda usa descoberta sem executar a suíte. A árvore alvo e o diff desde o primeiro pai são lidos do Git. O seletor recebe somente essas entradas pré-execução.
-2. Use como sementes as classes mapeadas no bytecode dos arquivos Java adicionados ou modificados em produção e testes. Use arestas de bytecode, referências lexicais no fonte e a aproximação de supertipo para subtipo de produção do piloto. Busque transitivamente no sentido inverso. A cada raiz de execução corresponde uma rota mais curta e determinística até uma semente quando existe caminho. A seleção inclui todos os métodos da raiz alcançada, com identidades distintas para classes aninhadas, métodos herdados e assinaturas.
-3. Se houver alteração sem mapeamento seguro, inclua todo o inventário. Isso cobre recursos, POM e outras configurações, remoções de Java, renomeações vistas como remoção e adição, classes ou referências internas sem resolução e sementes sem caminho até um teste. A exceção explícita é `src/changes/changes.xml`, changelog ignorado na formação de sementes. Se nenhuma semente for mapeada, inclusive em um diff apenas de changelog, vale o fallback integral. Grafo ilegível também leva ao fallback quando houver inventário válido e os arquivos de entrada estiverem presentes. Descoberta incompleta ou inventário inválido impede publicar o conjunto.
+1. Confirme o SHA alvo e seu primeiro pai pelo manifesto KAN-10. Exporte o alvo para descobrir os métodos com JUnit Launcher e preparar o inventário de bytecode. Para mudanças suportadas, exporte também a árvore do pai e os arquivos Java adicionados ou modificados no alvo.
+2. No mesmo diretório Linux, execute `method_level_select -Dstandalone=true` no pai para gerar o estado `.dirts`. Repita no pai e confirme que o controle sem mudanças exclui todas as raízes presentes. Sobreponha os arquivos do alvo e execute o seletor. Cada fase limpa o arquivo `Excludes` antes da chamada, preservando o grafo. Isso evita que as exclusões antigas se acumulem, comportamento observado no piloto quando o Surefire não fornece um caminho explícito.
+3. Forme o conjunto selecionado com o complemento das exclusões da rodada alvo sobre as raízes do inventário JUnit. Inclua todos os IDs `classe#metodo(tipos)` da raiz selecionada, inclusive os descritores aninhados. A análise DIRTS opera por método no código fonte e sua saída Maven exclui por classe.
+4. Use o inventário integral em alterações de POM, configuração, recursos, remoções, renomeações ou classes alteradas sem bytecode mapeado. Uma modificação isolada em `src/changes/changes.xml` também cai no fallback por falta de semente. Esse changelog pode acompanhar uma mudança Java elegível. Aplique fallback igualmente em caso de erro DIRTS, falha do controle, arquivo de exclusões inválido, referência interna sem resolução, diagnóstico incompleto, ausência de seleção com recálculo indicado ou omissão de uma raiz de teste alterada quando há recálculo. Um diff Java sem alterações reconhecidas pelo DIRTS pode produzir seleção vazia, como observado nas revisões de documentação.
+5. Exija inventário JUnit válido para publicar. As linhas seguem o contrato KAN-15, com razões `dependency`, `no_dependency` e `fallback`. T1 mantém postos ordinais por `test_id` e escore vazio. Cada cenário derivado deve consumir exatamente o conjunto publicado para sua versão de T1.
 
-O grafo usa granularidade de classe. Homônimos podem ampliar a seleção. Reflexão calculada, despacho por bibliotecas externas e efeitos de estado global podem escapar à análise. Na posição 26, a rota de bytecode verificada foi `BooleanUtilsTest → BooleanUtils → ObjectUtils → StringUtils → LocaleUtils`. Na posição 75, a semente é a própria classe de teste alterada, `FastDateParser_TimeZoneStrategyTest`. Os fallbacks observados no lote cobrem POM e ausência de sementes. Alterações de recursos seguem a mesma regra de caminho sem mapeamento aplicada ao POM e ficaram sem caso real na amostra executada.
+[Recorte KAN-10](../KAN-10/commits.csv) · [Contrato KAN-15](../KAN-15/README.md) · [Identidade KAN-17](../KAN-17/README.md)
 
 ## Reprodução
 
-Na raiz do repositório de pesquisa, use PowerShell 7.5+, Node 24, Git, Docker e o clone da KAN-10. Use a imagem fixada pela KAN-13, `sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6`, com Linux/amd64, Temurin 21.0.11, Maven 3.9.11, UTC e cache Maven inicialmente vazio por contêiner. A descoberta exige acesso ao Docker e resolução Maven. O script reutilizado enumera raízes `*Test.class` e o JUnit inclui descritores de classes aninhadas. Nos seis SHAs, a inspeção dos fontes encontrou apenas o auxiliar ASM `TestClassBuilder.java` entre os outros padrões usuais do Surefire. Para ampliar a cobertura, confira o POM efetivo e os padrões do Surefire antes de usar o inventário. [Ambiente KAN-13](../KAN-13/README.md) · [Sonda KAN-16](../KAN-16/README.md)
+Use Git, Node, PowerShell, Docker Linux/amd64, acesso ao Maven Central e o clone do Commons Lang da KAN-10. A imagem base usa o Dockerfile KAN-13 com Temurin 21.0.11, Maven 3.9.11 e UTC. A segunda imagem instala o DIRTS no cache Maven privado a partir do arquivo do commit fixado.
+
+```powershell
+docker build --platform linux/amd64 -t test-prioritization/commons-lang:kan18-reconstruida infra/commons-lang
+$ctx = New-Item -Force -ItemType Directory evidencias/KAN-18/local/imagem-dirts
+$codigo = Join-Path (Resolve-Path evidencias/KAN-18/local).Path 'codigo-dirts'
+git clone https://github.com/tum-i4/dirts.git $codigo
+git -C $codigo archive --format=tar --output="$($ctx.FullName)/dirts.tar" 62efcec2f909f93fffdd4ae1da24b0aee1071749
+docker build --platform linux/amd64 -t test-prioritization/commons-lang:kan18-dirts -f infra/commons-lang/Dockerfile.dirts $ctx.FullName
+```
+
+Confira o código de saída de cada comando antes do próximo. Ao repetir o bootstrap, reutilize o Git já clonado ou escolha um contexto vazio. Use um diretório de contexto dedicado, com o arquivo `dirts.tar` como única entrada do Dockerfile derivado.
 
 ```powershell
 $kan18 = './evidencias/KAN-18'
-$fonte = Join-Path $env:TEMP 'kan10-commons-lang-598dfc163b8b.git'
-$posicoes = 1,2,26,50,75,100
+$fonte = 'C:/caminho/kan10-commons-lang.git'
+$posicoes = 75,50,100
 foreach ($posicao in $posicoes) {
     & "$kan18/descobrir.ps1" -Fonte $fonte -Posicao $posicao
     node "$kan18/selecionar.mjs" $posicao $fonte
     if ($LASTEXITCODE -ne 0) { throw "Seleção falhou na posição $posicao" }
 }
-& "$kan18/verificar.ps1" -Posicoes $posicoes
-node --test evidencias/MUTACAO/t1/t1.test.mjs
+& "$kan18/verificar.ps1" -Posicoes $posicoes -SemT0
 ```
 
-Na verificação registrada, os inventários 26 e 50 vieram das compilações pré-execução já disponíveis em `evidencias/MUTACAO/t1/local/{26,50}`. Foram copiados para `local/entradas/<sha>` com os manifestos de entrada reconstruídos pelo seletor. Os outros quatro foram preparados pelo comando acima. Execute a descoberta e a seleção com os destinos livres. Para repetir a seleção com as mesmas entradas, mova a pasta de saída anterior para outro nome local antes de executar o seletor.
+Omita `-SemT0` para reconciliar com a saída real da KAN-16, usando `-Oraculo` se estiver em outro diretório. A descoberta grava `local/dirts/entradas/<sha>/` com logs, inventário, arquivos exportados, ID da imagem e saídas do DIRTS. A seleção escreve `local/dirts/selecao/<sha>/` com `selection.csv`, `rankings.csv`, `overhead.csv`, `decisoes.json`, `diff.patch` e `manifesto.json`. A publicação é por diretório e preserva resultados de tentativas anteriores. Use novos destinos locais após guardar a rodada existente.
 
-## Conjuntos para T2 e T3
+O manifesto registra a versão, o commit DIRTS, a imagem efetiva e hashes das entradas e saídas. O custo de seleção soma a janela DIRTS (preparo do pai, controle e alvo, com as fases Maven correspondentes) à transformação no host. Compilação e descoberta do inventário ocorrem em outra janela. A medição anterior do T1 começa com entradas já preparadas e tem escopo distinto.
 
-Cada pasta `local/selecao/<sha>` contém `selection.csv` com uma decisão por candidato e `rankings.csv` com os selecionados em ordem ordinal crescente de `test_id`, sensível à capitalização. As prioridades T1 são empatadas, o escore fica vazio e os postos começam em 1. T2 e T3 devem usar exatamente as chaves `(commit_sha, test_id)` de `rankings.csv` e atribuir seus próprios postos. A fase `selection` de `overhead.csv` é compartilhada, com a mesma referência de medição para os cenários que a usariam isoladamente.
+## Validação da integração
 
-`decisoes.json` lista sementes, fallback, rotas e decisões por classe. `manifesto.json` identifica SHA, pai, imagem, fontes e hashes das entradas e saídas. A pasta de saída é publicada após a gravação completa. Arquivos brutos e CSVs completos ficam em `local/`, ignorado pelo Git. [A verificação versionada](verificacao.json) contém as contagens e os hashes para conferir os artefatos locais e as reproduções. Hashes de logs e do overhead identificam a tentativa e podem variar entre execuções.
+As três posições abaixo passaram pelo fluxo completo em Docker Linux. O verificador conferiu hashes, contagens, chaves e ordenação dos CSVs. Os IDs selecionados coincidiram exatamente com os do piloto. A validação usou `-SemT0`, sem execução da suíte. [Hashes e SHAs da integração](verificacao-dirts.json)
 
-## Cobertura e overhead
+| Posição | Caso | Inventário | Métodos selecionados |
+|---:|---|---:|---:|
+| 50 | Mudanças de produção e teste | 4.657 | 72 |
+| 75 | Controle positivo com uma classe de teste alterada | 4.659 | 7 |
+| 100 | Fallback integral por `pom.xml` | 4.663 | 4.663 |
 
-| Posição | Inventário | Selecionados | Motivo principal | Overhead (ms) | Junção T0 |
-| ---: | ---: | ---: | --- | ---: | --- |
-| 1 | 4.649 | 4.649 | Fallback por diff apenas de changelog | 496 | Chaves iguais |
-| 2 | 4.649 | 4.649 | Fallback por `pom.xml` | 539 | Sem T0 completo |
-| 26 | 4.652 | 4.648 | Dependências de `LocaleUtils` | 433 | Chaves iguais |
-| 50 | 4.657 | 4.653 | Dependências estáticas | 503 | Chaves iguais |
-| 75 | 4.659 | 7 | Classe de teste modificada | 522 | Chaves iguais |
-| 100 | 4.663 | 4.663 | Fallback por `pom.xml` | 382 | Chaves iguais |
+Em uma reprodução isolada dos artefatos do piloto, a posição 4 publicou um ranking vazio para a mudança de Javadoc e a posição 39 publicou 13 métodos. Ao inserir uma linha inválida nas exclusões da posição 39, o seletor publicou todos os 4.657 métodos com motivo `fallback`. Os três testes existentes do piloto T1 também passaram.
 
-Foram materializados **6/100 SHAs** e conciliados **5/5 T0 completos disponíveis**, equivalentes a **5/100 SHAs** do recorte. A posição 2 foi escolhida para verificar o fallback com uma alteração real de configuração. Para as demais 94 posições, a seleção ainda não foi materializada. Nos cinco pares com T0, o conjunto reteve **18.620 de 23.280 métodos**, redução agregada de **20,02%**. A posição 75 responde por 4.652 das 4.660 exclusões e altera apenas testes. As posições 26 e 50 excluem quatro métodos cada, e o fallback preserva todos nas posições 1 e 100.
+## Publicações anteriores
 
-O verificador abriu o oráculo da KAN-16 depois de materializar os conjuntos e verificou hashes, unicidade, coerência das decisões, igualdade entre conjunto selecionado e ranking, postos contíguos em ordem ordinal e junção por SHA e método. As cinco primeiras posições da tabela tiveram os mesmos hashes de seleção, ranking, diff e decisões em duas execuções. Os testes existentes passaram, incluindo transitividade por auxiliar e herança e identidade do JUnit. A saída por SHA registra os dois métodos executados e selecionados com duração ausente nas posições 26 e 100. T0 teve zero falhas nos cinco pares. Detecção relativa e antecipação de falhas ficam inaplicáveis nessa amostra.
-
-O overhead mede a duração de parede do seletor, da consulta do primeiro pai até a construção das linhas de seleção e ranking. Inclui diff, leitura dos fontes e das entradas preparadas, grafo, buscas e ordenação. Exclui checkout e arquivamento para a descoberta, compilação, downloads Maven, descoberta JUnit, geração de `jdeps`, gravação e hash de artefatos, junção com T0 e execução dos testes. A janela foi medida em processo Node novo no host Windows/x64, com cache do sistema operacional não controlado. Os números se aplicam ao seletor com entradas prontas. O custo total de T1, o tempo físico da suíte selecionada e os efeitos de ordem e cache seguem sem medição comparável. O tempo de parede do T0 e a duração por método têm escopos próprios.
+A evidência versionada em `verificacao.json` e os resultados vinculados à KAN-19 e KAN-20 seguem associados ao seletor 1.0.0. Seus consumidores fixados leem os caminhos históricos `local/entradas` e `local/selecao`. A publicação DIRTS tem caminhos próprios. Sua adoção nos resultados derivados requer gerar os novos conjuntos e refazer os cenários que usam essas chaves. [Documentação do T1 1.0.0](https://github.com/wallacinhochan/test-prioritization/blob/260c1af381b3137b1591af9f33e47e987ac7b2b2/evidencias/KAN-18/README.md) · [Verificação histórica](verificacao.json)

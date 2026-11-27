@@ -1,21 +1,21 @@
-import { grafo, inventario, selecionar } from '../MUTACAO/t1/selecionar.mjs';
+import { inventario } from '../MUTACAO/t1/selecionar.mjs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const raiz = fileURLToPath(new URL('.', import.meta.url));
-const versao = '1.0.0';
+const versao = '2.0.0';
 const revisoes = readFileSync(new URL('../KAN-10/commits.csv', import.meta.url), 'utf8');
 const java = /^src\/(main|test)\/java\/(.+)\.java$/u;
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 const csv = linhas => linhas.map(linha => linha.map(campo =>
     `"${String(campo).replaceAll('"', '""')}"`).join(',')).join('\n') + '\n';
 
-function git(fonte, args, input) {
+function git(fonte, args) {
     const cmd = spawnSync('git', ['-c', `safe.directory=${fonte}`, '-C', fonte, ...args], {
-        input, maxBuffer: 64 * 1024 * 1024,
+        maxBuffer: 64 * 1024 * 1024,
     });
     if (cmd.error || cmd.status !== 0) {
         throw new Error(`git ${args[0]}: ${cmd.error ?? cmd.stderr.toString()}`);
@@ -23,26 +23,37 @@ function git(fonte, args, input) {
     return cmd.stdout;
 }
 
-function fontesJava(fonte, sha) {
-    const entradas = git(fonte, ['ls-tree', '-rz', sha, '--', 'src/main/java', 'src/test/java'])
-        .toString().split('\0').filter(Boolean).map(registro => {
-            const [meta, caminho] = registro.split('\t');
-            return { hash: meta.split(' ')[2], caminho, tipo: caminho.match(java) };
-        }).filter(item => item.tipo);
-    const pedido = entradas.map(item => item.hash).join('\n') + '\n';
-    const blobs = git(fonte, ['cat-file', '--batch'], pedido);
-    let offset = 0;
-    return entradas.map(({ hash, caminho, tipo }) => {
-        const fim = blobs.indexOf(10, offset);
-        const [objeto, formato, tamanho] = blobs.toString('ascii', offset, fim).split(' ');
-        offset = fim + 1 + Number(tamanho);
-        if (objeto !== hash || formato !== 'blob' || blobs[offset] !== 10) {
-            throw new Error(`Blob inesperado para ${caminho}`);
-        }
-        const codigo = blobs.toString('utf8', fim + 1, offset++);
-        const nome = tipo[2].replaceAll('/', '.');
-        return { caminho, nome, producao: tipo[1] === 'main', codigo };
-    });
+function exclusoes(ler, fase) {
+    const linhas = ler(fase + '.excludes').toString().trimEnd().split(/\r?\n/u);
+    if (linhas.shift() !== '# DIRTS excluded' || linhas.shift() !== '**/*$*' ||
+        linhas.some(linha => !/^[\w$]+(?:\/[\w$]+)+\.java$/u.test(linha))) {
+        throw new Error('Lista de exclusões inválida: ' + fase);
+    }
+    return new Set(linhas.map(linha => linha.slice(0, -5).replaceAll('/', '.')));
+}
+
+function aplicarDirts(ler, classesTeste, testesAlterados, adicionados) {
+    if (ler('dirts.status').toString().trim() !== 'ok') throw new Error('Execução DIRTS indisponível');
+    const controle = exclusoes(ler, 'controle');
+    if ([...classesTeste].some(classe => !adicionados.has(classe) && !controle.has(classe))) {
+        throw new Error('O controle DIRTS não excluiu todos os testes do pai');
+    }
+    const excluidas = exclusoes(ler, 'alvo');
+    const selecionadas = new Set([...classesTeste].filter(classe => !excluidas.has(classe)));
+    const log = ler('alvo.log').toString().replaceAll('\r\n', '\n');
+    const incluidas = log.match(/^DIRTS included: \[([\s\S]*?)\]\n\[INFO\] -/mu);
+    const recalculo = log.match(/^\[INFO\] Recalculating primary dependencies of:\n([\s\S]*?)^\[TIME\] Cropping dependency graph/mu);
+    if (!incluidas || !recalculo) throw new Error('Diagnóstico DIRTS incompleto');
+    const registradas = new Set([...incluidas[1].matchAll(/^([\w$.]+) <-- /gmu)].map(item => item[1]));
+    if ([...classesTeste].some(classe => selecionadas.has(classe) !== registradas.has(classe))) {
+        throw new Error('Exclusões e inclusões DIRTS divergentes');
+    }
+    if (!selecionadas.size && recalculo[1].trim()) throw new Error('DIRTS detectou alterações sem selecionar testes');
+    if (recalculo[1].trim() &&
+        [...testesAlterados].some(classe => !selecionadas.has(classe))) {
+        throw new Error('Classe de teste alterada sem seleção DIRTS');
+    }
+    return selecionadas;
 }
 
 function congelar(posicao, fonte) {
@@ -50,10 +61,11 @@ function congelar(posicao, fonte) {
     const revisao = /^"\d+","([0-9a-f]{40})","([0-9a-f]{40})",/.exec(registro ?? '');
     if (!revisao) throw new Error(`Posição ausente ou inválida na KAN-10: ${posicao}`);
     const [, sha, pai] = revisao;
-    const pasta = join(raiz, 'local', 'entradas', sha);
-    const saida = join(raiz, 'local', 'selecao', sha);
+    const pasta = join(raiz, 'local', 'dirts', 'entradas', sha);
+    const saida = join(raiz, 'local', 'dirts', 'selecao', sha);
     const ler = nome => readFileSync(join(pasta, nome));
 
+    if (existsSync(saida)) throw new Error(`Seleção já publicada em ${saida}`);
     if (ler('compilacao-ok').toString().trim() !== sha) throw new Error('SHA da descoberta divergente');
     const inicio = process.hrtime.bigint();
     if (git(fonte, ['rev-parse', `${sha}^1`]).toString().trim() !== pai) {
@@ -62,47 +74,46 @@ function congelar(posicao, fonte) {
     const alteracoes = git(fonte, ['diff', '--no-renames', '--no-ext-diff', '--name-status', '-z', pai, sha])
         .toString().split('\0').filter(Boolean);
     const diff = git(fonte, ['diff', '--no-renames', '--full-index', '--no-ext-diff', '--no-color', '--no-textconv', pai, sha]);
-    const arquivos = fontesJava(fonte, sha);
-    const arquivoPorCaminho = new Map(arquivos.map(item => [item.caminho, item]));
-    const tsv = ler('metodos.tsv');
-    const testes = inventario(tsv.toString());
-    const jdeps = ler('jdeps.txt');
+    const testes = inventario(ler('metodos.tsv').toString());
+    const classesTeste = new Set([...testes.values()].map(teste => teste.classe));
+    const compiladas = new Set(ler('jdeps.txt').toString().split(/\r?\n/u)
+        .map(linha => /^\s+(\S+)\s+->/u.exec(linha)?.[1]).filter(Boolean));
     const fallback = [];
-    let reverso = new Map();
-    let compiladas = new Set();
-    try {
-        ({ reverso, compiladas } = grafo(arquivos, jdeps.toString()));
-    } catch (erro) {
-        fallback.push(`Grafo indisponível: ${erro.message}`);
-    }
-
     const sementes = new Map();
-    if (/^\s+\S+\s+->\s+org\.apache\.commons\.lang3\.[^\s]+\s+not found\s*$/m.test(jdeps.toString())) {
-        fallback.push('Referência interna não resolvida pelo jdeps');
-    }
+    const testesAlterados = new Set();
+    const adicionados = new Set();
     for (let i = 0; i < alteracoes.length; i += 2) {
         const [status, caminho] = alteracoes.slice(i, i + 2);
-        if (caminho === 'src/changes/changes.xml') continue;
-        const arquivo = arquivoPorCaminho.get(caminho);
-        if (!arquivo || !['A', 'M'].includes(status) || !compiladas.has(arquivo.nome)) {
+        if (status === 'M' && caminho === 'src/changes/changes.xml') continue;
+        const tipo = java.exec(caminho);
+        const classe = tipo?.[2].replaceAll('/', '.');
+        if (!classe || !['A', 'M'].includes(status) || !compiladas.has(classe)) {
             fallback.push(`Alteração sem mapeamento Java compilado: ${status} ${caminho}`);
-        } else {
-            sementes.set(arquivo.nome, caminho);
+            continue;
+        }
+        sementes.set(classe, caminho);
+        if (tipo[1] === 'test' && classesTeste.has(classe)) {
+            testesAlterados.add(classe);
+            if (status === 'A') adicionados.add(classe);
         }
     }
     if (!sementes.size) fallback.push('Diff sem classe-alvo Java mapeada');
-    const rotas = selecionar(sementes.keys(), reverso);
-    const classesTeste = new Set([...testes.values()].map(teste => teste.classe));
     if ([...classesTeste].some(classe => !compiladas.has(classe))) {
-        fallback.push('Classe de execução sem mapeamento no grafo compilado');
+        fallback.push('Classe de execução sem mapeamento no bytecode');
     }
-    for (const [classe, caminho] of sementes) {
-        if (![...selecionar([classe], reverso).keys()].some(alvo => classesTeste.has(alvo))) {
-            fallback.push(`Nenhum teste alcança a semente: ${caminho}`);
+    if (/^\s+\S+\s+->\s+org\.apache\.commons\.lang3\.[^\s]+\s+not found\s*$/mu.test(ler('jdeps.txt').toString())) {
+        fallback.push('Referência interna não resolvida pelo jdeps');
+    }
+    let selecionadas = new Set();
+    if (!fallback.length) {
+        try {
+            selecionadas = aplicarDirts(ler, classesTeste, testesAlterados, adicionados);
+        } catch (erro) {
+            fallback.push(erro.message);
         }
     }
-    const motivoClasse = classe => fallback.length ? 'fallback' : rotas.has(classe) ? 'dependency' : 'no_dependency';
-    const base = `evidencias/KAN-18/local/selecao/${sha}`;
+    const motivoClasse = classe => fallback.length ? 'fallback' : selecionadas.has(classe) ? 'dependency' : 'no_dependency';
+    const base = `evidencias/KAN-18/local/dirts/selecao/${sha}`;
     const selecao = [['commit_sha', 'scenario', 'test_id', 'selected', 'selection_reason', 'source_ref']];
     const ranking = [['commit_sha', 'scenario', 'test_id', 'rank', 'score', 'source_ref']];
     const ids = [...testes.keys()].sort();
@@ -113,8 +124,11 @@ function congelar(posicao, fonte) {
         selecao.push([sha, 'T1', id, incluir, motivo, `${base}/decisoes.json#${classe}`]);
         if (incluir) ranking.push([sha, 'T1', id, ranking.length, '', `${base}/manifesto.json#ordem`]);
     }
-    const custoNs = Number(process.hrtime.bigint() - inicio);
-    mkdirSync(join(raiz, 'local', 'selecao'), { recursive: true });
+    const textoTempo = ler('dirts.ns').toString().trim();
+    const dirtsNs = Number(textoTempo);
+    if (!/^\d+$/u.test(textoTempo) || !Number.isSafeInteger(dirtsNs)) throw new Error('Tempo DIRTS inválido');
+    const custoNs = Number(process.hrtime.bigint() - inicio) + dirtsNs;
+    mkdirSync(join(raiz, 'local', 'dirts', 'selecao'), { recursive: true });
     const temporaria = mkdtempSync(`${saida}-`);
     try {
         const escrever = (nome, conteudo) => writeFileSync(join(temporaria, nome), conteudo, { flag: 'wx' });
@@ -129,24 +143,31 @@ function congelar(posicao, fonte) {
         escrever('decisoes.json', json({
             sementes: Object.fromEntries(sementes),
             fallback,
-            rotas: Object.fromEntries([...rotas].sort(([a], [b]) => a < b ? -1 : a === b ? 0 : 1)),
+            dirts_status: ler('dirts.status').toString().trim(),
             classes_de_execucao: Object.fromEntries([...classesTeste].sort().map(classe =>
                 [classe, motivoClasse(classe)])),
         }));
         const entradas = ['fonte.tar', 'pom-efetivo.xml', 'classpath.txt', 'classes.txt',
-            'metodos.tsv', 'jdeps.txt', 'DescobertaT0.java', 'descobrir.sh', 'descoberta.log'];
+            'metodos.tsv', 'jdeps.txt', 'DescobertaT0.java', 'descobrir.sh', 'descoberta.log',
+            'dirts.sh', 'dirts.status', 'dirts.ns', 'imagem.txt', 'compilacao-ok'];
+        for (const nome of ['pai.tar', 'alteracoes.tar', 'pai.log', 'controle.log', 'alvo.log',
+            'pai.excludes', 'controle.excludes', 'alvo.excludes']) {
+            if (existsSync(join(pasta, nome))) entradas.push(nome);
+        }
         const saidas = ['diff.patch', 'selection.csv', 'rankings.csv', 'overhead.csv', 'decisoes.json'];
         escrever('manifesto.json', json({
             protocolo: 'KAN-18', contrato: '0.1.0', seletor: versao, posicao: Number(posicao), sha, pai,
             ordem: 'test_id crescente (ordem ordinal, sensível a maiúsculas), todas as prioridades empatadas',
             inventario: 'JUnit Launcher.discover sobre classes raiz *Test do classpath da mesma revisão',
-            imagem: 'sha256:6e15bf7fd834e6998883afacb56e4b6de6b180fff899bf3fb0474840f5ac93d6',
+            imagem: ler('imagem.txt').toString().trim(),
+            ferramenta: { nome: 'DIRTS', versao: '1.0', commit: '62efcec2f909f93fffdd4ae1da24b0aee1071749' },
             candidatos: ids.length, selecionados: ranking.length - 1, fallback,
             custo: {
                 ns: custoNs, ms: Math.round(custoNs / 1e6), node: process.version,
                 plataforma: process.platform, arquitetura: process.arch,
-                intervalo: 'do primeiro pai e diff à construção das linhas, com leitura do inventário e do jdeps locais',
-                cache: 'um processo, sem cache do seletor, cache do sistema operacional não controlado',
+                intervalo: 'preparo do estado DIRTS no pai, controle, seleção do alvo e construção dos CSVs no host',
+                dirts_ns: dirtsNs,
+                cache: 'estado DIRTS novo por par, cache Maven semeado pela imagem',
             },
             codigo_sha256: {
                 seletor: sha256(readFileSync(fileURLToPath(import.meta.url))),

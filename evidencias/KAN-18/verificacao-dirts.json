@@ -1,0 +1,71 @@
+{
+  "data": "2026-11-24",
+  "seletor": "2.0.0",
+  "dirts_commit": "62efcec2f909f93fffdd4ae1da24b0aee1071749",
+  "verificacao": "evidencias/KAN-18/verificar.ps1 -Posicoes 50,75,100 -SemT0",
+  "revisoes": [
+    {
+      "posicao": 50,
+      "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "pai": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "candidatos": 4657,
+      "selecionados": 72,
+      "fallback": [],
+      "ids_iguais_ao_piloto": true,
+      "imagem": "sha256:fad87a144128c905f9ba915f61c03abe436372c2c6e26a02a18984369c42a4ea",
+      "seletor_sha256": "5a1a21a2284fb41246d59921c455895d0d6f40a978a517b42f7370cf658ab791",
+      "metodos_sha256": "deb6b6e5e04ae11226261dbaa3057435c07ff63f717663e44036e5963005deef",
+      "saidas_sha256": {
+        "diff.patch": "865bc48f98b3719374be8feee995085bbc7630294007802e9d0e19dde5211ae7",
+        "selection.csv": "642502a94acfd475f1bcd5510b7299f6b048bd4eb66d19a78b6712f2d18e017f",
+        "rankings.csv": "b25dfb813430ed9a1e7647f2496ca790193e1b4d3409eeb3496cb9ed1c7c8375",
+        "overhead.csv": "84f12883d901109f55053d39902e698bddcc9d0cde4ba0bc8db6228c08336da5",
+        "decisoes.json": "ff7155abf23baa74d82fb1fb230498b073219ad75d5fcd60d6da9f9d0b0d55ef"
+      },
+      "t0": "sem_t0_completo"
+    },
+    {
+      "posicao": 75,
+      "sha": "bfcaa941b0849956972517c8559c0827c8fe5386",
+      "pai": "9167659d8eec4323d569cebd39381235c098c901",
+      "candidatos": 4659,
+      "selecionados": 7,
+      "fallback": [],
+      "ids_iguais_ao_piloto": true,
+      "imagem": "sha256:fad87a144128c905f9ba915f61c03abe436372c2c6e26a02a18984369c42a4ea",
+      "seletor_sha256": "5a1a21a2284fb41246d59921c455895d0d6f40a978a517b42f7370cf658ab791",
+      "metodos_sha256": "2abe4194b295f0da22c87b860f35ea4c022e83d1a30f729b7ad5ac77e01bc475",
+      "saidas_sha256": {
+        "diff.patch": "ed150973cced1d8dce398e8c11416c3ae742123558e0ffecb6fe44e004f0ea01",
+        "selection.csv": "02bd17bb2630fa9f333d93869cca3ba50e7b535b2440a6508ff659d12079f502",
+        "rankings.csv": "cb918d06b25f648d241040769fc5e1f4bbbf879aeac45bf83170bd24943e65f7",
+        "overhead.csv": "5b7b0223bbb15802abaa454e56ef568f77a3043218dcbbf4aaf1ea0e90bbc96d",
+        "decisoes.json": "114e2725ad6df9e6ca4e1c843bef04a452f476ec3c0ddced156d2572791e6135"
+      },
+      "t0": "sem_t0_completo"
+    },
+    {
+      "posicao": 100,
+      "sha": "598dfc163b8b410fb3bb8794521206ec8dcec82a",
+      "pai": "626e7e93aea200e6910be5597ac30de602649745",
+      "candidatos": 4663,
+      "selecionados": 4663,
+      "fallback": [
+        "Alteração sem mapeamento Java compilado: M pom.xml",
+        "Diff sem classe-alvo Java mapeada"
+      ],
+      "ids_iguais_ao_piloto": true,
+      "imagem": "sha256:fad87a144128c905f9ba915f61c03abe436372c2c6e26a02a18984369c42a4ea",
+      "seletor_sha256": "5a1a21a2284fb41246d59921c455895d0d6f40a978a517b42f7370cf658ab791",
+      "metodos_sha256": "0607b6238cf837e49b824908482da733abb6e4d15f66c578889d033f0ea371aa",
+      "saidas_sha256": {
+        "diff.patch": "bf791fd0f77e961ce18ad3bcb220e36b0f3831f675ecab02d3617e33bd4ea9d9",
+        "selection.csv": "6ca43b0742975483b77b6c0d7cb092fd7e5b83a90668f302ca59055cb0448f2d",
+        "rankings.csv": "c1d9139a0188d87c717dabb87f0a3374419d55517a9790caa13d199211919f65",
+        "overhead.csv": "b9cbadc4b6276dc00cf0e9766cf2f69924f1735a94aa54938b3a9276203109ae",
+        "decisoes.json": "f71c9eb6d4dc6123ad314f4180fb6e1753d80d3cbfa59403249aed6aee894712"
+      },
+      "t0": "sem_t0_completo"
+    }
+  ]
+}
