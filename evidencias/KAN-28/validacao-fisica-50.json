@@ -1,0 +1,573 @@
+{
+  "ticket": "KAN-28",
+  "data_kind": "physical_validation_revision_50",
+  "official_budget_evaluation": false,
+  "sample_selection_rule": "Revisao 50 (f24c027ff83b90beab2ec28696721200abb4f9e9): unica revisao pre-holdout fora do treino (15, 26, 42) com selecao congelada DIRTS + expansao direta sem fallback (416 metodos em 9 classes) e rankings congelados T1/T2/T3 com custos de selecao, features e inferencia medidos; revisao 49 (cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9) coletada no mesmo host e imagem como referencia T0 anterior tecnica para calibracao de 25%/50%/75%. Holdout 96 preservado sem leitura.",
+  "environment": {
+    "image_id": "sha256:7a7650e375c4c3534f0302953449f953e075f656f46d7a2dd2156892384fcc4a",
+    "image_base_label": "eclipse-temurin:21.0.11_10-jdk-noble@sha256:d435e5eb685fa668f894f20710bfc12608ec65f8509fec480da3f278f2382081",
+    "platform": "linux/amd64",
+    "timezone": "UTC",
+    "maven_cache_initial": "cold",
+    "surefire_forks": 1,
+    "junit_parallel": false
+  },
+  "frozen_sources": {
+    "t1_commit": "ef577158bc012d87784bbfab1b9ccb4ee80cf812",
+    "rankings_commit": "a06d381c7a9e0fc896e7c5ae84d94a452eedc56a",
+    "overhead_50": {
+      "selection_ms": 78575,
+      "selection_ref": "evidencias/KAN-18/congelado-expansao-v1/manifesto.json#posicao-050",
+      "features_exact_ns": 1857500,
+      "features_ms": 2,
+      "features_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json",
+      "inference_T2_exact_ns": 5347000,
+      "inference_T2_ms": 5,
+      "inference_T2_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json",
+      "inference_T3_exact_ns": 19408800,
+      "inference_T3_ms": 19,
+      "inference_T3_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json",
+      "training_T2_ms": 810,
+      "training_T2_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#T2-fit",
+      "training_T3_ms": 214,
+      "training_T3_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#T3-fit"
+    }
+  },
+  "physical_runs": {
+    "t0_49": {
+      "mode": "surefire",
+      "methods_total": 4657,
+      "methods_executed": 4646,
+      "xml_cases": 59953,
+      "matched_cases": 59953,
+      "gaps": {},
+      "maven_totals": {
+        "tests": 59953,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 13
+      },
+      "clock": {
+        "plan_origin_lower_ns": 82003983939,
+        "plan_origin_upper_ns": 82019984479,
+        "plan_origin_interval_width_ns": 16000540,
+        "prepare_ms": 74700,
+        "runner_ms": 217280,
+        "reports_ms": 1920,
+        "wall_ms": 293900
+      },
+      "plan_elapsed_ms": 209635.125,
+      "sum_methods_ms": 201860.678,
+      "inter_method_and_framework_ms": 7774.447,
+      "inter_method_ratio_over_methods_pct": 3.85,
+      "plan_origin_mid_ms": 82011.984,
+      "runner_init_est_ms": 7311.984
+    },
+    "t0_50": {
+      "mode": "surefire",
+      "methods_total": 4657,
+      "methods_executed": 4646,
+      "xml_cases": 59953,
+      "matched_cases": 59953,
+      "gaps": {},
+      "maven_totals": {
+        "tests": 59953,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 13
+      },
+      "clock": {
+        "plan_origin_lower_ns": 81749282545,
+        "plan_origin_upper_ns": 81769670218,
+        "plan_origin_interval_width_ns": 20387673,
+        "prepare_ms": 73970,
+        "runner_ms": 216880,
+        "reports_ms": 1690,
+        "wall_ms": 292540
+      },
+      "plan_elapsed_ms": 208800.215,
+      "sum_methods_ms": 201228.169,
+      "inter_method_and_framework_ms": 7572.046,
+      "inter_method_ratio_over_methods_pct": 3.76,
+      "plan_origin_mid_ms": 81759.476,
+      "runner_init_est_ms": 7789.476
+    },
+    "t1_surefire_50": {
+      "mode": "surefire",
+      "methods_total": 416,
+      "methods_executed": 412,
+      "xml_cases": 51172,
+      "matched_cases": 51172,
+      "gaps": {},
+      "maven_totals": {
+        "tests": 51172,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 6
+      },
+      "clock": {
+        "plan_origin_lower_ns": 78390554481,
+        "plan_origin_upper_ns": 78409969222,
+        "plan_origin_interval_width_ns": 19414741,
+        "prepare_ms": 72240,
+        "runner_ms": 90140,
+        "reports_ms": 100,
+        "wall_ms": 162480
+      },
+      "plan_elapsed_ms": 83849.031,
+      "sum_methods_ms": 77891.914,
+      "inter_method_and_framework_ms": 5957.118,
+      "inter_method_ratio_over_methods_pct": 7.65,
+      "plan_origin_mid_ms": 78400.262,
+      "runner_init_est_ms": 6160.262
+    },
+    "t1_ordenado_50": {
+      "mode": "ordered_junit_launcher",
+      "scenario": "T1",
+      "methods_total": 416,
+      "methods_discovered": 416,
+      "methods_executed": 412,
+      "total_invocations": 51172,
+      "outcomes": {
+        "pass": 412,
+        "skip": 4
+      },
+      "order_exact_match_pct": 100.0,
+      "root_class_switches": 8,
+      "clock": {
+        "plan_origin_lower_ns": 88284661865,
+        "plan_origin_upper_ns": 88299992663,
+        "plan_origin_interval_width_ns": 15330798,
+        "prepare_ms": 88180,
+        "runner_ms": 61820,
+        "reports_ms": 10,
+        "wall_ms": 150010
+      },
+      "plan_elapsed_ms": 61664.948,
+      "sum_methods_ms": 53658.15,
+      "sum_method_call_wall_ms": 61602.192,
+      "inter_method_and_discovery_ms": 8006.799,
+      "inter_method_ratio_over_methods_pct": 14.92,
+      "plan_origin_mid_ms": 88292.327,
+      "runner_init_est_ms": 112.327
+    },
+    "t2_ordenado_50": {
+      "mode": "ordered_junit_launcher",
+      "scenario": "T2",
+      "methods_total": 416,
+      "methods_discovered": 416,
+      "methods_executed": 412,
+      "total_invocations": 51172,
+      "outcomes": {
+        "pass": 412,
+        "skip": 4
+      },
+      "order_exact_match_pct": 100.0,
+      "root_class_switches": 75,
+      "clock": {
+        "plan_origin_lower_ns": 86425978325,
+        "plan_origin_upper_ns": 86439994020,
+        "plan_origin_interval_width_ns": 14015695,
+        "prepare_ms": 86320,
+        "runner_ms": 72570,
+        "reports_ms": 10,
+        "wall_ms": 158900
+      },
+      "plan_elapsed_ms": 72413.649,
+      "sum_methods_ms": 64495.281,
+      "sum_method_call_wall_ms": 72352.613,
+      "inter_method_and_discovery_ms": 7918.368,
+      "inter_method_ratio_over_methods_pct": 12.28,
+      "plan_origin_mid_ms": 86432.986,
+      "runner_init_est_ms": 112.986
+    },
+    "t3_ordenado_50": {
+      "mode": "ordered_junit_launcher",
+      "scenario": "T3",
+      "methods_total": 416,
+      "methods_discovered": 416,
+      "methods_executed": 412,
+      "total_invocations": 51172,
+      "outcomes": {
+        "pass": 412,
+        "skip": 4
+      },
+      "order_exact_match_pct": 100.0,
+      "root_class_switches": 178,
+      "clock": {
+        "plan_origin_lower_ns": 80149684964,
+        "plan_origin_upper_ns": 80169427699,
+        "plan_origin_interval_width_ns": 19742735,
+        "prepare_ms": 80040,
+        "runner_ms": 75110,
+        "reports_ms": 10,
+        "wall_ms": 155160
+      },
+      "plan_elapsed_ms": 74940.571,
+      "sum_methods_ms": 66526.066,
+      "sum_method_call_wall_ms": 74859.898,
+      "inter_method_and_discovery_ms": 8414.505,
+      "inter_method_ratio_over_methods_pct": 12.65,
+      "plan_origin_mid_ms": 80159.556,
+      "runner_init_est_ms": 119.556
+    }
+  },
+  "t1_surefire_order_vs_frozen_t1": {
+    "executed_methods": 412,
+    "exact_position_matches": 3,
+    "spearman_rho": 0.3914,
+    "note": "Surefire/JUnit 5 executa por classe e ordem propria, nao seguindo ordem ordinal nem intercalacao entre classes de T2/T3."
+  },
+  "t1_surefire_vs_t0_reduction": {
+    "t0_wall_ms": 292540,
+    "t1_surefire_wall_ms": 162480,
+    "t1_surefire_wall_plus_selection_ms": 241055,
+    "t0_plan_elapsed_ms": 208800.215,
+    "t1_surefire_plan_elapsed_ms": 83849.031,
+    "plan_time_reduction_pct": 59.84,
+    "wall_time_reduction_without_selection_pct": 44.46,
+    "wall_time_reduction_with_selection_pct": 17.6
+  },
+  "method_duration_comparisons": {
+    "t1_surefire_vs_t0": {
+      "common_methods": 416,
+      "executed_compared": 412,
+      "outcome_mismatches": [],
+      "invocation_count_mismatches": [],
+      "t0_sum_ms": 96754.211,
+      "physical_sum_ms": 77891.914,
+      "sum_diff_ms": -18862.297,
+      "sum_rel_error_pct": -19.5,
+      "per_method_diff_ms": {
+        "median_signed": 0.4,
+        "median_abs": 0.472,
+        "p90_abs": 2.715,
+        "p95_abs": 5.487,
+        "max_abs": 15674.06
+      },
+      "pearson_r": 0.9763,
+      "spearman_rho": 0.6378
+    },
+    "t1_ordenado_vs_t0": {
+      "common_methods": 416,
+      "executed_compared": 412,
+      "outcome_mismatches": [],
+      "invocation_count_mismatches": [],
+      "t0_sum_ms": 96754.211,
+      "physical_sum_ms": 53658.15,
+      "sum_diff_ms": -43096.061,
+      "sum_rel_error_pct": -44.54,
+      "per_method_diff_ms": {
+        "median_signed": -0.002,
+        "median_abs": 0.285,
+        "p90_abs": 1.943,
+        "p95_abs": 8.516,
+        "max_abs": 21291.645
+      },
+      "pearson_r": 0.9225,
+      "spearman_rho": 0.4734
+    },
+    "t2_ordenado_vs_t0": {
+      "common_methods": 416,
+      "executed_compared": 412,
+      "outcome_mismatches": [],
+      "invocation_count_mismatches": [],
+      "t0_sum_ms": 96754.211,
+      "physical_sum_ms": 64495.281,
+      "sum_diff_ms": -32258.93,
+      "sum_rel_error_pct": -33.34,
+      "per_method_diff_ms": {
+        "median_signed": 0.082,
+        "median_abs": 0.306,
+        "p90_abs": 2.545,
+        "p95_abs": 7.802,
+        "max_abs": 16899.88
+      },
+      "pearson_r": 0.9457,
+      "spearman_rho": 0.3902
+    },
+    "t3_ordenado_vs_t0": {
+      "common_methods": 416,
+      "executed_compared": 412,
+      "outcome_mismatches": [],
+      "invocation_count_mismatches": [],
+      "t0_sum_ms": 96754.211,
+      "physical_sum_ms": 66526.066,
+      "sum_diff_ms": -30228.144,
+      "sum_rel_error_pct": -31.24,
+      "per_method_diff_ms": {
+        "median_signed": 0.079,
+        "median_abs": 0.326,
+        "p90_abs": 2.651,
+        "p95_abs": 6.924,
+        "max_abs": 18930.87
+      },
+      "pearson_r": 0.9608,
+      "spearman_rho": 0.4241
+    }
+  },
+  "total_time_comparison": {
+    "T0": {
+      "physical_wall_plus_overhead_ms": 292540,
+      "physical_plan_completion_plus_overhead_ms": 290560,
+      "simulated_model_a_ms": 292540,
+      "simulated_model_b_ms": 292540,
+      "error_model_b_vs_plan_completion_ms": 1980,
+      "error_model_b_vs_plan_completion_pct": 0.68
+    },
+    "T1": {
+      "physical_wall_plus_overhead_ms": 228585,
+      "physical_plan_completion_plus_overhead_ms": 228532,
+      "simulated_model_a_ms": 263456,
+      "simulated_model_b_ms": 263568,
+      "error_model_b_vs_plan_completion_ms": 35036,
+      "error_model_b_vs_plan_completion_pct": 15.33
+    },
+    "T2": {
+      "physical_wall_plus_overhead_ms": 237482,
+      "physical_plan_completion_plus_overhead_ms": 237429,
+      "simulated_model_a_ms": 261603,
+      "simulated_model_b_ms": 261716,
+      "error_model_b_vs_plan_completion_ms": 24287,
+      "error_model_b_vs_plan_completion_pct": 10.23
+    },
+    "T3": {
+      "physical_wall_plus_overhead_ms": 233756,
+      "physical_plan_completion_plus_overhead_ms": 233696,
+      "simulated_model_a_ms": 255337,
+      "simulated_model_b_ms": 255457,
+      "error_model_b_vs_plan_completion_ms": 21761,
+      "error_model_b_vs_plan_completion_pct": 9.31
+    }
+  },
+  "budget_calibration_from_t0_49": {
+    "reference_sha": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+    "reference_wall_ms": 293900,
+    "budgets_ms": {
+      "25": 73475,
+      "50": 146950,
+      "75": 220425
+    },
+    "cuts": {
+      "25": {
+        "budget_ms": 73475,
+        "scenarios": {
+          "T0": {
+            "external_overhead_ms": 0,
+            "physical": {
+              "completed_guaranteed": 0,
+              "completed_optimistic": 0,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            }
+          },
+          "T1": {
+            "external_overhead_ms": 78575,
+            "physical": {
+              "completed_guaranteed": 0,
+              "completed_optimistic": 0,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            }
+          },
+          "T2": {
+            "external_overhead_ms": 78582,
+            "physical": {
+              "completed_guaranteed": 0,
+              "completed_optimistic": 0,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            }
+          },
+          "T3": {
+            "external_overhead_ms": 78596,
+            "physical": {
+              "completed_guaranteed": 0,
+              "completed_optimistic": 0,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            }
+          }
+        }
+      },
+      "50": {
+        "budget_ms": 146950,
+        "scenarios": {
+          "T0": {
+            "external_overhead_ms": 0,
+            "physical": {
+              "completed_guaranteed": 1424,
+              "completed_optimistic": 1424,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 1430,
+              "delta_vs_physical_guaranteed": 6
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 1424,
+              "delta_vs_physical_guaranteed": 0
+            }
+          },
+          "T1": {
+            "external_overhead_ms": 78575,
+            "physical": {
+              "completed_guaranteed": 0,
+              "completed_optimistic": 0,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            }
+          },
+          "T2": {
+            "external_overhead_ms": 78582,
+            "physical": {
+              "completed_guaranteed": 0,
+              "completed_optimistic": 0,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            }
+          },
+          "T3": {
+            "external_overhead_ms": 78596,
+            "physical": {
+              "completed_guaranteed": 0,
+              "completed_optimistic": 0,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 0,
+              "delta_vs_physical_guaranteed": 0
+            }
+          }
+        }
+      },
+      "75": {
+        "budget_ms": 220425,
+        "scenarios": {
+          "T0": {
+            "external_overhead_ms": 0,
+            "physical": {
+              "completed_guaranteed": 4224,
+              "completed_optimistic": 4224,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 4265,
+              "delta_vs_physical_guaranteed": 41
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 4265,
+              "delta_vs_physical_guaranteed": 41
+            }
+          },
+          "T1": {
+            "external_overhead_ms": 78575,
+            "physical": {
+              "completed_guaranteed": 410,
+              "completed_optimistic": 410,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 410,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 410,
+              "delta_vs_physical_guaranteed": 0
+            }
+          },
+          "T2": {
+            "external_overhead_ms": 78582,
+            "physical": {
+              "completed_guaranteed": 344,
+              "completed_optimistic": 344,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 320,
+              "delta_vs_physical_guaranteed": -24
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 320,
+              "delta_vs_physical_guaranteed": -24
+            }
+          },
+          "T3": {
+            "external_overhead_ms": 78596,
+            "physical": {
+              "completed_guaranteed": 332,
+              "completed_optimistic": 332,
+              "boundary_uncertain_methods": 0
+            },
+            "simulated_model_a_prepare_only": {
+              "completed": 332,
+              "delta_vs_physical_guaranteed": 0
+            },
+            "simulated_model_b_plan_origin": {
+              "completed": 332,
+              "delta_vs_physical_guaranteed": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "decision_adequacy": {
+    "status": "adequada_com_restricoes_explicitas",
+    "conditions": [
+      "O simulador serial (KAN-23) reproduz integralmente a populacao e os desfechos quando o T0 tem cobertura e ordem global reconciliadas (416/416 metodos, 51.172/51.172 invocacoes, 0 divergencias de desfecho nesta amostra).",
+      "O startup passado ao simulador DEVE incluir tanto o preparo (compilacao/Maven) quanto a inicializacao do runner ate o inicio do plano JUnit (Modelo B): no corte de 50% do T0, o Modelo B acertou exatamente os 1.424 metodos concluidos (delta 0), enquanto omitir a inicializacao do runner (Modelo A) superestimou em +6 metodos.",
+      "A simulacao serial NAO captura o overhead entre metodos/framework (3,76% em T0 Surefire; 7,65% em T1 Surefire; 12,28% a 14,92% no runner ordenado) nem o efeito de localidade/troca de classe (T1 ordenado com 8 trocas somou 53,66 s vs. T2 com 75 trocas em 64,50 s e T3 com 178 trocas em 66,53 s). No corte de 75% do T0, o overhead de framework nao modelado produziu +41 metodos (+0,97%) no simulador.",
+      "Fator de confusao identificado e quantificado: o Surefire do Commons Lang injeta o agente JaCoCo (jacoco:0.8.14:prepare-agent), enquanto o runner ordenado direto executa sem JaCoCo. Mesmo dentro do Surefire com JaCoCo, T1 Surefire teve soma de metodos 19,50% menor que T0 (mediana absoluta de 0,472 ms, com concentracao em poucos metodos pesados de FastDateParserTest), e no runner ordenado sem JaCoCo a diferenca foi de -31,24% a -44,54%, tornando a estimativa total da simulacao conservadora (+9,31% a +15,33% acima da execucao ordenada).",
+      "Restricao fisica de runner em CI: o Surefire/JUnit 5 padrao agrupou as 9 classes e executou em ordem propria (Spearman rho = 0,3914 contra a ordem T1 congelada), nao suportando a intercalacao inter-classe exigida por T2 e T3; executar rankings T2/T3 fielmente requer um runner ordenado dedicado.",
+      "Impacto de preparo em cache frio e custo de selecao nos orcamentos RQ2: com cache Maven frio (~74 s de preparo) e custo de selecao DIRTS + expansao de 78,58 s, todos os cenarios ficaram em 0 metodos no corte de 25% e T1-T3 permaneceram em 0 metodos no corte de 50% (concordancia exata entre fisico e simulado).",
+      "Como a revisao 50 tem 0 falhas naturais em T0, esta validacao comprova fidelidade de populacao, ordem, desfechos pass/skip e modelagem de tempo/prefixo, mas NAO substitui validacao de deteccao de falhas naturais sob ordenacoes distintas (ex.: interacao entre testes ou flakiness dependente de ordem)."
+    ]
+  }
+}
