@@ -1,0 +1,4 @@
+"posicao","sha","pai","particao","holdout","estado_selecao","continuidade","candidatos","dirts","selecionados","fallback"
+"61","a22cfcd0539b5fb208415ae118783fc9dc1f902d","21e65f8b312c6608b554e4f551315fb0651c3277","avaliacao","false","congelado","incremental","4658","21","21","false"
+"62","b5cb40c16ce29ae3bf22c0434f9ed520ce2495f0","a22cfcd0539b5fb208415ae118783fc9dc1f902d","avaliacao","false","congelado","incremental","4658","0","241","false"
+"63","817d50f746adfb485355d8d3a3ae4b9833ed3f63","b5cb40c16ce29ae3bf22c0434f9ed520ce2495f0","avaliacao","false","congelado","fallback","4658","","4658","true"
