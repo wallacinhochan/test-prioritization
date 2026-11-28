@@ -1,0 +1,1386 @@
+{
+  "ticket": "KAN-29",
+  "contract_version": "0.1.0",
+  "data_kind": "technical_consolidated_kan29_window",
+  "official_full_100_campaign": false,
+  "holdout": {
+    "position": 96,
+    "labels_read": false,
+    "excluded_from_pack": true
+  },
+  "environment": {
+    "image_id": "sha256:7a7650e375c4c3534f0302953449f953e075f656f46d7a2dd2156892384fcc4a",
+    "image_base_label": "eclipse-temurin:21.0.11_10-jdk-noble@sha256:d435e5eb685fa668f894f20710bfc12608ec65f8509fec480da3f278f2382081",
+    "configuration_id": "kan13|sha256:7a7650e375c4c3534f0302953449f953e075f656f46d7a2dd2156892384fcc4a|linux/amd64|UTC|cold|1fork|serial",
+    "python": "3.12.14",
+    "scikit_learn": "1.7.2",
+    "startup_model": "Modelo B (plan_origin_mid_ms = prepare_ms + runner_init, aprovado na KAN-28)"
+  },
+  "sources": {
+    "t1_lots": {
+      "congelado-expansao-v1": {
+        "commit": "ef577158bc012d87784bbfab1b9ccb4ee80cf812",
+        "manifest_sha256": "38156c385b0ee24915b230ffdb4439acb660467f147238492651c23b683456d1",
+        "positions": [
+          4,
+          11,
+          26,
+          39,
+          46,
+          49,
+          50,
+          64,
+          75,
+          100
+        ]
+      },
+      "congelado-expansao-lote-02": {
+        "commit": "41a22e394de36512921bad82a4a28d029d8bb55f",
+        "manifest_sha256": "b82944a76add5bfcfa148d00f8af5ed0bf0a0b00a23e72b4fdf70865da9ed702",
+        "positions": [
+          47,
+          48
+        ]
+      },
+      "congelado-expansao-lote-03": {
+        "commit": "ba7f204693007f18db648fdf16e34f52c62397f7",
+        "manifest_sha256": "b886dd2e473b96aa3a35df166affb26a48de3860622bdd8778b3ff975ea8ae67",
+        "positions": [
+          15,
+          42
+        ]
+      },
+      "congelado-expansao-lote-04": {
+        "commit": "767f08b6dc2fe203d925bd9f97883028c3af551d",
+        "manifest_sha256": "0dffd291d16d20966f7cce60c87eea621c6d9cfe94757daf017d1fc346da19b8",
+        "positions": [
+          58,
+          59,
+          60
+        ]
+      }
+    },
+    "kan22_training_freeze": "a06d381c7a9e0fc896e7c5ae84d94a452eedc56a",
+    "kan22_cadence": 10,
+    "kan22_historical_ranking_rows": 0,
+    "t0_window_positions": [
+      49,
+      50,
+      57,
+      58,
+      59,
+      60
+    ],
+    "t0_attempts": {
+      "49": {
+        "sha": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+        "attempt_id": "kan28-t0-49",
+        "origin": "kan28_rodada_v1_mesmo_host",
+        "finish": "2026-11-28T00:35:03.564080+00:00",
+        "wall_ms": 293900,
+        "matched_cases": 59953,
+        "xml_cases": 59953,
+        "gaps": {},
+        "maven_totals": {
+          "tests": 59953,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        }
+      },
+      "50": {
+        "sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+        "attempt_id": "kan28-t0-50",
+        "origin": "kan28_rodada_v1_mesmo_host",
+        "finish": "2026-11-28T00:40:03.567199+00:00",
+        "wall_ms": 292540,
+        "matched_cases": 59953,
+        "xml_cases": 59953,
+        "gaps": {},
+        "maven_totals": {
+          "tests": 59953,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        }
+      },
+      "57": {
+        "sha": "1e3629c6ef9d4dd1d96327254bb88e62fd2f4aac",
+        "attempt_id": "kan29-pos-057",
+        "origin": "kan29_coleta_57_60",
+        "finish": "2026-11-28T01:12:42.495026+00:00",
+        "wall_ms": 293180,
+        "matched_cases": 59953,
+        "xml_cases": 59953,
+        "gaps": {},
+        "maven_totals": {
+          "tests": 59953,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        }
+      },
+      "58": {
+        "sha": "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+        "attempt_id": "kan29-pos-058",
+        "origin": "kan29_coleta_57_60",
+        "finish": "2026-11-28T01:17:38.302745+00:00",
+        "wall_ms": 288780,
+        "matched_cases": 59954,
+        "xml_cases": 59954,
+        "gaps": {},
+        "maven_totals": {
+          "tests": 59954,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        }
+      },
+      "59": {
+        "sha": "7b77ea4cfb73399e0dde72a8ab7742a2da5796d0",
+        "attempt_id": "kan29-pos-059",
+        "origin": "kan29_coleta_57_60",
+        "finish": "2026-11-28T01:22:40.448188+00:00",
+        "wall_ms": 294900,
+        "matched_cases": 59954,
+        "xml_cases": 59954,
+        "gaps": {},
+        "maven_totals": {
+          "tests": 59954,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        }
+      },
+      "60": {
+        "sha": "21e65f8b312c6608b554e4f551315fb0651c3277",
+        "attempt_id": "kan29-pos-060",
+        "origin": "kan29_coleta_57_60",
+        "finish": "2026-11-28T01:27:48.212033+00:00",
+        "wall_ms": 300950,
+        "matched_cases": 59954,
+        "xml_cases": 59954,
+        "gaps": {},
+        "maven_totals": {
+          "tests": 59954,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 13
+        }
+      }
+    }
+  },
+  "coverage_100_commits": {
+    "counts": {
+      "missing_t0_and_t1": 81,
+      "t1_frozen_missing_t0": 12,
+      "t0_reference_only": 2,
+      "complete_t0_t3_evaluated": 4,
+      "excluded_holdout": 1
+    },
+    "t1_frozen_positions": [
+      4,
+      11,
+      15,
+      26,
+      39,
+      42,
+      46,
+      47,
+      48,
+      49,
+      50,
+      58,
+      59,
+      60,
+      64,
+      75,
+      96,
+      100
+    ],
+    "t0_instrumented_positions": [
+      49,
+      50,
+      57,
+      58,
+      59,
+      60
+    ],
+    "evaluated_main_consecutive_positions": [
+      58,
+      59,
+      60
+    ],
+    "evaluated_technical_validation_positions": [
+      50
+    ],
+    "missing_t1_count": 82,
+    "missing_t0_count": 94
+  },
+  "main_consecutive_results": [
+    {
+      "position": 58,
+      "commit_sha": "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+      "reference_t0_position": 57,
+      "reference_t0_sha": "1e3629c6ef9d4dd1d96327254bb88e62fd2f4aac",
+      "reference_t0_wall_ms": 293180,
+      "t0_current_clock": {
+        "plan_origin_lower_ns": 80764965021,
+        "plan_origin_upper_ns": 80780390776,
+        "plan_origin_interval_width_ns": 15425755,
+        "prepare_ms": 72940,
+        "runner_ms": 214190,
+        "reports_ms": 1650,
+        "wall_ms": 288780
+      },
+      "t0_current_maven_totals": {
+        "tests": 59954,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 13
+      },
+      "rq1": [
+        {
+          "cenario": "T0",
+          "tempo_total_ms": 288780,
+          "tipo_tempo_total": "parede_t0_observada",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 198160,
+          "preparo_ms": 80773,
+          "overhead": {
+            "selection": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 4647,
+          "testes_selecionados_brutos": 4658,
+          "reducao": 0.0,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T1",
+          "tempo_total_ms": 632044,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 30968,
+          "preparo_ms": 80773,
+          "overhead": {
+            "selection": {
+              "duration_ms": 520303,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-058",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 75,
+          "testes_selecionados_brutos": 75,
+          "reducao": 0.9838605551969012,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T2",
+          "tempo_total_ms": 632045,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 30968,
+          "preparo_ms": 80773,
+          "overhead": {
+            "selection": {
+              "duration_ms": 520303,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-058",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#features",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 1,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50",
+              "status": "measured"
+            }
+          },
+          "treinamento": {
+            "commit_sha": "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+            "scenario": "T2",
+            "phase": "training",
+            "measurement_status": "measured",
+            "duration_ms": "3",
+            "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50"
+          },
+          "estado_treinamento": "measured",
+          "treinamento_ms": 3,
+          "testes_t0": 4647,
+          "testes_selecionados": 75,
+          "testes_selecionados_brutos": 75,
+          "reducao": 0.9838605551969012,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T3",
+          "tempo_total_ms": 632050,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 30968,
+          "preparo_ms": 80773,
+          "overhead": {
+            "selection": {
+              "duration_ms": 520303,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-058",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#features",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 6,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50",
+              "status": "measured"
+            }
+          },
+          "treinamento": {
+            "commit_sha": "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+            "scenario": "T3",
+            "phase": "training",
+            "measurement_status": "measured",
+            "duration_ms": "183",
+            "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50"
+          },
+          "estado_treinamento": "measured",
+          "treinamento_ms": 183,
+          "testes_t0": 4647,
+          "testes_selecionados": 75,
+          "testes_selecionados_brutos": 75,
+          "reducao": 0.9838605551969012,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        }
+      ],
+      "rq2_by_budget": {
+        "25": {
+          "budget_ms": 73295,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "50": {
+          "budget_ms": 146590,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 1424,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "75": {
+          "budget_ms": 219885,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 4266,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        }
+      },
+      "apfdc": {
+        "apfdc": null,
+        "motivo": "sem_falhas_na_populacao",
+        "falhas_selecionadas": 0,
+        "falhas_excluidas": 0
+      }
+    },
+    {
+      "position": 59,
+      "commit_sha": "7b77ea4cfb73399e0dde72a8ab7742a2da5796d0",
+      "reference_t0_position": 58,
+      "reference_t0_sha": "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+      "reference_t0_wall_ms": 288780,
+      "t0_current_clock": {
+        "plan_origin_lower_ns": 84609211226,
+        "plan_origin_upper_ns": 84624513619,
+        "plan_origin_interval_width_ns": 15302393,
+        "prepare_ms": 76880,
+        "runner_ms": 216250,
+        "reports_ms": 1770,
+        "wall_ms": 294900
+      },
+      "t0_current_maven_totals": {
+        "tests": 59954,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 13
+      },
+      "rq1": [
+        {
+          "cenario": "T0",
+          "tempo_total_ms": 294900,
+          "tipo_tempo_total": "parede_t0_observada",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 200263,
+          "preparo_ms": 84617,
+          "overhead": {
+            "selection": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 4647,
+          "testes_selecionados_brutos": 4658,
+          "reducao": 0.0,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T1",
+          "tempo_total_ms": 264065,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 31427,
+          "preparo_ms": 84617,
+          "overhead": {
+            "selection": {
+              "duration_ms": 148021,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-059",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 75,
+          "testes_selecionados_brutos": 75,
+          "reducao": 0.9838605551969012,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T2",
+          "tempo_total_ms": 264066,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 31427,
+          "preparo_ms": 84617,
+          "overhead": {
+            "selection": {
+              "duration_ms": 148021,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-059",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#features",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 1,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50",
+              "status": "measured"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "sem_evento_registrado",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 75,
+          "testes_selecionados_brutos": 75,
+          "reducao": 0.9838605551969012,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T3",
+          "tempo_total_ms": 264072,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 31427,
+          "preparo_ms": 84617,
+          "overhead": {
+            "selection": {
+              "duration_ms": 148021,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-059",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#features",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 7,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50",
+              "status": "measured"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "sem_evento_registrado",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 75,
+          "testes_selecionados_brutos": 75,
+          "reducao": 0.9838605551969012,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        }
+      ],
+      "rq2_by_budget": {
+        "25": {
+          "budget_ms": 72195,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "50": {
+          "budget_ms": 144390,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 1424,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "75": {
+          "budget_ms": 216585,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 4224,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        }
+      },
+      "apfdc": {
+        "apfdc": null,
+        "motivo": "sem_falhas_na_populacao",
+        "falhas_selecionadas": 0,
+        "falhas_excluidas": 0
+      }
+    },
+    {
+      "position": 60,
+      "commit_sha": "21e65f8b312c6608b554e4f551315fb0651c3277",
+      "reference_t0_position": 59,
+      "reference_t0_sha": "7b77ea4cfb73399e0dde72a8ab7742a2da5796d0",
+      "reference_t0_wall_ms": 294900,
+      "t0_current_clock": {
+        "plan_origin_lower_ns": 81880026559,
+        "plan_origin_upper_ns": 81899982121,
+        "plan_origin_interval_width_ns": 19955562,
+        "prepare_ms": 73790,
+        "runner_ms": 224900,
+        "reports_ms": 2260,
+        "wall_ms": 300950
+      },
+      "t0_current_maven_totals": {
+        "tests": 59954,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 13
+      },
+      "rq1": [
+        {
+          "cenario": "T0",
+          "tempo_total_ms": 300950,
+          "tipo_tempo_total": "parede_t0_observada",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 207179,
+          "preparo_ms": 81890,
+          "overhead": {
+            "selection": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 4647,
+          "testes_selecionados_brutos": 4658,
+          "reducao": 0.0,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T1",
+          "tempo_total_ms": 273653,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 40080,
+          "preparo_ms": 81890,
+          "overhead": {
+            "selection": {
+              "duration_ms": 151683,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-060",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 241,
+          "testes_selecionados_brutos": 241,
+          "reducao": 0.9481385840327092,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T2",
+          "tempo_total_ms": 273655,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 40080,
+          "preparo_ms": 81890,
+          "overhead": {
+            "selection": {
+              "duration_ms": 151683,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-060",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#features",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 2,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50",
+              "status": "measured"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "sem_evento_registrado",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 241,
+          "testes_selecionados_brutos": 241,
+          "reducao": 0.9481385840327092,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T3",
+          "tempo_total_ms": 273660,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 40080,
+          "preparo_ms": 81890,
+          "overhead": {
+            "selection": {
+              "duration_ms": 151683,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-lote-04/manifesto.json#posicao-060",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#features",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 7,
+              "source_ref": "evidencias/KAN-29/consolidado-58-60.json#janela-50",
+              "status": "measured"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "sem_evento_registrado",
+          "treinamento_ms": null,
+          "testes_t0": 4647,
+          "testes_selecionados": 241,
+          "testes_selecionados_brutos": 241,
+          "reducao": 0.9481385840327092,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        }
+      ],
+      "rq2_by_budget": {
+        "25": {
+          "budget_ms": 73725,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "50": {
+          "budget_ms": 147450,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 1424,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "75": {
+          "budget_ms": 221175,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 4239,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        }
+      },
+      "apfdc": {
+        "apfdc": null,
+        "motivo": "sem_falhas_na_populacao",
+        "falhas_selecionadas": 0,
+        "falhas_excluidas": 0
+      }
+    }
+  ],
+  "technical_validation_results": [
+    {
+      "position": 50,
+      "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+      "reference_t0_position": 49,
+      "reference_t0_sha": "cc5ecf5db64abf0d2a2f59be16f9dc49a520dca9",
+      "reference_t0_wall_ms": 293900,
+      "t0_current_clock": {
+        "plan_origin_lower_ns": 81749282545,
+        "plan_origin_upper_ns": 81769670218,
+        "plan_origin_interval_width_ns": 20387673,
+        "prepare_ms": 73970,
+        "runner_ms": 216880,
+        "reports_ms": 1690,
+        "wall_ms": 292540
+      },
+      "t0_current_maven_totals": {
+        "tests": 59953,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 13
+      },
+      "rq1": [
+        {
+          "cenario": "T0",
+          "tempo_total_ms": 292540,
+          "tipo_tempo_total": "parede_t0_observada",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 200786,
+          "preparo_ms": 81759,
+          "overhead": {
+            "selection": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4646,
+          "testes_selecionados": 4646,
+          "testes_selecionados_brutos": 4657,
+          "reducao": 0.0,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T1",
+          "tempo_total_ms": 257035,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 96701,
+          "preparo_ms": 81759,
+          "overhead": {
+            "selection": {
+              "duration_ms": 78575,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-v1/manifesto.json#posicao-050",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            },
+            "inference": {
+              "duration_ms": 0,
+              "status": "not_applicable"
+            }
+          },
+          "treinamento": null,
+          "estado_treinamento": "not_applicable",
+          "treinamento_ms": null,
+          "testes_t0": 4646,
+          "testes_selecionados": 412,
+          "testes_selecionados_brutos": 416,
+          "reducao": 0.9113215669393027,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T2",
+          "tempo_total_ms": 257042,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 96701,
+          "preparo_ms": 81759,
+          "overhead": {
+            "selection": {
+              "duration_ms": 78575,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-v1/manifesto.json#posicao-050",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 2,
+              "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 5,
+              "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json",
+              "status": "measured"
+            }
+          },
+          "treinamento": {
+            "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+            "scenario": "T2",
+            "phase": "training",
+            "measurement_status": "measured",
+            "duration_ms": "810",
+            "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#T2-fit"
+          },
+          "estado_treinamento": "measured",
+          "treinamento_ms": 810,
+          "testes_t0": 4646,
+          "testes_selecionados": 412,
+          "testes_selecionados_brutos": 416,
+          "reducao": 0.9113215669393027,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        },
+        {
+          "cenario": "T3",
+          "tempo_total_ms": 257056,
+          "tipo_tempo_total": "estimativa_serial",
+          "motivo_tempo": null,
+          "execucao_metodos_ms": 96701,
+          "preparo_ms": 81759,
+          "overhead": {
+            "selection": {
+              "duration_ms": 78575,
+              "source_ref": "evidencias/KAN-18/congelado-expansao-v1/manifesto.json#posicao-050",
+              "status": "measured"
+            },
+            "features": {
+              "duration_ms": 2,
+              "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json",
+              "status": "measured"
+            },
+            "inference": {
+              "duration_ms": 19,
+              "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json",
+              "status": "measured"
+            }
+          },
+          "treinamento": {
+            "commit_sha": "f24c027ff83b90beab2ec28696721200abb4f9e9",
+            "scenario": "T3",
+            "phase": "training",
+            "measurement_status": "measured",
+            "duration_ms": "214",
+            "source_ref": "evidencias/KAN-19/expansao50-experimental-v1/manifesto.json@a06d381c7a9e0fc896e7c5ae84d94a452eedc56a#T3-fit"
+          },
+          "estado_treinamento": "measured",
+          "treinamento_ms": 214,
+          "testes_t0": 4646,
+          "testes_selecionados": 412,
+          "testes_selecionados_brutos": 416,
+          "reducao": 0.9113215669393027,
+          "falhas_t0": 0,
+          "detectadas": 0,
+          "proporcao": null,
+          "motivo_populacao": null
+        }
+      ],
+      "rq2_by_budget": {
+        "25": {
+          "budget_ms": 73475,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "50": {
+          "budget_ms": 146950,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 1424,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 0,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        },
+        "75": {
+          "budget_ms": 220425,
+          "scenarios": {
+            "T0": {
+              "status": "available",
+              "completed_methods": 4265,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T1": {
+              "status": "available",
+              "completed_methods": 410,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T2": {
+              "status": "available",
+              "completed_methods": 320,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            },
+            "T3": {
+              "status": "available",
+              "completed_methods": 332,
+              "detected_failures": 0,
+              "proportion": null,
+              "first_failure_state": "nao_observada"
+            }
+          }
+        }
+      },
+      "apfdc": {
+        "apfdc": null,
+        "motivo": "sem_falhas_na_populacao",
+        "falhas_selecionadas": 0,
+        "falhas_excluidas": 0
+      }
+    }
+  ],
+  "auxiliary_synthetic_evidence_separate": {
+    "source": "d2c0e7ad276dd567d8e063306ebbf23662d51866:evidencias/KAN-19/avaliacao-expansao50.json",
+    "source_sha256": "6291be9674d8f9374e30ac2d60dce58a686581c5c191d76b0d4865dd0bc5f44c",
+    "position": 50,
+    "note": "Evidencia auxiliar de 4 mutantes sinteticos na revisao 50; mantida separada do oraculo natural T0.",
+    "mutants_total": 4,
+    "detected_by_scenario": {
+      "T0": 3,
+      "T1": 3,
+      "T2": 3,
+      "T3": 3
+    }
+  },
+  "kan15_package_sha256": {
+    "commits.csv": "695d5c30547b86a516f883004998e104fc6c19d4c2fea580b21162ff3145a82b",
+    "manifesto.json": "15d55d75c6169e0e5fb2e194de068d1cc08bdebb8f31524c815ddd89b0fc84cc",
+    "overhead.csv": "752f37d209091aebad6da3be312de5f2ae412ad0539acbf4deba4b7059666048",
+    "rankings.csv": "367993084b8b986cd0832ec2d7d4a23cf280541fcbaf0ae4b45f0b2d93ad953b",
+    "selection.csv": "0199b5b245c2878e425823fd6059f436a06f5459aaf40ba93f9c990b57f60db1",
+    "t0_results.csv": "07bb609f452d16a3f8309777ea350c24a1dc3c17f91648636746ed9d71ac71ed",
+    "t0_runs.csv": "e9b14d09d708afc7098f3c29ecc0d02b9202ad024b4305b77ce146cc258e1bc1"
+  },
+  "cobertura_rq2": {
+    "25": {
+      "alvos_elegiveis": 4,
+      "comuns": [
+        "f24c027ff83b90beab2ec28696721200abb4f9e9",
+        "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+        "7b77ea4cfb73399e0dde72a8ab7742a2da5796d0",
+        "21e65f8b312c6608b554e4f551315fb0651c3277"
+      ],
+      "lacunas": {}
+    },
+    "50": {
+      "alvos_elegiveis": 4,
+      "comuns": [
+        "f24c027ff83b90beab2ec28696721200abb4f9e9",
+        "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+        "7b77ea4cfb73399e0dde72a8ab7742a2da5796d0",
+        "21e65f8b312c6608b554e4f551315fb0651c3277"
+      ],
+      "lacunas": {}
+    },
+    "75": {
+      "alvos_elegiveis": 4,
+      "comuns": [
+        "f24c027ff83b90beab2ec28696721200abb4f9e9",
+        "c04469163d86bdd10f4aa409c1a694c87c467d2a",
+        "7b77ea4cfb73399e0dde72a8ab7742a2da5796d0",
+        "21e65f8b312c6608b554e4f551315fb0651c3277"
+      ],
+      "lacunas": {}
+    }
+  }
+}
