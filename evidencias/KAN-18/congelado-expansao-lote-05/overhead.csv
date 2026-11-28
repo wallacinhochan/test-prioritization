@@ -1,0 +1,4 @@
+"commit_sha","scenario","phase","measurement_status","duration_ms","source_ref"
+"a22cfcd0539b5fb208415ae118783fc9dc1f902d","T1","selection","measured","132832","evidencias/KAN-18/congelado-expansao-lote-05/manifesto.json#posicao-061"
+"b5cb40c16ce29ae3bf22c0434f9ed520ce2495f0","T1","selection","measured","29207","evidencias/KAN-18/congelado-expansao-lote-05/manifesto.json#posicao-062"
+"817d50f746adfb485355d8d3a3ae4b9833ed3f63","T1","selection","measured","32639","evidencias/KAN-18/congelado-expansao-lote-05/manifesto.json#posicao-063"
